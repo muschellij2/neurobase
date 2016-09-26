@@ -43,6 +43,17 @@ values
 \code{drop_empty_dim} is a shorthand for \code{dropEmptyImageDimensions}
 with all the same arguments.  Also, \code{NA} are set to zero.
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+
+dnim = dropEmptyImageDimensions(nim, keep_ind = TRUE)
+new_nim = dnim$outimg
+names(dnim)
+}
 \seealso{
 \code{\link{getEmptyImageDimensions}}
 }

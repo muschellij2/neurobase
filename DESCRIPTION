@@ -1,7 +1,7 @@
 Package: neurobase
 Type: Package
 Title: 'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
-Version: 0.1.0
+Version: 1.1.0
 Author: John Muschelli <muschellij2@gmail.com>
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Base package for 'Neuroconductor', which includes many helper functions 
@@ -22,6 +22,7 @@ License: GPL-2
 VignetteBuilder: knitr
 Suggests:
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 BugReports: https://github.com/muschellij2/nifti/issues
 RoxygenNote: 5.0.1.9000
