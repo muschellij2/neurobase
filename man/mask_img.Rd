@@ -21,4 +21,16 @@ Object of class nifti with values outside mask set to 0 if mask is
 Takes an image, masks it by 
 \code{mask}, and returns an object of class \code{nifti}
 }
+\examples{
+  set.seed(5)
+  dims = rep(10, 3)
+  arr = array(rnorm(prod(dims)), dim = dims)
+  nim = oro.nifti::nifti(arr)
+  mask = abs(nim) > 1
+  masked = mask_img(nim, mask)
+  mask[mask == 0] = NA
+  na_masked = mask_img(nim, mask, allow.NA = TRUE)
+  
+  
+}
 
