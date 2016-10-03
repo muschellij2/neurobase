@@ -129,6 +129,8 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     }
     if (y_is_nifti) {
       y = cal_img(y)
+      glmax(y) = cal.max(y)
+      glmin(y) = cal.min(y)       
     }
   }
   if (NA.x) {
