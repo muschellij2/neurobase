@@ -23,6 +23,7 @@ mask_img <- function(img, # object of class \code{nifti}
                     mask, # array or object of class \code{nifti}
                     allow.NA = TRUE # allow NAs in the mask
 ){
+  img = check_nifti(img)
   stopifnot(inherits(img, "nifti"))
   check_mask_fail(mask = mask, allow.NA = allow.NA)
   
