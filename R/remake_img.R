@@ -14,7 +14,11 @@ remake_img = function(vec, img, mask = NULL, warn = FALSE, ...){
   if (is.null(mask)) {
     mask = array(1, dim = dim(img))
   }
+  check_mask_fail(mask)
   img2 = niftiarr(img, 0)
+  # arr = array(0, dim = dim(img2))
+  # arr[ mask == 1 ] = vec
+  # img_data(img2) = arr
   img2[mask == 1] = vec
   img2 = datatyper(img2, warn = warn, ...)
   img2 = cal_img(img2)
