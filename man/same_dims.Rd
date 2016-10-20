@@ -14,7 +14,8 @@ checked against the first object's dimension}
 Logical indicating if all have the same dimensions or not
 }
 \description{
-Wrapper to check if multiple objects all have the
+Wrapper to check if multiple objects all have the 
+same dimensions
 }
 \examples{
 mat1 = matrix(1:9, ncol = 3)

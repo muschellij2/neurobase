@@ -5,9 +5,10 @@
 \alias{writenii}
 \title{writeNIfTI with default non-reoirientation}
 \usage{
-writeNIfTI2(nim, filename, dtype = FALSE, ...)
+writeNIfTI2(nim, filename, dtype = FALSE, compression = 9, ...)
 
-writenii(nim, filename, dtype = TRUE, drop_dim = TRUE, warn = FALSE, ...)
+writenii(nim, filename, dtype = TRUE, drop_dim = TRUE, warn = FALSE,
+  compression = 9, ...)
 }
 \arguments{
 \item{nim}{object of class \code{nifti}, passed to \code{\link{writeNIfTI}}}
@@ -15,6 +16,8 @@ writenii(nim, filename, dtype = TRUE, drop_dim = TRUE, warn = FALSE, ...)
 \item{filename}{path to save the NIfTI file.  Suffix will be removed}
 
 \item{dtype}{Should \code{\link{datatyper}} be run before writing?}
+
+\item{compression}{compression level for gzipped files.}
 
 \item{...}{Additional arguments pased to \code{\link{writeNIfTI}}}
 

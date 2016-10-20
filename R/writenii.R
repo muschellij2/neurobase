@@ -6,6 +6,7 @@
 #' @param nim object of class \code{nifti}, passed to \code{\link{writeNIfTI}}
 #' @param filename path to save the NIfTI file.  Suffix will be removed
 #' @param dtype Should \code{\link{datatyper}} be run before writing?
+#' @param compression compression level for gzipped files. 
 #' @param ... Additional arguments pased to \code{\link{writeNIfTI}}
 #' @note While \code{writeNIfTI2} does not run \code{\link{datatyper}} as default, 
 #' \code{writenii} does.  Additional functionality will be added to \code{writenii} likely
@@ -13,11 +14,14 @@
 #' @return Nothing
 #' @rdname writeNIfTI2
 #' @export
-writeNIfTI2 <- function(nim, filename, dtype = FALSE, ...){
+writeNIfTI2 <- function(nim, filename, dtype = FALSE, 
+                        compression = 9,
+                        ...){
   if (dtype) {
     nim = datatyper(nim)
   }
-  oro.nifti::writeNIfTI(nim, nii.stub(filename), ...)
+  oro.nifti::writeNIfTI(nim, nii.stub(filename), 
+                        compression = compression, ...)
 }
 
 #' @rdname writeNIfTI2
@@ -28,7 +32,9 @@ writeNIfTI2 <- function(nim, filename, dtype = FALSE, ...){
 writenii <- function(nim, filename, 
                      dtype = TRUE, 
                      drop_dim = TRUE, 
-                     warn = FALSE, ...){
+                     warn = FALSE, 
+                     compression = 9,
+                     ...){
   if (drop_dim) {
     nim = drop_img_dim(nim)
   }
@@ -36,10 +42,12 @@ writenii <- function(nim, filename,
     nim = datatyper(nim, warn = warn)
   }
   if (warn) {
-    x = oro.nifti::writeNIfTI(nim, nii.stub(filename), ...)
+    x = oro.nifti::writeNIfTI(nim, nii.stub(filename), 
+                              compression = compression, ...)
   } else {
     suppressWarnings({
-      x = oro.nifti::writeNIfTI(nim, nii.stub(filename), ...)
+      x = oro.nifti::writeNIfTI(nim, nii.stub(filename), 
+                                compression = compression,  ...)
     })
   }
   return(invisible(x))

@@ -1,5 +1,6 @@
 #' @title Check if Objects have Same Dimensions
 #' @description Wrapper to check if multiple objects all have the 
+#' same dimensions
 #' @param ... Arguments (matrices or arrays) where the dimension will be 
 #' checked against the first object's dimension
 #'
