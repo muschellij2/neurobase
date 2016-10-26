@@ -40,6 +40,7 @@ mask = img > 1.5
 mask_vals(img, mask)
 mask_vals(img, mask) = rep(4, sum(mask))
 mask_vals(img, as(mask, "array")) = rep(4, sum(mask))
-mask_vals(as(img, "array"), as(mask, "array")) = rep(4, sum(mask))
+mask_vals(as(img, "array"), 
+    as(mask, "array")) = rep(4, sum(mask))
 }
 

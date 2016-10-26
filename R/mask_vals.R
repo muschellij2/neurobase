@@ -16,11 +16,14 @@
 #' mask_vals(img, mask)
 #' mask_vals(img, mask) = rep(4, sum(mask))
 #' mask_vals(img, as(mask, "array")) = rep(4, sum(mask))
-#' mask_vals(as(img, "array"), as(mask, "array")) = rep(4, sum(mask))
+#' mask_vals(as(img, "array"), 
+#'     as(mask, "array")) = rep(4, sum(mask))
 mask_vals =  function(object, mask) {
   object = check_nifti(object)
   mask = check_nifti(mask, allow.array = TRUE)
-  check_mask_fail(mask, allow.NA = TRUE, allow.array = TRUE)
+  check_mask_fail(mask, 
+                  allow.NA = TRUE, 
+                  allow.array = TRUE)
   same_dim = same_dims(object, mask)
   if (!same_dim) {
     stop("Dimensions of Mask and Image are not the same")
