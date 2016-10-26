@@ -8,19 +8,21 @@
 #' @param warn Should a warning be issued if defaulting to FLOAT32?
 #' @param ... additional arguments passed to \code{\link{datatyper}}
 #' @seealso \code{\link{niftiarr}}
-#' @return object of class  \code{\link{nifti}}
+#' @return Object of class \code{\link{nifti}}
 #' @export
 remake_img = function(vec, img, mask = NULL, warn = FALSE, ...){
   if (is.null(mask)) {
     mask = array(1, dim = dim(img))
   }
-  check_mask_fail(mask, allow.array = TRUE)
-  stopifnot(same_dims(mask, img))
   img2 = niftiarr(img, 0)
+  # check_mask_fail(mask, allow.array = TRUE)
+  # stopifnot(same_dims(mask, img))
+  mask_vals(object = img2, mask = mask) = vec
+  
   # arr = array(0, dim = dim(img2))
   # arr[ mask == 1 ] = vec
   # img_data(img2) = arr
-  img2[mask == 1] = vec
+  # img2[mask == 1] = vec
   img2 = datatyper(img2, warn = warn, ...)
   img2 = cal_img(img2)
   return(img2)
