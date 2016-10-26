@@ -2,6 +2,7 @@
 #' @description Determine if only values in a mask are 0/1
 #' @param mask Object of class \code{nifti}
 #' @param allow.NA allow NAs in the mask
+#' @param allow.array if \code{class(mask)} is \code{"array"}, is this OK?
 #' @return Logical indicating if object is binary mask with only 0, 1, and \code{NA}
 #' if applicable
 #' @export
@@ -9,8 +10,8 @@
 #' arr = array(rbinom(1000, size = 1, prob = 0.2), dim = c(10,10,10))
 #' nim = oro.nifti::nifti(arr)
 #' check_mask(nim)
-check_mask <- function(mask, allow.NA = FALSE){
-  mask = check_nifti(mask)
+check_mask <- function(mask, allow.NA = FALSE, allow.array = TRUE){
+  mask = check_nifti(mask, allow.array = allow.array)
   allowable = c(0, 1)
   if (allow.NA) {
     allowable = c(allowable, NA)

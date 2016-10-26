@@ -3,6 +3,7 @@
 \docType{methods}
 \name{check_nifti-methods}
 \alias{check_nifti}
+\alias{check_nifti,anlz-method}
 \alias{check_nifti,array-method}
 \alias{check_nifti,character-method}
 \alias{check_nifti,list-method}
@@ -19,6 +20,8 @@ check_nifti(x, reorient = FALSE, allow.array = FALSE)
 \S4method{check_nifti}{list}(x, reorient = FALSE, allow.array = FALSE)
 
 \S4method{check_nifti}{array}(x, reorient = FALSE, allow.array = FALSE)
+
+\S4method{check_nifti}{anlz}(x, reorient = FALSE, allow.array = FALSE)
 }
 \arguments{
 \item{x}{character path of image or 

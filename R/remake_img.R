@@ -14,7 +14,7 @@ remake_img = function(vec, img, mask = NULL, warn = FALSE, ...){
   if (is.null(mask)) {
     mask = array(1, dim = dim(img))
   }
-  check_mask_fail(mask)
+  check_mask_fail(mask, allow.array = TRUE)
   stopifnot(same_dims(mask, img))
   img2 = niftiarr(img, 0)
   # arr = array(0, dim = dim(img2))
