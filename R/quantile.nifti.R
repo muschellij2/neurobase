@@ -1,5 +1,5 @@
 #' @title Sample Quantiles
-#' @description Computes quantiles produces sample 
+#' @description Computes sample 
 #' quantiles for an image, with the option of a mask.
 #' 
 #' @param x Object of class \code{nifti}

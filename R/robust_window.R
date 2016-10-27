@@ -7,14 +7,20 @@
 #' @param img object of class nifti
 #' @param probs quantiles to constrain the image these define the window sent to \code{\link{window_img}}
 #' @param ... additional arguments sent to \code{\link{window_img}}
+#' @param mask binary image to use to to calculate quantiles
 #' @export
 #' @return Object of class nifti with values outside quantiles replaced
 #' by values depending on replace argument passed to \code{\link{window_img}}
 robust_window <- function(img, # object of class nifti
            probs = c(0, 0.999), # quantiles to constrain the image, these define the window sent to \code{\link{window_img}}
-           ... # additional arguments sent to \code{\link{window_img}}
+           ..., # additional arguments sent to \code{\link{window_img}}
+           mask = NULL
            ){
-  cc = c(img)
+  if (is.null(mask)) {
+    cc = c(img)
+  } else {
+    cc = mask_vals(img, mask)
+  }
   quant = quantile(cc, probs = probs, ...)
   img = window_img(img, window = quant, ...)
   img = cal_img(img)

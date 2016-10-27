@@ -1,6 +1,6 @@
 #' @title Histogram of Values in an Image
-#' @description Computes and displays a histogram of the values 
-#' The \code{hist} method for class \code{nifti}
+#' @description Computes and displays a histogram of the values
+#' of an image with the option for a mask.
 #' 
 #' @param x Object of class \code{nifti}
 #' @param ... Arguments passed to \code{\link{hist.default}}

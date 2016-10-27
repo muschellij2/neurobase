@@ -2,6 +2,8 @@
 
 S3method(hist,anlz)
 S3method(hist,nifti)
+S3method(mean,anlz)
+S3method(mean,nifti)
 S3method(quantile,anlz)
 S3method(quantile,nifti)
 export("mask_vals<-")

@@ -10,7 +10,7 @@ niftiarr <- function(img, # object of class nifti
 ){
   x = img
   if (!is(arr, "array")) {
-    arr = array(arr, dim=dim(img))
+    arr = array(arr, dim = dim(img))
   }
   arr = as(arr, "array")
   class(arr) = "numeric"

@@ -21,7 +21,7 @@ values of the image are plotted.}
 Output of \code{\link{quantile}}
 }
 \description{
-Computes quantiles produces sample 
+Computes sample 
 quantiles for an image, with the option of a mask.
 }
 \examples{

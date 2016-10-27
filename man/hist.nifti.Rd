@@ -21,8 +21,8 @@ values of the image are plotted.}
 Output of \code{\link{hist}}
 }
 \description{
-Computes and displays a histogram of the values 
-The \code{hist} method for class \code{nifti}
+Computes and displays a histogram of the values
+of an image with the option for a mask.
 }
 \examples{
 img = nifti(array(rnorm(10^3), dim = rep(10, 3)))
