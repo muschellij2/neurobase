@@ -31,6 +31,7 @@ remove = FALSE
 
 
 makefunc("mean", remove = remove)
+makefunc("density", remove = remove)
 # makefunc("median", remove = remove)
 # makefunc("sd", remove = remove)
 # makefunc("var", remove = remove)
