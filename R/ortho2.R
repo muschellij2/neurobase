@@ -53,6 +53,8 @@
 #' @param useRaster logical; if TRUE a bitmap raster is used to 
 #' plot the image instead of polygons.  Passed to 
 #' \code{\link[graphics]{image}}.
+#' @param mask If a mask is passed, \code{drop_empty_dim} is applied 
+#' to both \code{x} and \code{y}
 #' @param ... other arguments to the image function may be provided here.
 #' @export
 #' @import graphics
@@ -92,8 +94,15 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                    add = TRUE,
                    pdim = NULL,
                   useRaster = TRUE,
+                  mask = NULL,
                    ...) 
 {
+  if (!is.null(mask)) {
+    mask = check_nifti(mask, allow.array = TRUE)
+    dd = dropEmptyImageDimensions(mask, keep_ind = TRUE)
+    keep_inds = dd$inds
+    rm(list = "dd");
+  }
   x = check_nifti(x, allow.array = TRUE)
   if (!is.null(y)) {
     if (!all(dim(x)[1:3] == dim(y)[1:3])) {
@@ -103,6 +112,9 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   x_is_nifti = FALSE
   if (inherits(x, "nifti")) {
     x_is_nifti = TRUE
+    if (!is.null(mask)) {
+      x = apply_empty_dim(img = x, inds = keep_inds)
+    }
     if (!is.null(window)) {
       x = window_img(x, window = window, replace = "window")
 #       x@cal_min = window[1]
@@ -110,7 +122,12 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
 #       x[ x < window[1] ] = window[1]
 #       x[ x >= window[2] ] = window[2]
     }
+  } else {
+    if (!is.null(mask)) {
+      x = x[keep_inds[[1]], keep_inds[[2]], keep_inds[[3]]]    
+    }
   }
+  
   X <- nrow(x)
   Y <- ncol(x)
   Z <- nsli(x)
@@ -122,7 +139,14 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     y = check_nifti(y, allow.array = TRUE)
     y_is_nifti = FALSE
     if (inherits(y, "nifti")) {
-      y_is_nifti = TRUE    
+      y_is_nifti = TRUE  
+      if (!is.null(mask)) {
+        y = apply_empty_dim(img = y, inds = keep_inds)
+      }
+    } else {
+      if (!is.null(mask)) {
+        y = y[keep_inds[[1]], keep_inds[[2]], keep_inds[[3]]]
+      }
     }
     if (NA.y) {
       y[ y == 0 ] = NA
