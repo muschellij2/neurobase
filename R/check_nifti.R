@@ -30,6 +30,8 @@ setMethod("check_nifti", "nifti", function(x,
   return(x)
 })
 
+
+
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,character-method
 #'  
@@ -88,4 +90,18 @@ setMethod("check_nifti", "anlz", function(x,
   return(x)
 })
 
-
+#' @rdname check_nifti-methods
+#' @aliases check_nifti,ANY-method
+#' @export
+setMethod("check_nifti", "ANY", 
+          function(x, 
+                   reorient=FALSE, 
+                   allow.array=FALSE) {
+            # workaround because can't get class
+            if (inherits(x, "niftiImage")) {
+              x = oro.nifti::nii2oro(x)
+            } else {
+              stop("Not implemented for this type!")
+            }
+            return(x)
+          })

@@ -3,6 +3,7 @@
 \docType{methods}
 \name{checknii-methods}
 \alias{checknii}
+\alias{checknii,ANY-method}
 \alias{checknii,character-method}
 \alias{checknii,list-method}
 \alias{checknii,nifti-method}
@@ -17,6 +18,8 @@ checknii(file, ...)
 \S4method{checknii}{character}(file, ...)
 
 \S4method{checknii}{list}(file, ...)
+
+\S4method{checknii}{ANY}(file, ...)
 
 ensure_nii(file, ...)
 }

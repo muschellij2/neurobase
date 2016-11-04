@@ -14,13 +14,27 @@ setGeneric("finite_img", function(img, replace = 0) {
 })
 
 #' @rdname finite_img-methods
-#' @aliases finite_img,finite_img-method
+#' @aliases finite_img,nifti-method
 #' @export
 setMethod("finite_img", "nifti", function(img, replace = 0) { 
   img[ !is.finite(img) ] = replace
   img = cal_img(img)
   return(img)
 })
+
+#' @rdname finite_img-methods
+#' @aliases finite_img,ANY-method
+#' @export
+setMethod("finite_img", "ANY", function(img, replace = 0) { 
+  # workaround because can't get class
+  if (inherits(file, "niftiImage")) {
+    img[ !is.finite(img) ] = replace
+  } else {
+    stop("Not implemented for this type!")
+  }
+  return(img)
+})
+
 
 #' @rdname finite_img-methods
 #' @aliases finite_img,character-method

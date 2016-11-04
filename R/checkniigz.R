@@ -24,6 +24,21 @@ setMethod("checkniigz", "nifti", function(file, ...) {
 })
 
 #' @rdname checkniigz-methods
+#' @aliases checkniigz,ANY-method
+#' @export
+setMethod("checkniigz", "ANY", function(file, ...) {
+  # workaround because can't get class
+  if (inherits(file, "niftiImage")) {
+    tfile = tempfile(fileext = ".nii.gz")
+    RNifti::writeNifti(image = file, file = tfile, ...)
+    return(tfile)    
+  } else {
+    stop("Not implemented for this type!")
+  }
+  return(file)
+})
+
+#' @rdname checkniigz-methods
 #' @aliases checkniigz,character-method
 #' @importFrom R.utils gzip
 #'  

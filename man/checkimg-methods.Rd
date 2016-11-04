@@ -3,6 +3,7 @@
 \docType{methods}
 \name{checkimg-methods}
 \alias{checkimg}
+\alias{checkimg,ANY-method}
 \alias{checkimg,character-method}
 \alias{checkimg,list-method}
 \alias{checkimg,nifti-method}
@@ -12,6 +13,8 @@
 checkimg(file, ...)
 
 \S4method{checkimg}{nifti}(file, ...)
+
+\S4method{checkimg}{ANY}(file, ...)
 
 \S4method{checkimg}{character}(file, ...)
 

@@ -21,6 +21,22 @@ setMethod("checkimg", "nifti", function(file, ...) {
   return(file)
 })
 
+
+#' @rdname checkimg-methods
+#' @aliases checkimg,ANY-method
+#' @export
+setMethod("checkimg", "ANY", function(file, ...) {
+            # workaround because can't get class
+            if (inherits(file, "niftiImage")) {
+              tfile = tempfile(fileext = ".nii.gz")
+              RNifti::writeNifti(image = file, file = tfile, ...)
+              return(tfile)
+            } else {
+              stop("Not implemented for this type!")
+            }
+            return(file)
+          })
+
 #' @rdname checkimg-methods
 #' @aliases checkimg,character-method
 #' @importFrom R.utils gunzip
@@ -40,6 +56,8 @@ setMethod("checkimg", "character", function(file, ...) {
     return(file)
   }
 })
+
+
 
 
 #' @rdname checkimg-methods

@@ -3,6 +3,7 @@
 \docType{methods}
 \name{checkniigz-methods}
 \alias{checkniigz}
+\alias{checkniigz,ANY-method}
 \alias{checkniigz,character-method}
 \alias{checkniigz,list-method}
 \alias{checkniigz,nifti-method}
@@ -13,6 +14,8 @@
 checkniigz(file, ...)
 
 \S4method{checkniigz}{nifti}(file, ...)
+
+\S4method{checkniigz}{ANY}(file, ...)
 
 \S4method{checkniigz}{character}(file, ...)
 
