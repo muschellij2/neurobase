@@ -263,7 +263,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!add & crosshairs) {
     abline(h = xyz[3], v = xyz[1], col = col.crosshairs)
   }
-  if (!all & add.orient) {
+  if (!add & add.orient) {
     text("L", x = X + lr.shift, y = Z/2, las = 1, col = "white")
     text("R", x = -lr.shift, y = Z/2, las = 1, col = "white")
     text("S", x = X/2 - .5, y = Z - ud.shift, las = 1, col = "white")
