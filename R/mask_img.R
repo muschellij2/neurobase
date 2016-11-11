@@ -25,7 +25,7 @@ mask_img <- function(img, # object of class \code{nifti}
 ){
   img = check_nifti(img)
   stopifnot(inherits(img, "nifti"))
-  check_mask_fail(mask = mask, allow.NA = allow.NA)
+  check_mask_fail(mask = mask, allow.NA = allow.NA, allow.array = TRUE)
   
   niftiarr(img, img * mask)
 }

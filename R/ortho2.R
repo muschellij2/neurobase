@@ -263,6 +263,12 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!add & crosshairs) {
     abline(h = xyz[3], v = xyz[1], col = col.crosshairs)
   }
+  if (!all & add.orient) {
+    text("L", x = X + lr.shift, y = Z/2, las = 1, col = "white")
+    text("R", x = -lr.shift, y = Z/2, las = 1, col = "white")
+    text("S", x = X/2 - .5, y = Z - ud.shift, las = 1, col = "white")
+    text("I", x = X/2 - .5, y = ud.shift, las = 1, col = "white")
+  }  
   if (!is.null(y)) {
     if (inherits(y, "nifti") || inherits(y, "anlz")) {
       # class(y@.Data) == "numeric"
@@ -301,6 +307,12 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!add & crosshairs) {
     abline(h = xyz[3], v = xyz[2], col = col.crosshairs)
   }
+  if (!add & add.orient) {
+    text("A", x = Y - 1, y = Z/2, las = 1, col = "white")
+    text("P", x = 0 + 1, y = Z/2, las = 1, col = "white")
+    text("S", x = Y/2 - .5, y = Z - ud.shift, las = 1, col = "white")
+    text("I", x = Y/2 - .5, y = ud.shift, las = 1, col = "white")
+  }  
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
       graphics::image(1:Y, 1:Z, y[xyz[1], , ], col = col.y, 
@@ -326,11 +338,6 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     text("P", x = 0 + 1, y = Z/2, las = 1, col = "white")
     text("S", x = Y/2 - .5, y = Z - ud.shift, las = 1, col = "white")
     text("I", x = Y/2 - .5, y = ud.shift, las = 1, col = "white")
-    #     
-    #     mtext("A", side=4, las = 1, outer=FALSE, adj=0)
-    #     mtext("P", side=2, las = 1, outer=FALSE, adj= 0, padj=0)
-    #     mtext("S", side=3, las = 1, outer=FALSE)
-    #     mtext("I", side=1, las = 1, outer=FALSE)
   }    
   graphics::image(1:X, 1:Y, x[, , xyz[3]], col = col, breaks = breaks, 
                   asp = pdim[3]/pdim[2], xlab = xlab, ylab = ylab, 
@@ -340,6 +347,12 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!add & crosshairs) {
     abline(h = xyz[2], v = xyz[1], col = col.crosshairs)
   }
+  if (!add & add.orient) {
+    text("L", x = X + lr.shift, y = Y/2, las = 1, col = "white")
+    text("R", x = -lr.shift, y = Y/2, las = 1, col = "white")
+    text("A", x = X/2 - .5, y = Y - ud.shift, las = 1, col = "white")
+    text("P", x = X/2 - .5, y = ud.shift, las = 1, col = "white")
+  }    
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
       graphics::image(1:X, 1:Y, y[, , xyz[3]], col = col.y, 
@@ -365,11 +378,6 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     text("R", x = -lr.shift, y = Y/2, las = 1, col = "white")
     text("A", x = X/2 - .5, y = Y - ud.shift, las = 1, col = "white")
     text("P", x = X/2 - .5, y = ud.shift, las = 1, col = "white")
-    
-    #     mtext("L", side=4, las = 1, outer=FALSE, adj=0)
-    #     mtext("R", side=2, las = 1, outer=FALSE, adj= 0, padj=0)
-    #     mtext("A", side=3, las = 1, outer=FALSE)
-    #     mtext("P", side=1, las = 1, outer=FALSE)
   }    
   
   if (!is.null(text) | addlegend) {
