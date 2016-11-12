@@ -19,7 +19,7 @@
 #' mask_vals(as(img, "array"), 
 #'     as(mask, "array")) = rep(4, sum(mask))
 mask_vals =  function(object, mask) {
-  object = check_nifti(object)
+  object = check_nifti(object, allow.array = TRUE)
   mask = check_nifti(mask, allow.array = TRUE)
   check_mask_fail(mask, 
                   allow.NA = TRUE, 
