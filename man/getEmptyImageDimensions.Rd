@@ -10,7 +10,7 @@ getEmptyImageDimensions(img, value = 0, threshold = 0, reorient = FALSE)
 get_empty_dim(img, value = 0, threshold = 0, reorient = FALSE)
 }
 \arguments{
-\item{img}{nifti object}
+\item{img}{nifti object or array}
 
 \item{value}{Value to check against.  If zero, then 
 \code{getEmptyImageDimensions} will include any dimension that has 

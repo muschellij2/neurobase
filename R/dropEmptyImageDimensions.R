@@ -38,15 +38,16 @@ dropEmptyImageDimensions <- function(img,
                                      keep_ind = FALSE,
                                      reorient = FALSE) {
   
-  img = check_nifti(img, reorient = reorient)
+  img = check_nifti(img, reorient = reorient, allow.array = FALSE)
   if (dim_(img)[1] > 3){
     stop(paste0("Only images with 3 dimensions supported, ", 
                 "as checked by dim_"))
-  }
+  }    
   inds = getEmptyImageDimensions(img = img,
                                  value = value, 
                                  threshold = threshold,
                                  reorient = reorient)
+
 #   ############################
 #   # Set NAs to 0
 #   ############################

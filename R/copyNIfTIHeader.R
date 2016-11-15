@@ -21,6 +21,7 @@
 #' sub = img[,,,1, drop=FALSE]
 #' copyNIfTIHeader(img, sub) 
 #' copyNIfTIHeader(img, sub, drop = FALSE) 
+#' @importFrom methods slotNames slot<- slot 
 copyNIfTIHeader <- function(img, # object of class nifti to copy header
                       arr, # array to copy header information
                       drop_slots = c(".Data", "dim_"),

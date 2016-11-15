@@ -5,6 +5,7 @@
 #' @param arr array to be passed in to .Data slot
 #' @export
 #' @return object of class nifti
+#' @importFrom methods is
 niftiarr <- function(img, # object of class nifti
                      arr ## array to be passed in
 ){

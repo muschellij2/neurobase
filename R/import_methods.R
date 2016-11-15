@@ -1,2 +1,2 @@
-#' @import methods
+#' @importFrom methods as
 NULL
