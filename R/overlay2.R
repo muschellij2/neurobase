@@ -115,14 +115,21 @@ multi_overlay = function(x,
   }
   
   if (!is.null(mask)){
-    mask = check_nifti(mask)
-    o1 = dropEmptyImageDimensions(mask, other.imgs = all.x)
-    all.x = o1$other.imgs
+    mask = check_nifti(mask, allow.array = TRUE)
+    inds = getEmptyImageDimensions(mask)
+    all.x = lapply(all.x, 
+                   applyEmptyImageDimensions,
+                   inds = inds)
+    # o1 = dropEmptyImageDimensions(mask, other.imgs = all.x)
+    # all.x = o1$other.imgs
     if (y_not_null){
-      o.y = dropEmptyImageDimensions(mask, other.imgs = all.y)
-      all.y = o.y$other.imgs
+      # o.y = dropEmptyImageDimensions(mask, other.imgs = all.y)
+      all.y = lapply(all.y,
+                     applyEmptyImageDimensions,
+                     inds = inds)                     
+      # all.y = o.y$other.imgs
     }
-    mask = o1$outimg
+    # mask = mask[inds[[1]], inds[[2]], inds[[3]]]
   }
   
   direction = match.arg(direction, c("horizontal", "vertical"))

@@ -6,7 +6,8 @@
 #' @param reorient Should image be reoriented if a filename?
 #' @description Simple wrapper for subsetting an image with indices, 
 #' dropping empty dimensions.
-#' @return Object of class \code{nifti}
+#' @return Object of class \code{nifti} or \code{array} if \code{nifti}
+#' is not supplied
 #' @note \code{apply_empty_dim} is a shorthand for 
 #' \code{applyEmptyImageDimensions} with all the same arguments.
 #' @seealso \code{\link{getEmptyImageDimensions}}, 
@@ -16,15 +17,19 @@ applyEmptyImageDimensions <- function(img,
                                       inds,
                                       reorient = FALSE) {
   
-  
-  img = check_nifti(img, reorient = reorient)
-  if (dim_(img)[1] > 3) {
+  img = check_nifti(img, reorient = reorient, allow.array = TRUE)
+  dimg = dim(img)
+  if (length(dimg) > 3) {
     stop(paste0("Only images with 3 dimensions supported, ", 
-                "as checked by dim_"))
+                "as checked by length(dim(img))"))
   }
   i2 = img[inds[[1]], inds[[2]], inds[[3]]]
-  outimg = copyNIfTIHeader(img = img, arr = i2, drop = TRUE)  
-  return(outimg)
+  if (is.nifti(img)) {
+    outimg = copyNIfTIHeader(img = img, arr = i2, drop = TRUE)  
+    return(outimg)
+  } else {
+    return(i2)
+  }
 }
 
 #' @rdname applyEmptyImageDimensions

@@ -18,7 +18,8 @@ apply_empty_dim(img, inds, reorient = FALSE)
 \item{reorient}{Should image be reoriented if a filename?}
 }
 \value{
-Object of class \code{nifti}
+Object of class \code{nifti} or \code{array} if \code{nifti}
+is not supplied
 }
 \description{
 Simple wrapper for subsetting an image with indices, 

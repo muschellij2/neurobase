@@ -23,7 +23,7 @@ getEmptyImageDimensions <- function(img,
   dimg = dim(img)
   if (length(dimg) > 3) {
     stop(paste0("Only images with 3 dimensions supported, ", 
-                "as checked by dim_"))
+                "as checked by length(dim(img))"))
   }
   ############################
   # Set NAs to 0
