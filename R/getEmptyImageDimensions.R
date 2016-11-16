@@ -37,10 +37,12 @@ getEmptyImageDimensions <- function(img,
   # Get indices for slices with all zeros (or of certain value)
   ############################
   inds = vector(mode = "list", length = 3)
+  bin_img = array(!(img %in% value), dim = dim(img))
   for (i in 1:3) {
-    zero_x = apply(img, i, function(x) {
-      sum(!(x %in% value))
-    })
+    zero_x = apply(bin_img, i, sum)
+    # zero_x = apply(img, i, function(x){
+      # sum(!(x %in% value))
+    # })
     # will only drop the ends of the slices
     dzero_x = !(
       cumsum(zero_x) <= threshold | 
