@@ -16,7 +16,7 @@ breaker = function(x, zlim, col, breaks = NULL){
   if (is.null(x)){
     return(NULL)
   }
-  x = check_nifti(x)
+  x = check_nifti(x, allow.array = TRUE)
   if (is.null(zlim)){
     zlim = zlimmer(x, zlim)
   }

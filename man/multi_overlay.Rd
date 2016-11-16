@@ -11,7 +11,7 @@ multi_overlay(x, y = NULL, z = NULL, w = 1, mask = NULL,
   par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg = "black"),
   text = NULL, text.x = NULL, text.y = NULL, text.cex = 1,
   text.col = "white", main = NULL, main.col = text.col,
-  main.cex = text.cex, NA.x = TRUE, NA.y = TRUE, ...)
+  main.cex = text.cex, NA.x = TRUE, NA.y = TRUE, pdim = NULL, ...)
 }
 \arguments{
 \item{x}{List of images of class \code{nifti} or character vector of filenames}
@@ -66,6 +66,9 @@ Passed to \code{\link{dropEmptyImageDimensions}}}
 \item{NA.x}{Should \code{0}'s in \code{x} be set to \code{NA}?}
 
 \item{NA.y}{Should \code{0}'s in \code{y} be set to \code{NA}?}
+
+\item{pdim}{Pixel dimensions if passing in arrays.  Will be overridden if 
+\code{x} is a \code{nifti} object}
 
 \item{...}{Additional arguments to pass to \code{\link[graphics]{image}}}
 }
