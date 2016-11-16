@@ -226,7 +226,7 @@ multi_overlay = function(x,
       stop("size of NIfTI volume is zero, nothing to plot")
     }
     zlim.x = zlimmer(x, zlim.x)
-    breaks.x = breaker(x, zlim = zlim.x)
+    breaks.x = breaker(x, zlim = zlim.x, col = col.x)
     if (y_not_null){
       zlim.y = zlimmer(y, zlim.y)  
     }  
