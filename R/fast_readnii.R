@@ -2,6 +2,7 @@
 #' 
 #' @description  This function calls the \code{\link{readNifti}} function from the 
 #' \code{RNifti} package, and then converts the image to a \code{nifti} object
+#' @param fname file name of the NIfTI file.
 #' @param dtype Should \code{\link{datatyper}} be run after reading?
 #' @param drop_dim Should \code{\link{drop_img_dim}} be run after reading?
 #' 
@@ -20,7 +21,7 @@ fast_readnii <- function(
     nim = oro.nifti::drop_img_dim(nim)
   }
   if (dtype) {
-    nim = datatyper(nim, warn = warn)
+    nim = datatyper(nim)
   }
   return(nim)
 }

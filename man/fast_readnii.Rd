@@ -7,6 +7,8 @@
 fast_readnii(fname, dtype = TRUE, drop_dim = TRUE)
 }
 \arguments{
+\item{fname}{file name of the NIfTI file.}
+
 \item{dtype}{Should \code{\link{datatyper}} be run after reading?}
 
 \item{drop_dim}{Should \code{\link{drop_img_dim}} be run after reading?}
