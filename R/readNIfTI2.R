@@ -1,4 +1,4 @@
-#' @title readNIfTI with default non-reoirientation
+#' @title readNIfTI with default non-reorientation
 #' 
 #' @description  This function calls the \code{\link{readNIfTI}} function from the 
 #' \code{oro.nifti} package, but sets the reorientation to \code{FALSE} by default
