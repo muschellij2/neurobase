@@ -21,7 +21,12 @@ Depends:
     R (>= 3.2.0)
 License: GPL-2
 Suggests:
-    testthat
+    testthat,
+    ggplot2,
+    knitr,
+    rmarkdown,
+    httr
+VignetteBuilder: knitr
 BugReports: https://github.com/muschellij2/nifti/issues
 RoxygenNote: 5.0.1.9000
 Remotes: bjw34032/oro.nifti
