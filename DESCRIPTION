@@ -25,6 +25,7 @@ Suggests:
     ggplot2,
     knitr,
     rmarkdown,
+    dplyr,
     httr
 VignetteBuilder: knitr
 BugReports: https://github.com/muschellij2/nifti/issues
