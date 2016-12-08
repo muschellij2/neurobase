@@ -27,4 +27,3 @@ cal_max and cal_min parameters
 \seealso{
 \link{readnii}
 }
-

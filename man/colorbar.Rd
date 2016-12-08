@@ -28,4 +28,3 @@ Adds a series of colors mapped to a value
 Much of this was taken from \code{vertical.image.legend} from
 the \code{aqfig} package
 }
-

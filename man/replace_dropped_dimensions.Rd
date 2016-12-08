@@ -33,4 +33,3 @@ orig.dim = dd$orig.dim)
 all.equal(nim, remake)
 }
 }
-

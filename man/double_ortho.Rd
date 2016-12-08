@@ -30,4 +30,3 @@ with some tweaks such as adding L/R designations for left and right
 \seealso{
 \link{orthographic}
 }
-

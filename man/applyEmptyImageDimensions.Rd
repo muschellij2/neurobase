@@ -33,4 +33,3 @@ dropping empty dimensions.
 \code{\link{getEmptyImageDimensions}}, 
 \code{\link{dropEmptyImageDimensions}}
 }
-

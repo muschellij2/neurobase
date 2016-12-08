@@ -28,4 +28,3 @@ otherwise returns \code{breaks}
 Helper function for plotting - returns breaks for \code{\link[graphics]{image}} 
 plot function for object of class \code{nifti}
 }
-

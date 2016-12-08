@@ -2,12 +2,12 @@
 % Please edit documentation in R/checknii.R
 \docType{methods}
 \name{checknii-methods}
+\alias{checknii-methods}
 \alias{checknii}
-\alias{checknii,ANY-method}
+\alias{checknii,nifti-method}
 \alias{checknii,character-method}
 \alias{checknii,list-method}
-\alias{checknii,nifti-method}
-\alias{checknii-methods}
+\alias{checknii,ANY-method}
 \alias{ensure_nii}
 \title{Force object to filename with .nii extension}
 \usage{
@@ -39,4 +39,3 @@ image or \code{nifti}, but not gzipped and has \code{.nii} extension
 \author{
 John Muschelli \email{muschellij2@gmail.com}
 }
-

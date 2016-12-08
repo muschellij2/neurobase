@@ -20,4 +20,3 @@ A \code{nifti} object
 This function calls the \code{\link{readNifti}} function from the 
 \code{RNifti} package, and then converts the image to a \code{nifti} object
 }
-

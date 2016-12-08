@@ -28,4 +28,3 @@ Wrapper function to take a vector of values and result in a
 \seealso{
 \code{\link{niftiarr}}
 }
-

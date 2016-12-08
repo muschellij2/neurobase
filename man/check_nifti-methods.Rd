@@ -2,14 +2,14 @@
 % Please edit documentation in R/check_nifti.R
 \docType{methods}
 \name{check_nifti-methods}
+\alias{check_nifti-methods}
 \alias{check_nifti}
-\alias{check_nifti,ANY-method}
-\alias{check_nifti,anlz-method}
-\alias{check_nifti,array-method}
+\alias{check_nifti,nifti-method}
 \alias{check_nifti,character-method}
 \alias{check_nifti,list-method}
-\alias{check_nifti,nifti-method}
-\alias{check_nifti-methods}
+\alias{check_nifti,array-method}
+\alias{check_nifti,anlz-method}
+\alias{check_nifti,ANY-method}
 \title{Check if nifti image or read in a nifti image}
 \usage{
 check_nifti(x, reorient = FALSE, allow.array = FALSE, fast = FALSE)
@@ -54,10 +54,9 @@ nifti object or array if allow.array=TRUE and x is an array
 Simple check to see if input is character or of 
 class nifti
 }
-\author{
-John Muschelli \email{muschellij2@gmail.com}
-}
 \seealso{
 \link{readnii}
 }
-
+\author{
+John Muschelli \email{muschellij2@gmail.com}
+}

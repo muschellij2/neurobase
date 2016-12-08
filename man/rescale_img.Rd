@@ -38,4 +38,3 @@ Rescales an image to be in certain value range.  This was created
 as sometimes DICOM scale and slope parameters may be inconsistent across sites
 and the data need to be value restricted
 }
-

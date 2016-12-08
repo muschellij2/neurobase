@@ -39,4 +39,3 @@ While \code{writeNIfTI2} does not run \code{\link{datatyper}} as default,
 \code{writenii} does.  Additional functionality will be added to \code{writenii} likely
 but will not to \code{writeNIfTI2}
 }
-

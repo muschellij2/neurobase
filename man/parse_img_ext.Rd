@@ -24,4 +24,3 @@ parse_img_ext("blah.img")
 parse_img_ext("blah.hdr")
 parse_img_ext("blah.hdr.gz")
 }
-

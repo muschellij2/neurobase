@@ -39,4 +39,3 @@ sub = img[,,,1, drop=FALSE]
 copyNIfTIHeader(img, sub) 
 copyNIfTIHeader(img, sub, drop = FALSE) 
 }
-

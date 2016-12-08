@@ -19,4 +19,3 @@ If \code{zlim = NULL}, then vector of length 2, otherwise returns \code{zlim}
 Helper function for plotting - returns zlim for \code{\link[graphics]{image}} 
 plot function
 }
-

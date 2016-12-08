@@ -15,4 +15,3 @@ nii.stub(x, bn = FALSE)
 Quick helper function to strip of .nii or .nii.gz 
 from filename
 }
-

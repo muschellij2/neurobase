@@ -30,4 +30,3 @@ pad = zero_pad(img, kdim)
 back = zero_pad(pad, kdim, invert=TRUE)
 all.equal(back, img)
 }
-

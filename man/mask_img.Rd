@@ -33,4 +33,3 @@ Takes an image, masks it by
   
   
 }
-

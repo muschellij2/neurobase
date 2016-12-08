@@ -19,4 +19,3 @@ image or the number of voxels in the mask, and p is the number of images
 Creates a matrix, where the voxels are on the rows 
 and images are on the columns
 }
-

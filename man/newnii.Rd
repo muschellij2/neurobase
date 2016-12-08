@@ -19,4 +19,3 @@ Resets the slots of a nifti object, usually because an image
 was loaded, then copied and filled in with new data instead of making a 
 nifti object from scratch.  Just a wrapper for smaller functions
 }
-

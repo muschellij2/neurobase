@@ -26,6 +26,7 @@ Suggests:
     knitr,
     rmarkdown,
     dplyr,
+    reshape2,
     httr
 VignetteBuilder: knitr
 BugReports: https://github.com/muschellij2/nifti/issues

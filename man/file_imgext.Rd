@@ -19,4 +19,3 @@ return \code{nii} instead of \code{.nii}
 Get the image file extension, either .nii, .hdr, .nii.gz, 
 or .hdr.gz
 }
-

@@ -26,4 +26,3 @@ same_dims(mat1, mat2)
 same_dims(mat1, mat3)
 same_dims(mat1, mat2, mat4)
 }
-

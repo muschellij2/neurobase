@@ -20,4 +20,3 @@ Object of class \code{nifti}
 Creates output image of the quantiles that each voxel is in, 
 after applying the mask
 }
-

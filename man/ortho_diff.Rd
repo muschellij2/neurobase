@@ -37,4 +37,3 @@ image and the assumed ground truth (\code{roi}).
 \seealso{
 \code{\link{ortho2}}
 }
-

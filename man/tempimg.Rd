@@ -30,4 +30,3 @@ Takes in a object of class nifti, writes it
 to a temp file, appends
 .nii.gz as \code{\link{writenii}} adds it.
 }
-

@@ -19,4 +19,3 @@ take ceiling (wrapper for \code{\link{cog}})
 \note{
 Just a convenience wrapper for \code{cog(ceil=TRUE)}
 }
-

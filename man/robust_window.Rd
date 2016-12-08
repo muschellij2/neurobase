@@ -25,4 +25,3 @@ Takes an image, finds the quantiles given by
 values, as determined by \code{replace} argument passed to
 to \code{\link{window_img}}
 }
-

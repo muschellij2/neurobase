@@ -30,4 +30,3 @@ printed?  If not, \code{\link{suppressWarnings}} is called.  Also passed to
 This function calls the \code{\link{readNIfTI}} function from the 
 \code{oro.nifti} package, but sets the reorientation to \code{FALSE} by default
 }
-

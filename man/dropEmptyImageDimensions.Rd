@@ -57,4 +57,3 @@ names(dnim)
 \seealso{
 \code{\link{getEmptyImageDimensions}}
 }
-

@@ -25,4 +25,3 @@ Randomize the values within a mask
   mask = abs(nim) > 1
   randomize_mask(nim, mask)
 }
-

@@ -33,4 +33,3 @@ values
 \code{get_empty_dim} is a shorthand for \code{getEmptyImageDimensions}
 with all the same arguments.  Also, \code{NA} are set to zero.
 }
-

@@ -128,4 +128,3 @@ ortho2( arr_x, arr_y)
 \seealso{
 \link{orthographic}
 }
-

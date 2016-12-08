@@ -70,4 +70,3 @@ stopifnot(all.equal(try1, truth1))
 \seealso{
 \link{aperm}
 }
-

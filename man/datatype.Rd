@@ -34,4 +34,3 @@ object of type nifti
 Tries to figure out the correct datatype for image.  Useful 
 for image masks - makes them binary if
 }
-

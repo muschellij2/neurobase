@@ -30,4 +30,3 @@ with all the same arguments.
 \seealso{
 \code{\link{getEmptyImageDimensions}}
 }
-

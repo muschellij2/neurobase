@@ -5,12 +5,12 @@
 \alias{mask_vals}
 \alias{mask_vals-methods,}
 \alias{mask_vals<-}
-\alias{mask_vals<-,anlz,ANY,ANY-method}
-\alias{mask_vals<-,anlz-method}
-\alias{mask_vals<-,array,ANY,ANY-method}
-\alias{mask_vals<-,array-method}
-\alias{mask_vals<-,nifti,ANY,ANY-method}
 \alias{mask_vals<-,nifti-method}
+\alias{mask_vals<-,nifti,ANY,ANY-method}
+\alias{mask_vals<-,anlz-method}
+\alias{mask_vals<-,anlz,ANY,ANY-method}
+\alias{mask_vals<-,array-method}
+\alias{mask_vals<-,array,ANY,ANY-method}
 \title{Extract or Replace Values Inside a Mask}
 \usage{
 mask_vals(object, mask)
@@ -43,4 +43,3 @@ mask_vals(img, as(mask, "array")) = rep(4, sum(mask))
 mask_vals(as(img, "array"), 
     as(mask, "array")) = rep(4, sum(mask))
 }
-

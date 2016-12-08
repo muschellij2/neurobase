@@ -17,4 +17,3 @@ object of class nifti
 \description{
 Make new nifti object by passing in old nifti and array
 }
-
