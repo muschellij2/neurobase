@@ -162,7 +162,6 @@ multi_overlay = function(x,
   main.cex = make_length(main.cex)
   
   
-  stopifnot(length(pdim) >= 4)
   
   do.call(par, par.opts)  
   for (i in seq_along(all.x)){
@@ -175,6 +174,7 @@ multi_overlay = function(x,
         pdim = rep(1, 4)
       } 
     }
+    stopifnot(length(pdim) >= 4)
     
     
     switch(plane[1], axial = {
