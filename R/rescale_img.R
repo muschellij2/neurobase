@@ -141,7 +141,8 @@ datatyper = function(img, type_string = NULL,
     mystr = NULL
     num = 16 # default is signed short
     if (is.null(mystr) & trange <= (2 ^ num) - 1 ) {
-        mystr = ifelse(signed, "INT16", "FLOAT32")
+        # mystr = ifelse(signed, "INT16", "FLOAT32")
+      mystr = "INT16"
     }
 
     num = 32 
