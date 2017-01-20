@@ -376,7 +376,7 @@ You can pass in other images in the `other.imgs` function to applying this dropp
 
 To reverse this procedure, the `replace_dropped_dimensions` function will add back dimensions to the image correctly using the indices from `drop_empty_dim`.  Here is an example:
 
-```{r replace_empty, cache = TRUE}
+```{r replace_empty, cache = FALSE}
 dd = dropEmptyImageDimensions(eve, keep_ind = TRUE)
 reduced = dd$outimg
 reversed = replace_dropped_dimensions(img = reduced, 
@@ -520,7 +520,7 @@ df = df %>%
 
 Here we make binned hexagrams to represent the 2-dimensional distributions of each imaging sequence against the other. 
 
-```{r make_hex, cache = TRUE}
+```{r make_hex, cache = FALSE}
 library(ggplot2)
 g = ggplot(df) + stat_binhex()
 g + aes(x = T1, y = T2)

@@ -10,3 +10,5 @@ README.md
 
 generic_stat.R
 generic_stat_maker.R
+^packrat/
+^\.Rprofile$
