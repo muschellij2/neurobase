@@ -12,5 +12,4 @@
 .Rproj.user/
 inst/doc
 packrat/lib*/
-
 vignettes/nifti_basics_cache/*
