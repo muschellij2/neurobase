@@ -53,6 +53,7 @@ replace_outside_surface <- function(
   }
   for ( i in seq(dim(bin_img)[3])) {
     x = bin_img[,,i]
+    class(x) = "numeric" 
     # dzero_x = colCumsums(x) <= threshold | 
     #   rev_col(colCumsums(rev_col(x)) <= threshold)
     # dzero_y = rowCumsums(x) <= threshold | 
@@ -67,6 +68,7 @@ replace_outside_surface <- function(
     if (any(x[!mask] == 1)) {
       stop("mask is throwing out voxels!  Please report this bug")
     }
+    x = bin_img[,,i]
     x[!mask] = replace_value
     bin_img[,,i] = x    
   }
