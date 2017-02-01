@@ -44,6 +44,8 @@ getEmptyImageDimensions <- function(img,
       # sum(!(x %in% value))
     # })
     # will only drop the ends of the slices
+    # cumsum is used so that if any passes threshold, then won't be dropped 
+    # after.  Rev is for the other side
     dzero_x = !(
       cumsum(zero_x) <= threshold | 
         rev( cumsum(rev(zero_x)) <= threshold )
