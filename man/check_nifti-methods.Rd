@@ -6,6 +6,7 @@
 \alias{check_nifti}
 \alias{check_nifti,nifti-method}
 \alias{check_nifti,character-method}
+\alias{check_nifti,factor-method}
 \alias{check_nifti,list-method}
 \alias{check_nifti,array-method}
 \alias{check_nifti,anlz-method}
@@ -18,6 +19,9 @@ check_nifti(x, reorient = FALSE, allow.array = FALSE, fast = FALSE)
   fast = FALSE)
 
 \S4method{check_nifti}{character}(x, reorient = FALSE, allow.array = FALSE,
+  fast = FALSE)
+
+\S4method{check_nifti}{factor}(x, reorient = FALSE, allow.array = FALSE,
   fast = FALSE)
 
 \S4method{check_nifti}{list}(x, reorient = FALSE, allow.array = FALSE,

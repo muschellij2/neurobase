@@ -61,6 +61,18 @@ setMethod("check_nifti", "character", function(x,
   }
 })
 
+#' @rdname check_nifti-methods
+#' @aliases check_nifti,factor-method
+#'  
+#' @export
+setMethod("check_nifti", "factor", function(x, 
+                                               reorient=FALSE, 
+                                               allow.array=FALSE,
+                                               fast = FALSE) { 
+  x = as.character(x)
+  return(check_nifti(x))
+})
+
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,list-method
