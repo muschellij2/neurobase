@@ -8,8 +8,9 @@
 #' @return Vector of length 3
 #' @export
 #' @examples
-#' x = array(rnorm(1e6), dim = c(100, 100, 100))
-#' img = nifti(x, dim= c(100, 100, 100), 
+#' dims = rep(20, 3)
+#' x = array(rnorm(prod(dims)), dim = dims)
+#' img = nifti(x, dim= dims, 
 #' datatype = convert.datatype()$FLOAT32, cal.min = min(x), 
 #' cal.max = max(x), pixdim = rep(1, 4))
 #' cog(img)
