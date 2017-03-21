@@ -538,7 +538,7 @@ long$ind = NULL
 ```
 
 
-```{r make_dists, cache = TRUE}
+```{r make_dists, cache = FALSE}
 library(ggplot2)
 ggplot(long, aes(x = value)) + 
   geom_line(stat = "density") +

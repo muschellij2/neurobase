@@ -27,7 +27,7 @@ setMethod("finite_img", "nifti", function(img, replace = 0) {
 #' @export
 setMethod("finite_img", "ANY", function(img, replace = 0) { 
   # workaround because can't get class
-  if (inherits(file, "niftiImage")) {
+  if (inherits(img, "niftiImage")) {
     img[ !is.finite(img) ] = replace
   } else {
     stop("Not implemented for this type!")
