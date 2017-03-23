@@ -22,7 +22,9 @@ img_colour_df = function(
   zlim = NULL,
   breaks = NULL,
   col = gray(0:64/64)) {
-  img = check_nifti(img)
+  
+  img = check_nifti(img, allow.array = TRUE)
+  dimg = dim(img)
   
   zlim = zlimmer(img, zlim = zlim)
   if (is.null(breaks)) {
@@ -33,11 +35,13 @@ img_colour_df = function(
                 max(img, zlim, na.rm = TRUE))
   }
   
-  dimg = dim(img)
+  img = c(img)
+  
   L = lapply(dimg, seq)
   eg = expand.grid(L)
   colnames(eg) = paste0("dim", seq(ncol(eg)))
-  eg$value = img[as.matrix(eg)]
+  # eg$value = img[as.matrix(eg)]
+  eg$value = c(img)
   eg$zi = .bincode(eg$value, breaks, TRUE, TRUE) - 1L
   eg$colour = col[ eg$zi + 1]
   
