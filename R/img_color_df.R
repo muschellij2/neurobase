@@ -27,15 +27,17 @@ img_colour_df = function(
   dimg = dim(img)
   
   zlim = zlimmer(img, zlim = zlim)
+  img = c(img)
+
   if (is.null(breaks)) {
-    breaks <- c(min(img, zlim, na.rm = TRUE),
+    r = range(img, na.rm = TRUE)
+    breaks <- c(min(r[1], zlim, na.rm = TRUE),
                 seq(min(zlim, na.rm = TRUE),
                     max(zlim, na.rm = TRUE),
                     length = length(col) - 1),
-                max(img, zlim, na.rm = TRUE))
+                max(r[2], zlim, na.rm = TRUE))
   }
   
-  img = c(img)
   
   L = lapply(dimg, seq)
   eg = expand.grid(L)
