@@ -34,6 +34,13 @@ slice_colour_df = function(
     colnames(x) = c("x", "y", "colour", "value", "plane")
     x
   })
+  L = mapply(function(x, ind) {
+    xx = xyz[-ind]
+    x$int_x = xx[1]
+    x$int_y = xx[2]
+    x
+  }, L, 1:3, SIMPLIFY = FALSE)
+  
   L = do.call("rbind", L)
   L = as.data.frame(L)
   L$plane2 = L$plane
