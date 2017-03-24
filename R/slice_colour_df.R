@@ -36,8 +36,8 @@ slice_colour_df = function(
   })
   L = mapply(function(x, ind) {
     xx = xyz[-ind]
-    x$int_x = xx[1]
-    x$int_y = xx[2]
+    x$xintercept = xx[1]
+    x$yintercept = xx[2]
     x
   }, L, 1:3, SIMPLIFY = FALSE)
   
