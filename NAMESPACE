@@ -2,6 +2,8 @@
 
 S3method(boxplot,anlz)
 S3method(boxplot,nifti)
+S3method(cut,anlz)
+S3method(cut,nifti)
 S3method(density,anlz)
 S3method(density,nifti)
 S3method(hist,anlz)

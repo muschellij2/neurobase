@@ -15,7 +15,7 @@
 \item{...}{Arguments passed to \code{\link{quantile}}}
 
 \item{mask}{object to subset the image.  If missing, then all 
-values of the image are plotted.}
+values of the image are used}
 }
 \value{
 Output of \code{\link{quantile}}
