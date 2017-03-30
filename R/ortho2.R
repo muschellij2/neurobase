@@ -150,6 +150,10 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     }
     if (NA.y) {
       y[ y == 0 ] = NA
+      if (all(is.na(y))) {
+        stop(paste0("y has no non-zero values and NA.y = TRUE.  ", 
+                    "Either remove the overlay, or set NA.y = FALSE"))
+      }
     }
     if (y_is_nifti) {
       y = cal_img(y)
