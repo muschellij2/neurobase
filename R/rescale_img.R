@@ -202,7 +202,8 @@ newnii = function(img, ...){
 #' an object of class nifti
 #' @param mask character path of mask or 
 #' an object of class nifti 
-#' @param margin Margin of image to z-score over (3-Axial, 2-Sagittal, 
+#' @param margin Margin of image to z-score over (\code{NULL} - whole brain,
+#' 3-Axial, 2-Sagittal, 
 #' 1-Coronal)
 #' @param centrality (character) Measure to center the data, 
 #' either mean or median
@@ -244,7 +245,7 @@ newnii = function(img, ...){
 #' stopifnot(all.equal(try1, truth1))
 #'   
 #' 
-zscore_img <- function(img, mask = NULL, margin=3, 
+zscore_img <- function(img, mask = NULL, margin= NULL, 
                        centrality = c("mean", "median"),
                        variability = c("sd", "iqrdiff", "mad", 
                                        "maddiff", "iqr"),
