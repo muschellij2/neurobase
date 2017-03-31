@@ -4,8 +4,8 @@
 \alias{zscore_img}
 \title{Get Z-score over a margin of an img}
 \usage{
-zscore_img(img, mask = NULL, margin = 3, centrality = c("mean", "median"),
-  variability = c("sd", "iqrdiff", "mad", "maddiff", "iqr"),
+zscore_img(img, mask = NULL, margin = NULL, centrality = c("mean",
+  "median"), variability = c("sd", "iqrdiff", "mad", "maddiff", "iqr"),
   remove.na = TRUE, remove.nan = TRUE, remove.inf = TRUE,
   remove.val = 0)
 }
@@ -16,7 +16,8 @@ an object of class nifti}
 \item{mask}{character path of mask or 
 an object of class nifti}
 
-\item{margin}{Margin of image to z-score over (3-Axial, 2-Sagittal, 
+\item{margin}{Margin of image to z-score over (\code{NULL} - whole brain,
+3-Axial, 2-Sagittal, 
 1-Coronal)}
 
 \item{centrality}{(character) Measure to center the data, 
