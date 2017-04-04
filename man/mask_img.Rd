@@ -2,7 +2,7 @@
 % Please edit documentation in R/mask_img.R
 \name{mask_img}
 \alias{mask_img}
-\title{Mask nifti Image}
+\title{Mask Image}
 \usage{
 mask_img(img, mask, allow.NA = TRUE)
 }
@@ -30,6 +30,4 @@ Takes an image, masks it by
   masked = mask_img(nim, mask)
   mask[mask == 0] = NA
   na_masked = mask_img(nim, mask, allow.NA = TRUE)
-  
-  
 }
