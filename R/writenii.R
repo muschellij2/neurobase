@@ -14,6 +14,7 @@
 #' @return Nothing
 #' @rdname writeNIfTI2
 #' @export
+#' @importFrom RNifti writeNifti
 writeNIfTI2 <- function(nim, filename, dtype = FALSE, 
                         compression = 9,
                         ...){

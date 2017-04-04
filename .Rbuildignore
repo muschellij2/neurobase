@@ -13,3 +13,5 @@ generic_stat_maker.R
 ^packrat/
 ^\.Rprofile$
 ^appveyor\.yml$
+
+R/write_nifti_S4\.R
