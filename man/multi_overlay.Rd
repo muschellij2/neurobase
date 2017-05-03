@@ -9,9 +9,10 @@ multi_overlay(x, y = NULL, z = NULL, w = 1, mask = NULL,
   zlim.y = NULL, plane = c("axial", "coronal", "sagittal"), xlab = "",
   ylab = "", axes = FALSE, direction = c("horizontal", "vertical"),
   par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg = "black"),
-  text = NULL, text.x = NULL, text.y = NULL, text.cex = 1,
+  text = NULL, text.x = 0.5, text.y = 1.4, text.cex = 2.5,
   text.col = "white", main = NULL, main.col = text.col,
-  main.cex = text.cex, NA.x = TRUE, NA.y = TRUE, pdim = NULL, ...)
+  main.cex = text.cex, NA.x = TRUE, NA.y = TRUE, pdim = NULL,
+  useRaster = TRUE, ...)
 }
 \arguments{
 \item{x}{List of images of class \code{nifti} or character vector of filenames}
@@ -69,6 +70,9 @@ Passed to \code{\link{dropEmptyImageDimensions}}}
 
 \item{pdim}{Pixel dimensions if passing in arrays.  Will be overridden if 
 \code{x} is a \code{nifti} object}
+
+\item{useRaster}{if \code{TRUE}, a bitmap raster is used to plot 
+the image instead of polygons. Passed to \code{\link[graphics]{image}}}
 
 \item{...}{Additional arguments to pass to \code{\link[graphics]{image}}}
 }

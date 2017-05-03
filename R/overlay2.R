@@ -32,6 +32,8 @@
 #' @param NA.y Should \code{0}'s in \code{y} be set to \code{NA}?
 #' @param pdim Pixel dimensions if passing in arrays.  Will be overridden if 
 #' \code{x} is a \code{nifti} object 
+#' @param useRaster if \code{TRUE}, a bitmap raster is used to plot 
+#' the image instead of polygons. Passed to \code{\link[graphics]{image}} 
 #' @param ... Additional arguments to pass to \code{\link[graphics]{image}}
 #'
 #' @return NULL
@@ -88,10 +90,10 @@ multi_overlay = function(x,
                            oma = c(0, 0, 0, 0), 
                            mar = rep(0, 4), 
                            bg = "black"),
-                         text = NULL,                      
-                         text.x = NULL,
-                         text.y = NULL,
-                         text.cex = 1,
+                         text = NULL,  
+                         text.x = 0.5, 
+                         text.y = 1.4,
+                         text.cex = 2.5,
                          text.col = "white",
                          main = NULL,
                          main.col = text.col,
@@ -99,6 +101,7 @@ multi_overlay = function(x,
                          NA.x = TRUE,
                          NA.y = TRUE,
                          pdim = NULL,
+                         useRaster = TRUE,
                          ...) {
   
   relist = function(r){
@@ -249,9 +252,11 @@ multi_overlay = function(x,
       for (z in index) {
         graphics::image(xvals, yvals, x[, , z], col = col.x, 
                         breaks = breaks.x, zlim = zlim.x, asp = aspect, 
-                        axes = axes, xlab = xlab, ylab = ylab, ...)
+                        axes = axes, xlab = xlab, ylab = ylab,
+                        useRaster = useRaster, ...)
         if (y_not_null){
           graphics::image(xvals, yvals, y[, , z], col = col.y, 
+                          useRaster = useRaster, 
                           zlim = zlim.y, add = TRUE)
         }
       }
@@ -262,9 +267,11 @@ multi_overlay = function(x,
       for (z in index) {
         graphics::image(xvals, yvals, x[, , z, w], col = col.x, 
                         breaks = breaks.x, zlim = zlim.x, asp = aspect, 
-                        axes = axes, xlab = xlab, ylab = ylab, ...)
+                        axes = axes, xlab = xlab, ylab = ylab, 
+                        useRaster = useRaster, ...)
         if (y_not_null) {
           graphics::image(xvals, yvals, y[, , z], col = col.y, 
+                          useRaster = useRaster, 
                           zlim = zlim.y, add = TRUE)
         }
       }

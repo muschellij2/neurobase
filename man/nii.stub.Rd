@@ -11,7 +11,10 @@ nii.stub(x, bn = FALSE)
 
 \item{bn}{Take \code{\link{basename}} of file?}
 }
+\value{
+A character vector with the same length as \code{x}
+}
 \description{
-Quick helper function to strip of .nii or .nii.gz 
+Quick helper function to strip off .nii or .nii.gz 
 from filename
 }
