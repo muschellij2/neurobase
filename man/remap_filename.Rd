@@ -4,10 +4,13 @@
 \alias{remap_filename}
 \title{Build Filename (usually for images)}
 \usage{
-remap_filename(x, prefix = "", suffix = "")
+remap_filename(x, sub_dir = NULL, prefix = "", suffix = "")
 }
 \arguments{
 \item{x}{input filename/character vector}
+
+\item{sub_dir}{sub-directory for the new filename.  If \code{NULL}, then 
+the directory is the the same directory as \code{x}}
 
 \item{prefix}{string to put in front of base of filename}
 
@@ -19,7 +22,7 @@ Character vector
 \description{
 This is a simple function that helps with the case where you want to 
 construct a filename (usually for an image) with the same base of the
-filename, the same directory, but things added to the front or end
+filename, the same directory (default), but things added to the front or end
 of that base filename, with the same extension.
 }
 \examples{
