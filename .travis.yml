@@ -8,6 +8,8 @@ before_install:
     - echo ${TRAVIS_BUILD_ID}
     - echo "TRAVIS JOB ID"
     - echo ${TRAVIS_JOB_ID}
+    - hostname
+    - users
 notifications:
   email:
     on_success: change
