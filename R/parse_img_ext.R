@@ -18,15 +18,15 @@ parse_img_ext = function(file){
   file = basename(file)
   ext = tools::file_ext(file)
   if (length(ext) > 0) {
-    if (ext %in% "gz") {
-      file = file_path_sans_ext(file)
-      ext = file_ext(file)
+    gz = ext %in% "gz"
+    if (any(gz)) {
+      file[gz] = tools::file_path_sans_ext(file[gz])
+      ext[gz] = tools::file_ext(file[gz])
     } 
   } else {
     ext = NA
   }
-  if (ext %in% "") {
-    ext = NA
-  }
+  empty = ext %in% ""
+  ext[empty] = NA
   return(ext)
 }
