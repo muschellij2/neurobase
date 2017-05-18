@@ -15,7 +15,8 @@ notifications:
 after_success:
 - Rscript -e 'covr::coveralls()'
 - Rscript -e 'devtools::build(binary = FALSE)'
-- R CMD INSTALL --build ${PKG_TARBALL}
+- Rscript -e 'devtools::build(binary = TRUE)'
+
 
 deploy:
   provider: releases
