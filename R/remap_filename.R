@@ -17,6 +17,7 @@
 #' remap_filename(fname, prefix = "preproc_", "_with_gz")
 #' fname = "original.nii"
 #' remap_filename(fname, prefix = "note_", "_has_directory")
+#' remap_filename(c(fname, "other.nii.gz"), prefix = "note_", "_has_directory")
 remap_filename = function(
   x, 
   sub_dir = NULL,
@@ -26,9 +27,8 @@ remap_filename = function(
   ext = parse_img_ext(x)
   ext = paste0(".", ext)
   tx = tolower(x)
-  if (grepl("gz$", tx)) {
-    ext = paste0(ext, ".gz")
-  }
+  gz = grepl("gz$", tx)
+  ext[gz] = paste0(ext[gz], ".gz") 
   dn = dirname(x)
   stub = nii.stub(x, bn = TRUE)
   
