@@ -17,7 +17,7 @@
 \usage{
 applyEmptyImageDimensions(img, inds, reorient = FALSE, ...)
 
-\S4method{applyEmptyImageDimensions}{nifti}(img, inds, reorient = FALSE)
+\S4method{applyEmptyImageDimensions}{nifti}(img, inds, reorient = FALSE, ...)
 
 \S4method{applyEmptyImageDimensions}{character}(img, inds, reorient = FALSE,
   ...)

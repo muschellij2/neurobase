@@ -40,12 +40,9 @@ setGeneric("applyEmptyImageDimensions",
 #' @aliases applyEmptyImageDimensions,nifti-method
 #' @export
 setMethod("applyEmptyImageDimensions", "nifti", 
-          function(img, 
-                   inds,
-                   reorient = FALSE) {
+          function(img, ...) {
             res = .applyEmptyImageDimensions(
-              img = img, inds = inds, 
-              reorient = reorient)
+              img = img, ...)
             res = copyNIfTIHeader(img = img, 
                                   arr = res, 
                                   drop = TRUE)  
