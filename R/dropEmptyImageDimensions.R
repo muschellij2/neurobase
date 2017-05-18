@@ -52,7 +52,8 @@ dropEmptyImageDimensions <- function(img,
   # Subset the image
   ############################
   outimg = applyEmptyImageDimensions(img = img, 
-                                     inds = inds, reorient = reorient)
+                                     inds = inds, 
+                                     reorient = reorient)
   # i2 = img[inds[[1]], inds[[2]], inds[[3]]]
   # 
   # outimg = copyNIfTIHeader(img = img, arr = i2, drop = TRUE)

@@ -26,7 +26,8 @@ setGeneric("applyEmptyImageDimensions",
 
 .applyEmptyImageDimensions <- function(img, 
                                        inds,
-                                       reorient = FALSE) {
+                                       reorient = FALSE,
+                                       ...) {
   dimg = dim(img)
   if (length(dimg) > 3) {
     stop(paste0("Only images with 3 dimensions supported, ", 
@@ -40,9 +41,11 @@ setGeneric("applyEmptyImageDimensions",
 #' @aliases applyEmptyImageDimensions,nifti-method
 #' @export
 setMethod("applyEmptyImageDimensions", "nifti", 
-          function(img, ...) {
+          function(img,  
+                   inds,
+                   ...) {
             res = .applyEmptyImageDimensions(
-              img = img, ...)
+              img = img, inds = inds, ...)
             res = copyNIfTIHeader(img = img, 
                                   arr = res, 
                                   drop = TRUE)  
@@ -53,9 +56,12 @@ setMethod("applyEmptyImageDimensions", "nifti",
 #' @aliases applyEmptyImageDimensions,nifti-method
 #' @export
 setMethod("applyEmptyImageDimensions", "character", 
-          function(img, ...) {
+          function(img,  
+                   inds,
+                   reorient = FALSE,
+                   ...) {
             img = check_nifti(img, reorient = reorient)
-            res = applyEmptyImageDimensions(img, ...)
+            res = applyEmptyImageDimensions(img, inds = inds, ...)
             return(res)
           })
 
@@ -65,9 +71,12 @@ setMethod("applyEmptyImageDimensions", "character",
 #'  
 #' @export
 setMethod("applyEmptyImageDimensions", "factor", 
-          function(img, ...) { 
+          function(img,  
+                   inds,
+                   reorient = FALSE,
+                   ...) { 
             img = as.character(img)
-            res = applyEmptyImageDimensions(img = img, ...)
+            res = applyEmptyImageDimensions(img = img,  inds = inds, ...)
             return(res)
           })
 
@@ -76,9 +85,12 @@ setMethod("applyEmptyImageDimensions", "factor",
 #' @aliases applyEmptyImageDimensions,list-method
 #' @export
 setMethod("applyEmptyImageDimensions", "list", 
-          function(img, ...) { 
+          function(img,  
+                   inds,
+                   ...) { 
             ### add vector capability
             res = lapply(img, applyEmptyImageDimensions, 
+                         inds = inds, 
                           ...)
             return(res)
           })
@@ -88,9 +100,11 @@ setMethod("applyEmptyImageDimensions", "list",
 #' @aliases applyEmptyImageDimensions,array-method
 #' @export
 setMethod("applyEmptyImageDimensions", "array", 
-          function(img, ...) { 
+          function(img,  
+                   inds,
+                   ...) { 
             res = .applyEmptyImageDimensions(
-              img = img, ...)            
+              img = img,  inds = inds, ...)            
             return(res)
           })
 
@@ -99,9 +113,11 @@ setMethod("applyEmptyImageDimensions", "array",
 #' @aliases applyEmptyImageDimensions,anlz-method
 #' @export
 setMethod("applyEmptyImageDimensions", "anlz", 
-          function(img, ...) { 
+          function(img,  
+                   inds,
+                   ...) { 
             img = as.nifti(img)
-            res = applyEmptyImageDimensions(img = img, ...)
+            res = applyEmptyImageDimensions(img = img, inds = inds, ...)
             return(res)
           })
 
@@ -109,11 +125,14 @@ setMethod("applyEmptyImageDimensions", "anlz",
 #' @aliases applyEmptyImageDimensions,ANY-method
 #' @export
 setMethod("applyEmptyImageDimensions", "ANY", 
-          function(img, ...) {
+          function(img,  
+                   inds,
+                   reorient = FALSE,
+                   ...) {
             # workaround because can't get class
             if (inherits(img, "niftiImage")) {
-              img = check_nifti(img)
-              res = applyEmptyImageDimensions(img = img, ...)
+              img = check_nifti(img, reorient = reorient)
+              res = applyEmptyImageDimensions(img = img, inds = inds,  ...)
               return(res)              
             } else {
               stop("Not implemented for this type!")
