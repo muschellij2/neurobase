@@ -19,7 +19,10 @@ getEmptyImageDimensions <- function(img,
                                     threshold = 0,
                                     reorient = FALSE) {
   
-  img = check_nifti(img, reorient = reorient, allow.array = TRUE)
+  img = check_nifti(img, 
+                    reorient = reorient, 
+                    allow.array = TRUE,
+                    need_header = FALSE)
   dimg = dim(img)
   if (length(dimg) > 3) {
     stop(paste0("Only images with 3 dimensions supported, ", 
@@ -41,7 +44,7 @@ getEmptyImageDimensions <- function(img,
   for (i in 1:3) {
     zero_x = apply(bin_img, i, sum)
     # zero_x = apply(img, i, function(x){
-      # sum(!(x %in% value))
+    # sum(!(x %in% value))
     # })
     # will only drop the ends of the slices
     # cumsum is used so that if any passes threshold, then won't be dropped 
