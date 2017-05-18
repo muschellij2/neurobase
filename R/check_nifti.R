@@ -16,23 +16,30 @@
 #' nifti.
 #' @param fast if \code{TRUE}, then \code{\link{fast_readnii}} will be used 
 #' versus \code{\link{readnii}} if the files need to be read in.
+#' @param need_header if \code{TRUE}, then an image type with header information
+#' will be returned.  If not, then an array is fine.  Used really only in 
+#' conjunction with \code{allow.array}
 #' @export 
 #' @author John Muschelli \email{muschellij2@@gmail.com} 
-setGeneric("check_nifti", function(x, reorient=FALSE, 
-                                   allow.array=FALSE,
-                                   fast = FALSE) {
-  standardGeneric("check_nifti")
-})
+setGeneric("check_nifti", 
+           function(x, reorient=FALSE, 
+                    allow.array=FALSE,
+                    fast = FALSE,
+                    need_header = TRUE) {
+             standardGeneric("check_nifti")
+           })
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,nifti-method
 #' @export
-setMethod("check_nifti", "nifti", function(x, 
-                                           reorient=FALSE, 
-                                           allow.array=FALSE,
-                                           fast = FALSE) { 
-  return(x)
-})
+setMethod("check_nifti", "nifti", 
+          function(x, 
+                   reorient=FALSE, 
+                   allow.array=FALSE,
+                   fast = FALSE,
+                   need_header = TRUE) { 
+            return(x)
+          })
 
 
 
@@ -40,35 +47,40 @@ setMethod("check_nifti", "nifti", function(x,
 #' @aliases check_nifti,character-method
 #'  
 #' @export
-setMethod("check_nifti", "character", function(x, 
-                                               reorient=FALSE, 
-                                               allow.array=FALSE,
-                                               fast = FALSE) { 
-  ### add vector capability
-  if (length(x) > 1) {
-    file = lapply(x, check_nifti,  
-                  reorient = reorient, 
-                  allow.array = allow.array,
-                  fast = fast)
-    return(file)
-  } else {
-    if (fast) {
-      file = fast_readnii(x)
-    } else {
-      file = readnii(x, reorient = reorient)
-    }
-    return(file)
-  }
-})
+setMethod("check_nifti", "character", 
+          function(x, 
+                   reorient=FALSE, 
+                   allow.array=FALSE,
+                   fast = FALSE,
+                   need_header = TRUE) { 
+            ### add vector capability
+            if (length(x) > 1) {
+              file = lapply(x, check_nifti,  
+                            reorient = reorient, 
+                            allow.array = allow.array,
+                            fast = fast,
+                            need_header = TRUE)
+              return(file)
+            } else {
+              if (fast) {
+                file = fast_readnii(x)
+              } else {
+                file = readnii(x, reorient = reorient)
+              }
+              return(file)
+            }
+          })
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,factor-method
 #'  
 #' @export
-setMethod("check_nifti", "factor", function(x, 
-                                               reorient=FALSE, 
-                                               allow.array=FALSE,
-                                               fast = FALSE) { 
+setMethod("check_nifti", "factor", function(
+  x, 
+  reorient=FALSE, 
+  allow.array=FALSE,
+  fast = FALSE,
+  need_header = TRUE) { 
   x = as.character(x)
   return(check_nifti(x))
 })
@@ -77,44 +89,50 @@ setMethod("check_nifti", "factor", function(x,
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,list-method
 #' @export
-setMethod("check_nifti", "list", function(x,  
-                                          reorient=FALSE, 
-                                          allow.array=FALSE,
-                                          fast = FALSE) { 
-  ### add vector capability
-  file = lapply(x, check_nifti, 
-                reorient = reorient, 
-                allow.array = allow.array,
-                fast = fast)
-  return(file)
-})
+setMethod("check_nifti", "list", 
+          function(x,  
+                   reorient=FALSE, 
+                   allow.array=FALSE,
+                   fast = FALSE,
+                   need_header = TRUE) { 
+            ### add vector capability
+            file = lapply(x, check_nifti, 
+                          reorient = reorient, 
+                          allow.array = allow.array,
+                          fast = fast)
+            return(file)
+          })
 
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,array-method
 #' @export
-setMethod("check_nifti", "array", function(x,  
-                                           reorient=FALSE, 
-                                           allow.array=FALSE,
-                                           fast = FALSE) { 
-  if (!allow.array) {
-    stop("x is array but allow.array = FALSE")
-  }
-  return(x)
-})
+setMethod("check_nifti", "array", 
+          function(x,  
+                   reorient=FALSE, 
+                   allow.array=FALSE,
+                   fast = FALSE,
+                   need_header = TRUE) { 
+            if (!allow.array) {
+              stop("x is array but allow.array = FALSE")
+            }
+            return(x)
+          })
 
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,anlz-method
 #' @export
-setMethod("check_nifti", "anlz", function(x,  
-                                          reorient=FALSE, 
-                                          allow.array=FALSE,
-                                          fast = FALSE) { 
-  
-  x = as.nifti(x)
-  return(x)
-})
+setMethod("check_nifti", "anlz", 
+          function(x,  
+                   reorient=FALSE, 
+                   allow.array=FALSE,
+                   fast = FALSE,
+                   need_header = TRUE) { 
+            
+            x = as.nifti(x)
+            return(x)
+          })
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,ANY-method
@@ -123,7 +141,8 @@ setMethod("check_nifti", "ANY",
           function(x, 
                    reorient=FALSE, 
                    allow.array=FALSE,
-                   fast = FALSE) {
+                   fast = FALSE,
+                   need_header = TRUE) {
             # workaround because can't get class
             if (inherits(x, "niftiImage")) {
               x = oro.nifti::nii2oro(x)

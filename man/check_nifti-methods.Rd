@@ -13,28 +13,29 @@
 \alias{check_nifti,ANY-method}
 \title{Check if nifti image or read in a nifti image}
 \usage{
-check_nifti(x, reorient = FALSE, allow.array = FALSE, fast = FALSE)
+check_nifti(x, reorient = FALSE, allow.array = FALSE, fast = FALSE,
+  need_header = TRUE)
 
 \S4method{check_nifti}{nifti}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE)
+  fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{character}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE)
+  fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{factor}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE)
+  fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{list}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE)
+  fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{array}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE)
+  fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{anlz}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE)
+  fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{ANY}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE)
+  fast = FALSE, need_header = TRUE)
 }
 \arguments{
 \item{x}{character path of image or 
@@ -50,6 +51,10 @@ nifti.}
 
 \item{fast}{if \code{TRUE}, then \code{\link{fast_readnii}} will be used 
 versus \code{\link{readnii}} if the files need to be read in.}
+
+\item{need_header}{if \code{TRUE}, then an image type with header information
+will be returned.  If not, then an array is fine.  Used really only in 
+conjunction with \code{allow.array}}
 }
 \value{
 nifti object or array if allow.array=TRUE and x is an array
