@@ -1,6 +1,11 @@
 language: r
 warnings_are_errors: true
 sudo: required
+
+os:
+  - linux
+  - osx
+
 before_install:
 - echo "TRAVIS BUILD ID"
 - echo ${TRAVIS_BUILD_ID}
