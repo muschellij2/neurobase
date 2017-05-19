@@ -15,23 +15,27 @@ window_img = function(x, window=c(0, 100),
   if (inherits(x, "character")) {
     x= readnii(x, reorient=FALSE)
   }
-  if (is.null(window)){
+  if (is.null(window)) {
     return(x)
   }
   stopifnot(length(window) == 2)
-  x@cal_min = window[1]
-  x@cal_max = window[2]
+  if ("cal_min" %in% slotNames(x)) {
+    x@cal_min = window[1]
+  }
+  if ("cal_max" %in% slotNames(x)) {
+    x@cal_max = window[2]
+  }
   repper = match.arg(replace)
   low = which(x < window[1])
   high = which(x > window[2])
-  if (repper == "window"){
+  if (repper == "window") {
     x[low] = window[1]
     x[high] = window[2]
   }
-  if (repper == "missing"){
+  if (repper == "missing") {
     x[c(low, high)] = NA
   }
-  if (repper == "zero"){
+  if (repper == "zero") {
     x[c(low, high)] = 0
   }  
   return(x)
