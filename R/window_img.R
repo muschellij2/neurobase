@@ -66,12 +66,13 @@ window_img.default = function(x,
 #' @export
 #' @method window_img nifti
 window_img.nifti = function(x,
+                            window = c(0, 100),
                             ...) {
   
   cal_min(x) = window[1]
   cal_max(x) = window[2]
   x = window_img.default(
-    x = x, ...)
+    x = x, window = window, ...)
   return(x)
 }
 
@@ -113,11 +114,12 @@ window_img.array = window_img.default
 #' @method window_img niftiImage
 #' @importFrom RNifti dumpNifti 
 window_img.niftiImage = function(x,
+                                 window = c(0, 100),                                 
                                  ...) {
   hdr =  RNifti::dumpNifti(x)
   hdr$cal_min = window[1]
   hdr$cal_max = window[2]
-  x = window_img.default(x = x, ...)
+  x = window_img.default(x = x, window = window, ...)
   x = RNifti::updateNifti(image = x, template = hdr)
   return(x)
 }
