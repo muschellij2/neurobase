@@ -13,5 +13,5 @@ generic_stat_maker.R
 ^packrat/
 ^\.Rprofile$
 ^appveyor\.yml$
-
+R/window_img_old\.R$
 R/write_nifti_S4\.R
