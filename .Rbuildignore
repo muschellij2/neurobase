@@ -15,3 +15,4 @@ generic_stat_maker.R
 ^appveyor\.yml$
 R/window_img_old\.R$
 R/write_nifti_S4\.R
+R/ortho3\.R
