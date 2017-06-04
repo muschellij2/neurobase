@@ -1,34 +1,176 @@
-#' @title Replace Empty Image Dimensions with Mask Values
-#' @name maskEmptyImageDimensions
-#' @param img nifti object
-#' @param ... Arguments to be passed to \code{\link{getEmptyImageDimensions}}.
+#' @name maskEmptyImageDimensions-methods
+#' @docType methods 
+#' @aliases maskEmptyImageDimensions 
+#' @title Apply Subsetting from Empty Image Dimensions
+#' @description Simple wrapper for subsetting an image with indices, 
+#' dropping empty dimensions.  
+#' @param img image, nifti object, or array
+#' @param inds indices of subset from \code{\link{getEmptyImageDimensions}} or
+#' \code{\link{dropEmptyImageDimensions}}.
 #' @param reorient Should image be reoriented if a filename?
 #' @param mask.value Value to replace voxels outside the mask.
-#' @description Replaces values from dropped dimensions with a \code{mask.va.ue}
-#' @return Object of class \code{nifti} with the values of the 
-#' original image in the image and \code{mask.value} outside the mask
-#' @note \code{mask_empty_dim} is a shorthand for \code{maskEmptyImageDimensions}
-#' with all the same arguments.
-#' @seealso \code{\link{getEmptyImageDimensions}}  
+#' @param ... not used
+#' @return Object of class \code{nifti} or \code{array} if \code{nifti}
+#' is not supplied
+#' @note \code{apply_empty_dim} is a shorthand for 
+#' \code{maskEmptyImageDimensions} with all the same arguments.
+#' @seealso \code{\link{getEmptyImageDimensions}}, 
+#' \code{\link{dropEmptyImageDimensions}} 
 #' @export
-maskEmptyImageDimensions <- function(img, 
-                                     ...,
-                                     reorient = FALSE,
-                                     mask.value = 0) {
-  mask = emptyImageDimensionsMask(img = img, ..., reorient = reorient)
-  img[ mask == 1 ] = mask.value
-  
+setGeneric("maskEmptyImageDimensions", 
+           function(img, 
+                    inds,
+                    reorient = FALSE,
+                    mask.value = 0,
+                    ...) {
+             standardGeneric("maskEmptyImageDimensions")
+           }) 
+
+.maskEmptyImageDimensions <- function(img, 
+                                      inds,
+                                      reorient = FALSE,
+                                      mask.value = 0,
+                                      ...) {
+  dimg = dim(img)
+  if (length(dimg) > 3) {
+    stop(paste0("Only images with 3 dimensions supported, ", 
+                "as checked by length(dim(img))"))
+  }
+  img[inds[[1]], inds[[2]], inds[[3]]] = mask.value
   return(img)
 }
 
-#' @rdname maskEmptyImageDimensions
+#' @rdname maskEmptyImageDimensions-methods
+#' @aliases maskEmptyImageDimensions,nifti-method
+#' @export
+setMethod("maskEmptyImageDimensions", "nifti", 
+          function(img,  
+                   inds,
+                   mask.value = 0,
+                   ...) {
+            res = .maskEmptyImageDimensions(
+              img = img, inds = inds,
+              mask.value = mask.value, ...)
+            res = copyNIfTIHeader(
+              img = img, 
+              arr = res, 
+              drop = TRUE)  
+            return(res)
+          })
+
+#' @rdname maskEmptyImageDimensions-methods
+#' @aliases maskEmptyImageDimensions,nifti-method
+#' @export
+setMethod("maskEmptyImageDimensions", "character", 
+          function(img,  
+                   inds,
+                   reorient = FALSE,
+                   mask.value = 0,
+                   ...) {
+            img = check_nifti(img, reorient = reorient)
+            res = maskEmptyImageDimensions(
+              img, inds = inds,
+              mask.value = mask.value, ...)
+            return(res)
+          })
+
+
+#' @rdname maskEmptyImageDimensions-methods
+#' @aliases maskEmptyImageDimensions,factor-method
+#'  
+#' @export
+setMethod("maskEmptyImageDimensions", "factor", 
+          function(img,  
+                   inds,
+                   reorient = FALSE,
+                   mask.value = 0,
+                   ...) { 
+            img = as.character(img)
+            res = maskEmptyImageDimensions(
+              img = img,  
+              inds = inds,
+              mask.value = mask.value, ...)
+            return(res)
+          })
+
+
+#' @rdname maskEmptyImageDimensions-methods
+#' @aliases maskEmptyImageDimensions,list-method
+#' @export
+setMethod("maskEmptyImageDimensions", "list", 
+          function(img,  
+                   inds,
+                   mask.value = 0,
+                   ...) { 
+            ### add vector capability
+            res = lapply(
+              img, maskEmptyImageDimensions, 
+              inds = inds,
+              mask.value = mask.value,
+              ...)
+            return(res)
+          })
+
+
+#' @rdname maskEmptyImageDimensions-methods
+#' @aliases maskEmptyImageDimensions,array-method
+#' @export
+setMethod("maskEmptyImageDimensions", "array", 
+          function(img,  
+                   inds,
+                   mask.value = 0,
+                   ...) { 
+            res = .maskEmptyImageDimensions(
+              img = img,  inds = inds,
+              mask.value = mask.value, ...)            
+            return(res)
+          })
+
+
+#' @rdname maskEmptyImageDimensions-methods
+#' @aliases maskEmptyImageDimensions,anlz-method
+#' @export
+setMethod("maskEmptyImageDimensions", "anlz", 
+          function(img,  
+                   inds,
+                   mask.value = 0,
+                   ...) { 
+            img = as.nifti(img)
+            res = maskEmptyImageDimensions(
+              img = img, inds = inds,
+              mask.value = mask.value, ...)
+            return(res)
+          })
+
+#' @rdname maskEmptyImageDimensions-methods
+#' @aliases maskEmptyImageDimensions,ANY-method
+#' @export
+setMethod("maskEmptyImageDimensions", "ANY", 
+          function(img,  
+                   inds,
+                   reorient = FALSE,
+                   mask.value = 0,
+                   ...) {
+            # workaround because can't get class
+            if (inherits(img, "niftiImage")) {
+              img = check_nifti(img, reorient = reorient)
+              res = maskEmptyImageDimensions(
+                img = img, inds = inds,
+                mask.value = mask.value,  
+                ...)
+              return(res)              
+            } else {
+              stop("Not implemented for this type!")
+            }
+            return(img)
+          })
+
+
+
+
+#' @rdname maskEmptyImageDimensions-methods
 #' @export
 mask_empty_dim <- function(img, 
-                           ...,
-                           reorient = FALSE,
-                           mask.value = 0) {
-  maskEmptyImageDimensions(img = img, 
-                           ... = ...,
-                           reorient = reorient, 
-                           mask.value = mask.value)
+                            ...) {
+  maskEmptyImageDimensions(img = img, ...)
 }
