@@ -39,7 +39,7 @@ setGeneric("maskEmptyImageDimensions",
   mask = array(mask.value, dim = dim(img))
   mask[inds[[1]], inds[[2]], inds[[3]]] = 
     img[inds[[1]], inds[[2]], inds[[3]]]
-  return(img)
+  return(mask)
 }
 
 #' @rdname maskEmptyImageDimensions-methods
