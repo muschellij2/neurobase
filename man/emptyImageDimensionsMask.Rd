@@ -7,7 +7,7 @@
 \usage{
 emptyImageDimensionsMask(img, ..., reorient = FALSE)
 
-empty_dim_mask(img, ..., reorient = FALSE, mask.value = 0)
+empty_dim_mask(img, ..., reorient = FALSE)
 }
 \arguments{
 \item{img}{nifti object}

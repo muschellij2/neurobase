@@ -37,10 +37,9 @@ emptyImageDimensionsMask <- function(img,
 #' @export
 empty_dim_mask <- function(img, 
                            ...,
-                           reorient = FALSE,
-                           mask.value = 0) {
+                           reorient = FALSE) {
   maskEmptyImageDimensions(img = img, 
                            ... = ...,
-                           reorient = reorient, 
-                           mask.value = mask.value)
+                           reorient = reorient
+                           )
 }
