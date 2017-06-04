@@ -1,9 +1,9 @@
 #' @name maskEmptyImageDimensions-methods
 #' @docType methods 
 #' @aliases maskEmptyImageDimensions 
-#' @title Apply Subsetting from Empty Image Dimensions
-#' @description Simple wrapper for subsetting an image with indices, 
-#' dropping empty dimensions.  
+#' @title Apply Masking from Empty Image Dimensions
+#' @description Simple wrapper for replacing indices with a value
+#' 
 #' @param img image, nifti object, or array
 #' @param inds indices of subset from \code{\link{getEmptyImageDimensions}} or
 #' \code{\link{dropEmptyImageDimensions}}.
@@ -12,7 +12,7 @@
 #' @param ... not used
 #' @return Object of class \code{nifti} or \code{array} if \code{nifti}
 #' is not supplied
-#' @note \code{apply_empty_dim} is a shorthand for 
+#' @note \code{mask_empty_dim} is a shorthand for 
 #' \code{maskEmptyImageDimensions} with all the same arguments.
 #' @seealso \code{\link{getEmptyImageDimensions}}, 
 #' \code{\link{dropEmptyImageDimensions}} 
@@ -36,7 +36,9 @@ setGeneric("maskEmptyImageDimensions",
     stop(paste0("Only images with 3 dimensions supported, ", 
                 "as checked by length(dim(img))"))
   }
-  img[inds[[1]], inds[[2]], inds[[3]]] = mask.value
+  mask = array(mask.value, dim = dim(img))
+  mask[inds[[1]], inds[[2]], inds[[3]]] = 
+    img[inds[[1]], inds[[2]], inds[[3]]]
   return(img)
 }
 

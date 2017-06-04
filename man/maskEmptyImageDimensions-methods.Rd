@@ -13,7 +13,7 @@
 \alias{maskEmptyImageDimensions,anlz-method}
 \alias{maskEmptyImageDimensions,ANY-method}
 \alias{mask_empty_dim}
-\title{Apply Subsetting from Empty Image Dimensions}
+\title{Apply Masking from Empty Image Dimensions}
 \usage{
 maskEmptyImageDimensions(img, inds, reorient = FALSE, mask.value = 0, ...)
 
@@ -57,11 +57,10 @@ Object of class \code{nifti} or \code{array} if \code{nifti}
 is not supplied
 }
 \description{
-Simple wrapper for subsetting an image with indices, 
-dropping empty dimensions.
+Simple wrapper for replacing indices with a value
 }
 \note{
-\code{apply_empty_dim} is a shorthand for 
+\code{mask_empty_dim} is a shorthand for 
 \code{maskEmptyImageDimensions} with all the same arguments.
 }
 \seealso{
