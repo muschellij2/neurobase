@@ -1,43 +1,34 @@
-#' @title Make Mask from Empty Image Dimensions
+#' @title Replace Empty Image Dimensions with Mask Values
 #' @name maskEmptyImageDimensions
 #' @param img nifti object
 #' @param ... Arguments to be passed to \code{\link{getEmptyImageDimensions}}.
 #' @param reorient Should image be reoriented if a filename?
-#' @description Make a mask of an image that has all irrelevant
-#' values
-#' @return Object of class \code{nifti}
+#' @param mask.value Value to replace voxels outside the mask.
+#' @description Replaces values from dropped dimensions with a \code{mask.va.ue}
+#' @return Object of class \code{nifti} with the values of the 
+#' original image in the image and \code{mask.value} outside the mask
 #' @note \code{mask_empty_dim} is a shorthand for \code{maskEmptyImageDimensions}
 #' with all the same arguments.
 #' @seealso \code{\link{getEmptyImageDimensions}}  
 #' @export
 maskEmptyImageDimensions <- function(img, 
                                      ...,
-                                     reorient = FALSE) {
+                                     reorient = FALSE,
+                                     mask.value = 0) {
+  mask = emptyImageDimensionsMask(img = img, ..., reorient = reorient)
+  img[ mask == 1 ] = mask.value
   
-  img = check_nifti(img, reorient = reorient)
-  if (dim_(img)[1] > 3) {
-    stop(paste0("Only images with 3 dimensions supported, ", 
-                "as checked by dim_"))
-  }
-  inds = getEmptyImageDimensions(img = img,
-                                 reorient = reorient,
-                                 ...)
-  
-  mask = niftiarr(img, 0)
-  mask[inds[[1]], inds[[2]], inds[[3]]] = 1
-  mask@datatype <- convert.datatype()[["UINT8"]]
-  mask@bitpix <- convert.bitpix()[["UINT8"]]  
-  mask = cal_img(mask)
-  
-  return(mask)
+  return(img)
 }
 
 #' @rdname maskEmptyImageDimensions
 #' @export
 mask_empty_dim <- function(img, 
                            ...,
-                           reorient = FALSE) {
+                           reorient = FALSE,
+                           mask.value = 0) {
   maskEmptyImageDimensions(img = img, 
                            ... = ...,
-                           reorient = reorient)
+                           reorient = reorient, 
+                           mask.value = mask.value)
 }

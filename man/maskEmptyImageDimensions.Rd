@@ -3,11 +3,11 @@
 \name{maskEmptyImageDimensions}
 \alias{maskEmptyImageDimensions}
 \alias{mask_empty_dim}
-\title{Make Mask from Empty Image Dimensions}
+\title{Replace Empty Image Dimensions with Mask Values}
 \usage{
-maskEmptyImageDimensions(img, ..., reorient = FALSE)
+maskEmptyImageDimensions(img, ..., reorient = FALSE, mask.value = 0)
 
-mask_empty_dim(img, ..., reorient = FALSE)
+mask_empty_dim(img, ..., reorient = FALSE, mask.value = 0)
 }
 \arguments{
 \item{img}{nifti object}
@@ -15,13 +15,15 @@ mask_empty_dim(img, ..., reorient = FALSE)
 \item{...}{Arguments to be passed to \code{\link{getEmptyImageDimensions}}.}
 
 \item{reorient}{Should image be reoriented if a filename?}
+
+\item{mask.value}{Value to replace voxels outside the mask.}
 }
 \value{
-Object of class \code{nifti}
+Object of class \code{nifti} with the values of the 
+original image in the image and \code{mask.value} outside the mask
 }
 \description{
-Make a mask of an image that has all irrelevant
-values
+Replaces values from dropped dimensions with a \code{mask.va.ue}
 }
 \note{
 \code{mask_empty_dim} is a shorthand for \code{maskEmptyImageDimensions}
