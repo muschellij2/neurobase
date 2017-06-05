@@ -29,5 +29,5 @@ Suggests:
     httr,
     covr
 VignetteBuilder: knitr
-BugReports: https://github.com/muschellij2/nifti/issues
+BugReports: https://github.com/muschellij2/neurobase/issues
 RoxygenNote: 6.0.1
