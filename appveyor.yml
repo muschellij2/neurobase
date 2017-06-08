@@ -46,7 +46,6 @@ deploy:
   description: 'Windows Binary'
   auth_token:
     secure: tc2Va9OWLH9H/uKPUKCUmv+q+wQpzRVJd6t8ckXjqzGnOo9eWyiQCmuuUjcuM3b8
-  artifact: '*_*.zip'
   draft: false
   prerelease: false
   on:
