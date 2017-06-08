@@ -45,11 +45,11 @@ deploy:
   provider: GitHub
   description: 'Windows Binary'
   auth_token:
-    secure: rYy10bfIBZE0W+6VnNSJ53xhyD5s9DaLBf1jJiqKoMNc0YSOSC6QtQamn9XYWZkRR2xNzDZs1pYhSQJox77qFFWx4pucEQCLTeOVneQF5ataVqJ5TMY8lFl2XPE2QJsEITC7zrrB/M+aEwCJoq22vjN2XtbnOTdnumNnrYJDqmJNn3LxVBRWGm+PqWRvJBFdMCbtYSbb/SyZ7pqZqAisydABtj7o3y7IR1VG/cNn8eFNdJ95tNaU9ArqWsMz/rGCdCQ2U+tZefuf/PaVMuGy3/l8q8EhXydO1qQmuRJ9fIyuX6A0Fk8AF8muuIxzJVP1E+jOeCdCRjPdedgYo/DvTtLqzP16UQ5IW+qwM2c/scQxZ4qaDQJqvNymqMVWnIXcR9AJLpS0CwHUw2QQIgi9efSH/KToHCwAxUD/uhd2HRjHc9r020iIbJytcBwOHWYsr9vq1/Pa/5Kq1PtdBOIRqv2MCqxTwstBtox0Y1fHyuqiLzyPIsCAKVFE6KJalVDQ6cpR/Rz0MKwNpHqdxAvMpCCoQcP5p/ADacosHZTDJwSlhNF1UHzDjFzLCAn0jbtroe+nqDCJtPVsoo1wjOL7xXYSh5FlakhkR3L/T7NKkPjpBtaPPjychIHqo991XraPel2JSYAH5qG5AGNscm4Z7GR3v5D7nsQWH++ulAxkqrU=
-  artifact: \*_*.zip
+    secure: tc2Va9OWLH9H/uKPUKCUmv+q+wQpzRVJd6t8ckXjqzGnOo9eWyiQCmuuUjcuM3b8
+  artifact: \*_*.zip    
   draft: false
   prerelease: false
-  tag: $(appveyor_repo_tag_name)
   on:
     appveyor_repo_tag: true
+  #tag: $(appveyor_repo_tag_name)
     
