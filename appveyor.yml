@@ -40,3 +40,16 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
+
+deploy:
+  provider: GitHub
+  description: 'Windows Binary'
+  auth_token:
+    secure: Q9EDWwhZuTOj/ppYq/ItgKVfD2ob8LRY+EA28nDIEJVHW+xXG1ydhXA2V7dmBDKMv1HAlvGrBYd+tVXv1UomvA7La24aHDedLoSR/QTPm0Q9VCf/rvVTP0COLlLcV5KzN4WBu57phw06mO1D9KWEnXKvD8W4bAlpjsvXzbxfYggllysVjXZTuiiJMwXtTxOJmke14HmoL5qUjJhx6L/i66Gk/dqEj+BeTNuJ4mQAZuXQ5gzY0dhc2mOfhtCx1DL1d2mjyH1S4aCWv1YilnRHt6swQ3EbMm8QBT2r0k8W4Ayj/PJNNK1miB8boAz0s/TtVUxqbJb663FykBFq9h4FtMDYhZwG1ZVqxod9CWZIM7EC2u8nryRyRL3pIEuN/Zcsy8t74EM+Ckyr5XX2LCXUyBegz9FYCcmHePlDHYwH8DfyJyiXlE+aHzGnaR7OXk8E8CSFvn5cQQX3dPLpJIKQwXFcf/Zia2k+arpS1HRouDFTRbmAlf9z6RJl0gnJYVLtrW+r9Hz402owMPpH7Ig2Ray4f1rLmmuIr2HLpEyTCPHdv3wPDpkxmE38+FGYUKYorYJtNvUd5tPbD3yvjPXdG9uzbJVbVToeHx1nlRKOWQ3d1L6m4uonM93DwdqPsoQnR/POOiCjeudWObiRKDTD9U1E/FzLRcKGfYaT8YSQSDg=
+  artifact: \*_*.zip            # upload all NuGet packages to release assets
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
+    
