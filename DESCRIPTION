@@ -9,6 +9,7 @@ Description: Base package for 'Neuroconductor', which includes many helper funct
     package 'oro.nifti', for reading/writing and also other manipulation functions.
 Imports:
     methods,
+    abind,
     matrixStats,
     R.utils,
     graphics,
