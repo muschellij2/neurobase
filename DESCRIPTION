@@ -2,7 +2,11 @@ Package: neurobase
 Type: Package
 Title: 'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
 Version: 1.20.5
-Author: John Muschelli <muschellij2@gmail.com>
+Authors@R: 
+    person(given = "John",
+           family = "Muschelli",
+           role = "cre",
+           email = "muschellij2@gmail.com")
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: Base package for 'Neuroconductor', which includes many helper functions 
     that interact with objects of class 'nifti', implemented by
