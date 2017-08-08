@@ -229,6 +229,13 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
       stop("volume \"w\" out of range")
     }
     x = x[, , , w]
+    if (!is.null(y)) {
+      if (inherits(y, "nifti") || inherits(y, "anlz")) {
+        # class(y@.Data) == "numeric"
+        y = as.array(y)
+      }      
+      y = y[, , , w]
+    }
   }
   # L = list(X = 1:X,
   #          Y = 1:Y,
@@ -274,11 +281,6 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     text("I", x = X/2 - .5, y = ud.shift, las = 1, col = "white")
   }  
   if (!is.null(y)) {
-    if (inherits(y, "nifti") || inherits(y, "anlz")) {
-      # class(y@.Data) == "numeric"
-      y = as.array(y)
-    }
-    
     if (is.null(ybreaks)) {
       graphics::image(1:X, 1:Z, y[, xyz[2], ], col = col.y, 
                     zlim = zlim.y, add = add,
