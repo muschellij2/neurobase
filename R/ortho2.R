@@ -188,11 +188,12 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   #   }
   # }
   if (is.null(breaks)) {
-    breaks <- c(min(x, zlim, na.rm = TRUE), 
+    range_x_zlim = range(c(x, zlim), na.rm = TRUE)
+    breaks <- c(range_x_zlim[1],
                 seq(min(zlim, na.rm = TRUE),
                     max(zlim, na.rm = TRUE), 
                     length = length(col) - 1),
-                max(x, zlim, na.rm = TRUE))
+                range_x_zlim[2])
   }
 
   zlim.y = zlimmer(y, zlim = zlim.y)
