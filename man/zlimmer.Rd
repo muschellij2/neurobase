@@ -4,13 +4,16 @@
 \alias{zlimmer}
 \title{Find Image z-limits}
 \usage{
-zlimmer(x, zlim = NULL)
+zlimmer(x, zlim = NULL, computed_range = NULL)
 }
 \arguments{
 \item{x}{Object of class \code{nifti}}
 
 \item{zlim}{A user-specified \code{zlim}.  If \code{NULL}, will calculate how 
 \code{\link{ortho2}} would calculate \code{zlim}}
+
+\item{computed_range}{If the range of the data was already computed,
+this can be passed in and will be used if relevant.}
 }
 \value{
 If \code{zlim = NULL}, then vector of length 2, otherwise returns \code{zlim}
