@@ -12,6 +12,10 @@ install:
 
 # Adapt as necessary starting from here
 
+environment:
+  global:
+    WARNINGS_ARE_ERORRS: 1
+
 build_script:
   - travis-tool.sh install_deps
 
@@ -34,9 +38,6 @@ artifacts:
 
   - path: '*.Rcheck\**\*.Rout'
     name: Logs
-
-  - path: '\*_*.tar.gz'
-    name: Bits
 
   - path: '\*_*.zip'
     name: Bits
