@@ -29,7 +29,7 @@ check_nifti(x, reorient = FALSE, allow.array = FALSE, fast = FALSE,
   fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{array}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = TRUE)
+  fast = FALSE, need_header = FALSE)
 
 \S4method{check_nifti}{anlz}(x, reorient = FALSE, allow.array = FALSE,
   fast = FALSE, need_header = TRUE)

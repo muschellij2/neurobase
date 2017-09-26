@@ -59,7 +59,7 @@ setMethod("check_nifti", "character",
                             reorient = reorient, 
                             allow.array = allow.array,
                             fast = fast,
-                            need_header = TRUE)
+                            need_header = need_header)
               return(file)
             } else {
               if (fast) {
@@ -82,7 +82,15 @@ setMethod("check_nifti", "factor", function(
   fast = FALSE,
   need_header = TRUE) { 
   x = as.character(x)
-  return(check_nifti(x))
+  return(
+    check_nifti(
+      x,
+      reorient = reorient,
+      allow.array = allow.array,
+      fast = fast,
+      need_header = need_header
+    )
+  )
 })
 
 
@@ -99,7 +107,8 @@ setMethod("check_nifti", "list",
             file = lapply(x, check_nifti, 
                           reorient = reorient, 
                           allow.array = allow.array,
-                          fast = fast)
+                          fast = fast,
+                          need_header = need_header)
             return(file)
           })
 
@@ -112,9 +121,12 @@ setMethod("check_nifti", "array",
                    reorient=FALSE, 
                    allow.array=FALSE,
                    fast = FALSE,
-                   need_header = TRUE) { 
+                   need_header = FALSE) { 
             if (!allow.array) {
               stop("x is array but allow.array = FALSE")
+            }
+            if (need_header) {
+              stop("x is array but header is needed")
             }
             return(x)
           })
