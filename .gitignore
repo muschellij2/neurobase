@@ -3,7 +3,6 @@
 .RData
 =======
 # History files
-
 # Example code in package build process
 *-Ex.R
 # R data files from past sessions
@@ -13,3 +12,4 @@
 inst/doc
 packrat/lib*/
 vignettes/nifti_basics_cache/*
+.httr-oauth

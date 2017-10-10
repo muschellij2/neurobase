@@ -17,7 +17,11 @@
 #' sliced = slice_colour_df(df, c(5, 5, 4))
 slice_colour_df = function(
   img_df, 
-  xyz) {
+  xyz = NULL) {
+  
+  if (is.null(xyz)) {
+    xyz = floor(colMeans(img_df[, c("dim1", "dim2", "dim3")]))
+  }
   
   v3 = img_df[ img_df$dim3 == xyz[3],
                c("dim1", "dim2", "colour", "value")]

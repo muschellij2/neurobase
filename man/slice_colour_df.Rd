@@ -4,7 +4,7 @@
 \alias{slice_colour_df}
 \title{Slice a Image Color Data.frame}
 \usage{
-slice_colour_df(img_df, xyz)
+slice_colour_df(img_df, xyz = NULL)
 }
 \arguments{
 \item{img_df}{an image \code{data.frame}, usually from 
