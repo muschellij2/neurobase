@@ -82,6 +82,10 @@ zscore_img <- function(img, mask = NULL, margin= NULL,
   
   stopifnot(length(dimg) == 3)  
   if (!is.null(margin)){
+    if (centrality %in% "trimmed_mean" || 
+        variability %in% "trimmed_sd") {
+      stop("trimming not implemented when margin doesn't equal NULL")
+    }
     if (margin == 3){
       perm = 1:3
     }
