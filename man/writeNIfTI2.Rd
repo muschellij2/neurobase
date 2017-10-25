@@ -25,6 +25,9 @@ writenii(nim, filename, dtype = TRUE, drop_dim = TRUE, warn = FALSE,
 
 \item{warn}{Should warnings from \code{\link{writeNIfTI}} be 
 printed?  If not, \code{\link{suppressWarnings}} is called}
+
+\item{rm_extensions}{should niftiExtensions be converted to simple
+nifti objects before writing?}
 }
 \value{
 Nothing
