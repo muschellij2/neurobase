@@ -8,7 +8,7 @@
 writeNIfTI2(nim, filename, dtype = FALSE, compression = 9, ...)
 
 writenii(nim, filename, dtype = TRUE, drop_dim = TRUE, warn = FALSE,
-  compression = 9, ...)
+  compression = 9, rm_extensions = TRUE, ...)
 }
 \arguments{
 \item{nim}{object of class \code{nifti}, passed to \code{\link{writeNIfTI}}}

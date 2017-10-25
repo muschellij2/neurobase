@@ -30,17 +30,24 @@ writeNIfTI2 <- function(nim, filename, dtype = FALSE,
 #' @param warn Should warnings from \code{\link{writeNIfTI}} be 
 #' printed?  If not, \code{\link{suppressWarnings}} is called 
 #' @export
+#' @importFrom oro.nifti as.nifti is.niftiExtension
 writenii <- function(nim, filename, 
                      dtype = TRUE, 
                      drop_dim = TRUE, 
                      warn = FALSE, 
                      compression = 9,
+                     rm_extensions = TRUE,
                      ...){
   if (drop_dim) {
     nim = drop_img_dim(nim)
   }
   if (dtype) {
     nim = datatyper(nim, warn = warn)
+  }
+  if (oro.nifti::is.niftiExtension(nim)) {
+    if (rm_extensions) {
+      nim = as.nifti(nim)
+    }
   }
   if (warn) {
     x = oro.nifti::writeNIfTI(nim, nii.stub(filename), 
