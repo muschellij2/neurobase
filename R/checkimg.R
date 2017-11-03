@@ -51,7 +51,7 @@ setMethod("checkimg", "character", function(file, ...) {
     file = path.expand(file)
     file = file.path(dirname(file), basename(file))
     suppressWarnings({
-      file = normalizePath(file)
+      file = normalizePath(file, winslash = "/")
     })
     return(file)
   }

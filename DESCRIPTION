@@ -1,15 +1,16 @@
 Package: neurobase
 Type: Package
 Title: 'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
-Version: 1.24.0
+Version: 1.24.1
 Authors@R: person(given = "John",
            family = "Muschelli",
            role = c("aut", "cre"),
            email = "muschellij2@gmail.com")
 Maintainer: John Muschelli <muschellij2@gmail.com>
-Description: Base package for 'Neuroconductor', which includes many helper functions 
-    that interact with objects of class 'nifti', implemented by
-    package 'oro.nifti', for reading/writing and also other manipulation functions.
+Description: Base package for 'Neuroconductor', which includes many helper 
+    functions that interact with objects of class 'nifti', implemented by
+    package 'oro.nifti', for reading/writing and also other manipulation 
+    functions.
 Imports:
     methods,
     abind,
