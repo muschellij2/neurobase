@@ -44,14 +44,14 @@ setMethod("checkimg", "ANY", function(file, ...) {
 #' @export
 setMethod("checkimg", "character", function(file, ...) { 
   ### add vector capability
-  if (length(file) > 1){
+  if (length(file) > 1) {
     file = sapply(file, checkimg, ...)
     return(file)
   } else {
     file = path.expand(file)
     file = file.path(dirname(file), basename(file))
     suppressWarnings({
-      file = normalizePath(file, winslash = "/")
+      file = normalizePath(file)
     })
     return(file)
   }
