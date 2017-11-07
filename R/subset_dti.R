@@ -6,6 +6,7 @@
 #' @param b_step step of b-values to round to 
 #' @param maximum maximum b-value threshold
 #' @param shells Shells to keep (after rounding)
+#' @param verbose print diagnostic messages
 #' @param ... options passed to \code{\link{checkimg}}
 #'
 #' @return List of filenames of 

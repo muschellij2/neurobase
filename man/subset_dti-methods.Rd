@@ -39,6 +39,8 @@ subset_dti(img, bvals, bvecs, b_step = 1, maximum = Inf, shells = NULL,
 
 \item{shells}{Shells to keep (after rounding)}
 
+\item{verbose}{print diagnostic messages}
+
 \item{...}{options passed to \code{\link{checkimg}}}
 }
 \value{
