@@ -96,17 +96,17 @@ setMethod("subset_dti", "ANY",
               shells = shells,
               verbose = verbose)
             indices = L$indices
-            orig = img
-            
+            is_niftiImage = inherits(img, "niftiImage")
+            if (is_niftiImage) {
+              vals = dumpNifti(img)
+            }
             img = img[,,,indices]
-            if (inherits(orig, "niftiImage")) {
-              vals = dumpNifti(orig)
-              rm(list = "orig"); gc()
+            if (is_niftiImage) {
               img = RNifti::updateNifti(img, template = vals)
             }
-            
             img = checkimg(img, ...)
             L$img = img
+            rm(list= "img"); gc()
             return(L)
           }) 
 
