@@ -115,13 +115,13 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     if (!is.null(mask)) {
       x = apply_empty_dim(img = x, inds = keep_inds)
     }
-    if (!is.null(window)) {
-      x = window_img(x, window = window, replace = "window")
-    }
   } else {
     if (!is.null(mask)) {
       x = x[keep_inds[[1]], keep_inds[[2]], keep_inds[[3]]]    
     }
+  }
+  if (!is.null(window)) {
+    x = window_img(x, window = window, replace = "window")
   }
   
   X <- nrow(x)
