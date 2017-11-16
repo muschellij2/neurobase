@@ -65,8 +65,10 @@ zscore_img <- function(img, mask = NULL, margin= NULL,
                                        "maddiff", "iqr", "trimmed_sd"),
                        trim = 0.2,
                        remove.na = TRUE,
-                       remove.nan = TRUE, remove.inf = TRUE,
-                       remove.val = 0){
+                       remove.nan = TRUE, 
+                       remove.inf = TRUE,
+                       remove.val = 0,
+                       remask = TRUE){
   centrality = match.arg(centrality, c("mean", "median", 
                                        "trimmed_mean"))
   variability = match.arg(variability, c("sd", "iqrdiff", "mad", 
@@ -76,7 +78,10 @@ zscore_img <- function(img, mask = NULL, margin= NULL,
   dimg = dim(orig.img)
   if (is.null(mask)){
     mask = array(1, dim = dimg)  
+  } else {
+    mask = check_nifti(mask)
   }
+  check_mask_fail(mask)
   mask = check_nifti(mask, allow.array=TRUE)
   img[mask == 0] = NA
   
@@ -96,9 +101,13 @@ zscore_img <- function(img, mask = NULL, margin= NULL,
       perm = c(2, 3, 1)
     }
     revperm = match(1:3, perm)
-    img = aperm(img, perm)
     
-    vec = matrix(img, ncol=dimg[margin])
+    img = aperm(img, perm)
+    vec = matrix(img, ncol = dimg[margin])
+    
+    img = aperm(orig.img, perm)
+    orig.vec = matrix(img, ncol = dimg[margin])
+
     if (centrality == "mean") {
       m = colMeans(vec, na.rm = TRUE)
     }
@@ -121,7 +130,7 @@ zscore_img <- function(img, mask = NULL, margin= NULL,
       s = colSds(vec, na.rm = TRUE)
     }     
     
-    vecc = (t(vec) - m)/s
+    vecc = (t(orig.vec) - m)/s
     vecc = t(vecc)
     imgc = array(vecc, 
                  dim = dim(img))
@@ -162,15 +171,18 @@ zscore_img <- function(img, mask = NULL, margin= NULL,
       s = iqr(c(img), na.rm = TRUE)
     }       
     
-    imgc = (img - mn) / s
+    imgc = (orig.img - mn) / s
   }
   stopifnot(all.equal(dim(imgc), dim(orig.img)))
   if (inherits(orig.img, "nifti")) {
-    imgc = niftiarr(orig.img, imgc)
+    imgc = niftiarr(img = orig.img, imgc)
     imgc = datatyper(imgc, 
                      datatype = convert.datatype()$FLOAT32, 
                      bitpix = convert.bitpix()$FLOAT32) 
   }
+  if (remask) {
+    imgc[mask == 0] = NA
+  }  
   if (remove.na) {
     imgc[is.na(imgc)] = remove.val
   }
@@ -179,7 +191,8 @@ zscore_img <- function(img, mask = NULL, margin= NULL,
   } 
   if (remove.inf) {
     imgc[is.infinite(imgc)] = remove.val
-  }   
+  } 
+
   if (inherits(orig.img, "nifti")) {
     imgc = cal_img(imgc)
     imgc = zero_trans(imgc)
