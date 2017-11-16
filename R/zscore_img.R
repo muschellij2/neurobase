@@ -22,6 +22,7 @@
 #' @param remove.val (logical) value to put the NA/NaN/Inf
 #' @param trim if centraliy is \code{trimmed_mean} or variability is 
 #' \code{trimmed_sd}, then the amount of trimming
+#' @param remask (logical) Should the image be remasked after normalizing?
 #' @export
 #' @importFrom matrixStats colMedians 
 #' @importFrom matrixStats colSds 

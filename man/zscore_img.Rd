@@ -35,6 +35,8 @@ either mean or median}
 \item{remove.inf}{(logical) change Inf to remove.val}
 
 \item{remove.val}{(logical) value to put the NA/NaN/Inf}
+
+\item{remask}{(logical) Should the image be remasked after normalizing?}
 }
 \value{
 Array of object of class nifti
