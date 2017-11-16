@@ -14,18 +14,18 @@ flip_img <- function(img, x = FALSE, y = FALSE, z = FALSE, ...){
   if (x){
     for (i in seq(d[3])){
       x = img[,,i]
+      x = x[nrow(x):1,]
+      img@.Data[,,i] = x
+    }
+  }    
+  if (y){
+    for (i in seq(d[3])){
+      x = img[,,i]
       x = x[,ncol(x):1]
       img@.Data[,,i] = x
     }
   }
-  if (y){
-    for (i in seq(d[3])){
-      x = img[,,i]
-      x = x[nrow(x):1,]
-      img@.Data[,,i] = x
-    }
-  }  
-  if (y){
+  if (z){
     for (i in seq(d[1])){
       x = img[i,,]
       x = x[,ncol(x):1]
