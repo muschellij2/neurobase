@@ -103,10 +103,11 @@ setMethod("subset_dti", "ANY",
             img = img[,,,indices]
             if (is_niftiImage) {
               img = RNifti::updateNifti(img, template = vals)
+              rm(list = "vals"); gc(); gc()
             }
             img = checkimg(img, ...)
             L$img = img
-            rm(list= "img"); gc()
+            rm(list = "img"); gc(); gc()
             return(L)
           }) 
 
@@ -138,6 +139,7 @@ setMethod("subset_dti", "character",
                 shells = shells,
                 verbose = verbose,
                 ...)
+              gc()
               return(L)
             } else {
               if (verbose) {
