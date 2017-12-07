@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check if Objects have Same Dimensions — same_dims • neurobase</title>
+<title>Check if nifti image or read in a nifti header — check_nifti_header-methods • neurobase</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -90,37 +90,52 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check if Objects have Same Dimensions</h1>
+    <h1>Check if nifti image or read in a nifti header</h1>
     </div>
 
     
-    <p>Wrapper to check if multiple objects all have the 
-same dimensions</p>
+    <p>Simple check to see if input is character or of 
+class nifti and read in the header</p>
     
 
-    <pre class="usage"><span class='fu'>same_dims</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for nifti</span>
+<span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for character</span>
+<span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for factor</span>
+<span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for list</span>
+<span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for array</span>
+<span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for anlz</span>
+<span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for ANY</span>
+<span class='fu'>check_nifti_header</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>Arguments (matrices or arrays) where the dimension will be 
-checked against the first object's dimension</p></td>
+      <th>x</th>
+      <td><p>character path of image or 
+an object of class nifti, or array</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Logical indicating if all have the same dimensions or not</p>
+    <p>nifti object or character</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mat1</span> <span class='kw'>=</span> <span class='fu'>matrix</span>(<span class='fl'>1</span>:<span class='fl'>9</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>3</span>)
-<span class='no'>mat2</span> <span class='kw'>=</span> <span class='fu'>matrix</span>(<span class='fu'>rnorm</span>(<span class='fl'>9</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>3</span>)
-<span class='no'>mat3</span> <span class='kw'>=</span> <span class='fu'>matrix</span>(<span class='fu'>rnorm</span>(<span class='fl'>16</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>4</span>)
-<span class='no'>mat4</span> <span class='kw'>=</span> <span class='fu'>matrix</span>(<span class='fu'>rnorm</span>(<span class='fl'>9</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>3</span>)
-<span class='fu'>same_dims</span>(<span class='no'>mat1</span>, <span class='no'>mat2</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>same_dims</span>(<span class='no'>mat1</span>, <span class='no'>mat3</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>same_dims</span>(<span class='no'>mat1</span>, <span class='no'>mat2</span>, <span class='no'>mat4</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -128,9 +143,11 @@ checked against the first object's dimension</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
+
+    <h2>Author</h2>
+    
+John Muschelli <a href='mailto:muschellij2@gmail.com'>muschellij2@gmail.com</a>
 
   </div>
 </div>

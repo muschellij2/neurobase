@@ -23,14 +23,17 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-
+  
+  
 <!-- mathjax -->
-<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
   </head>
 
   <body>
@@ -49,10 +52,28 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../articles/neurobase.html">Get Started</a>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/nifti_basics.html">Sending Messages With Gmailr</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
@@ -77,7 +98,7 @@
 slices and the potential for overlays as well.</p>
     
 
-    <pre><span class='fu'>multi_overlay</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>multi_overlay</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>col.x</span> <span class='kw'>=</span> <span class='fu'>gray</span>(<span class='fl'>0</span>:<span class='fl'>64</span>/<span class='fl'>64</span>), <span class='kw'>col.y</span> <span class='kw'>=</span> <span class='fu'>hotmetal</span>(), <span class='kw'>zlim.x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>zlim.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>plane</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"axial"</span>, <span class='st'>"coronal"</span>, <span class='st'>"sagittal"</span>), <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>,
   <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"horizontal"</span>, <span class='st'>"vertical"</span>),
@@ -88,106 +109,162 @@ slices and the potential for overlays as well.</p>
   <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>x</dt>
-      <dd>List of images of class <code>nifti</code> or character vector of filenames</dd>
-      <dt>y</dt>
-      <dd>List of images of class <code>nifti</code> or character vector of filenames.
-Same length as <code>x</code>.</dd>
-      <dt>z</dt>
-      <dd>Slice to display.</dd>
-      <dt>w</dt>
-      <dd>3D volume to display if <code>x</code> has 4-D elements</dd>
-      <dt>mask</dt>
-      <dd><code>nifti</code> image to drop empty image dimensions if wanted. 
-Passed to <code><a href='dropEmptyImageDimensions.html'>dropEmptyImageDimensions</a></code></dd>
-      <dt>col.x</dt>
-      <dd>Color to display x images</dd>
-      <dt>col.y</dt>
-      <dd>Color to display y images</dd>
-      <dt>zlim.x</dt>
-      <dd>Limits for <code>x</code> to plot</dd>
-      <dt>zlim.y</dt>
-      <dd>Limits for <code>y</code> to plot</dd>
-      <dt>plane</dt>
-      <dd>the plane of acquisition to be displayed</dd>
-      <dt>xlab</dt>
-      <dd>Label for x-axis</dd>
-      <dt>ylab</dt>
-      <dd>Label for y-axis</dd>
-      <dt>axes</dt>
-      <dd>Should axes be displayed</dd>
-      <dt>direction</dt>
-      <dd>Should images be a row or column? Ignored if 
-<code>mfrow</code> is in <code>par.opts</code></dd>
-      <dt>par.opts</dt>
-      <dd>Options to pass to <code>par</code></dd>
-      <dt>text</dt>
-      <dd>Text to be displayed</dd>
-      <dt>text.x</dt>
-      <dd>Location of text in x-domain</dd>
-      <dt>text.y</dt>
-      <dd>Location of text in y-domain</dd>
-      <dt>text.cex</dt>
-      <dd>Multiplier for text font</dd>
-      <dt>text.col</dt>
-      <dd>Color for <code>text</code> and <code>main</code>.</dd>
-      <dt>main</dt>
-      <dd>Title for each plot</dd>
-      <dt>main.col</dt>
-      <dd>Color for <code>main</code>. Will default to <code>text.col</code></dd>
-      <dt>main.cex</dt>
-      <dd>Multiplier for text font. Will default to <code>text.cex</code></dd>
-      <dt>NA.x</dt>
-      <dd>Should <code>0</code>&#39;s in <code>x</code> be set to <code>NA</code>?</dd>
-      <dt>NA.y</dt>
-      <dd>Should <code>0</code>&#39;s in <code>y</code> be set to <code>NA</code>?</dd>
-      <dt>pdim</dt>
-      <dd>Pixel dimensions if passing in arrays.  Will be overridden if 
-<code>x</code> is a <code>nifti</code> object</dd>
-      <dt>useRaster</dt>
-      <dd>if <code>TRUE</code>, a bitmap raster is used to plot 
-the image instead of polygons. Passed to <code><a href='http://www.rdocumentation.org/packages/graphics/topics/image'>image</a></code></dd>
-      <dt>...</dt>
-      <dd>Additional arguments to pass to <code><a href='http://www.rdocumentation.org/packages/graphics/topics/image'>image</a></code></dd>
-    </dl>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>List of images of class <code>nifti</code> or character vector of filenames</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>List of images of class <code>nifti</code> or character vector of filenames.
+Same length as <code>x</code>.</p></td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td><p>Slice to display.</p></td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td><p>3D volume to display if <code>x</code> has 4-D elements</p></td>
+    </tr>
+    <tr>
+      <th>mask</th>
+      <td><p><code>nifti</code> image to drop empty image dimensions if wanted. 
+Passed to <code><a href='dropEmptyImageDimensions.html'>dropEmptyImageDimensions</a></code></p></td>
+    </tr>
+    <tr>
+      <th>col.x</th>
+      <td><p>Color to display x images</p></td>
+    </tr>
+    <tr>
+      <th>col.y</th>
+      <td><p>Color to display y images</p></td>
+    </tr>
+    <tr>
+      <th>zlim.x</th>
+      <td><p>Limits for <code>x</code> to plot</p></td>
+    </tr>
+    <tr>
+      <th>zlim.y</th>
+      <td><p>Limits for <code>y</code> to plot</p></td>
+    </tr>
+    <tr>
+      <th>plane</th>
+      <td><p>the plane of acquisition to be displayed</p></td>
+    </tr>
+    <tr>
+      <th>xlab</th>
+      <td><p>Label for x-axis</p></td>
+    </tr>
+    <tr>
+      <th>ylab</th>
+      <td><p>Label for y-axis</p></td>
+    </tr>
+    <tr>
+      <th>axes</th>
+      <td><p>Should axes be displayed</p></td>
+    </tr>
+    <tr>
+      <th>direction</th>
+      <td><p>Should images be a row or column? Ignored if 
+<code>mfrow</code> is in <code>par.opts</code></p></td>
+    </tr>
+    <tr>
+      <th>par.opts</th>
+      <td><p>Options to pass to <code>par</code></p></td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td><p>Text to be displayed</p></td>
+    </tr>
+    <tr>
+      <th>text.x</th>
+      <td><p>Location of text in x-domain</p></td>
+    </tr>
+    <tr>
+      <th>text.y</th>
+      <td><p>Location of text in y-domain</p></td>
+    </tr>
+    <tr>
+      <th>text.cex</th>
+      <td><p>Multiplier for text font</p></td>
+    </tr>
+    <tr>
+      <th>text.col</th>
+      <td><p>Color for <code>text</code> and <code>main</code>.</p></td>
+    </tr>
+    <tr>
+      <th>main</th>
+      <td><p>Title for each plot</p></td>
+    </tr>
+    <tr>
+      <th>main.col</th>
+      <td><p>Color for <code>main</code>. Will default to <code>text.col</code></p></td>
+    </tr>
+    <tr>
+      <th>main.cex</th>
+      <td><p>Multiplier for text font. Will default to <code>text.cex</code></p></td>
+    </tr>
+    <tr>
+      <th>NA.x</th>
+      <td><p>Should <code>0</code>'s in <code>x</code> be set to <code>NA</code>?</p></td>
+    </tr>
+    <tr>
+      <th>NA.y</th>
+      <td><p>Should <code>0</code>'s in <code>y</code> be set to <code>NA</code>?</p></td>
+    </tr>
+    <tr>
+      <th>pdim</th>
+      <td><p>Pixel dimensions if passing in arrays.  Will be overridden if 
+<code>x</code> is a <code>nifti</code> object</p></td>
+    </tr>
+    <tr>
+      <th>useRaster</th>
+      <td><p>if <code>TRUE</code>, a bitmap raster is used to plot 
+the image instead of polygons. Passed to <code><a href='http://www.rdocumentation.org/packages/graphics/topics/image'>image</a></code></p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments to pass to <code><a href='http://www.rdocumentation.org/packages/graphics/topics/image'>image</a></code></p></td>
+    </tr>
+    </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
-<span class='co'># </span>
-<span class='co'>#  if (require(brainR)) {</span>
-<span class='co'>#    visits = 1:3</span>
-<span class='co'>#    y = paste0("Visit_", visits, ".nii.gz")</span>
-<span class='co'>#    y = system.file(y, package = "brainR")</span>
-<span class='co'>#    y = lapply(y, readnii)</span>
-<span class='co'># </span>
-<span class='co'>#    y = lapply(y, function(r){</span>
-<span class='co'>#      pixdim(r) = c(0, rep(1, 3), rep(0, 4))</span>
-<span class='co'>#      dropImageDimension(r)</span>
-<span class='co'>#    })</span>
-<span class='co'># </span>
-<span class='co'>#    x = system.file("MNI152_T1_1mm_brain.nii.gz", </span>
-<span class='co'>#                  package = "brainR")</span>
-<span class='co'>#    x = readnii(x)</span>
-<span class='co'>#    mask = x &gt;0</span>
-<span class='co'>#    x = lapply(visits, function(tmp){</span>
-<span class='co'>#        x</span>
-<span class='co'>#    })</span>
-<span class='co'>#    alpha = function(col, alpha = 1) {</span>
-<span class='co'>#        cols = t(col2rgb(col, alpha = FALSE)/255)</span>
-<span class='co'>#        rgb(cols, alpha = alpha)</span>
-<span class='co'>#    }</span>
-<span class='co'>#    multi_overlay(x, y, </span>
-<span class='co'>#          col.y = alpha(hotmetal(), 0.5),</span>
-<span class='co'>#          mask = mask, </span>
-<span class='co'>#          main = paste0("\n", "Visit ", visits),</span>
-<span class='co'>#          text = LETTERS[visits],</span>
-<span class='co'>#          text.x = 0.9,</span>
-<span class='co'>#          text.y = 0.1,</span>
-<span class='co'>#          text.cex = 3)</span>
-<span class='co'>#  }</span>
-<span class='co'>## ---------------------------------------------</span></div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+ <span class='kw'>if</span> (<span class='fu'>require</span>(<span class='no'>brainR</span>)) {
+   <span class='no'>visits</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='st'>"Visit_"</span>, <span class='no'>visits</span>, <span class='st'>".nii.gz"</span>)
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'>system.file</span>(<span class='no'>y</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"brainR"</span>)
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'>lapply</span>(<span class='no'>y</span>, <span class='no'>readnii</span>)
+
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'>lapply</span>(<span class='no'>y</span>, <span class='kw'>function</span>(<span class='no'>r</span>){
+     <span class='fu'>pixdim</span>(<span class='no'>r</span>) <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fu'>rep</span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='fl'>4</span>))
+     <span class='fu'>dropImageDimension</span>(<span class='no'>r</span>)
+   })
+
+   <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'>system.file</span>(<span class='st'>"MNI152_T1_1mm_brain.nii.gz"</span>,
+                 <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"brainR"</span>)
+   <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'><a href='readNIfTI2.html'>readnii</a></span>(<span class='no'>x</span>)
+   <span class='no'>mask</span> <span class='kw'>=</span> <span class='no'>x</span> <span class='kw'>&gt;</span><span class='fl'>0</span>
+   <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'>lapply</span>(<span class='no'>visits</span>, <span class='kw'>function</span>(<span class='no'>tmp</span>){
+       <span class='no'>x</span>
+   })
+   <span class='no'>alpha</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>col</span>, <span class='no'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>) {
+       <span class='no'>cols</span> <span class='kw'>=</span> <span class='fu'>t</span>(<span class='fu'>col2rgb</span>(<span class='no'>col</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)/<span class='fl'>255</span>)
+       <span class='fu'>rgb</span>(<span class='no'>cols</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='no'>alpha</span>)
+   }
+   <span class='fu'>multi_overlay</span>(<span class='no'>x</span>, <span class='no'>y</span>,
+         <span class='kw'>col.y</span> <span class='kw'>=</span> <span class='fu'>alpha</span>(<span class='fu'>hotmetal</span>(), <span class='fl'>0.5</span>),
+         <span class='kw'>mask</span> <span class='kw'>=</span> <span class='no'>mask</span>,
+         <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='st'>"\n"</span>, <span class='st'>"Visit "</span>, <span class='no'>visits</span>),
+         <span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>LETTERS</span>[<span class='no'>visits</span>],
+         <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>0.9</span>,
+         <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
+         <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>3</span>)
+ }
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
