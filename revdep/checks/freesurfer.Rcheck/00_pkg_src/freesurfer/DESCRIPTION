@@ -1,0 +1,29 @@
+Package: freesurfer
+Type: Package
+Title: Wrapper Functions for 'Freesurfer'
+Version: 1.6.1
+Author: John Muschelli <muschellij2@gmail.com>
+Maintainer: John Muschelli <muschellij2@gmail.com>
+Description: Wrapper functions that interface with 'Freesurfer' 
+    <https://surfer.nmr.mgh.harvard.edu/>, a powerful and 
+    commonly-used 'neuroimaging'
+    software, using system commands. The goal is to be able to interface with
+    'Freesurfer' completely in R, where you pass R objects of class 'nifti',
+    implemented by package 'oro.nifti', and the function executes an 'Freesurfer'
+    command and returns an R object of class 'nifti' or necessary output.
+LazyData: true
+LazyLoad: true
+Imports: methods, neurobase, tools, R.utils, reshape2
+Depends: R (>= 3.2.0)
+License: GPL-3
+Suggests: magrittr, knitr, oro.nifti (>= 0.7), rgl, rmarkdown, pander,
+        fslr (>= 2.9.2)
+BugReports: https://github.com/muschellij2/freesurfer/issues
+SystemRequirements: Freesurfer (https://surfer.nmr.mgh.harvard.edu/)
+RoxygenNote: 6.0.1.9000
+VignetteBuilder: knitr
+Encoding: UTF-8
+NeedsCompilation: no
+Packaged: 2017-10-10 00:38:33 UTC; johnmuschelli
+Repository: CRAN
+Date/Publication: 2017-10-10 14:20:36 UTC

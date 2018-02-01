@@ -1,0 +1,129 @@
+
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "spm12r"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "spm12r-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('spm12r')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("bwconncomp")
+> ### * bwconncomp
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: bwconncomp
+> ### Title: Label Connected Clusters of Certain Size
+> ### Aliases: bwconncomp
+> 
+> ### ** Examples
+> 
+> library(neurobase)
+Loading required package: oro.nifti
+oro.nifti 0.9.4
+> set.seed(1234)
+> dims = c(30, 30, 10)
+> arr = array(rnorm(prod(dims)), dim = dims)
+> nim = nifti(arr)
+> mask = datatyper(nim > 1)
+> ## Not run: 
+> ##D cc = bwconncomp(mask)
+> ##D tab = table(c(cc))
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("bwconncomp", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching ‘package:neurobase’, ‘package:oro.nifti’
+
+> nameEx("spm12_script")
+> ### * spm12_script
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: spm12_script
+> ### Title: Find SPM12 Script
+> ### Aliases: spm12_script
+> 
+> ### ** Examples
+> 
+> spm12_script(script_name = "Segment")
+                                                                         job 
+"/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmplYHtJO/Segment_job.m" 
+                                                                      script 
+ "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmplYHtJO/Executable.m" 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("spm12_script", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("spm_probs_to_seg")
+> ### * spm_probs_to_seg
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: spm_probs_to_seg
+> ### Title: SPM Probability to Hard Segmentation
+> ### Aliases: spm_probs_to_seg
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D spm_seg = spm12_segment(image)$outfiles
+> ##D seg = spm_probs_to_seg(spm_seg)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("spm_probs_to_seg", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  1.086 0.046 1.164 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

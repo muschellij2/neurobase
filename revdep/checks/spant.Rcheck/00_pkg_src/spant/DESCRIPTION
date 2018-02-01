@@ -1,0 +1,30 @@
+Package: spant
+Type: Package
+Title: MR Spectroscopy Analysis Tools
+Version: 0.7.0
+Date: 2018-01-01
+Authors@R: c(
+  person("Martin", "Wilson", email = "martin@pipegrep.co.uk", role = c("cre","aut")),
+  person("John", "Muschelli", role = "ctb"))
+Description: Tools for reading, visualising and processing Magnetic Resonance
+    Spectroscopy data.
+BugReports: https://github.com/martin3141/spant/issues
+License: GPL-3
+RoxygenNote: 6.0.1
+LazyData: yes
+Depends: R (>= 2.10)
+Imports: abind, plyr, foreach, pracma, stringr, complexplus, signal,
+        matrixcalc, minpack.lm, nnls, utils, graphics, grDevices,
+        smoother, svd, tkrplot
+Suggests: oro.nifti, MASS, fastICA, fields, mmand, ptw, viridisLite,
+        viridis, RNifti, RNiftyReg, neurobase, knitr, magrittr,
+        rmarkdown, testthat
+VignetteBuilder: knitr
+Encoding: UTF-8
+NeedsCompilation: no
+Packaged: 2018-01-31 11:00:19 UTC; wilsonmp
+Author: Martin Wilson [cre, aut],
+  John Muschelli [ctb]
+Maintainer: Martin Wilson <martin@pipegrep.co.uk>
+Repository: CRAN
+Date/Publication: 2018-01-31 11:08:05 UTC

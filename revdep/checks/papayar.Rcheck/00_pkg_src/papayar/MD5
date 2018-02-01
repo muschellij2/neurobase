@@ -1,0 +1,17 @@
+4e4752f6294a17613340f70d761ecb18 *DESCRIPTION
+d2a62c5da084f8767789298cc3a5cb11 *NAMESPACE
+ea1cb8fc88c2b59d363e6bb6fba50d40 *R/embed_papaya.R
+e1b42ee9e0cdf645ab6ee3bfab7ed35e *R/get_papaya_version.R
+ee33e3ef8be449b566070741ded0315b *R/papaya.R
+e8f7bff923b93c6b3d487b6fe82c8783 *R/papaya_div.R
+dbcf0feb4b47e4d6b59e71564e5dc33e *R/pass_papaya.R
+8637e540de1972e655db33a5b376e27a *inst/embed.html
+e39b2b74c61509824d527b92228be4a6 *inst/index.html
+eeb703fadff80183ab382a8d9be5c7a8 *inst/papaya.css
+2b6d371f18645deffba50e3a23876b42 *inst/papaya.js
+7b590938cacf7bf340866d0d38f034e8 *man/embed_papaya.Rd
+9e8a452938028dfd6b40177cfabc7185 *man/get_papaya_version.Rd
+3d8d75b0a8dd0ab93e9d3fa33676f48b *man/papaya.Rd
+2bbe662c78aff89ad589c4f4def0a812 *man/papaya_div.Rd
+fe53909804de4b7ce91f19683850b059 *man/pass_papaya.Rd
+ce6ec6dcd24cb9baf416ba5a6decf9c8 *man/update_papaya_build.Rd

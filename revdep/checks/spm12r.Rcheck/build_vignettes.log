@@ -1,0 +1,214 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Realign: Estimate & Reslice'
+
+SPM12: spm_realign (v6070)                         13:02:19 - 01/02/2018
+========================================================================
+Completed                               :          13:03:13 - 01/02/2018
+
+SPM12: spm_reslice (v5929)                         13:03:13 - 01/02/2018
+========================================================================
+Completed                               :          13:03:40 - 01/02/2018
+Done    'Realign: Estimate & Reslice'
+Done
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Slice Timing'
+
+SPM12: spm_slice_timing (v6130)                    13:04:44 - 01/02/2018
+========================================================================
+Number of slices is...                  :                             37
+Time to Repeat (TR) is...               :                              2
+Parameters are specified as...          :                  slice indices
+Completed                               :          13:06:38 - 01/02/2018
+Done    'Slice Timing'
+Done
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpzGjvQn/meanfile173c26a0567d0.nii center of brightness differs from current origin by -120x-127x68mm in X Y Z dimensions
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Coregister: Estimate'
+
+SPM12: spm_coreg (v5669)                           13:07:16 - 01/02/2018
+========================================================================
+Completed                               :          13:07:35 - 01/02/2018
+Done    'Coregister: Estimate'
+Done
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Normalise: Estimate & Write'
+
+SPM12: spm_preproc_run (v6217)                     13:08:11 - 01/02/2018
+========================================================================
+Completed                               :          13:11:23 - 01/02/2018
+Done    'Normalise: Estimate & Write'
+Done
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpzGjvQn/113-01-T1.nii center of brightness differs from current origin by -103x-127x114mm in X Y Z dimensions
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Coregister: Estimate'
+
+SPM12: spm_coreg (v5669)                           13:13:59 - 01/02/2018
+========================================================================
+Completed                               :          13:14:30 - 01/02/2018
+Done    'Coregister: Estimate'
+Done
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Coregister: Estimate & Reslice'
+
+SPM12: spm_coreg (v5669)                           13:15:02 - 01/02/2018
+========================================================================
+Completed                               :          13:15:16 - 01/02/2018
+
+SPM12: spm_reslice (v5929)                         13:15:16 - 01/02/2018
+========================================================================
+Completed                               :          13:15:18 - 01/02/2018
+Done    'Coregister: Estimate & Reslice'
+Done
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Segment'
+
+SPM12: spm_preproc_run (v6217)                     13:15:42 - 01/02/2018
+========================================================================
+Completed                               :          13:17:49 - 01/02/2018
+Done    'Segment'
+Done
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+
+
+------------------------------------------------------------------------
+Running job #1
+------------------------------------------------------------------------
+Running 'Normalise: Write'

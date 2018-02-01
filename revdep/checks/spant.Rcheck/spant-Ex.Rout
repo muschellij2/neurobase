@@ -1,0 +1,346 @@
+
+R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "spant"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "spant-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('spant')
+Warning in fun(libname, pkgname) : couldn't connect to display ""
+Warning: loading Rplot failed
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("apply_axes")
+> ### * apply_axes
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: apply_axes
+> ### Title: Apply a function over specified array axes
+> ### Aliases: apply_axes
+> 
+> ### ** Examples
+> 
+> z <- array(1:1000, dim = c(10, 10, 10))
+> a <- apply_axes(z, 3, fft)
+[1] 2 3 1
+> a[1,1,] == fft(z[1,1,])
+ [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+> a <- apply_axes(z, 3, sum)
+> a[1,1,] == sum(z[1,1,])
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("apply_axes", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("fit_mrs")
+> ### * fit_mrs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: fit_mrs
+> ### Title: Perform a fit based analysis of MRS data.
+> ### Aliases: fit_mrs
+> 
+> ### ** Examples
+> 
+> fname <- system.file("extdata","philips_spar_sdat_WS.SDAT",package="spant")
+> svs <- read_mrs(fname, format="spar_sdat")
+> ## Not run: 
+> ##D basis <- sim_basis_1h_brain_press(svs)
+> ##D fit_result <- fit_mrs(svs, basis)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("fit_mrs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("read_mrs")
+> ### * read_mrs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: read_mrs
+> ### Title: Read MRS data from a file.
+> ### Aliases: read_mrs
+> 
+> ### ** Examples
+> 
+> fname <- system.file("extdata", "philips_spar_sdat_WS.SDAT", package = "spant")
+> mrs_data <- read_mrs(fname, format = "spar_sdat")
+> print(mrs_data)
+MRS Data Parameters
+----------------------------------
+Trans. freq (MHz)       : 127.7861
+FID data points         : 1024
+X,Y,Z dimensions        : 1x1x1
+Dynamics                : 1
+Coils                   : 1
+Voxel resolution (mm)   : 20x20x20
+Sampling frequency (Hz) : 2000
+Reference freq. (ppm)   : 4.65
+Spectral domain         : FALSE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("read_mrs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("read_mrs_dpt")
+> ### * read_mrs_dpt
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: read_mrs_dpt
+> ### Title: Read MRS data stored in dangerplot (dpt) v3 format.
+> ### Aliases: read_mrs_dpt
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D mrs_data <- read_mrs_dpt(system.file("extdata","svs.dpt",package="spant"))
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("read_mrs_dpt", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("read_mrs_tqn")
+> ### * read_mrs_tqn
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: read_mrs_tqn
+> ### Title: Read MRS data using the TARQUIN software package.
+> ### Aliases: read_mrs_tqn
+> 
+> ### ** Examples
+> 
+> fname <- system.file("extdata","philips_spar_sdat_WS.SDAT",package="spant")
+> ## Not run: 
+> ##D mrs_data <- read_mrs_tqn(fname, format="philips")
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("read_mrs_tqn", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("read_tqn_fit")
+> ### * read_tqn_fit
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: read_tqn_fit
+> ### Title: Reader for csv fit results generated by TARQUIN.
+> ### Aliases: read_tqn_fit
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D fit <- read_tqn_fit(system.file("extdata","fit.csv",package="spant"))
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("read_tqn_fit", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("read_tqn_result")
+> ### * read_tqn_result
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: read_tqn_result
+> ### Title: Reader for csv results generated by TARQUIN.
+> ### Aliases: read_tqn_result
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D result <- read_tqn_result(system.file("extdata","result.csv",package="spant"))
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("read_tqn_result", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("sim_basis_tqn")
+> ### * sim_basis_tqn
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: sim_basis_tqn
+> ### Title: Simulate a basis file using TARQUIN.
+> ### Aliases: sim_basis_tqn
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D write_basis_tqn('test.basis',mrs_data,c("--echo","0.04"))
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("sim_basis_tqn", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("sim_resonances")
+> ### * sim_resonances
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: sim_resonances
+> ### Title: Simulate a MRS data object containing a set of simulated
+> ###   resonances.
+> ### Aliases: sim_resonances
+> 
+> ### ** Examples
+> 
+> sim_data <- sim_resonances(freq = 2, lw = 5)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("sim_resonances", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("varpro_opts")
+> ### * varpro_opts
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: varpro_opts
+> ### Title: Return a list of options for VARPRO based fitting.
+> ### Aliases: varpro_opts
+> 
+> ### ** Examples
+> 
+> varpro_opts(nstart = 10)
+$nstart
+[1] 10
+
+$init_g_damping
+[1] 2
+
+$maxiters
+[1] 200
+
+$max_shift
+[1] 5
+
+$max_g_damping
+[1] 5
+
+$max_ind_damping
+[1] 5
+
+$anal_jac
+[1] TRUE
+
+$bl_smth_pts
+[1] 80
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("varpro_opts", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("write_basis_tqn")
+> ### * write_basis_tqn
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: write_basis_tqn
+> ### Title: Generate a basis file using TARQUIN.
+> ### Aliases: write_basis_tqn
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D write_basis_tqn('test.basis',mrs_data,c("--echo","0.04"))
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("write_basis_tqn", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("write_mrs_dpt_v2")
+> ### * write_mrs_dpt_v2
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: write_mrs_dpt_v2
+> ### Title: Write MRS data object to file in dangerplot (dpt) v2 format.
+> ### Aliases: write_mrs_dpt_v2
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D mrs_data <- write_mrs_dpt_v2("my_mrs_data.dpt", my_mrs_data)
+> ## End(Not run)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("write_mrs_dpt_v2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.332 0.042 0.398 0.005 0.002 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

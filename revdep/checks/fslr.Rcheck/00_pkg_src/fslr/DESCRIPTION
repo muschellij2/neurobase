@@ -1,0 +1,26 @@
+Package: fslr
+Type: Package
+Title: Wrapper Functions for FSL ('FMRIB' Software Library) from
+        Functional MRI of the Brain ('FMRIB')
+Version: 2.12
+Author: John Muschelli <muschellij2@gmail.com>
+Maintainer: John Muschelli <muschellij2@gmail.com>
+Description: Wrapper functions that interface with 'FSL' 
+    <http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/>, a powerful and commonly-used 'neuroimaging'
+    software, using system commands. The goal is to be able to interface with 'FSL'
+    completely in R, where you pass R objects of class 'nifti', implemented by
+    package 'oro.nifti', and the function executes an 'FSL' command and returns an R
+    object of class 'nifti' if desired.
+Imports: methods, matrixStats, R.utils, graphics, grDevices, stats,
+        utils
+Depends: oro.nifti (>= 0.5.0), neurobase, R (>= 3.2.0)
+License: GPL-3
+VignetteBuilder: knitr
+Suggests: knitr, rmarkdown
+BugReports: https://github.com/muschellij2/fslr/issues
+SystemRequirements: FSL <http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/>
+RoxygenNote: 6.0.1
+NeedsCompilation: no
+Packaged: 2017-03-06 23:54:13 UTC; johnmuschelli
+Repository: CRAN
+Date/Publication: 2017-03-07 01:06:25

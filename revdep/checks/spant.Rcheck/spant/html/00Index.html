@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: MR Spectroscopy Analysis Tools</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> MR Spectroscopy Analysis Tools
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;spant&rsquo; version 0.7.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<p style="text-align: center;">
+<a href="# "> </a>
+<a href="#A">A</a>
+<a href="#B">B</a>
+<a href="#C">C</a>
+<a href="#D">D</a>
+<a href="#E">E</a>
+<a href="#F">F</a>
+<a href="#G">G</a>
+<a href="#H">H</a>
+<a href="#I">I</a>
+<a href="#L">L</a>
+<a href="#M">M</a>
+<a href="#N">N</a>
+<a href="#P">P</a>
+<a href="#R">R</a>
+<a href="#S">S</a>
+<a href="#T">T</a>
+<a href="#V">V</a>
+<a href="#W">W</a>
+<a href="#Z">Z</a>
+</p>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="spant-package.html">spant-package</a></td>
+<td>spant: spectroscopy analysis tools.</td></tr>
+</table>
+
+<h2><a name="A">-- A --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="align.html">align</a></td>
+<td>Align spectra to a reference frequency using a convolution based method.</td></tr>
+<tr><td style="width: 25%;"><a href="apodise_xy.html">apodise_xy</a></td>
+<td>Apodise MRSI data in the x-y direction with a k-space hamming filter.</td></tr>
+<tr><td style="width: 25%;"><a href="append_dyns.html">append_dyns</a></td>
+<td>Append MRS data across the dynamic dimension, assumes they matched across the other dimensions.</td></tr>
+<tr><td style="width: 25%;"><a href="apply_axes.html">apply_axes</a></td>
+<td>Apply a function over specified array axes</td></tr>
+<tr><td style="width: 25%;"><a href="apply_mrs.html">apply_mrs</a></td>
+<td>Apply a function across given dimensions of a MRS data object</td></tr>
+<tr><td style="width: 25%;"><a href="apply_pvc.html">apply_pvc</a></td>
+<td>Convert default LCM/TARQUIN concentration scaling to molal units with partial volume correction.</td></tr>
+</table>
+
+<h2><a name="B">-- B --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="basis2mrs_data.html">basis2mrs_data</a></td>
+<td>Convert a basis object to an mrs_data object - where basis signals are spread across the dynamic dimension.</td></tr>
+<tr><td style="width: 25%;"><a href="beta2lw.html">beta2lw</a></td>
+<td>Covert a beta value in the time-domain to an equivalent linewidth in Hz: x * exp(-i * t * t * beta)</td></tr>
+</table>
+
+<h2><a name="C">-- C --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="calc_coil_noise_cor.html">calc_coil_noise_cor</a></td>
+<td>Calculate the noise correlation between coil elements.</td></tr>
+<tr><td style="width: 25%;"><a href="calc_coil_noise_sd.html">calc_coil_noise_sd</a></td>
+<td>Calculate the noise standard deviation for each coil element.</td></tr>
+<tr><td style="width: 25%;"><a href="calc_peak_info.html">calc_peak_info</a></td>
+<td>Search for the highest peak in a spectral region and return the frequency, height and FWHM.</td></tr>
+<tr><td style="width: 25%;"><a href="calc_sd_poly.html">calc_sd_poly</a></td>
+<td>Perform a polynomial fit, subtract and return the standard deviation of the residuals.</td></tr>
+<tr><td style="width: 25%;"><a href="calc_spec_diff.html">calc_spec_diff</a></td>
+<td>Calculate the sum of squares differences between two mrs_data objects</td></tr>
+<tr><td style="width: 25%;"><a href="calc_spec_snr.html">calc_spec_snr</a></td>
+<td>Calculate the spectral SNR.</td></tr>
+<tr><td style="width: 25%;"><a href="check_lcm.html">check_lcm</a></td>
+<td>Check LCModel can be run</td></tr>
+<tr><td style="width: 25%;"><a href="check_tqn.html">check_tqn</a></td>
+<td>Check the TARQUIN binary can be run</td></tr>
+<tr><td style="width: 25%;"><a href="comb_coils.html">comb_coils</a></td>
+<td>Combine coil data based on the first data point of a reference signal.</td></tr>
+<tr><td style="width: 25%;"><a href="comb_metab_ref.html">comb_metab_ref</a></td>
+<td>Combine a reference and metabolite mrs_data object.</td></tr>
+<tr><td style="width: 25%;"><a href="conj.html">conj</a></td>
+<td>Conjugate MRS data.</td></tr>
+<tr><td style="width: 25%;"><a href="crop_spec.html">crop_spec</a></td>
+<td>Crop 'mrs_data' object based on a frequency range.</td></tr>
+</table>
+
+<h2><a name="D">-- D --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="def_acq_paras.html">def_acq_paras</a></td>
+<td>Return a list of the default acquisition parameters.</td></tr>
+<tr><td style="width: 25%;"><a href="def_fs.html">def_fs</a></td>
+<td>Return the default sampling frequency in Hz.</td></tr>
+<tr><td style="width: 25%;"><a href="def_ft.html">def_ft</a></td>
+<td>Return the default transmitter frequency in Hz.</td></tr>
+<tr><td style="width: 25%;"><a href="def_N.html">def_N</a></td>
+<td>Return the default number of data points in the spectral dimension.</td></tr>
+<tr><td style="width: 25%;"><a href="def_ref.html">def_ref</a></td>
+<td>Return the default reference value for ppm scale.</td></tr>
+<tr><td style="width: 25%;"><a href="dyns.html">dyns</a></td>
+<td>Return the number of dynamic scans in an MRS dataset.</td></tr>
+</table>
+
+<h2><a name="E">-- E --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="ecc.html">ecc</a></td>
+<td>Eddy current correction.</td></tr>
+<tr><td style="width: 25%;"><a href="est_noise_sd.html">est_noise_sd</a></td>
+<td>Estimate the standard deviation of the noise from a segment of an mrs_data object.</td></tr>
+</table>
+
+<h2><a name="F">-- F --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="fd2td.html">fd2td</a></td>
+<td>Transform frequency-domain data to the time-domain.</td></tr>
+<tr><td style="width: 25%;"><a href="fit_diags.html">fit_diags</a></td>
+<td>Calculate diagnostic information for object of class 'fit_result'</td></tr>
+<tr><td style="width: 25%;"><a href="fit_mrs.html">fit_mrs</a></td>
+<td>Perform a fit based analysis of MRS data.</td></tr>
+<tr><td style="width: 25%;"><a href="fit_tab2csv.html">fit_tab2csv</a></td>
+<td>Write fit results table to a csv file.</td></tr>
+<tr><td style="width: 25%;"><a href="fp_corr_td.html">fp_corr_td</a></td>
+<td>Frequency and phase corretion of MRS data in the time-domain.</td></tr>
+<tr><td style="width: 25%;"><a href="fp_phase.html">fp_phase</a></td>
+<td>Return the phase of the first data point in the time-domain.</td></tr>
+<tr><td style="width: 25%;"><a href="fp_phase_correct.html">fp_phase_correct</a></td>
+<td>Perform a zeroth order phase correction based on the phase of the first data point in the time-domain.</td></tr>
+<tr><td style="width: 25%;"><a href="fs.html">fs</a></td>
+<td>Return the sampling frequency in Hz of an MRS dataset.</td></tr>
+<tr><td style="width: 25%;"><a href="ft_shift.html">ft_shift</a></td>
+<td>Perform a fft and ffshift on a vector.</td></tr>
+<tr><td style="width: 25%;"><a href="ft_shift_mat.html">ft_shift_mat</a></td>
+<td>Perform a fft and fftshift on a matrix with each column replaced by its shifted fft.</td></tr>
+</table>
+
+<h2><a name="G">-- G --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="get_1h_brain_basis_paras.html">get_1h_brain_basis_paras</a></td>
+<td>Return a list of 'mol_parameter' objects suitable for 1H brain MRS analyses.</td></tr>
+<tr><td style="width: 25%;"><a href="get_acq_paras.html">get_acq_paras</a></td>
+<td>Return acquisition parameters from a MRS data object.</td></tr>
+<tr><td style="width: 25%;"><a href="get_dyns.html">get_dyns</a></td>
+<td>Extract a subset of dynamic scans.</td></tr>
+<tr><td style="width: 25%;"><a href="get_even_dyns.html">get_even_dyns</a></td>
+<td>Return even numbered dynamic scans starting from 1 (2,4,6...).</td></tr>
+<tr><td style="width: 25%;"><a href="get_fh_dyns.html">get_fh_dyns</a></td>
+<td>Return the first half of a dynamic series</td></tr>
+<tr><td style="width: 25%;"><a href="get_fit_map.html">get_fit_map</a></td>
+<td>Get a data array from a fit result</td></tr>
+<tr><td style="width: 25%;"><a href="get_fp.html">get_fp</a></td>
+<td>Return the first time-domain data point.</td></tr>
+<tr><td style="width: 25%;"><a href="get_metab.html">get_metab</a></td>
+<td>Extract the metabolite component from an mrs_data object.</td></tr>
+<tr><td style="width: 25%;"><a href="get_mol_names.html">get_mol_names</a></td>
+<td>Return a character array of names that may be used with the 'get_mol_paras' function.</td></tr>
+<tr><td style="width: 25%;"><a href="get_mol_paras.html">get_mol_paras</a></td>
+<td>Get a 'mol_parameters' object for a named molecule.</td></tr>
+<tr><td style="width: 25%;"><a href="get_odd_dyns.html">get_odd_dyns</a></td>
+<td>Return odd numbered dynamic scans starting from 1 (1,3,5...).</td></tr>
+<tr><td style="width: 25%;"><a href="get_ref.html">get_ref</a></td>
+<td>Extract the reference component from an mrs_data object.</td></tr>
+<tr><td style="width: 25%;"><a href="get_seg_ind.html">get_seg_ind</a></td>
+<td>Get the indices of data points lying between two values (end &gt; x &gt; start).</td></tr>
+<tr><td style="width: 25%;"><a href="get_sh_dyns.html">get_sh_dyns</a></td>
+<td>Return the second half of a dynamic series</td></tr>
+<tr><td style="width: 25%;"><a href="get_slice.html">get_slice</a></td>
+<td>Return a single slice from a larger MRSI dataset.</td></tr>
+<tr><td style="width: 25%;"><a href="get_svs_voi.html">get_svs_voi</a></td>
+<td>Generate a SVS acquisition volume from an 'mrs_data' object.</td></tr>
+<tr><td style="width: 25%;"><a href="get_td_amp.html">get_td_amp</a></td>
+<td>Return an array of amplitudes derived from fitting the initial points in the time domain and extrapolating back to t=0.</td></tr>
+<tr><td style="width: 25%;"><a href="get_uncoupled_mol.html">get_uncoupled_mol</a></td>
+<td>Generate a 'mol_parameters' object for a simple spin system with one resonance.</td></tr>
+<tr><td style="width: 25%;"><a href="get_voi_seg.html">get_voi_seg</a></td>
+<td>Return the white matter, gray matter and CSF composition of a volume.</td></tr>
+<tr><td style="width: 25%;"><a href="get_voxel.html">get_voxel</a></td>
+<td>Return a single voxel from a larger mrs dataset.</td></tr>
+</table>
+
+<h2><a name="H">-- H --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="hsvd_filt.html">hsvd_filt</a></td>
+<td>HSVD based signal filter.</td></tr>
+</table>
+
+<h2><a name="I">-- I --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="ift_shift.html">ift_shift</a></td>
+<td>Perform an iffshift and ifft on a vector.</td></tr>
+<tr><td style="width: 25%;"><a href="image.mrs_data.html">image.mrs_data</a></td>
+<td>Image plot method for objects of class mrs_data.</td></tr>
+<tr><td style="width: 25%;"><a href="interleave_dyns.html">interleave_dyns</a></td>
+<td>Interleave the first and second half of a dynamic series</td></tr>
+<tr><td style="width: 25%;"><a href="int_spec.html">int_spec</a></td>
+<td>Integrate a spectral region.</td></tr>
+<tr><td style="width: 25%;"><a href="inv_even_dyns.html">inv_even_dyns</a></td>
+<td>Invert even numbered dynamic scans starting from 1 (2,4,6...).</td></tr>
+<tr><td style="width: 25%;"><a href="inv_odd_dyns.html">inv_odd_dyns</a></td>
+<td>Invert odd numbered dynamic scans starting from 1 (1,3,5...).</td></tr>
+<tr><td style="width: 25%;"><a href="is_fd.html">is_fd</a></td>
+<td>Check if the chemical shift dimension of an MRS data object is in the frequency domain</td></tr>
+</table>
+
+<h2><a name="L">-- L --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="lb.html">lb</a></td>
+<td>Apply line-broadening (apodisation) to MRS data or basis object.</td></tr>
+<tr><td style="width: 25%;"><a href="lb.html">lb.basis_set</a></td>
+<td>Apply line-broadening (apodisation) to MRS data or basis object.</td></tr>
+<tr><td style="width: 25%;"><a href="lb.html">lb.mrs_data</a></td>
+<td>Apply line-broadening (apodisation) to MRS data or basis object.</td></tr>
+<tr><td style="width: 25%;"><a href="lw2beta.html">lw2beta</a></td>
+<td>Covert a linewidth in Hz to an equivalent beta value in the time-domain ie: x * exp(-i * t * t * beta)</td></tr>
+</table>
+
+<h2><a name="M">-- M --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="mat2mrs_data.html">mat2mrs_data</a></td>
+<td>Convert a matrix (with spectral points in the row dimension and dynamics in the column dimensions) into a mrs_data object.</td></tr>
+<tr><td style="width: 25%;"><a href="mean_dyns.html">mean_dyns</a></td>
+<td>Calculate the mean dynamic data.</td></tr>
+<tr><td style="width: 25%;"><a href="mean_dyn_blocks.html">mean_dyn_blocks</a></td>
+<td>Calculate the mean of adjacent dynamic scans.</td></tr>
+<tr><td style="width: 25%;"><a href="mean_dyn_pairs.html">mean_dyn_pairs</a></td>
+<td>Calculate the pairwise means across a dynamic data set.</td></tr>
+<tr><td style="width: 25%;"><a href="median_dyns.html">median_dyns</a></td>
+<td>Calculate the median dynamic data.</td></tr>
+<tr><td style="width: 25%;"><a href="mrs_data2basis.html">mrs_data2basis</a></td>
+<td>Convert an mrs_data object to basis object - where basis signals are spread across the dynamic dimension in the MRS data.</td></tr>
+<tr><td style="width: 25%;"><a href="mrs_data2mat.html">mrs_data2mat</a></td>
+<td>Convert mrs_data object to a matrix, with spectral points in the row dimension and dynamics in the column dimension.</td></tr>
+<tr><td style="width: 25%;"><a href="mvfftshift.html">mvfftshift</a></td>
+<td>Perform a fftshift on a matrix, with each column replaced by its shifted result.</td></tr>
+</table>
+
+<h2><a name="N">-- N --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="N.html">N</a></td>
+<td>Return the number of data points in an MRS dataset.</td></tr>
+<tr><td style="width: 25%;"><a href="n2coord.html">n2coord</a></td>
+<td>Print fit coordinates from a single index.</td></tr>
+<tr><td style="width: 25%;"><a href="Nspec.html">Nspec</a></td>
+<td>Return the total number of spectra in an MRS dataset.</td></tr>
+</table>
+
+<h2><a name="P">-- P --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="phase.html">phase</a></td>
+<td>Apply phasing parameters to MRS data.</td></tr>
+<tr><td style="width: 25%;"><a href="plot.fit_result.html">plot.fit_result</a></td>
+<td>Plot the fitting results of an object of class 'fit_result'.</td></tr>
+<tr><td style="width: 25%;"><a href="plot.mrs_data.html">plot.mrs_data</a></td>
+<td>Plotting method for objects of class mrs_data.</td></tr>
+<tr><td style="width: 25%;"><a href="plot_fit_slice.html">plot_fit_slice</a></td>
+<td>Plot a 2D slice from an MRSI fit result object</td></tr>
+<tr><td style="width: 25%;"><a href="plot_fit_slice_inter.html">plot_fit_slice_inter</a></td>
+<td>Plot a 2D slice from an MRSI fit result object</td></tr>
+<tr><td style="width: 25%;"><a href="plot_slice_map.html">plot_slice_map</a></td>
+<td>Plot a slice from a 7 dimensional array</td></tr>
+<tr><td style="width: 25%;"><a href="plot_slice_map_inter.html">plot_slice_map_inter</a></td>
+<td>Plot an interactive slice map from a data array where voxels can be selected to display a corresponding spectrum</td></tr>
+<tr><td style="width: 25%;"><a href="plot_voi_overlay.html">plot_voi_overlay</a></td>
+<td>Plot a volume as an image overlay.</td></tr>
+<tr><td style="width: 25%;"><a href="plot_voi_overlay_seg.html">plot_voi_overlay_seg</a></td>
+<td>Plot a volume as an overlay on a segmented brain volume.</td></tr>
+<tr><td style="width: 25%;"><a href="ppm.html">ppm</a></td>
+<td>Return the ppm scale of an MRS dataset.</td></tr>
+<tr><td style="width: 25%;"><a href="press_ideal.html">press_ideal</a></td>
+<td>PRESS sequence with ideal pulses.</td></tr>
+<tr><td style="width: 25%;"><a href="print.fit_result.html">print.fit_result</a></td>
+<td>Print a summary of an object of class 'fit_result'.</td></tr>
+<tr><td style="width: 25%;"><a href="print.mrs_data.html">print.mrs_data</a></td>
+<td>Print a summary of mrs_data parameters.</td></tr>
+<tr><td style="width: 25%;"><a href="pulse_acquire.html">pulse_acquire</a></td>
+<td>Simple pulse and acquire sequence with ideal pulses.</td></tr>
+<tr><td style="width: 25%;"><a href="pulse_acquire_31p.html">pulse_acquire_31p</a></td>
+<td>Simple pulse and acquire sequence with ideal pulses.</td></tr>
+</table>
+
+<h2><a name="R">-- R --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="read_basis.html">read_basis</a></td>
+<td>Read a basis file in LCModel .basis format.</td></tr>
+<tr><td style="width: 25%;"><a href="read_lcm_coord.html">read_lcm_coord</a></td>
+<td>Read an LCModel formatted coord file containing fit information.</td></tr>
+<tr><td style="width: 25%;"><a href="read_mrs.html">read_mrs</a></td>
+<td>Read MRS data from a file.</td></tr>
+<tr><td style="width: 25%;"><a href="read_mrs_dpt.html">read_mrs_dpt</a></td>
+<td>Read MRS data stored in dangerplot (dpt) v3 format.</td></tr>
+<tr><td style="width: 25%;"><a href="read_mrs_tqn.html">read_mrs_tqn</a></td>
+<td>Read MRS data using the TARQUIN software package.</td></tr>
+<tr><td style="width: 25%;"><a href="read_tqn_fit.html">read_tqn_fit</a></td>
+<td>Reader for csv fit results generated by TARQUIN.</td></tr>
+<tr><td style="width: 25%;"><a href="read_tqn_result.html">read_tqn_result</a></td>
+<td>Reader for csv results generated by TARQUIN.</td></tr>
+<tr><td style="width: 25%;"><a href="rep_dyn.html">rep_dyn</a></td>
+<td>Replicate a scan in the dynamic dimension.</td></tr>
+<tr><td style="width: 25%;"><a href="resample_voi.html">resample_voi</a></td>
+<td>Resample a VOI to match a target image space.</td></tr>
+<tr><td style="width: 25%;"><a href="rm_dyns.html">rm_dyns</a></td>
+<td>Remove a subset of dynamic scans.</td></tr>
+</table>
+
+<h2><a name="S">-- S --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="scale_amp_molal_pvc.html">scale_amp_molal_pvc</a></td>
+<td>Apply partial volume correction to a fitting result object.</td></tr>
+<tr><td style="width: 25%;"><a href="scale_amp_molar.html">scale_amp_molar</a></td>
+<td>Apply water reference scaling to a fitting results object to yield metabolite quantities in millimolar (mM) units (mol/litre).</td></tr>
+<tr><td style="width: 25%;"><a href="scale_amp_ratio.html">scale_amp_ratio</a></td>
+<td>Scale fitted amplitudes to a ratio of signal amplitude.</td></tr>
+<tr><td style="width: 25%;"><a href="scale_amp_water_ratio.html">scale_amp_water_ratio</a></td>
+<td>Scale metabolite amplitudes as a ratio to the unsupressed water amplitude.</td></tr>
+<tr><td style="width: 25%;"><a href="seconds.html">seconds</a></td>
+<td>Return a time scale vector to match the FID of an MRS data object.</td></tr>
+<tr><td style="width: 25%;"><a href="set_def_acq_paras.html">set_def_acq_paras</a></td>
+<td>Set the default acquisition parameters.</td></tr>
+<tr><td style="width: 25%;"><a href="set_lcm_cmd.html">set_lcm_cmd</a></td>
+<td>Set the command to run the LCModel command-line program.</td></tr>
+<tr><td style="width: 25%;"><a href="set_ref.html">set_ref</a></td>
+<td>Set the ppm reference value (eg ppm value at 0Hz).</td></tr>
+<tr><td style="width: 25%;"><a href="set_td_pts.html">set_td_pts</a></td>
+<td>Set the number of time-domain data points, truncating or zero-filling as appropriate.</td></tr>
+<tr><td style="width: 25%;"><a href="set_tqn_cmd.html">set_tqn_cmd</a></td>
+<td>Set the command to run the TARQUIN command-line program.</td></tr>
+<tr><td style="width: 25%;"><a href="shift.html">shift</a></td>
+<td>Apply a frequency shift to MRS data</td></tr>
+<tr><td style="width: 25%;"><a href="sim_basis.html">sim_basis</a></td>
+<td>Simulate a basis set object.</td></tr>
+<tr><td style="width: 25%;"><a href="sim_basis_1h_brain_press.html">sim_basis_1h_brain_press</a></td>
+<td>Simulate a basis-set suitable for 1H brain MRS analysis acquired with a PRESS sequence. Note, ideal pulses are assumed.</td></tr>
+<tr><td style="width: 25%;"><a href="sim_basis_tqn.html">sim_basis_tqn</a></td>
+<td>Simulate a basis file using TARQUIN.</td></tr>
+<tr><td style="width: 25%;"><a href="sim_mol.html">sim_mol</a></td>
+<td>Simulate a 'mol_parameter' object.</td></tr>
+<tr><td style="width: 25%;"><a href="sim_noise.html">sim_noise</a></td>
+<td>Simulate a time-domain mrs_data object containing simulated Gaussian noise.</td></tr>
+<tr><td style="width: 25%;"><a href="sim_resonances.html">sim_resonances</a></td>
+<td>Simulate a MRS data object containing a set of simulated resonances.</td></tr>
+<tr><td style="width: 25%;"><a href="spant-package.html">spant</a></td>
+<td>spant: spectroscopy analysis tools.</td></tr>
+<tr><td style="width: 25%;"><a href="spant_mpress_drift.html">spant_mpress_drift</a></td>
+<td>Example MEGA-PRESS data with significant B0 drift.</td></tr>
+<tr><td style="width: 25%;"><a href="spin_echo_ideal.html">spin_echo_ideal</a></td>
+<td>Spin echo sequence with ideal pulses.</td></tr>
+<tr><td style="width: 25%;"><a href="spin_echo_ideal_31p.html">spin_echo_ideal_31p</a></td>
+<td>Spin echo sequence with ideal pulses.</td></tr>
+<tr><td style="width: 25%;"><a href="spm_pve2categorical.html">spm_pve2categorical</a></td>
+<td>Convert SPM style segmentation files to a single catagorical image where the numerical values map as: 0) Other, 1) CSF, 2) GM and 3) WM.</td></tr>
+<tr><td style="width: 25%;"><a href="stackplot.html">stackplot</a></td>
+<td>Produce a plot with multiple traces.</td></tr>
+<tr><td style="width: 25%;"><a href="stackplot.fit_result.html">stackplot.fit_result</a></td>
+<td>Plot the fitting results of an object of class 'fit_result' with individual basis set components shown.</td></tr>
+<tr><td style="width: 25%;"><a href="stackplot.mrs_data.html">stackplot.mrs_data</a></td>
+<td>Stackplot plotting method for objects of class mrs_data.</td></tr>
+<tr><td style="width: 25%;"><a href="sum_coils.html">sum_coils</a></td>
+<td>Calculate the sum across receiver coil elements.</td></tr>
+<tr><td style="width: 25%;"><a href="sum_dyns.html">sum_dyns</a></td>
+<td>Calculate the sum of data dynamics.</td></tr>
+</table>
+
+<h2><a name="T">-- T --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="td2fd.html">td2fd</a></td>
+<td>Transform time-domain data to the frequency-domain.</td></tr>
+<tr><td style="width: 25%;"><a href="td_conv_filt.html">td_conv_filt</a></td>
+<td>Time-domain convolution based filter.</td></tr>
+</table>
+
+<h2><a name="V">-- V --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="varpro_3_para_opts.html">varpro_3_para_opts</a></td>
+<td>Return a list of options for VARPRO based fitting with 3 free parameters:         • zero'th order phase correction         • global damping         • global frequency shift.</td></tr>
+<tr><td style="width: 25%;"><a href="varpro_opts.html">varpro_opts</a></td>
+<td>Return a list of options for VARPRO based fitting.</td></tr>
+<tr><td style="width: 25%;"><a href="vec2mrs_data.html">vec2mrs_data</a></td>
+<td>Convert a vector into a mrs_data object.</td></tr>
+</table>
+
+<h2><a name="W">-- W --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="write_basis.html">write_basis</a></td>
+<td>Write a basis object to an LCModel .basis formatted file.</td></tr>
+<tr><td style="width: 25%;"><a href="write_basis_tqn.html">write_basis_tqn</a></td>
+<td>Generate a basis file using TARQUIN.</td></tr>
+<tr><td style="width: 25%;"><a href="write_mrs_dpt_v2.html">write_mrs_dpt_v2</a></td>
+<td>Write MRS data object to file in dangerplot (dpt) v2 format.</td></tr>
+</table>
+
+<h2><a name="Z">-- Z --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="zf.html">zf</a></td>
+<td>Zero-fill MRS data in the time domain.</td></tr>
+<tr><td style="width: 25%;"><a href="zf_xy.html">zf_xy</a></td>
+<td>Zero-fill MRSI data in the k-space x-y direction.</td></tr>
+</table>
+</body></html>
