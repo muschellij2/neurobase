@@ -1,4 +1,4 @@
-#' @title writeNIfTI with default non-reoirientation
+#' @title writeNIfTI with default non-reorientation
 #' 
 #' @description  This function calls the \code{\link{writeNIfTI}} function from the 
 #' \code{oro.nifti} package, but makes sure to remove \code{.nii} extension and

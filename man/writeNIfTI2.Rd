@@ -3,7 +3,7 @@
 \name{writeNIfTI2}
 \alias{writeNIfTI2}
 \alias{writenii}
-\title{writeNIfTI with default non-reoirientation}
+\title{writeNIfTI with default non-reorientation}
 \usage{
 writeNIfTI2(nim, filename, dtype = FALSE, compression = 9, ...)
 
