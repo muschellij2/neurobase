@@ -1,4 +1,4 @@
-#' @title Find Breaks for nifti Image Ploting
+#' @title Find Breaks for nifti Image Plotting
 #' @description Helper function for plotting - returns breaks for \code{\link[graphics]{image}} 
 #' plot function for object of class \code{nifti}
 #' @param x Object of class \code{nifti}

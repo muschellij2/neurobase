@@ -12,7 +12,7 @@ img_indices(img, mask = NULL, add_values = FALSE, units = c("index",
 
 \item{mask}{Mask to be applied for indices the index}
 
-\item{add_values}{Should the value be column-binded to the matrix}
+\item{add_values}{Should the value be column-bound to the matrix}
 
 \item{units}{Should the indices be in xyz-coordinates or millimeters.}
 }

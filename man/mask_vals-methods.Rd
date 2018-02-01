@@ -32,7 +32,7 @@ mask_vals(object, mask) <- value
 }
 \description{
 Methods that act on the \code{.Data} field in a
-NIfTI/ANALYZE imaget but only on values inside a mask.
+NIfTI/ANALYZE image but only on values inside a mask.
 }
 \examples{
 img = nifti(array(rnorm(10^3), dim = rep(10, 3)))

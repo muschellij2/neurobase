@@ -2,7 +2,7 @@
 #' @docType methods 
 #' @title Extract or Replace Values Inside a Mask
 #' @description Methods that act on the \code{.Data} field in a
-#' NIfTI/ANALYZE imaget but only on values inside a mask.
+#' NIfTI/ANALYZE image but only on values inside a mask.
 #'  
 #' @param object is an object of class \code{nifti} or \code{anlz}.
 #' @param mask is an object of class \code{nifti} or \code{anlz}.

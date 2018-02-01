@@ -16,7 +16,7 @@ colours (see \code{\link{image}}}
 
 \item{labels}{labels for tick marks - see \code{\link{axis}}}
 
-\item{maxleft}{Extent the lefthand for colorbar}
+\item{maxleft}{Extent the left hand for colorbar}
 }
 \value{
 A plot

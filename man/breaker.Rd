@@ -2,7 +2,7 @@
 % Please edit documentation in R/breaker.R
 \name{breaker}
 \alias{breaker}
-\title{Find Breaks for nifti Image Ploting}
+\title{Find Breaks for nifti Image Plotting}
 \usage{
 breaker(x, zlim, col, breaks = NULL)
 }

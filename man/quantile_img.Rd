@@ -11,7 +11,7 @@ quantile_img(img, mask = NULL, ...)
 
 \item{mask}{Mask to determine cumulative distribution function (cdf) from}
 
-\item{...}{Addictional arguments to pass to \code{\link{ecdf}}}
+\item{...}{Additional arguments to pass to \code{\link{ecdf}}}
 }
 \value{
 Object of class \code{nifti}

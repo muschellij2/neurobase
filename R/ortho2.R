@@ -37,8 +37,8 @@
 #' @param ybreaks (numeric) breaks for y to passed to 
 #' \code{\link[graphics]{image}}
 #' @param addlegend (logical) add legend?
-#' @param leg.x (numeric) x coord for legend
-#' @param leg.y (numeric) y coord for legend
+#' @param leg.x (numeric) x coordinate for legend
+#' @param leg.y (numeric) y coordinate for legend
 #' @param legend (character) legend text
 #' @param leg.col (character) Colors for legend 
 #' @param leg.title (character) title for legend 
@@ -422,7 +422,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
 #' @param col a list of colors (see \code{\link{image}}
 #' @param text.col axis and text label color
 #' @param labels labels for tick marks - see \code{\link{axis}}
-#' @param maxleft Extent the lefthand for colorbar
+#' @param maxleft Extent the left hand for colorbar
 #' @note Much of this was taken from \code{vertical.image.legend} from
 #' the \code{aqfig} package
 #' @import graphics

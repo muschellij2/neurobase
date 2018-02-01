@@ -79,9 +79,9 @@ the fourth (unused) pane.}
 
 \item{addlegend}{(logical) add legend?}
 
-\item{leg.x}{(numeric) x coord for legend}
+\item{leg.x}{(numeric) x coordinate for legend}
 
-\item{leg.y}{(numeric) y coord for legend}
+\item{leg.y}{(numeric) y coordinate for legend}
 
 \item{legend}{(character) legend text}
 

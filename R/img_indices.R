@@ -4,7 +4,7 @@
 #' 
 #' @param img Object of class \code{nifti}
 #' @param mask Mask to be applied for indices the index
-#' @param add_values Should the value be column-binded to the matrix
+#' @param add_values Should the value be column-bound to the matrix
 #' @param units Should the indices be in xyz-coordinates or millimeters. 
 #'
 #' @return Matrix of 3 columns if \code{add_values = FALSE} or 4 columns, 

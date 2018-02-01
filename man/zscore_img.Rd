@@ -25,7 +25,7 @@ either mean or median}
 
 \item{variability}{(character) Measure to scale the data}
 
-\item{trim}{if centraliy is \code{trimmed_mean} or variability is 
+\item{trim}{if centrality is \code{trimmed_mean} or variability is 
 \code{trimmed_sd}, then the amount of trimming}
 
 \item{remove.na}{(logical) change NAs to remove.val}

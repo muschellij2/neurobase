@@ -3,7 +3,7 @@
 #' after applying the mask
 #' @param img Character vector, or object of class \code{nifti}
 #' @param mask Mask to determine cumulative distribution function (cdf) from
-#' @param ... Addictional arguments to pass to \code{\link{ecdf}}
+#' @param ... Additional arguments to pass to \code{\link{ecdf}}
 #' @return Object of class \code{nifti}
 #' @export
 quantile_img = function(img, 

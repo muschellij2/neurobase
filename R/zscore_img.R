@@ -20,7 +20,7 @@
 #' @param remove.nan (logical) change NaN to remove.val
 #' @param remove.inf (logical) change Inf to remove.val
 #' @param remove.val (logical) value to put the NA/NaN/Inf
-#' @param trim if centraliy is \code{trimmed_mean} or variability is 
+#' @param trim if centrality is \code{trimmed_mean} or variability is 
 #' \code{trimmed_sd}, then the amount of trimming
 #' @param remask (logical) Should the image be remasked after normalizing?
 #' @export

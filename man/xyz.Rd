@@ -7,7 +7,7 @@
 xyz(...)
 }
 \arguments{
-\item{...}{Arguments ppssed to \code{\link{cog}}}
+\item{...}{Arguments passed to \code{\link{cog}}}
 }
 \value{
 Vector of length 3

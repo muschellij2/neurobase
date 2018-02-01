@@ -35,7 +35,7 @@ cog = function(img, thresh = 0, ceil = FALSE, warn = TRUE){
 #' @title Image Center of Gravity Wrapper
 #' @description Find Center of Gravity of Image, after thresholding and
 #' take ceiling (wrapper for \code{\link{cog}})
-#' @param ... Arguments ppssed to \code{\link{cog}}
+#' @param ... Arguments passed to \code{\link{cog}}
 #' @return Vector of length 3
 #' @note Just a convenience wrapper for \code{cog(ceil=TRUE)}
 #' @export

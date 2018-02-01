@@ -19,7 +19,7 @@ have dimensions same as this value}
 Object of class \code{\link{nifti}}
 }
 \description{
-This funtion is the reverse of \code{dropEmptyImageDimensions}.
+This function is the reverse of \code{dropEmptyImageDimensions}.
 If \code{dropEmptyImageDimensions} was run, and the output is a list, 
 usually if \code{keep_ind = TRUE}, this function reverses that.
 }
