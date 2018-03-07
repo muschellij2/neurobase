@@ -67,35 +67,35 @@
 #' arr_x = as.array(x)
 #' arr_y = as.array(y)
 #' ortho2( arr_x)
-#' ortho2( arr_x, arr_y)
+#' ortho2( arr_x, arr_y, useRaster = FALSE)
 ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64), 
-                   col.y = oro.nifti::hotmetal(), zlim = NULL, zlim.y = NULL, 
-                   NA.x = FALSE,
-                   NA.y = TRUE,
-                   crosshairs = TRUE, 
-                   col.crosshairs = "red", xlab = "", ylab = "", axes = FALSE, 
-                   oma = c(0, 0, 0, ifelse(ycolorbar, 5, 0)), 
-                   mar = rep(0, 4), bg = "black", text = NULL, 
-                   text.color = "white", text.cex = 2, 
-                   text.x=32,
-                   text.y=32,
-                   add.orient=TRUE,
-                   mfrow=c(2,2), ybreaks = NULL, breaks=NULL,
-                   addlegend = FALSE,
-                   leg.x=32,
-                   leg.y=32,
-                   legend,
-                   leg.col,
-                   leg.title = NULL,
-                   leg.cex,
-                   window=NULL,
-                   ycolorbar = FALSE,
-                   clabels = TRUE,
-                   add = TRUE,
-                   pdim = NULL,
+                  col.y = oro.nifti::hotmetal(), zlim = NULL, zlim.y = NULL, 
+                  NA.x = FALSE,
+                  NA.y = TRUE,
+                  crosshairs = TRUE, 
+                  col.crosshairs = "red", xlab = "", ylab = "", axes = FALSE, 
+                  oma = c(0, 0, 0, ifelse(ycolorbar, 5, 0)), 
+                  mar = rep(0, 4), bg = "black", text = NULL, 
+                  text.color = "white", text.cex = 2, 
+                  text.x=32,
+                  text.y=32,
+                  add.orient=TRUE,
+                  mfrow=c(2,2), ybreaks = NULL, breaks=NULL,
+                  addlegend = FALSE,
+                  leg.x=32,
+                  leg.y=32,
+                  legend,
+                  leg.col,
+                  leg.title = NULL,
+                  leg.cex,
+                  window=NULL,
+                  ycolorbar = FALSE,
+                  clabels = TRUE,
+                  add = TRUE,
+                  pdim = NULL,
                   useRaster = TRUE,
                   mask = NULL,
-                   ...) 
+                  ...) 
 {
   if (!is.null(mask)) {
     mask = check_nifti(mask, allow.array = TRUE)
@@ -175,7 +175,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     stop("size of NIfTI volume is zero, nothing to plot")
   }  
   zlim = zlimmer(x, zlim = zlim, computed_range = range_x)
-
+  
   if (is.null(breaks)) {
     range_x_zlim = range(c(range_x, zlim), na.rm = TRUE)
     breaks <- c(range_x_zlim[1],
@@ -184,7 +184,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                     length = length(col) - 1),
                 range_x_zlim[2])
   }
-
+  
   zlim.y = zlimmer(y, zlim = zlim.y, computed_range = range_y)
   
   oldpar <- par(no.readonly = TRUE)
@@ -258,18 +258,18 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
       graphics::image(1:X, 1:Z, y[, xyz[2], ], col = col.y, 
-                    zlim = zlim.y, add = add,
-                    asp = ifelse(add, NA, pdim[4]/pdim[2]),
-                    axes = axes,
-                    useRaster = useRaster
-                    )
+                      zlim = zlim.y, add = add,
+                      asp = ifelse(add, NA, pdim[4]/pdim[2]),
+                      axes = axes,
+                      useRaster = useRaster
+      )
     } else {
       graphics::image(1:X, 1:Z, y[, xyz[2], ], col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[4]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster
-                      )
+      )
     }
   }
   if (crosshairs) {
@@ -297,18 +297,18 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
       graphics::image(1:Y, 1:Z, y[xyz[1], , ], col = col.y, 
-                    zlim = zlim.y, add = add,
-                    asp = ifelse(add, NA, pdim[4]/pdim[3]),
-                    axes = axes,
-                    useRaster = useRaster
-                    )
+                      zlim = zlim.y, add = add,
+                      asp = ifelse(add, NA, pdim[4]/pdim[3]),
+                      axes = axes,
+                      useRaster = useRaster
+      )
     } else {
       graphics::image(1:Y, 1:Z, y[xyz[1], , ], col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[4]/pdim[3]),
                       axes = axes,
                       useRaster = useRaster
-                      )
+      )
     }
   }
   if (crosshairs) {
@@ -341,14 +341,14 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster
-                      )
+      )
     } else {
       graphics::image(1:X, 1:Y, y[, , xyz[3]], col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster
-                      )
+      )
     }
   }
   if (crosshairs) {
@@ -364,25 +364,25 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!is.null(text) | addlegend) {
     suppressWarnings({
       graphics::image(1:64, 1:64, matrix(NA, 64, 64), xlab = "", 
-                    ylab = "", axes = FALSE,
-                    useRaster = useRaster,
-                    ...)
+                      ylab = "", axes = FALSE,
+                      useRaster = useRaster,
+                      ...)
     })
     if (addlegend) {
       legend(x = leg.x, y = leg.y, 
-           legend = legend, 
-           pch = rep(15, length(leg.col)),
-           col = leg.col, 
-           cex = leg.cex, 
-           text.col = "white",
-           title = leg.title)    
+             legend = legend, 
+             pch = rep(15, length(leg.col)),
+             col = leg.col, 
+             cex = leg.cex, 
+             text.col = "white",
+             title = leg.title)    
     }
     if (!is.null(text)) {
       text(labels = text, x = text.x, y = text.y, col = 
              text.color, cex = text.cex)
     }    
   }
-
+  
   par(oldpar)
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
@@ -400,10 +400,10 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
       }
     } else {
       if (ycolorbar) {
-            alpha = function(col, alpha = 1) {
-              cols = t(col2rgb(col, alpha = FALSE)/255)
-              rgb(cols, alpha = alpha)
-            }        
+        alpha = function(col, alpha = 1) {
+          cols = t(col2rgb(col, alpha = FALSE)/255)
+          rgb(cols, alpha = alpha)
+        }        
         colorbar(breaks = ybreaks, col = alpha(col.y, 1), 
                  text.col = "white", 
                  labels = clabels)
@@ -429,12 +429,12 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
 #' @export
 #' @return A plot
 colorbar <- function(breaks, #the minimum and maximum z values for which 
-                      # colors should be plotted (see \code{\link{image}})
+                     # colors should be plotted (see \code{\link{image}})
                      col, # a list of colors (see \code{\link{image}})
                      text.col = "white", # axis and text label color
                      labels = TRUE,
                      maxleft = 0.95
-                     ){
+){
   # taken from vertical.image.legend from package aqfig
   starting.par.settings <- par(no.readonly = TRUE)
   mai <- par("mai")

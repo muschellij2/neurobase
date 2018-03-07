@@ -124,7 +124,7 @@ ortho2(x, y)
 arr_x = as.array(x)
 arr_y = as.array(y)
 ortho2( arr_x)
-ortho2( arr_x, arr_y)
+ortho2( arr_x, arr_y, useRaster = FALSE)
 }
 \seealso{
 \link{orthographic}
