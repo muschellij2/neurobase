@@ -93,7 +93,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                   clabels = TRUE,
                   add = TRUE,
                   pdim = NULL,
-                  useRaster = TRUE,
+                  useRaster = is.null(y),
                   mask = NULL,
                   ...) 
 {

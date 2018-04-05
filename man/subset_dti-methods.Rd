@@ -6,7 +6,6 @@
 \alias{subset_dti}
 \alias{subset_dti,nifti-method}
 \alias{subset_dti,ANY-method}
-\alias{subset_dti,nifti-method}
 \alias{subset_dti,character-method}
 \alias{subset_dti,list-method}
 \title{Subset DTI data based on b-values

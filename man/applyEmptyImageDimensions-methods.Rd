@@ -6,7 +6,6 @@
 \alias{applyEmptyImageDimensions}
 \alias{applyEmptyImageDimensions,nifti-method}
 \alias{applyEmptyImageDimensions,character-method}
-\alias{applyEmptyImageDimensions,nifti-method}
 \alias{applyEmptyImageDimensions,factor-method}
 \alias{applyEmptyImageDimensions,list-method}
 \alias{applyEmptyImageDimensions,array-method}
