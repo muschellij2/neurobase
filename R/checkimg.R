@@ -5,13 +5,14 @@
 #' image or \code{nifti}.  
 #' @title Force object to filename 
 #' @param file character or \code{nifti} object
+#' @param allow_array allow arrays to be passed in
 #' @param ... options passed to \code{\link{tempimg}}
 #' @return character filename of image or temporary nii, 
 #' with .nii extension
 #' 
 #' @export
 #' @author John Muschelli \email{muschellij2@@gmail.com}
-setGeneric("checkimg", function(file, ...) standardGeneric("checkimg"))
+setGeneric("checkimg", function(file, allow_array, ...) standardGeneric("checkimg"))
 
 #' @rdname checkimg-methods
 #' @aliases checkimg,nifti-method
@@ -25,13 +26,19 @@ setMethod("checkimg", "nifti", function(file, ...) {
 #' @rdname checkimg-methods
 #' @aliases checkimg,ANY-method
 #' @export
-setMethod("checkimg", "ANY", function(file, ...) {
+setMethod("checkimg", "ANY", function(file, allow_array = FALSE, ...) {
             # workaround because can't get class
             if (inherits(file, "niftiImage")) {
               tfile = tempfile(fileext = ".nii.gz")
               RNifti::writeNifti(image = file, file = tfile, ...)
               return(tfile)
             } else {
+              if (allow_array) {
+                if (is.array(file)) {
+                  file = as.nifti(file)
+                  return(checkimg(file, ...))
+                }
+              }
               stop("Not implemented for this type!")
             }
             return(file)
