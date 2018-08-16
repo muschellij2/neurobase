@@ -10,15 +10,15 @@
 \alias{checkimg,list-method}
 \title{Force object to filename}
 \usage{
-checkimg(file, allow_array, ...)
+checkimg(file, allow_array = FALSE, ...)
 
-\S4method{checkimg}{nifti}(file, allow_array, ...)
+\S4method{checkimg}{nifti}(file, allow_array = FALSE, ...)
 
 \S4method{checkimg}{ANY}(file, allow_array = FALSE, ...)
 
-\S4method{checkimg}{character}(file, allow_array, ...)
+\S4method{checkimg}{character}(file, allow_array = FALSE, ...)
 
-\S4method{checkimg}{list}(file, allow_array, ...)
+\S4method{checkimg}{list}(file, allow_array = FALSE, ...)
 }
 \arguments{
 \item{file}{character or \code{nifti} object}

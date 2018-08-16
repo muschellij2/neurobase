@@ -12,7 +12,8 @@
 #' 
 #' @export
 #' @author John Muschelli \email{muschellij2@@gmail.com}
-setGeneric("checkimg", function(file, allow_array, ...) standardGeneric("checkimg"))
+setGeneric("checkimg", function(file, 
+                                allow_array = FALSE, ...) standardGeneric("checkimg"))
 
 #' @rdname checkimg-methods
 #' @aliases checkimg,nifti-method
