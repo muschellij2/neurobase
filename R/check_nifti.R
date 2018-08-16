@@ -21,6 +21,10 @@
 #' conjunction with \code{allow.array}
 #' @export 
 #' @author John Muschelli \email{muschellij2@@gmail.com} 
+#' 
+#' @examples 
+#' x = nifti()
+#' check_nifti(x)
 setGeneric("check_nifti", 
            function(x, reorient=FALSE, 
                     allow.array=FALSE,

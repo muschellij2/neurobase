@@ -63,6 +63,10 @@ nifti object or array if allow.array=TRUE and x is an array
 Simple check to see if input is character or of 
 class nifti
 }
+\examples{
+x = nifti()
+check_nifti(x)
+}
 \seealso{
 \link{readnii}
 }
