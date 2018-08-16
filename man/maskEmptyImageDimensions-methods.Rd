@@ -6,7 +6,6 @@
 \alias{maskEmptyImageDimensions}
 \alias{maskEmptyImageDimensions,nifti-method}
 \alias{maskEmptyImageDimensions,character-method}
-\alias{maskEmptyImageDimensions,nifti-method}
 \alias{maskEmptyImageDimensions,factor-method}
 \alias{maskEmptyImageDimensions,list-method}
 \alias{maskEmptyImageDimensions,array-method}
@@ -15,13 +14,14 @@
 \alias{mask_empty_dim}
 \title{Apply Masking from Empty Image Dimensions}
 \usage{
-maskEmptyImageDimensions(img, inds, reorient = FALSE, mask.value = 0, ...)
+maskEmptyImageDimensions(img, inds, reorient = FALSE, mask.value = 0,
+  ...)
 
 \S4method{maskEmptyImageDimensions}{nifti}(img, inds, reorient = FALSE,
   mask.value = 0, ...)
 
-\S4method{maskEmptyImageDimensions}{character}(img, inds, reorient = FALSE,
-  mask.value = 0, ...)
+\S4method{maskEmptyImageDimensions}{character}(img, inds,
+  reorient = FALSE, mask.value = 0, ...)
 
 \S4method{maskEmptyImageDimensions}{factor}(img, inds, reorient = FALSE,
   mask.value = 0, ...)

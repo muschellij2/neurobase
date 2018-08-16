@@ -6,7 +6,6 @@
 \alias{applyEmptyImageDimensions}
 \alias{applyEmptyImageDimensions,nifti-method}
 \alias{applyEmptyImageDimensions,character-method}
-\alias{applyEmptyImageDimensions,nifti-method}
 \alias{applyEmptyImageDimensions,factor-method}
 \alias{applyEmptyImageDimensions,list-method}
 \alias{applyEmptyImageDimensions,array-method}
@@ -17,20 +16,26 @@
 \usage{
 applyEmptyImageDimensions(img, inds, reorient = FALSE, ...)
 
-\S4method{applyEmptyImageDimensions}{nifti}(img, inds, reorient = FALSE, ...)
-
-\S4method{applyEmptyImageDimensions}{character}(img, inds, reorient = FALSE,
+\S4method{applyEmptyImageDimensions}{nifti}(img, inds, reorient = FALSE,
   ...)
 
-\S4method{applyEmptyImageDimensions}{factor}(img, inds, reorient = FALSE, ...)
+\S4method{applyEmptyImageDimensions}{character}(img, inds,
+  reorient = FALSE, ...)
 
-\S4method{applyEmptyImageDimensions}{list}(img, inds, reorient = FALSE, ...)
+\S4method{applyEmptyImageDimensions}{factor}(img, inds, reorient = FALSE,
+  ...)
 
-\S4method{applyEmptyImageDimensions}{array}(img, inds, reorient = FALSE, ...)
+\S4method{applyEmptyImageDimensions}{list}(img, inds, reorient = FALSE,
+  ...)
 
-\S4method{applyEmptyImageDimensions}{anlz}(img, inds, reorient = FALSE, ...)
+\S4method{applyEmptyImageDimensions}{array}(img, inds, reorient = FALSE,
+  ...)
 
-\S4method{applyEmptyImageDimensions}{ANY}(img, inds, reorient = FALSE, ...)
+\S4method{applyEmptyImageDimensions}{anlz}(img, inds, reorient = FALSE,
+  ...)
+
+\S4method{applyEmptyImageDimensions}{ANY}(img, inds, reorient = FALSE,
+  ...)
 
 apply_empty_dim(img, ...)
 }

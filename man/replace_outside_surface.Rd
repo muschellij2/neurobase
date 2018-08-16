@@ -4,8 +4,8 @@
 \alias{replace_outside_surface}
 \title{Replace Values Outside Surface of image}
 \usage{
-replace_outside_surface(img, value = 0, threshold = 0, replace_value = NA,
-  reorient = FALSE)
+replace_outside_surface(img, value = 0, threshold = 0,
+  replace_value = NA, reorient = FALSE)
 }
 \arguments{
 \item{img}{nifti object or array}

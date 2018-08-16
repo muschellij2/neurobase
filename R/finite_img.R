@@ -23,6 +23,14 @@ setMethod("finite_img", "nifti", function(img, replace = 0) {
 })
 
 #' @rdname finite_img-methods
+#' @aliases finite_img,array-method
+#' @export
+setMethod("finite_img", "array", function(img, replace = 0) { 
+  img[ !is.finite(img) ] = replace
+  return(img)
+})
+
+#' @rdname finite_img-methods
 #' @aliases finite_img,ANY-method
 #' @export
 setMethod("finite_img", "ANY", function(img, replace = 0) { 

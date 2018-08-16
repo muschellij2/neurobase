@@ -6,13 +6,13 @@
 \usage{
 multi_overlay(x, y = NULL, z = NULL, w = 1, mask = NULL,
   col.x = gray(0:64/64), col.y = hotmetal(), zlim.x = NULL,
-  zlim.y = NULL, plane = c("axial", "coronal", "sagittal"), xlab = "",
-  ylab = "", axes = FALSE, direction = c("horizontal", "vertical"),
-  par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg = "black"),
-  text = NULL, text.x = 0.5, text.y = 1.4, text.cex = 2.5,
-  text.col = "white", main = NULL, main.col = text.col,
-  main.cex = text.cex, NA.x = TRUE, NA.y = TRUE, pdim = NULL,
-  useRaster = TRUE, ...)
+  zlim.y = NULL, plane = c("axial", "coronal", "sagittal"),
+  xlab = "", ylab = "", axes = FALSE, direction = c("horizontal",
+  "vertical"), par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg =
+  "black"), text = NULL, text.x = 0.5, text.y = 1.4,
+  text.cex = 2.5, text.col = "white", main = NULL,
+  main.col = text.col, main.cex = text.cex, NA.x = TRUE,
+  NA.y = TRUE, pdim = NULL, useRaster = TRUE, ...)
 }
 \arguments{
 \item{x}{List of images of class \code{nifti} or character vector of filenames}

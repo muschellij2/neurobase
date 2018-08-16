@@ -5,6 +5,7 @@
 \alias{finite_img-methods}
 \alias{finite_img}
 \alias{finite_img,nifti-method}
+\alias{finite_img,array-method}
 \alias{finite_img,ANY-method}
 \alias{finite_img,character-method}
 \alias{finite_img,list-method}
@@ -13,6 +14,8 @@
 finite_img(img, replace = 0)
 
 \S4method{finite_img}{nifti}(img, replace = 0)
+
+\S4method{finite_img}{array}(img, replace = 0)
 
 \S4method{finite_img}{ANY}(img, replace = 0)
 

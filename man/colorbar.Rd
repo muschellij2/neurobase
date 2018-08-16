@@ -4,7 +4,8 @@
 \alias{colorbar}
 \title{Add a colorbar to an ortho2 object}
 \usage{
-colorbar(breaks, col, text.col = "white", labels = TRUE, maxleft = 0.95)
+colorbar(breaks, col, text.col = "white", labels = TRUE,
+  maxleft = 0.95)
 }
 \arguments{
 \item{breaks}{a set of finite numeric breakpoints for the 

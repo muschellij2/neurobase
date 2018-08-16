@@ -19,11 +19,11 @@ check_nifti(x, reorient = FALSE, allow.array = FALSE, fast = FALSE,
 \S4method{check_nifti}{nifti}(x, reorient = FALSE, allow.array = FALSE,
   fast = FALSE, need_header = TRUE)
 
-\S4method{check_nifti}{character}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = TRUE)
+\S4method{check_nifti}{character}(x, reorient = FALSE,
+  allow.array = FALSE, fast = FALSE, need_header = TRUE)
 
-\S4method{check_nifti}{factor}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = TRUE)
+\S4method{check_nifti}{factor}(x, reorient = FALSE,
+  allow.array = FALSE, fast = FALSE, need_header = TRUE)
 
 \S4method{check_nifti}{list}(x, reorient = FALSE, allow.array = FALSE,
   fast = FALSE, need_header = TRUE)
