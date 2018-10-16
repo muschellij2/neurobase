@@ -36,16 +36,17 @@ rescale_img = function(filename,
   # slope = as.numeric(img@scl_slope)
   # img = (img * slope + inter)
   r = range(c(img))
-  if (r[1] >= min.val & r[2] <= max.val){
-    return(img)
+  if (!(r[1] >= min.val & r[2] <= max.val)) {
+    img[img < min.val] = min.val
+    img[img > max.val] = max.val
   }
-  img[img < min.val] = min.val
-  img[img > max.val] = max.val
+
   img = zero_trans(img)
-  if (ROIformat) img[img < 0] = 0
+  if (ROIformat) {
+    img[img < 0] = 0
+  }
   img = cal_img(img)
   descrip(img) = paste0("written by ", writer, " - ", descrip(img))
-  
   img = drop_img_dim(img)
   #### create histograms
   if (!is.null(pngname)){
