@@ -4,10 +4,14 @@
 \alias{robust_window}
 \title{Window image based on quantiles of Image}
 \usage{
-robust_window(img, probs = c(0, 0.999), ..., mask = NULL)
+robust_window(img, non_zero = FALSE, probs = c(0, 0.999), ...,
+  mask = NULL)
 }
 \arguments{
 \item{img}{object of class nifti}
+
+\item{non_zero}{Should zeroes be excluded from the calculation
+of quantiles?}
 
 \item{probs}{quantiles to constrain the image these define the window sent to \code{\link{window_img}}}
 
