@@ -12,9 +12,7 @@
 #' @export 
 #' @author John Muschelli \email{muschellij2@@gmail.com} 
 setGeneric("check_nifti_header", 
-           function(x) {
-             standardGeneric("check_nifti_header")
-           })
+           function(x) standardGeneric("check_nifti_header"))
 
 #' @rdname check_nifti_header-methods
 #' @aliases check_nifti_header,nifti-method

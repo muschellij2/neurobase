@@ -22,9 +22,7 @@ setGeneric("maskEmptyImageDimensions",
                     inds,
                     reorient = FALSE,
                     mask.value = 0,
-                    ...) {
-             standardGeneric("maskEmptyImageDimensions")
-           }) 
+                    ...) standardGeneric("maskEmptyImageDimensions"))
 
 .maskEmptyImageDimensions <- function(img, 
                                       inds,

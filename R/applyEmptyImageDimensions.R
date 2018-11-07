@@ -20,9 +20,7 @@ setGeneric("applyEmptyImageDimensions",
            function(img, 
                     inds,
                     reorient = FALSE,
-                    ...) {
-             standardGeneric("applyEmptyImageDimensions")
-           }) 
+                    ...) standardGeneric("applyEmptyImageDimensions"))
 
 .applyEmptyImageDimensions <- function(img, 
                                        inds,

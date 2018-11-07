@@ -29,9 +29,7 @@ setGeneric("check_nifti",
            function(x, reorient=FALSE, 
                     allow.array=FALSE,
                     fast = FALSE,
-                    need_header = TRUE) {
-             standardGeneric("check_nifti")
-           })
+                    need_header = TRUE) standardGeneric("check_nifti"))
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,nifti-method

@@ -40,9 +40,7 @@
 #' @export 
 setGeneric("separate_img", function(img, 
                                     levels = NULL,
-                                    drop_zero = TRUE) {
-  standardGeneric("separate_img")
-})
+                                    drop_zero = TRUE) standardGeneric("separate_img"))
 
 #' @rdname separate_img-methods
 #' @aliases separate_img,nifti-method

@@ -9,9 +9,7 @@
 #' @param replace Value to replace non-finite values to
 #' @export 
 #' @author John Muschelli \email{muschellij2@@gmail.com} 
-setGeneric("finite_img", function(img, replace = 0) {
-  standardGeneric("finite_img")
-})
+setGeneric("finite_img", function(img, replace = 0) standardGeneric("finite_img"))
 
 #' @rdname finite_img-methods
 #' @aliases finite_img,nifti-method

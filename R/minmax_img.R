@@ -9,9 +9,7 @@
 #' @param img character path of image or 
 #' an object of class \code{nifti}, or list of images
 #' @export 
-setGeneric("minmax_img", function(img) {
-  standardGeneric("minmax_img")
-})
+setGeneric("minmax_img", function(img) standardGeneric("minmax_img"))
 
 #' @rdname minmax_img-methods
 #' @aliases minmax_img,nifti-method

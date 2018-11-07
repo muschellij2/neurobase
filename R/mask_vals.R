@@ -38,9 +38,7 @@ mask_vals =  function(object, mask) {
 #' @rdname mask_vals-methods
 #' @aliases mask_vals<- 
 #' @export
-setGeneric("mask_vals<-", function(object, mask, value) { 
-  standardGeneric("mask_vals<-") 
-})
+setGeneric("mask_vals<-", function(object, mask, value) standardGeneric("mask_vals<-") )
 
 .quick_check = function(mask, value) {
   check_mask_fail(mask, allow.NA = TRUE, allow.array = TRUE)
