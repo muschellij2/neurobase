@@ -104,7 +104,7 @@ In the `neurobase` package, we provide wrapper functions `readnii`/`writenii`, w
 
 ## Option `reorient = FALSE`
 
-In `readNIfTI` default `reorient = TRUE` implicity uses the `reorient` function from `oro.nifti`.  Although many neuroimaging software suites read the header and reorient the data based on that information, `oro.nifti::reorient` can only handle simple orientations, see `oro.nifti::performPermutation` documentation.  Although reading the data in without reorienting can cause problems, such as not knowing right/left orientation, if multiple NIfTI files were created in the same way (assumingly from `dcm2nii`), they should ideally have the same orientation.  
+In `readNIfTI` default `reorient = TRUE` implicitly uses the `reorient` function from `oro.nifti`.  Although many neuroimaging software suites read the header and reorient the data based on that information, `oro.nifti::reorient` can only handle simple orientations, see `oro.nifti::performPermutation` documentation.  Although reading the data in without reorienting can cause problems, such as not knowing right/left orientation, if multiple NIfTI files were created in the same way (assumingly from `dcm2nii`), they should ideally have the same orientation.  
 
 Derived data from an image will have the exact same orientation because derived `nifti` objects will copy the `nifti` header information from the `nifti` object it was derived from.  Moreover, in many analyses, registration to an image or a template is common, and these have known orientations.  We have found that if a user wants to reorient their data in R, using the `reorient` function can be used, but we prefer the default to be `FALSE`, otherwise reading in many NIfTI files result in an error from the orientation.  
 
@@ -189,7 +189,7 @@ The `neurobase::ortho2` function expands upon this with some different defaults.
 neurobase::ortho2(eve)
 ```
 
-We see that in `ortho2` there are annotations of the orientation of the image.  Again, if the image was not reoriented, then these many not be corrrect.  You can turn these off with the `add.orient` argument:
+We see that in `ortho2` there are annotations of the orientation of the image.  Again, if the image was not reoriented, then these many not be correct.  You can turn these off with the `add.orient` argument:
 
 ```{r ortho2_noorient}
 neurobase::ortho2(eve, add.orient = FALSE)
