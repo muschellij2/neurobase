@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Function reference" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +56,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">neurobase</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">neurobase</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.27.4</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -58,7 +71,7 @@
   </a>
 </li>
 <li>
-  <a href="../articles/neurobase.html">Get Started</a>
+  <a href="../articles/neurobase.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -75,11 +88,15 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -87,449 +104,445 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;1.26.1</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="applyEmptyImageDimensions-methods.html">applyEmptyImageDimensions</a></code> <code><a href="applyEmptyImageDimensions-methods.html">apply_empty_dim</a></code> </p>
-          </td>
-          <td><p>Apply Subsetting from Empty Image Dimensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="boxplot.nifti.html">boxplot</a></code> </p>
-          </td>
-          <td><p>Boxplot of Values in an Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="breaker.html">breaker</a></code> </p>
-          </td>
-          <td><p>Find Breaks for nifti Image Ploting</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_mask_fail.html">check_mask_fail</a></code> </p>
-          </td>
-          <td><p>Check Mask is Binary, Fail otherwise</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_mask.html">check_mask</a></code> </p>
-          </td>
-          <td><p>Check Mask is Binary</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_nifti_header-methods.html">check_nifti_header</a></code> </p>
-          </td>
-          <td><p>Check if nifti image or read in a nifti header</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_nifti-methods.html">check_nifti</a></code> </p>
-          </td>
-          <td><p>Check if nifti image or read in a nifti image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_outfile.html">check_outfile</a></code> </p>
-          </td>
-          <td><p>Check output filename</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="checkimg-methods.html">checkimg</a></code> </p>
-          </td>
-          <td><p>Force object to filename</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="checknii-methods.html">checknii</a></code> <code><a href="checknii-methods.html">ensure_nii</a></code> </p>
-          </td>
-          <td><p>Force object to filename with .nii extension</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="checkniigz-methods.html">checkniigz</a></code> <code><a href="checkniigz-methods.html">ensure_nii_gz</a></code> </p>
-          </td>
-          <td><p>Force object to filename with .nii.gz extension</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="cog.html">cog</a></code> </p>
-          </td>
-          <td><p>Image Center of Gravity</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="colorbar.html">colorbar</a></code> </p>
-          </td>
-          <td><p>Add a colorbar to an ortho2 object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="copyNIfTIHeader.html">copyNIfTIHeader</a></code> </p>
-          </td>
-          <td><p>Copy NIfTI Header to an array</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="cut.nifti.html">cut</a></code> </p>
-          </td>
-          <td><p>Perform Cut on an image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="datatype.html">datatyper</a></code> </p>
-          </td>
-          <td><p>Change Data type for img</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="density.nifti.html">density</a></code> </p>
-          </td>
-          <td><p>Density of Values in an Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="dicer.html">dicer</a></code> </p>
-          </td>
-          <td><p>Calculate Dice from a Table</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="double_ortho.html">double_ortho</a></code> </p>
-          </td>
-          <td><p>Double Orthographic Display</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="dropEmptyImageDimensions.html">dropEmptyImageDimensions</a></code> <code><a href="dropEmptyImageDimensions.html">drop_empty_dim</a></code> </p>
-          </td>
-          <td><p>Drop Empty Image Dimensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="emptyImageDimensionsMask.html">emptyImageDimensionsMask</a></code> <code><a href="emptyImageDimensionsMask.html">empty_dim_mask</a></code> </p>
-          </td>
-          <td><p>Make Mask from Empty Image Dimensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ensure_array.html">ensure_array</a></code> </p>
-          </td>
-          <td><p>Ensure an array output</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="fast_readnii.html">fast_readnii</a></code> </p>
-          </td>
-          <td><p>Reading NIfTI images through RNifti</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="file_imgext.html">file_imgext</a></code> </p>
-          </td>
-          <td><p>Get Image file extension</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="finite_img-methods.html">finite_img</a></code> </p>
-          </td>
-          <td><p>Finite Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="flip_img.html">flip_img</a></code> </p>
-          </td>
-          <td><p>Flip NifTI Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></code> <code><a href="getEmptyImageDimensions.html">get_empty_dim</a></code> </p>
-          </td>
-          <td><p>Get Empty Image Dimensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="hist.nifti.html">hist</a></code> </p>
-          </td>
-          <td><p>Histogram of Values in an Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="images2matrix.html">images2matrix</a></code> </p>
-          </td>
-          <td><p>Transform set of images to matrix</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="img_colour_df.html">img_colour_df</a></code> <code><a href="img_colour_df.html">img_color_df</a></code> </p>
-          </td>
-          <td><p>Convert Image to Data.frame with Colors</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="img_indices.html">img_indices</a></code> </p>
-          </td>
-          <td><p>Retrieve Image Indices</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="img_list_to_ts.html">img_list_to_ts</a></code> </p>
-          </td>
-          <td><p>Image List to Time Series</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="img_ts_to_df.html">img_ts_to_df</a></code> </p>
-          </td>
-          <td><p>Image Time Series to Data.frame</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="img_ts_to_list.html">img_ts_to_list</a></code> </p>
-          </td>
-          <td><p>Image Time Series to list</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="img_ts_to_matrix.html">img_ts_to_matrix</a></code> </p>
-          </td>
-          <td><p>Image Time Series to Matrix</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mask_img.html">mask_img</a></code> </p>
-          </td>
-          <td><p>Mask Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mask_vals-methods.html">mask_vals</a></code> <code><a href="mask_vals-methods.html">mask_vals<-</a></code> </p>
-          </td>
-          <td><p>Extract or Replace Values Inside a Mask</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="maskEmptyImageDimensions-methods.html">maskEmptyImageDimensions</a></code> <code><a href="maskEmptyImageDimensions-methods.html">mask_empty_dim</a></code> </p>
-          </td>
-          <td><p>Apply Masking from Empty Image Dimensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mean.nifti.html">mean</a></code> </p>
-          </td>
-          <td><p>Mean of Values in an Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="minmax_img-methods.html">minmax_img</a></code> </p>
-          </td>
-          <td><p>Normalize Image using Range</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="multi_overlay.html">multi_overlay</a></code> </p>
-          </td>
-          <td><p>Create Multi-Image Plot with Overlays</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="newnii.html">newnii</a></code> </p>
-          </td>
-          <td><p>Resets image parameters for a copied nifti object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="niftiarr.html">niftiarr</a></code> </p>
-          </td>
-          <td><p>Make new nifti from array</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="nii.stub.html">nii.stub</a></code> </p>
-          </td>
-          <td><p>Grab nii file stubname</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ortho_diff.html">ortho_diff</a></code> </p>
-          </td>
-          <td><p>Plot differences for Prediction and Gold Standard</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ortho2.html">ortho2</a></code> </p>
-          </td>
-          <td><p>Orthographic Display, added options</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="parse_img_ext.html">parse_img_ext</a></code> </p>
-          </td>
-          <td><p>Parse Image Extensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="quantile_img.html">quantile_img</a></code> </p>
-          </td>
-          <td><p>Create Quantile Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="quantile.nifti.html">quantile</a></code> </p>
-          </td>
-          <td><p>Sample Quantiles</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="randomize_mask.html">randomize_mask</a></code> </p>
-          </td>
-          <td><p>Randomize Image based on Mask</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="readNIfTI2.html">readNIfTI2</a></code> <code><a href="readNIfTI2.html">readnii</a></code> </p>
-          </td>
-          <td><p>readNIfTI with default non-reorientation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="remake_img.html">remake_img</a></code> </p>
-          </td>
-          <td><p>Remake Image from Vector</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="remap_filename.html">remap_filename</a></code> </p>
-          </td>
-          <td><p>Build Filename (usually for images)</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="replace_dropped_dimensions.html">replace_dropped_dimensions</a></code> </p>
-          </td>
-          <td><p>Remake Dropped Dimensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="replace_outside_surface.html">replace_outside_surface</a></code> </p>
-          </td>
-          <td><p>Replace Values Outside Surface of image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="rescale_img.html">rescale_img</a></code> </p>
-          </td>
-          <td><p>Image Rescaler</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="robust_window.html">robust_window</a></code> </p>
-          </td>
-          <td><p>Window image based on quantiles of Image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="same_dims.html">same_dims</a></code> </p>
-          </td>
-          <td><p>Check if Objects have Same Dimensions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="separate_img-methods.html">separate_img</a></code> </p>
-          </td>
-          <td><p>Separate Labeled Image into Multiple Binary Images</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="slice_colour_df.html">slice_colour_df</a></code> </p>
-          </td>
-          <td><p>Slice a Image Color Data.frame</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="subset_dti-methods.html">subset_dti</a></code> </p>
-          </td>
-          <td><p>Subset DTI data based on b-values
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="applyEmptyImageDimensions-methods.html">applyEmptyImageDimensions()</a></code> <code><a href="applyEmptyImageDimensions-methods.html">apply_empty_dim()</a></code> </p>
+        </td>
+        <td><p>Apply Subsetting from Empty Image Dimensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="boxplot.nifti.html">boxplot(<i>&lt;nifti&gt;</i>)</a></code> <code><a href="boxplot.nifti.html">boxplot(<i>&lt;anlz&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Boxplot of Values in an Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="breaker.html">breaker()</a></code> </p>
+        </td>
+        <td><p>Find Breaks for nifti Image Plotting</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="check_mask.html">check_mask()</a></code> </p>
+        </td>
+        <td><p>Check Mask is Binary</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="check_mask_fail.html">check_mask_fail()</a></code> </p>
+        </td>
+        <td><p>Check Mask is Binary, Fail otherwise</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="check_nifti-methods.html">check_nifti()</a></code> </p>
+        </td>
+        <td><p>Check if nifti image or read in a nifti image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="check_nifti_header-methods.html">check_nifti_header()</a></code> </p>
+        </td>
+        <td><p>Check if nifti image or read in a nifti header</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="check_outfile.html">check_outfile()</a></code> </p>
+        </td>
+        <td><p>Check output filename</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="checkimg-methods.html">checkimg()</a></code> </p>
+        </td>
+        <td><p>Force object to filename</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="checknii-methods.html">checknii()</a></code> <code><a href="checknii-methods.html">ensure_nii()</a></code> </p>
+        </td>
+        <td><p>Force object to filename with .nii extension</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="checkniigz-methods.html">checkniigz()</a></code> <code><a href="checkniigz-methods.html">ensure_nii_gz()</a></code> </p>
+        </td>
+        <td><p>Force object to filename with .nii.gz extension</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cog.html">cog()</a></code> </p>
+        </td>
+        <td><p>Image Center of Gravity</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="colorbar.html">colorbar()</a></code> </p>
+        </td>
+        <td><p>Add a colorbar to an ortho2 object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="copyNIfTIHeader.html">copyNIfTIHeader()</a></code> </p>
+        </td>
+        <td><p>Copy NIfTI Header to an array</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cut.nifti.html">cut(<i>&lt;nifti&gt;</i>)</a></code> <code><a href="cut.nifti.html">cut(<i>&lt;anlz&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Perform Cut on an image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="datatype.html">datatyper()</a></code> </p>
+        </td>
+        <td><p>Change Data type for img</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="density.nifti.html">density(<i>&lt;nifti&gt;</i>)</a></code> <code><a href="density.nifti.html">density(<i>&lt;anlz&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Density of Values in an Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dicer.html">dicer()</a></code> </p>
+        </td>
+        <td><p>Calculate Dice from a Table</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="double_ortho.html">double_ortho()</a></code> </p>
+        </td>
+        <td><p>Double Orthographic Display</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dropEmptyImageDimensions.html">dropEmptyImageDimensions()</a></code> <code><a href="dropEmptyImageDimensions.html">drop_empty_dim()</a></code> </p>
+        </td>
+        <td><p>Drop Empty Image Dimensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="emptyImageDimensionsMask.html">emptyImageDimensionsMask()</a></code> <code><a href="emptyImageDimensionsMask.html">empty_dim_mask()</a></code> </p>
+        </td>
+        <td><p>Make Mask from Empty Image Dimensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ensure_array.html">ensure_array()</a></code> </p>
+        </td>
+        <td><p>Ensure an array output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fast_readnii.html">fast_readnii()</a></code> </p>
+        </td>
+        <td><p>Reading NIfTI images through RNifti</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="file_imgext.html">file_imgext()</a></code> </p>
+        </td>
+        <td><p>Get Image file extension</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="finite_img-methods.html">finite_img()</a></code> </p>
+        </td>
+        <td><p>Finite Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="flip_img.html">flip_img()</a></code> </p>
+        </td>
+        <td><p>Flip NifTI Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="getEmptyImageDimensions.html">getEmptyImageDimensions()</a></code> <code><a href="getEmptyImageDimensions.html">get_empty_dim()</a></code> </p>
+        </td>
+        <td><p>Get Empty Image Dimensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="hist.nifti.html">hist(<i>&lt;nifti&gt;</i>)</a></code> <code><a href="hist.nifti.html">hist(<i>&lt;anlz&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Histogram of Values in an Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="images2matrix.html">images2matrix()</a></code> </p>
+        </td>
+        <td><p>Transform set of images to matrix</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="img_colour_df.html">img_colour_df()</a></code> <code><a href="img_colour_df.html">img_color_df()</a></code> </p>
+        </td>
+        <td><p>Convert Image to Data.frame with Colors</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="img_indices.html">img_indices()</a></code> </p>
+        </td>
+        <td><p>Retrieve Image Indices</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="img_list_to_ts.html">img_list_to_ts()</a></code> </p>
+        </td>
+        <td><p>Image List to Time Series</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="img_ts_to_df.html">img_ts_to_df()</a></code> </p>
+        </td>
+        <td><p>Image Time Series to Data.frame</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="img_ts_to_list.html">img_ts_to_list()</a></code> </p>
+        </td>
+        <td><p>Image Time Series to list</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="img_ts_to_matrix.html">img_ts_to_matrix()</a></code> </p>
+        </td>
+        <td><p>Image Time Series to Matrix</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="maskEmptyImageDimensions-methods.html">maskEmptyImageDimensions()</a></code> <code><a href="maskEmptyImageDimensions-methods.html">mask_empty_dim()</a></code> </p>
+        </td>
+        <td><p>Apply Masking from Empty Image Dimensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mask_img.html">mask_img()</a></code> </p>
+        </td>
+        <td><p>Mask Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mask_vals-methods.html">mask_vals()</a></code> <code><a href="mask_vals-methods.html">`mask_vals<-`()</a></code> </p>
+        </td>
+        <td><p>Extract or Replace Values Inside a Mask</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mean.nifti.html">mean(<i>&lt;nifti&gt;</i>)</a></code> <code><a href="mean.nifti.html">mean(<i>&lt;anlz&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Mean of Values in an Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="minmax_img-methods.html">minmax_img()</a></code> </p>
+        </td>
+        <td><p>Normalize Image using Range</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="multi_overlay.html">multi_overlay()</a></code> </p>
+        </td>
+        <td><p>Create Multi-Image Plot with Overlays</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="newnii.html">newnii()</a></code> </p>
+        </td>
+        <td><p>Resets image parameters for a copied nifti object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="niftiarr.html">niftiarr()</a></code> </p>
+        </td>
+        <td><p>Make new nifti from array</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="nii.stub.html">nii.stub()</a></code> </p>
+        </td>
+        <td><p>Grab nii file stubname</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ortho2.html">ortho2()</a></code> </p>
+        </td>
+        <td><p>Orthographic Display, added options</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ortho_diff.html">ortho_diff()</a></code> </p>
+        </td>
+        <td><p>Plot differences for Prediction and Gold Standard</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_img_ext.html">parse_img_ext()</a></code> </p>
+        </td>
+        <td><p>Parse Image Extensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="quantile.nifti.html">quantile(<i>&lt;nifti&gt;</i>)</a></code> <code><a href="quantile.nifti.html">quantile(<i>&lt;anlz&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Sample Quantiles</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="quantile_img.html">quantile_img()</a></code> </p>
+        </td>
+        <td><p>Create Quantile Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="randomize_mask.html">randomize_mask()</a></code> </p>
+        </td>
+        <td><p>Randomize Image based on Mask</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="readNIfTI2.html">readNIfTI2()</a></code> <code><a href="readNIfTI2.html">readnii()</a></code> </p>
+        </td>
+        <td><p>readNIfTI with default non-reorientation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="remake_img.html">remake_img()</a></code> </p>
+        </td>
+        <td><p>Remake Image from Vector</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="remap_filename.html">remap_filename()</a></code> </p>
+        </td>
+        <td><p>Build Filename (usually for images)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="replace_dropped_dimensions.html">replace_dropped_dimensions()</a></code> </p>
+        </td>
+        <td><p>Remake Dropped Dimensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="replace_outside_surface.html">replace_outside_surface()</a></code> </p>
+        </td>
+        <td><p>Replace Values Outside Surface of image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rescale_img.html">rescale_img()</a></code> </p>
+        </td>
+        <td><p>Image Rescaler</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="robust_window.html">robust_window()</a></code> </p>
+        </td>
+        <td><p>Window image based on quantiles of Image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="same_dims.html">same_dims()</a></code> </p>
+        </td>
+        <td><p>Check if Objects have Same Dimensions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="separate_img-methods.html">separate_img()</a></code> </p>
+        </td>
+        <td><p>Separate Labeled Image into Multiple Binary Images</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="slice_colour_df.html">slice_colour_df()</a></code> </p>
+        </td>
+        <td><p>Slice a Image Color Data.frame</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="subset_dti-methods.html">subset_dti()</a></code> </p>
+        </td>
+        <td><p>Subset DTI data based on b-values
 #'</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="tempimg.html">tempimg</a></code> </p>
-          </td>
-          <td><p>Create temporary nii.gz file</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="window_img.html">window_img</a></code> </p>
-          </td>
-          <td><p>nifti image windower</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="write_nifti.html">write_nifti</a></code> </p>
-          </td>
-          <td><p>General NIfTI Writer</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="writeNIfTI2.html">writeNIfTI2</a></code> <code><a href="writeNIfTI2.html">writenii</a></code> </p>
-          </td>
-          <td><p>writeNIfTI with default non-reoirientation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="xyz.html">xyz</a></code> </p>
-          </td>
-          <td><p>Image Center of Gravity Wrapper</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="zero_pad.html">zero_pad</a></code> </p>
-          </td>
-          <td><p>Zero pads an image</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="zlimmer.html">zlimmer</a></code> </p>
-          </td>
-          <td><p>Find Image z-limits</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="zscore_img.html">zscore_img</a></code> </p>
-          </td>
-          <td><p>Get Z-score over a margin of an img</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tempimg.html">tempimg()</a></code> </p>
+        </td>
+        <td><p>Create temporary nii.gz file</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="window_img.html">window_img()</a></code> </p>
+        </td>
+        <td><p>nifti image windower</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="writeNIfTI2.html">writeNIfTI2()</a></code> <code><a href="writeNIfTI2.html">writenii()</a></code> </p>
+        </td>
+        <td><p>writeNIfTI with default non-reorientation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="write_nifti.html">write_nifti()</a></code> </p>
+        </td>
+        <td><p>General NIfTI Writer</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="xyz.html">xyz()</a></code> </p>
+        </td>
+        <td><p>Image Center of Gravity Wrapper</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="zero_pad.html">zero_pad()</a></code> </p>
+        </td>
+        <td><p>Zero pads an image</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="zlimmer.html">zlimmer()</a></code> </p>
+        </td>
+        <td><p>Find Image z-limits</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="zscore_img.html">zscore_img()</a></code> </p>
+        </td>
+        <td><p>Get Z-score over a margin of an img</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -546,11 +559,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

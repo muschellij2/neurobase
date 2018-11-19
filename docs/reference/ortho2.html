@@ -18,13 +18,26 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Orthographic Display, added options — ortho2" />
+
+<meta property="og:description" content="Copy of oro.nifti's orthographic function 
+with some tweaks such as adding L/R designations for left and right" />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +60,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">neurobase</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">neurobase</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.27.4</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -58,7 +75,7 @@
   </a>
 </li>
 <li>
-  <a href="../articles/neurobase.html">Get Started</a>
+  <a href="../articles/neurobase.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -75,11 +92,15 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -87,30 +108,34 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Orthographic Display, added options</h1>
+    
+    <div class="hidden name"><code>ortho2.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Copy of <code>oro.nifti</code>'s <code>orthographic</code> function 
 with some tweaks such as adding L/R designations for left and right</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>ortho2</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xyz</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>gray</span>(<span class='fl'>0</span>:<span class='fl'>64</span>/<span class='fl'>64</span>),
   <span class='kw'>col.y</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/oro.nifti/topics/hotmetal'>hotmetal</a></span>(), <span class='kw'>zlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>zlim.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>NA.x</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>NA.y</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>crosshairs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>col.crosshairs</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>oma</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fu'>ifelse</span>(<span class='no'>ycolorbar</span>,
-  <span class='fl'>5</span>, <span class='fl'>0</span>)), <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='fl'>4</span>), <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>text.color</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>32</span>,
-  <span class='kw'>add.orient</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>2</span>), <span class='kw'>ybreaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>addlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>leg.x</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='kw'>leg.y</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='no'>legend</span>, <span class='no'>leg.col</span>,
-  <span class='kw'>leg.title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>leg.cex</span>, <span class='kw'>window</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ycolorbar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>clabels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>pdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>NA.x</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>NA.y</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>crosshairs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>col.crosshairs</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>oma</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fu'>ifelse</span>(<span class='no'>ycolorbar</span>, <span class='fl'>5</span>, <span class='fl'>0</span>)), <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>0</span>, <span class='fl'>4</span>),
+  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>text.color</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+  <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='kw'>add.orient</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>2</span>),
+  <span class='kw'>ybreaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>addlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>leg.x</span> <span class='kw'>=</span> <span class='fl'>32</span>,
+  <span class='kw'>leg.y</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='no'>legend</span>, <span class='no'>leg.col</span>, <span class='kw'>leg.title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>leg.cex</span>,
+  <span class='kw'>window</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ycolorbar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>clabels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>pdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fu'>is.null</span>(<span class='no'>y</span>), <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -233,11 +258,11 @@ the fourth (unused) pane.</p></td>
     </tr>
     <tr>
       <th>leg.x</th>
-      <td><p>(numeric) x coord for legend</p></td>
+      <td><p>(numeric) x coordinate for legend</p></td>
     </tr>
     <tr>
       <th>leg.y</th>
-      <td><p>(numeric) y coord for legend</p></td>
+      <td><p>(numeric) y coordinate for legend</p></td>
     </tr>
     <tr>
       <th>legend</th>
@@ -296,15 +321,15 @@ to both <code>x</code> and <code>y</code></p></td>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>orthographic</p>
+    <div class='dont-index'><p>orthographic</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/oro.nifti/topics/nifti'>nifti</a></span>(<span class='fu'>array</span>(<span class='fu'>rnorm</span>(<span class='fl'>1000</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'>rep</span>(<span class='fl'>10</span>, <span class='fl'>3</span>)))
-<span class='fu'>ortho2</span>(<span class='no'>x</span>)</div><div class='img'><img src='ortho2-1.png' alt='' width='700' height='432.632880098887' /></div><div class='input'><span class='no'>y</span> <span class='kw'>=</span> <span class='no'>x</span> <span class='kw'>&gt;</span> <span class='fl'>2</span>
-<span class='fu'>ortho2</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='img'><img src='ortho2-2.png' alt='' width='700' height='432.632880098887' /></div><div class='input'><span class='no'>arr_x</span> <span class='kw'>=</span> <span class='fu'>as.array</span>(<span class='no'>x</span>)
+<span class='fu'>ortho2</span>(<span class='no'>x</span>)</div><div class='img'><img src='ortho2-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>y</span> <span class='kw'>=</span> <span class='no'>x</span> <span class='kw'>&gt;</span> <span class='fl'>2</span>
+<span class='fu'>ortho2</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='img'><img src='ortho2-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>arr_x</span> <span class='kw'>=</span> <span class='fu'>as.array</span>(<span class='no'>x</span>)
 <span class='no'>arr_y</span> <span class='kw'>=</span> <span class='fu'>as.array</span>(<span class='no'>y</span>)
-<span class='fu'>ortho2</span>( <span class='no'>arr_x</span>)</div><div class='img'><img src='ortho2-3.png' alt='' width='700' height='432.632880098887' /></div><div class='input'><span class='fu'>ortho2</span>( <span class='no'>arr_x</span>, <span class='no'>arr_y</span>)</div><div class='img'><img src='ortho2-4.png' alt='' width='700' height='432.632880098887' /></div></pre>
+<span class='fu'>ortho2</span>( <span class='no'>arr_x</span>)</div><div class='img'><img src='ortho2-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>ortho2</span>( <span class='no'>arr_x</span>, <span class='no'>arr_y</span>, <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='img'><img src='ortho2-4.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -325,11 +350,14 @@ to both <code>x</code> and <code>y</code></p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
