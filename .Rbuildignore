@@ -5,8 +5,6 @@
 .*/\.DS_Store$
 .DS_Store$
 Archive.zip
-NEWS.md
-README.md
 docs/*
 generic_stat.R
 generic_stat_maker.R
