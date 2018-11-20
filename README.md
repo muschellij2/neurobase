@@ -9,7 +9,7 @@ the baseline package for [Neuroconductor](https://neuroconductor.org/).
 [![Build
 Status](https://travis-ci.org/muschellij2/neurobase.svg?branch=master)](https://travis-ci.org/muschellij2/neurobase)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/neurobase)](https://cran.r-project.org/package=neurobase)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/neurobase)](https://cran.rstudio.com/package=neurobase)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/neurobase)](https://cran.r-project.org/package=neurobase)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/muschellij2/neurobase?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/neurobase)
 [![Coverage
