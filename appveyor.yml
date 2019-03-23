@@ -10,11 +10,11 @@ init:
 install:
   ps: Bootstrap
 
-USE_RTOOLS: true
 # Adapt as necessary starting from here
 
 environment:
   global:
+    USE_RTOOLS: true    
     WARNINGS_ARE_ERRORS: 1
 
 build_script:
