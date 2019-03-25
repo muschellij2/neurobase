@@ -293,3 +293,36 @@ multi_overlay = function(x,
 }
 
 
+
+
+#' @rdname multi_overlay
+#' @export
+multi_overlay_center = function(x, y = NULL, ...) {
+  mid = function(x) {
+    x = x[, , ceiling(dim(x)[3]/2), drop = FALSE]
+    x = as.nifti(x)
+    x
+  }
+  mids = lapply(x, mid)
+  
+  if (!is.null(y)) {
+    ymids = lapply(y, mid)
+  }
+  
+  dims = sapply(mids, dim)
+  dims = dims[1:2, ]
+  dims = apply(dims, 1, max)
+  
+  set_dim = function(i) {
+    kdim = c(dims - dim(i)[1:2], 0)
+    kdim = kdim / 2 
+    zero_pad(i, kdim = kdim, drop = FALSE)
+  }
+  
+  mids = lapply(mids, set_dim)
+  
+  if (!is.null(y)) {
+    ymids = lapply(ymids, set_dim)
+  }
+  multi_overlay(x = mids, y = ymids, z = 1, ...)
+}

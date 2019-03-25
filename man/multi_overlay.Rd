@@ -2,6 +2,7 @@
 % Please edit documentation in R/overlay2.R
 \name{multi_overlay}
 \alias{multi_overlay}
+\alias{multi_overlay_center}
 \title{Create Multi-Image Plot with Overlays}
 \usage{
 multi_overlay(x, y = NULL, z = NULL, w = 1, mask = NULL,
@@ -13,6 +14,8 @@ multi_overlay(x, y = NULL, z = NULL, w = 1, mask = NULL,
   text.cex = 2.5, text.col = "white", main = NULL,
   main.col = text.col, main.cex = text.cex, NA.x = TRUE,
   NA.y = TRUE, pdim = NULL, useRaster = TRUE, ...)
+
+multi_overlay_center(x, y = NULL, ...)
 }
 \arguments{
 \item{x}{List of images of class \code{nifti} or character vector of filenames}
