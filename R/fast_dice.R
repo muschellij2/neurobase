@@ -34,5 +34,5 @@ fast_dice_tab = function(x, y) {
 #' @rdname fast_dice_tab
 fast_dice = function(x, y, verbose = FALSE) {
   tab = fast_dice_tab(x, y)
-  dicer(tab, verbose = FALSE)
+  dicer(tab, verbose = verbose)
 }
