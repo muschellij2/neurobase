@@ -8,6 +8,7 @@
 nii.stub = function(x, bn=FALSE){
   nx = names(x)
   x = path.expand(x)
+  x = trimws(x)
   stub = gsub("\\.gz$", "", x)
   stub = gsub("\\.nii$", "", stub)
   if (bn) stub = basename(stub)
