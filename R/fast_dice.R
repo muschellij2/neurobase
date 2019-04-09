@@ -17,8 +17,15 @@
 #' fast_dice_tab(nim, nim)
 #' fast_dice(nim, nim) == 1
 fast_dice_tab = function(x, y) {
-  x = c(as(retrieveNifti(x), "array") > 0)
-  y = c(as(retrieveNifti(y), "array") > 0)
+  get_array = function(img) {
+    if (is.nifti(img)) {
+      img = oro.nifti::zero_trans(img)
+    }
+    as(retrieveNifti(img), "array")
+  }
+  
+  x = c(get_array(x) > 0)
+  y = c(get_array(y) > 0)
   tt = sum(x & y)
   t1 = sum(x)
   t2 = sum(y)
