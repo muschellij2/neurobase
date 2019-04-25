@@ -13,3 +13,5 @@ packrat/lib*/
 vignettes/nifti_basics_cache/*
 .httr-oauth
 revdep/
+doc
+Meta
