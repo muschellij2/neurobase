@@ -19,7 +19,7 @@
 zero_pad = function(img, 
                     kdim, 
                     invert = FALSE, 
-                    pad_value = 0,...){
+                    pad_value = 0, ...){
   
   dimg = dim(img)
   #   img[1:dimg[1], 1:dimg[2], c(1:7, 36:29)] = 0
@@ -32,21 +32,21 @@ zero_pad = function(img,
   newdim = dimg + adder * kdim*2
   inds = list()
   idim = 1
-  for (idim in seq_along(dimg)){
+  for (idim in seq_along(dimg)) {
     x = kdim[idim]
     top = newdim[idim]
     if (invert) top = dimg[idim]
-    ind = seq(x+1, top - x)
+    ind = seq(x + 1, top - x)
     #     stopifnot(length(ind) == dz)    
     inds[[idim]] = ind
   }
   ### need to rev for correct indices
   inds = as.matrix(expand.grid(inds))
-  if (invert){
-    arr = array(img[inds, drop=FALSE], dim = newdim)
+  if (invert) {
+    arr = array(as.array(img)[inds, drop = FALSE], dim = newdim)
   } else {
     arr = array( pad_value , dim = newdim)    
-    arr[inds] = img
+    arr[inds] = as.array(img)
   }
   if (is.nifti(img)) {
     arr = copyNIfTIHeader(img, arr, ...)
