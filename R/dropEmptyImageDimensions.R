@@ -38,11 +38,19 @@ dropEmptyImageDimensions <- function(img,
                                      keep_ind = FALSE,
                                      reorient = FALSE) {
   
-  img = check_nifti(img, reorient = reorient, allow.array = FALSE)
-  if (dim_(img)[1] > 3) {
-    stop(paste0("Only images with 3 dimensions supported, ", 
-                "as checked by dim_"))
-  }    
+  img = check_nifti(img, reorient = reorient, allow.array = TRUE)
+  # for allowing arrays - also for RNifti objects
+  d = try({
+    dim_(img)[1]
+  }, silent = TRUE)
+  if (!inherits(d, "try-error")) {
+    if (!is.na(d)) {
+      if (d > 3) {
+        stop(paste0("Only images with 3 dimensions supported, ", 
+                    "as checked by dim_"))
+      }    
+    }
+  }
   inds = getEmptyImageDimensions(img = img,
                                  value = value, 
                                  threshold = threshold,
@@ -91,16 +99,4 @@ dropEmptyImageDimensions <- function(img,
 
 #' @rdname dropEmptyImageDimensions
 #' @export
-drop_empty_dim <- function(img, 
-                           value = 0, 
-                           threshold = 0,
-                           other.imgs = NULL, 
-                           keep_ind = FALSE,
-                           reorient = FALSE) {
-  dropEmptyImageDimensions(img = img, 
-                           value = value, 
-                           threshold = threshold,
-                           other.imgs = other.imgs, 
-                           keep_ind = keep_ind,
-                           reorient = reorient)
-}
+drop_empty_dim <- dropEmptyImageDimensions

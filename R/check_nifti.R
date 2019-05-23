@@ -159,7 +159,9 @@ setMethod("check_nifti", "ANY",
                    need_header = TRUE) {
             # workaround because can't get class
             if (inherits(x, "niftiImage")) {
-              x = oro.nifti::nii2oro(x)
+              if (!allow.array) {
+                x = oro.nifti::nii2oro(x)
+              }
             } else {
               stop("Not implemented for this type!")
             }
