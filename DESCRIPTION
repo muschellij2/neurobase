@@ -1,7 +1,7 @@
 Package: neurobase
 Type: Package
 Title: 'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
-Version: 1.27.9
+Version: 1.27.9.1
 Authors@R: person(given = "John",
            family = "Muschelli",
            role = c("aut", "cre"),
