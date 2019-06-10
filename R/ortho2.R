@@ -193,6 +193,9 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (x_is_nifti) {
     pdim = pixdim(x)
   } else {
+    if (RNifti::is.niftiImage(x)) {
+      pdim = pixdim(x)
+    }
     if (is.null(pdim)) {
       pdim = rep(1, 4)
     } 
