@@ -195,6 +195,9 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   } else {
     if (inherits(x, "niftiImage")) {
       pdim = pixdim(x)
+      if (length(pdim) <= 3) {
+        pdim = c(pdim, rep(1, 4 - length(pdim)))
+      }
     }
     if (is.null(pdim)) {
       pdim = rep(1, 4)
