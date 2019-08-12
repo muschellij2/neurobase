@@ -220,6 +220,28 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
       y = y[, , , w]
     }
   }
+  if (Z == 1) {
+    x = abind::abind(x, x, along = 3)
+    if (!is.null(y)) {
+      y = abind::abind(y, y, along = 3)
+    }
+    Z = 2
+  }
+  if (X == 1) {
+    x = abind::abind(x, x, along = 1)
+    if (!is.null(y)) {
+      y = abind::abind(y, y, along = 1)
+    }
+    X = 2
+  } 
+  if (Y == 1) {
+    x = abind::abind(x, x, along = 2)
+    if (!is.null(y)) {
+      y = abind::abind(y, y, along = 2)
+    }
+    Y = 2
+  }   
+  
   # L = list(X = 1:X,
   #          Y = 1:Y,
   #          Z = 1:Z)

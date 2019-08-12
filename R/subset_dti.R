@@ -98,7 +98,7 @@ setMethod("subset_dti", "ANY",
             indices = L$indices
             is_niftiImage = inherits(img, "niftiImage")
             if (is_niftiImage) {
-              vals = dumpNifti(img)
+              vals = niftiHeader(img)
             }
             img = img[,,,indices]
             if (is_niftiImage) {

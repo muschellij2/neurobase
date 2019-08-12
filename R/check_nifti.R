@@ -162,6 +162,11 @@ setMethod("check_nifti", "ANY",
               if (!allow.array) {
                 x = oro.nifti::nii2oro(x)
               }
+            } else if (inherits(x, "NiftiArray")) {
+              if (!allow.array) {
+                x = methods::as(x, "niftiImage")
+                x = oro.nifti::nii2oro(x)
+              }
             } else {
               stop("Not implemented for this type!")
             }
