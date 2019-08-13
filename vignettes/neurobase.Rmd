@@ -1,10 +1,10 @@
 ---
-title: "NIfTI Basics"
+title: "NIfTI Basics using the Eve atlas"
 author: "John Muschelli"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{NIfTI Basics}
+  %\VignetteIndexEntry{NIfTI Basics using the Eve atlas}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -166,7 +166,7 @@ class(abs(nim))
 
 # Visualization of `nifti` objects
 
-Here we will use real imaging data from the `oro.nifti` package:
+Here we will use imaging data from the `oro.nifti` package:
 
 ```{r eve, cache=FALSE}
 fname = system.file(
@@ -203,7 +203,7 @@ The above code does not fully illustrate the differences between `orthographic` 
 orthographic(eve, y = eve > quantile(eve, 0.9))
 ```
 
-We see that the white matter is represented here, but we would like to see areas of the brain that are not over this quantile to be shown as the image.  Let us contrast this with:
+We see that the white matter is represented here, along with the burned in orientations, but we would like to see areas of the brain that are not over this quantile to be shown as the image.  Let us contrast this with:
 
 ```{r ortho2_nona}
 ortho2(eve, y = eve > quantile(eve, 0.9))
@@ -250,7 +250,7 @@ flipped_fname = system.file(
 flipped_eve = readnii(flipped_fname)
 ```
 
-We can view the original T1 alongside the brain-extracted image:
+We can view the flipped T1 alongside the original image:
 
 ```{r double_ortho}
 double_ortho(flipped_eve, eve)
@@ -303,7 +303,7 @@ rm(list = "mask")
 
 ## Dropping empty dimensions
 
-In some instances, there are extraneous slices to an image.  For example, in the Eve template image we read in, it is just the brain.  Areas of the skull and extracranial tissue are removed, but the slices remain so that the brain image and the original image are in the same space with the same dimensions.  For plotting or further analyses, we can drop these empty dimensions using the `neurobase::dropEmptyImageDimensions` function or `drop_empty_dim` shorthand function.  
+In some instances, there are extraneous slices to an image.  For example, in the image we read in, there are extraneous brackrond.  For plotting or further analyses, we can drop these empty dimensions using the `neurobase::dropEmptyImageDimensions` function or `drop_empty_dim` shorthand function.  
 By default, if one `nifti` is passed to the function and `keep_ind = FALSE`, then the return is a `nifti` object. 
 
 ```{r dd, cache=FALSE}
