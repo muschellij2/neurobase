@@ -28,8 +28,8 @@ ortho_diff <- function(img,
                        ...
 ){
   
-  roi = check_nifti(roi)
-  pred = check_nifti(pred)
+  roi = check_nifti(roi, allow.array = TRUE)
+  pred = check_nifti(pred, allow.array = TRUE)
   
   ###########################
   ### Drop empty image dimensions
@@ -47,18 +47,19 @@ ortho_diff <- function(img,
   # check_mask_fail(roi)
   # check_mask_fail(pred)
   
-  
   pred = pred > 0
   roi = roi > 0
   
-  diff = niftiarr(pred, NA)
+  diff = pred * NA
   # false negative
   diff[ roi %in% 1 & pred %in% 0] = 1
   # false positive
   diff[ roi %in% 0 & pred %in% 1] = 2
   # true positive
   diff[ roi %in% 1 & pred %in% 1] = 3
-  diff = cal_img(diff)
+  if (is.nifti(diff)) {
+    diff = cal_img(diff)
+  }
   
   ortho2(x = img, 
          y = diff, 
