@@ -272,7 +272,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   # }
   # grapher(img = x, idim = 2, zlimit = zlim, adder = FALSE, colors = col, 
   #         runbreaks = breaks, ...)
-  graphics::image(1:X, 1:Z, x[, xyz[2], ], col = col, zlim = zlim, 
+  graphics::image(1:X, 1:Z, as.matrix(x[, xyz[2], ]), col = col, zlim = zlim, 
                   breaks = breaks, asp = pdim[4]/pdim[2], xlab = ylab, 
                   ylab = xlab, axes = axes, 
                   useRaster = useRaster, ...)
@@ -287,14 +287,14 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   }  
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
-      graphics::image(1:X, 1:Z, y[, xyz[2], ], col = col.y, 
+      graphics::image(1:X, 1:Z, as.matrix(y[, xyz[2], ]), col = col.y, 
                       zlim = zlim.y, add = add,
                       asp = ifelse(add, NA, pdim[4]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster
       )
     } else {
-      graphics::image(1:X, 1:Z, y[, xyz[2], ], col = col.y, 
+      graphics::image(1:X, 1:Z, as.matrix(y[, xyz[2], ]), col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[4]/pdim[2]),
                       axes = axes,
@@ -311,7 +311,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     text("S", x = X/2 - .5, y = Z - ud.shift, las = 1, col = "white")
     text("I", x = X/2 - .5, y = ud.shift, las = 1, col = "white")
   }
-  graphics::image(1:Y, 1:Z, x[xyz[1], , ], col = col, breaks = breaks, 
+  graphics::image(1:Y, 1:Z, as.matrix(x[xyz[1], , ]), col = col, breaks = breaks, 
                   asp = pdim[4]/pdim[3], xlab = xlab, ylab = ylab, 
                   axes = axes,
                   useRaster = useRaster, ...)
@@ -326,14 +326,14 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   }  
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
-      graphics::image(1:Y, 1:Z, y[xyz[1], , ], col = col.y, 
+      graphics::image(1:Y, 1:Z, as.matrix(y[xyz[1], , ]), col = col.y, 
                       zlim = zlim.y, add = add,
                       asp = ifelse(add, NA, pdim[4]/pdim[3]),
                       axes = axes,
                       useRaster = useRaster
       )
     } else {
-      graphics::image(1:Y, 1:Z, y[xyz[1], , ], col = col.y, 
+      graphics::image(1:Y, 1:Z, as.matrix(y[xyz[1], , ]), col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[4]/pdim[3]),
                       axes = axes,
@@ -350,7 +350,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     text("S", x = Y/2 - .5, y = Z - ud.shift, las = 1, col = "white")
     text("I", x = Y/2 - .5, y = ud.shift, las = 1, col = "white")
   }    
-  graphics::image(1:X, 1:Y, x[, , xyz[3]], col = col, breaks = breaks, 
+  graphics::image(1:X, 1:Y, as.matrix(x[, , xyz[3]]), col = col, breaks = breaks, 
                   asp = pdim[3]/pdim[2], xlab = xlab, ylab = ylab, 
                   axes = axes,
                   useRaster = useRaster,
@@ -366,14 +366,14 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   }    
   if (!is.null(y)) {
     if (is.null(ybreaks)) {
-      graphics::image(1:X, 1:Y, y[, , xyz[3]], col = col.y, 
+      graphics::image(1:X, 1:Y, as.matrix(y[, , xyz[3]]), col = col.y, 
                       zlim = zlim.y, add = add,
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster
       )
     } else {
-      graphics::image(1:X, 1:Y, y[, , xyz[3]], col = col.y, 
+      graphics::image(1:X, 1:Y, as.matrix(y[, , xyz[3]]), col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
