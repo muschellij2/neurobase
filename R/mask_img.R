@@ -31,6 +31,7 @@ mask_img.default = function(img, mask, allow.NA = TRUE){
   
   img = check_nifti(img)
   stopifnot(inherits(img, "nifti"))
+  mask = ensure_array(mask)
   check_mask_fail(mask = mask, allow.NA = allow.NA, allow.array = TRUE)
   
   niftiarr(img, img * mask)
