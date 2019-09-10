@@ -91,7 +91,7 @@
 <a href="#the-nifti-object" class="anchor"></a>The nifti object</h1>
 <p>Note: Throughout this vignette, I will refer to an image on hard disk as a NIfTI, which is a file that generally has the extension “.nii” or “.nii.gz”. I will refer to the object in R as a <code>nifti</code> (note the change of font and case).</p>
 <p>In this tutorial we will discuss the basics of the <code>nifti</code> object in R. There are many objects in R that represent imaging data. The Neuroconductor project chose the <code>nifti</code> object from the <code>oro.nifti</code> package as one of the the basic building blocks because it has been widely used in other packages, has been tested over a period of time, and inherits the properties of an <code>array</code> in R.</p>
-<p>To run this code, you must have <code>oro.nifti</code> installed. You can either use the stable version on CRAN (using <code>install.packages</code>) or the development version (using <code><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">devtools::install_github</a></code>):</p>
+<p>To run this code, you must have <code>oro.nifti</code> installed. You can either use the stable version on CRAN (using <code>install.packages</code>) or the development version (using <code><a href="https://www.rdocumentation.org/packages/devtools/topics/remote-reexports">devtools::install_github</a></code>):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">packages =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/installed.packages">installed.packages</a></span>()</a>
 <a class="sourceLine" id="cb1-2" title="2">packages =<span class="st"> </span>packages[, <span class="st">"Package"</span>]</a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="cf">if</span> (<span class="op">!</span><span class="st">"oro.nifti"</span> <span class="op">%in%</span><span class="st"> </span>packages) {</a>
@@ -515,6 +515,8 @@ We will download the data and create a simple reader function (<code>readEve</co
   |                                                                       
   |==============================================                   |  71%
   |                                                                       
+  |==============================================                   |  72%
+  |                                                                       
   |===============================================                  |  72%
   |                                                                       
   |===============================================                  |  73%
@@ -559,8 +561,6 @@ We will download the data and create a simple reader function (<code>readEve</co
   |                                                                       
   |=======================================================          |  85%
   |                                                                       
-  |========================================================         |  85%
-  |                                                                       
   |========================================================         |  86%
   |                                                                       
   |========================================================         |  87%
@@ -585,6 +585,8 @@ We will download the data and create a simple reader function (<code>readEve</co
   |                                                                       
   |=============================================================    |  94%
   |                                                                       
+  |=============================================================    |  95%
+  |                                                                       
   |==============================================================   |  95%
   |                                                                       
   |==============================================================   |  96%
@@ -592,6 +594,8 @@ We will download the data and create a simple reader function (<code>readEve</co
   |===============================================================  |  96%
   |                                                                       
   |===============================================================  |  97%
+  |                                                                       
+  |===============================================================  |  98%
   |                                                                       
   |================================================================ |  98%
   |                                                                       
@@ -630,8 +634,6 @@ We will download the data and create a simple reader function (<code>readEve</co
   |                                                                       
   |=====                                                            |   8%
   |                                                                       
-  |======                                                           |   8%
-  |                                                                       
   |======                                                           |   9%
   |                                                                       
   |======                                                           |  10%
@@ -639,6 +641,8 @@ We will download the data and create a simple reader function (<code>readEve</co
   |=======                                                          |  10%
   |                                                                       
   |=======                                                          |  11%
+  |                                                                       
+  |=======                                                          |  12%
   |                                                                       
   |========                                                         |  12%
   |                                                                       
@@ -766,8 +770,6 @@ We will download the data and create a simple reader function (<code>readEve</co
   |                                                                       
   |=================================                                |  51%
   |                                                                       
-  |=================================                                |  52%
-  |                                                                       
   |==================================                               |  52%
   |                                                                       
   |==================================                               |  53%
@@ -822,8 +824,6 @@ We will download the data and create a simple reader function (<code>readEve</co
   |                                                                       
   |============================================                     |  68%
   |                                                                       
-  |=============================================                    |  68%
-  |                                                                       
   |=============================================                    |  69%
   |                                                                       
   |=============================================                    |  70%
@@ -831,6 +831,8 @@ We will download the data and create a simple reader function (<code>readEve</co
   |==============================================                   |  70%
   |                                                                       
   |==============================================                   |  71%
+  |                                                                       
+  |==============================================                   |  72%
   |                                                                       
   |===============================================                  |  72%
   |                                                                       
@@ -1484,6 +1486,7 @@ Attaching package: 'dplyr'</code></pre>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>

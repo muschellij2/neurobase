@@ -8,11 +8,13 @@
 
 <title>Convert Image to Data.frame with Colors — img_colour_df • neurobase</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -30,11 +32,12 @@
 
 
 
-<meta property="og:title" content="Convert Image to Data.frame with Colors — img_colour_df" />
 
+<meta property="og:title" content="Convert Image to Data.frame with Colors — img_colour_df" />
 <meta property="og:description" content="Takes in an image and a color scheme, converts that image
 into a data.frame with the data and a color mapping." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -98,7 +101,6 @@ into a data.frame with the data and a color mapping." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
@@ -119,16 +121,14 @@ into a data.frame with the data and a color mapping." />
     </div>
 
     <div class="ref-description">
-    
     <p>Takes in an image and a color scheme, converts that image
 into a <code>data.frame</code> with the data and a color mapping.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>img_colour_df</span>(<span class='no'>img</span>, <span class='kw'>zlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/gray'>gray</a></span>(<span class='fl'>0</span>:<span class='fl'>64</span>/<span class='fl'>64</span>))
 
 <span class='fu'>img_color_df</span>(<span class='no'>...</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -154,18 +154,16 @@ into a <code>data.frame</code> with the data and a color mapping.</p>
       <td><p>not used</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>data.frame</code> with the first columns being the x,y,z (maybe t)
 coordinates (named <code>dim</code> and the dimension number), a <code>value</code> 
 column that contains the intensity information, and a <code>colour</code> column
 representing the color that voxel maps to</p>
-    
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p><code>img_color_df</code> is a duplicate of <code>img_colour_df</code></p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>img</span> <span class='kw'>=</span> <span class='fu'>nifti</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>^<span class='fl'>3</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)))
@@ -175,11 +173,8 @@ representing the color that voxel maps to</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#note">Note</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

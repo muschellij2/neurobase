@@ -22,3 +22,4 @@ R/ortho3\.R
 ^cran-comments\.md$
 ^doc$
 ^Meta$
+^pkgdown$
