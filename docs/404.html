@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Slice a Image Color Data.frame — slice_colour_df • neurobase</title>
+<title>Page not found (404) • neurobase</title>
 
 
 <!-- jquery -->
@@ -29,16 +29,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Slice a Image Color Data.frame — slice_colour_df" />
-<meta property="og:description" content="Slices a image color data.frame along the 3 planes (axial,
-coronal, sagittal) and returns it in a ggplot-ready format for faceting." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Page not found (404)" />
 
 
 
@@ -57,7 +54,7 @@ coronal, sagittal) and returns it in a ggplot-ready format for faceting." />
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -69,7 +66,7 @@ coronal, sagittal) and returns it in a ggplot-ready format for faceting." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">neurobase</a>
+        <a class="navbar-link" href="index.html">neurobase</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
       </span>
     </div>
@@ -77,16 +74,16 @@ coronal, sagittal) and returns it in a ggplot-ready format for faceting." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
+  <a href="index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../articles/neurobase.html">Get started</a>
+  <a href="articles/neurobase.html">Get started</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -96,15 +93,15 @@ coronal, sagittal) and returns it in a ggplot-ready format for faceting." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/nifti_basics.html">The nifti object</a>
+      <a href="articles/nifti_basics.html">The nifti object</a>
     </li>
     <li>
-      <a href="../articles/simple_io.html">Simple Image Input/Output</a>
+      <a href="articles/simple_io.html">Simple Image Input/Output</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -120,55 +117,17 @@ coronal, sagittal) and returns it in a ggplot-ready format for faceting." />
       </header>
 
 <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-    <h1>Slice a Image Color Data.frame</h1>
-    
-    <div class="hidden name"><code>slice_colour_df.Rd</code></div>
+      <h1>Page not found (404)</h1>
     </div>
 
-    <div class="ref-description">
-    <p>Slices a image color <code>data.frame</code> along the 3 planes (axial,
-coronal, sagittal) and returns it in a ggplot-ready format for faceting.</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>slice_colour_df</span>(<span class='no'>img_df</span>, <span class='kw'>xyz</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>img_df</th>
-      <td><p>an image <code>data.frame</code>, usually from 
-<code><a href='img_colour_df.html'>img_colour_df</a></code>.  Must have the columns: <code>dim1</code>,
-<code>dim2</code>, <code>dim3</code>, <code>colour</code>, and <code>value</code>.</p></td>
-    </tr>
-    <tr>
-      <th>xyz</th>
-      <td><p>coordinates to slice the <code>data.frame</code> in x, y, and z - domains</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A <code>data.frame</code> with x and y coordinates, colour, and intensity
-values, along with the associated planes that were sliced.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>img</span> <span class='kw'>=</span> <span class='fu'>nifti</span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10</span>^<span class='fl'>3</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)))
-<span class='no'>df</span> <span class='kw'>=</span> <span class='fu'><a href='img_colour_df.html'>img_colour_df</a></span>(<span class='no'>img</span>)
-<span class='no'>sliced</span> <span class='kw'>=</span> <span class='fu'>slice_colour_df</span>(<span class='no'>df</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5</span>, <span class='fl'>5</span>, <span class='fl'>4</span>))</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+Content not found. Please use links in the navbar.
 
   </div>
+
 </div>
+
 
 
       <footer>

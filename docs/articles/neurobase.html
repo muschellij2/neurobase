@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NIfTI Basics using the Eve atlas • neurobase</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="NIfTI Basics using the Eve atlas">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -58,6 +59,9 @@
 <li>
       <a href="../articles/nifti_basics.html">The nifti object</a>
     </li>
+    <li>
+      <a href="../articles/simple_io.html">Simple Image Input/Output</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -73,13 +77,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>NIfTI Basics using the Eve atlas</h1>
                         <h4 class="author">John Muschelli</h4>
             
-            <h4 class="date">2019-09-10</h4>
+            <h4 class="date">2019-09-12</h4>
       
       
       <div class="hidden name"><code>neurobase.Rmd</code></div>
@@ -96,13 +101,13 @@
 <div id="s4-implementation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#s4-implementation" class="anchor"></a>S4 Implementation</h2>
-<p>As <code>nifti</code> objects inherits the properties of an <code>array</code>, you can perform a series of operations on them, such as addition/subtraction/division, as you would an <code>array</code>. A <code>nifti</code> object has additional attributes and the <code>nifti</code> object is an S4 object. This means that you do not reference additional information using the <code>$</code> operator.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(oro.nifti)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">20161007</span>)</a>
-<a class="sourceLine" id="cb1-3" title="3">dims =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="dv">10</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb1-4" title="4">arr =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">array</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">10</span><span class="op">*</span><span class="dv">10</span><span class="op">*</span><span class="dv">10</span>), <span class="dt">dim =</span> dims)</a>
+<p>As <code>nifti</code> objects inherits the properties of an <code>array</code>, you can perform a series of operations on them, such as addition/subtraction/division, as you would an <code>array</code>. A <code>nifti</code> object has additional attributes and the <code>nifti</code> object is an S4 object. This means that you do not reference additional information using the <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> operator.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(oro.nifti)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">20161007</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3">dims =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="dv">10</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb1-4" title="4">arr =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/array.html">array</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="dv">10</span><span class="op">*</span><span class="dv">10</span><span class="op">*</span><span class="dv">10</span>), <span class="dt">dim =</span> dims)</a>
 <a class="sourceLine" id="cb1-5" title="5">nim =<span class="st"> </span>oro.nifti<span class="op">::</span><span class="kw">nifti</span>(arr)</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(nim)</a></code></pre></div>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(nim)</a></code></pre></div>
 <pre><code>## NIfTI-1 format
 ##   Type            : nifti
 ##   Data Type       : 2 (UINT8)
@@ -115,7 +120,7 @@
 ##   Pixel Dimension : 1 x 1 x 1
 ##   Voxel Units     : Unknown
 ##   Time Units      : Unknown</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(nim))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(nim))</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
@@ -129,7 +134,7 @@
 <p>Here’s an example where we make an array of random normal data, and put that array into a <code>nifti</code> object with the <code>nifti</code> function:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">nim<span class="op">@</span>cal_max</a></code></pre></div>
 <pre><code>## [1] 2.706524</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/cal_max-methods">cal_max</a></span>(nim)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/oro.nifti/man/cal_max-methods.html">cal_max</a></span>(nim)</a></code></pre></div>
 <pre><code>## [1] 2.706524</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">slot</span>(nim, <span class="st">"cal_max"</span>)</a></code></pre></div>
 <pre><code>## [1] 2.706524</code></pre>
@@ -139,21 +144,21 @@
 <a href="#accessing-the-data" class="anchor"></a>Accessing the “data”</h3>
 <p>If you want to access the “data” of the image, you can access that using:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">data =<span class="st"> </span><span class="kw">slot</span>(nim, <span class="st">".Data"</span>)</a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(data)</a></code></pre></div>
+<a class="sourceLine" id="cb13-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(data)</a></code></pre></div>
 <pre><code>## [1] "array"</code></pre>
 <p>With newer versions of <code>oro.nifti</code> (especially that on GitHub and in Neuroconductor), there is a <code>img_data</code> function to access the data:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">data =<span class="st"> </span>oro.nifti<span class="op">::</span><span class="kw">img_data</span>(nim)</a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(data)</a></code></pre></div>
+<a class="sourceLine" id="cb15-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(data)</a></code></pre></div>
 <pre><code>## [1] "array"</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(data)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(data)</a></code></pre></div>
 <pre><code>## [1] 10 10 10</code></pre>
 <p>This <code>array</code> is 3-dimensional and can be subset using normal square-bracket notations (<code>[row, column, slice]</code>). Thus, if we want the 3rd “slice” of the image, we can use:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">slice =<span class="st"> </span>data[,,<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(slice)</a></code></pre></div>
+<a class="sourceLine" id="cb19-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(slice)</a></code></pre></div>
 <pre><code>## [1] "matrix"</code></pre>
 <p>Thus we see we get a matrix of values from the 3rd “slice”. We should note that we generally reference an image by x, y, and z planes (in that order). Most of the time, the x direction refers to going left/right on an image, y refers to front/back (or anterior/posterior), and the z direction refers to up/down (superior/inferior). The actual direction depends on the header information of the NIfTI image.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">slice =<span class="st"> </span>data[,,<span class="dv">3</span>, drop =<span class="st"> </span><span class="ot">FALSE</span>]</a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(slice)</a></code></pre></div>
+<a class="sourceLine" id="cb21-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(slice)</a></code></pre></div>
 <pre><code>## [1] "array"</code></pre>
 </div>
 <div id="show-all-slots" class="section level3">
@@ -198,7 +203,7 @@
 <h2 class="hasAnchor">
 <a href="#option-reorient-false" class="anchor"></a>Option <code>reorient = FALSE</code>
 </h2>
-<p>In <code>readNIfTI</code> default <code>reorient = TRUE</code> implicitly uses the <code>reorient</code> function from <code>oro.nifti</code>. Although many neuroimaging software suites read the header and reorient the data based on that information, <code><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/reorient">oro.nifti::reorient</a></code> can only handle simple orientations, see <code><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/performPermutation">oro.nifti::performPermutation</a></code> documentation. Although reading the data in without reorienting can cause problems, such as not knowing right/left orientation, if multiple NIfTI files were created in the same way (assumingly from <code>dcm2nii</code>), they should ideally have the same orientation.</p>
+<p>In <code>readNIfTI</code> default <code>reorient = TRUE</code> implicitly uses the <code>reorient</code> function from <code>oro.nifti</code>. Although many neuroimaging software suites read the header and reorient the data based on that information, <code><a href="https://rdrr.io/pkg/oro.nifti/man/reorient.html">oro.nifti::reorient</a></code> can only handle simple orientations, see <code><a href="https://rdrr.io/pkg/oro.nifti/man/performPermutation.html">oro.nifti::performPermutation</a></code> documentation. Although reading the data in without reorienting can cause problems, such as not knowing right/left orientation, if multiple NIfTI files were created in the same way (assumingly from <code>dcm2nii</code>), they should ideally have the same orientation.</p>
 <p>Derived data from an image will have the exact same orientation because derived <code>nifti</code> objects will copy the <code>nifti</code> header information from the <code>nifti</code> object it was derived from. Moreover, in many analyses, registration to an image or a template is common, and these have known orientations. We have found that if a user wants to reorient their data in R, using the <code>reorient</code> function can be used, but we prefer the default to be <code>FALSE</code>, otherwise reading in many NIfTI files result in an error from the orientation.</p>
 </div>
 </div>
@@ -211,15 +216,15 @@
 <a href="#logical-operators" class="anchor"></a>Logical operators</h2>
 <p>For example, if we want to create a <code>nifti</code> object with binary values, where the values are <code>TRUE</code> if the values in <code>nim</code> are greater than 0, we can simply write:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">above_zero =<span class="st"> </span>nim <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(above_zero)</a></code></pre></div>
+<a class="sourceLine" id="cb25-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(above_zero)</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/img_data-methods">img_data</a></span>(above_zero)[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/oro.nifti/man/img_data-methods.html">img_data</a></span>(above_zero)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>We will refer to binary images/<code>nifti</code> objects as “masks”.</p>
 <p>We can combine multiple operators, such as creating a binary mask for value greater than 0 and less than 2.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(nim <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>nim <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(nim <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>nim <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
@@ -228,19 +233,19 @@
 <h2 class="hasAnchor">
 <a href="#arithmetic-on-nifti-objects" class="anchor"></a>Arithmetic on <code>nifti</code> objects</h2>
 <p>We can also show the</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(nim <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(nim <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(nim <span class="op">+</span><span class="st"> </span>(nim <span class="op">/</span><span class="st"> </span><span class="dv">4</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(nim <span class="op">+</span><span class="st"> </span>(nim <span class="op">/</span><span class="st"> </span><span class="dv">4</span>))</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(nim <span class="op">*</span><span class="st"> </span>nim)</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(nim <span class="op">*</span><span class="st"> </span>nim)</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(nim<span class="op">^</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(nim<span class="op">^</span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
@@ -249,19 +254,19 @@
 <h2 class="hasAnchor">
 <a href="#summaries" class="anchor"></a>Summaries</h2>
 <p>How many values actually are greater than zero? Here, we can use standard statistical functions, such as <code>sum</code> to count the number of <code>TRUE</code> indices:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(above_zero)</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(above_zero)</a></code></pre></div>
 <pre><code>## [1] 513</code></pre>
 <p>and similarly find the proportion of <code>TRUE</code> indices by taking the <code>mean</code> of these indicators:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(above_zero)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(above_zero)</a></code></pre></div>
 <pre><code>## [1] 0.513</code></pre>
-<p>Again, as <code>nifti</code> is an S4 object, it should have the functionality described in the details of the help file for <code><a href="https://www.rdocumentation.org/packages/methods/topics/S4groupGeneric">methods::S4groupGeneric</a></code>:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Extremes">min</a></span>(nim)</a></code></pre></div>
+<p>Again, as <code>nifti</code> is an S4 object, it should have the functionality described in the details of the help file for <code><a href="https://rdrr.io/r/methods/S4groupGeneric.html">methods::S4groupGeneric</a></code>:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span>(nim)</a></code></pre></div>
 <pre><code>## [1] -3.517075</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Extremes">max</a></span>(nim)</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(nim)</a></code></pre></div>
 <pre><code>## [1] 2.706524</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/range">range</a></span>(nim)</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/range.html">range</a></span>(nim)</a></code></pre></div>
 <pre><code>## [1] -3.517075  2.706524</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(nim))</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(nim))</a></code></pre></div>
 <pre><code>## [1] "nifti"
 ## attr(,"package")
 ## [1] "oro.nifti"</code></pre>
@@ -271,40 +276,40 @@
 <h1 class="hasAnchor">
 <a href="#visualization-of-nifti-objects" class="anchor"></a>Visualization of <code>nifti</code> objects</h1>
 <p>Here we will use imaging data from the <code>oro.nifti</code> package:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">fname =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(</a>
-<a class="sourceLine" id="cb51-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/file.path">file.path</a></span>(<span class="st">"nifti"</span>, <span class="st">"mniRL.nii.gz"</span>),</a>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">fname =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
+<a class="sourceLine" id="cb51-2" title="2">  <span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="st">"nifti"</span>, <span class="st">"mniRL.nii.gz"</span>),</a>
 <a class="sourceLine" id="cb51-3" title="3">  <span class="dt">package =</span> <span class="st">"oro.nifti"</span>)</a>
 <a class="sourceLine" id="cb51-4" title="4">eve =<span class="st"> </span><span class="kw"><a href="../reference/readNIfTI2.html">readnii</a></span>(fname)</a></code></pre></div>
 <div id="orthographic-view" class="section level2">
 <h2 class="hasAnchor">
 <a href="#orthographic-view" class="anchor"></a>Orthographic view</h2>
-<p>The <code><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/orthographic-methods">oro.nifti::orthographic</a></code> function provides great functionality on displaying <code>nifti</code> objects in 3 different planes.</p>
+<p>The <code><a href="https://rdrr.io/pkg/oro.nifti/man/orthographic-methods.html">oro.nifti::orthographic</a></code> function provides great functionality on displaying <code>nifti</code> objects in 3 different planes.</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">oro.nifti<span class="op">::</span><span class="kw">orthographic</span>(eve)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho-1.png" width="700"></p>
 <p>The <code><a href="../reference/ortho2.html">neurobase::ortho2</a></code> function expands upon this with some different defaults.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">neurobase<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/neurobase/topics/ortho2">ortho2</a></span>(eve)</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">neurobase<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/neurobase/man/ortho2.html">ortho2</a></span>(eve)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho2-1.png" width="700"></p>
 <p>We see that in <code>ortho2</code> there are annotations of the orientation of the image. Again, if the image was not reoriented, then these many not be correct. You can turn these off with the <code>add.orient</code> argument:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">neurobase<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/neurobase/topics/ortho2">ortho2</a></span>(eve, <span class="dt">add.orient =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">neurobase<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/neurobase/man/ortho2.html">ortho2</a></span>(eve, <span class="dt">add.orient =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho2_noorient-1.png" width="700"></p>
 <div id="differences-between-orthographic-and-ortho2" class="section level3">
 <h3 class="hasAnchor">
 <a href="#differences-between-orthographic-and-ortho2" class="anchor"></a>Differences between <code>orthographic</code> and <code>ortho2</code>
 </h3>
 <p>The above code does not fully illustrate the differences between <code>orthographic</code> and <code>ortho2</code>. One marked difference is when you would like to “overlay” an image on top of another in an orthograhic view. Here we will highlight voxels greater than the 90th quantile of the image:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/orthographic-methods">orthographic</a></span>(eve, <span class="dt">y =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(eve, <span class="fl">0.9</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/oro.nifti/man/orthographic-methods.html">orthographic</a></span>(eve, <span class="dt">y =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>(eve, <span class="fl">0.9</span>))</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho_nona-1.png" width="700"></p>
 <p>We see that the white matter is represented here, along with the burned in orientations, but we would like to see areas of the brain that are not over this quantile to be shown as the image. Let us contrast this with:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(eve, <span class="dt">y =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(eve, <span class="fl">0.9</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(eve, <span class="dt">y =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>(eve, <span class="fl">0.9</span>))</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho2_nona-1.png" width="700"></p>
-<p>We see the image where the mask is 0 shows the original image. This is due to the <code>NA.y</code> argument in <code>ortho2</code>. The <code>ortho2</code> (and <code>orthograhic</code>) function is based on the <code><a href="https://www.rdocumentation.org/packages/graphics/topics/image">graphics::image</a></code> function in R, as well as many other functions we will discuss below. When <code><a href="https://www.rdocumentation.org/packages/graphics/topics/image">graphics::image</a></code> sees an <code>NA</code> value, it does not plot anything there. The <code>NA.y</code> argument in <code>ortho2</code> makes it so any values in the <code>y</code> argument (in this case the mask) that are equal to zero are turned to <code>NA</code>.</p>
+<p>We see the image where the mask is 0 shows the original image. This is due to the <code>NA.y</code> argument in <code>ortho2</code>. The <code>ortho2</code> (and <code>orthograhic</code>) function is based on the <code><a href="https://rdrr.io/r/graphics/image.html">graphics::image</a></code> function in R, as well as many other functions we will discuss below. When <code><a href="https://rdrr.io/r/graphics/image.html">graphics::image</a></code> sees an <code>NA</code> value, it does not plot anything there. The <code>NA.y</code> argument in <code>ortho2</code> makes it so any values in the <code>y</code> argument (in this case the mask) that are equal to zero are turned to <code>NA</code>.</p>
 </div>
 <div id="bright-values" class="section level3">
 <h3 class="hasAnchor">
 <a href="#bright-values" class="anchor"></a>Bright values</h3>
 <p>If you have artifacts or simply large values of an image, it can “dampen” the viewing of an image. Let’s make one value of the eve template very large. We will set the voxel with the largest value to be that value times 5 :</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">eve2 =<span class="st"> </span>eve</a>
-<a class="sourceLine" id="cb57-2" title="2">eve2[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/which.min">which.max</a></span>(eve)] =<span class="st"> </span>eve2[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/which.min">which.max</a></span>(eve)] <span class="op">*</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<a class="sourceLine" id="cb57-2" title="2">eve2[<span class="kw"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span>(eve)] =<span class="st"> </span>eve2[<span class="kw"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span>(eve)] <span class="op">*</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <p>Let’s plot this image again:</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(eve2)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho2_large-1.png" width="700"></p>
@@ -312,7 +317,7 @@
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(<span class="kw"><a href="../reference/robust_window.html">robust_window</a></span>(eve2))</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho2_rob-1.png" width="700"></p>
 <p>Changing the <code>probs</code> argument in <code>robust_window</code>, which is passed to <code>quantile</code>, can also be used to limit artifacts with remarkably low values. The <code>zlim</code> option can also denote which range of intensities that can be plotted:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(eve2, <span class="dt">zlim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(eve2, <span class="dt">probs =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">0.999</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(eve2, <span class="dt">zlim =</span> <span class="kw"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>(eve2, <span class="dt">probs =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="fl">0.999</span>)))</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/ortho2_zlim-1.png" width="700"></p>
 <p>This is a bit more like trimming, however.</p>
 </div>
@@ -320,8 +325,8 @@
 <h3 class="hasAnchor">
 <a href="#double-orthographic-view" class="anchor"></a>Double orthographic view</h3>
 <p>Sometimes you would like to represent 2 images side by side, of the same dimensions and orientation of course. The <code>double_ortho</code> function allows you to do this. Let’s read in the flipped image:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">flipped_fname =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(</a>
-<a class="sourceLine" id="cb61-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/file.path">file.path</a></span>(<span class="st">"nifti"</span>, <span class="st">"mniLR.nii.gz"</span>),</a>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">flipped_fname =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(</a>
+<a class="sourceLine" id="cb61-2" title="2">  <span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="st">"nifti"</span>, <span class="st">"mniLR.nii.gz"</span>),</a>
 <a class="sourceLine" id="cb61-3" title="3">  <span class="dt">package =</span> <span class="st">"oro.nifti"</span>)</a>
 <a class="sourceLine" id="cb61-4" title="4">flipped_eve =<span class="st"> </span><span class="kw"><a href="../reference/readNIfTI2.html">readnii</a></span>(flipped_fname)</a></code></pre></div>
 <p>We can view the flipped T1 alongside the original image:</p>
@@ -332,36 +337,36 @@
 <div id="single-slice-view" class="section level2">
 <h2 class="hasAnchor">
 <a href="#single-slice-view" class="anchor"></a>Single slice view</h2>
-<p>We may want to view a single slice of an image. The <code>oro.nifti::image</code> function can be used here. Note, <code><a href="https://www.rdocumentation.org/packages/graphics/topics/image">graphics::image</a></code> exists and <code>oro.nifti::image</code> both exist. The <code>oro.nifti::image</code> allows you to just write <code><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image(nifti_object)</a></code>, which performs operations and calls functions using <code><a href="https://www.rdocumentation.org/packages/graphics/topics/image">graphics::image</a></code>. This allows the user to use a “generic” version of <code>image</code>, which <code>oro.nifti</code> adapted specifically for <code>nifti</code> objects. You can see the help for this function in <code><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/image-methods">?image.nifti</a></code>.</p>
+<p>We may want to view a single slice of an image. The <code>oro.nifti::image</code> function can be used here. Note, <code><a href="https://rdrr.io/r/graphics/image.html">graphics::image</a></code> exists and <code>oro.nifti::image</code> both exist. The <code>oro.nifti::image</code> allows you to just write <code><a href="https://rdrr.io/r/graphics/image.html">image(nifti_object)</a></code>, which performs operations and calls functions using <code><a href="https://rdrr.io/r/graphics/image.html">graphics::image</a></code>. This allows the user to use a “generic” version of <code>image</code>, which <code>oro.nifti</code> adapted specifically for <code>nifti</code> objects. You can see the help for this function in <code><a href="https://rdrr.io/pkg/oro.nifti/man/image-methods.html">?image.nifti</a></code>.</p>
 <p>Let’s plot an image of the 90th slice of <code>eve</code></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(eve, <span class="dt">z =</span> <span class="dv">45</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(eve, <span class="dt">z =</span> <span class="dv">45</span>)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/all_slices-1.png" width="700"></p>
 <p>What happened? Well, the default argument <code>plot.type</code> in <code>image.nifti</code> is set for <code>"multiple"</code>, so that even if you specify a slice, it will plot <strong>all</strong> slices. Here, if we pass <code>plot.type = "single"</code>, we get the single slice we want.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(eve, <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(eve, <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/one_slice-1.png" width="700"></p>
 <p>If we put multiple slices with <code>plot.type = "single"</code>, then we will get a view of these 2 slices.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(eve, <span class="dt">z =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">45</span>, <span class="dv">50</span>), <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(eve, <span class="dt">z =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">45</span>, <span class="dv">50</span>), <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/two_slice-1.png" width="700"></p>
 <div id="different-planes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#different-planes" class="anchor"></a>Different Planes</h3>
 <p>We can specify <code>z</code> the same way but change the <code>plane</code> to be different to get a different slice of the brain:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(eve, <span class="dt">z =</span> <span class="dv">52</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>, <span class="dt">plane =</span> <span class="st">"sagittal"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(eve, <span class="dt">z =</span> <span class="dv">52</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>, <span class="dt">plane =</span> <span class="st">"sagittal"</span>)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/one_slice_sag-1.png" width="700"> We can similarly do the same for “coronal” slices.</p>
 </div>
 </div>
 <div id="overlaying-slices" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overlaying-slices" class="anchor"></a>Overlaying slices</h2>
-<p>We can also overlay one slice of an image upon another using the <code><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/overlay-methods">oro.nifti::overlay</a></code> function. Here we must specify <code>plot.type</code> again for only one slice.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/overlay-methods">overlay</a></span>(eve, <span class="dt">y =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(eve, <span class="fl">0.9</span>), <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
+<p>We can also overlay one slice of an image upon another using the <code><a href="https://rdrr.io/pkg/oro.nifti/man/overlay-methods.html">oro.nifti::overlay</a></code> function. Here we must specify <code>plot.type</code> again for only one slice.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="kw"><a href="https://rdrr.io/pkg/oro.nifti/man/overlay-methods.html">overlay</a></span>(eve, <span class="dt">y =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>(eve, <span class="fl">0.9</span>), <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/one_slice_overlay-1.png" width="700"></p>
 <p>We have not yet implemented <code>overlay2</code> (at the time of running this), which has the <code>NA.y</code> option, but will in the future. We can do this prior to plotting and pass in this <code>NA</code>’d mask:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">mask =<span class="st"> </span>eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(eve, <span class="fl">0.9</span>)</a>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">mask =<span class="st"> </span>eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>(eve, <span class="fl">0.9</span>)</a>
 <a class="sourceLine" id="cb68-2" title="2">mask[ mask <span class="op">==</span><span class="st"> </span><span class="dv">0</span>] =<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb68-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/overlay-methods">overlay</a></span>(eve, <span class="dt">y =</span> mask, <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb68-3" title="3"><span class="kw"><a href="https://rdrr.io/pkg/oro.nifti/man/overlay-methods.html">overlay</a></span>(eve, <span class="dt">y =</span> mask, <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/one_slice_overlay_right-1.png" width="700"></p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rm">rm</a></span>(<span class="dt">list =</span> <span class="st">"mask"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/rm.html">rm</a></span>(<span class="dt">list =</span> <span class="st">"mask"</span>)</a></code></pre></div>
 </div>
 <div id="dropping-empty-dimensions" class="section level2">
 <h2 class="hasAnchor">
@@ -369,9 +374,9 @@
 <p>In some instances, there are extraneous slices to an image. For example, in the image we read in, there are extraneous brackrond. For plotting or further analyses, we can drop these empty dimensions using the <code><a href="../reference/dropEmptyImageDimensions.html">neurobase::dropEmptyImageDimensions</a></code> function or <code>drop_empty_dim</code> shorthand function.<br>
 By default, if one <code>nifti</code> is passed to the function and <code>keep_ind = FALSE</code>, then the return is a <code>nifti</code> object.</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1">reduced =<span class="st"> </span><span class="kw"><a href="../reference/dropEmptyImageDimensions.html">dropEmptyImageDimensions</a></span>(eve)</a>
-<a class="sourceLine" id="cb70-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(eve)</a></code></pre></div>
+<a class="sourceLine" id="cb70-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(eve)</a></code></pre></div>
 <pre><code>## [1]  91 109  91</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(reduced)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(reduced)</a></code></pre></div>
 <pre><code>## [1]  91 109  91</code></pre>
 <p>We can now plot the reduced image:</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(reduced)</a></code></pre></div>
@@ -393,7 +398,7 @@ By default, if one <code>nifti</code> is passed to the function and <code>keep_i
 <a class="sourceLine" id="cb76-3" title="3">reversed =<span class="st"> </span><span class="kw"><a href="../reference/replace_dropped_dimensions.html">replace_dropped_dimensions</a></span>(<span class="dt">img =</span> reduced, </a>
 <a class="sourceLine" id="cb76-4" title="4">                                      <span class="dt">inds =</span> dd<span class="op">$</span>inds,</a>
 <a class="sourceLine" id="cb76-5" title="5">                                      <span class="dt">orig.dim =</span> dd<span class="op">$</span>orig.dim)</a>
-<a class="sourceLine" id="cb76-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/all">all</a></span>(reversed <span class="op">==</span><span class="st"> </span>eve)</a></code></pre></div>
+<a class="sourceLine" id="cb76-6" title="6"><span class="kw"><a href="https://rdrr.io/r/base/all.html">all</a></span>(reversed <span class="op">==</span><span class="st"> </span>eve)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 </div>
@@ -410,9 +415,9 @@ By default, if one <code>nifti</code> is passed to the function and <code>keep_i
 <h3 class="hasAnchor">
 <a href="#copying-header-information" class="anchor"></a>Copying header information</h3>
 <p>If you have an array, you can simply write:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1">dims =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(eve)</a>
-<a class="sourceLine" id="cb78-2" title="2">arr =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">array</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/prod">prod</a></span>(dims)), <span class="dt">dim =</span> dims)</a>
-<a class="sourceLine" id="cb78-3" title="3">nim =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/oro.nifti/topics/nifti">nifti</a></span>(arr)</a>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1">dims =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(eve)</a>
+<a class="sourceLine" id="cb78-2" title="2">arr =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/array.html">array</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/prod.html">prod</a></span>(dims)), <span class="dt">dim =</span> dims)</a>
+<a class="sourceLine" id="cb78-3" title="3">nim =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html">nifti</a></span>(arr)</a>
 <a class="sourceLine" id="cb78-4" title="4">nim</a></code></pre></div>
 <pre><code>## NIfTI-1 format
 ##   Type            : nifti
@@ -449,7 +454,7 @@ By default, if one <code>nifti</code> is passed to the function and <code>keep_i
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1">zeroes =<span class="st"> </span><span class="kw"><a href="../reference/niftiarr.html">niftiarr</a></span>(eve, <span class="dv">0</span>)</a></code></pre></div>
 <p>The main difference is the line in <code>niftiarr</code>:</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is</span>(arr, <span class="st">"array"</span>)){</a>
-<a class="sourceLine" id="cb83-2" title="2">  arr =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">array</a></span>(arr, <span class="dt">dim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(img))</a>
+<a class="sourceLine" id="cb83-2" title="2">  arr =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/array.html">array</a></span>(arr, <span class="dt">dim=</span><span class="kw"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(img))</a>
 <a class="sourceLine" id="cb83-3" title="3">}</a></code></pre></div>
 <p>which implies that if you pass in a <code>vector</code> instead of an <code>array</code>, it will create an <code>array</code> on the fly. Sometimes you want an operation to error if <code>arr</code> is not an <code>array</code> (as in <code>copyNIfTIHeader</code>) or be able to pass in a vector and get the correct output <code>niftiarr</code>.</p>
 <p>Technical note: This code is legacy and somewhat old and probably can (and may be) replaced by making <code>copyNIfTIHeader</code> a generic and having different versions for when <code>arr</code> is an <code>array</code> or <code>vector</code>.</p>
@@ -461,7 +466,7 @@ By default, if one <code>nifti</code> is passed to the function and <code>keep_i
 <p>Many times you mask an image based on a binary mask. This means any values where the mask is 1, the values will remain, and if the mask is zero or <code>NA</code>, they will be changed (to either zero or <code>NA</code>).</p>
 <p>The operation of masking is simply multiplication, multiplying an array by a binary (with or without <code>NA</code>s). Although this is simple, we have created the <code>mask_img</code> function to perform some checking on the <code>mask</code>, such as are all values 0/1. It also has the argument <code>allow.NA</code>, which denotes whether <code>NA</code>s should be allowed or not in the mask.</p>
 <p>Here we will simply mask out values of <code>eve</code> that are less than the mean:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1">eve_masked =<span class="st"> </span><span class="kw"><a href="../reference/mask_img.html">mask_img</a></span>(eve, eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(eve))</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1">eve_masked =<span class="st"> </span><span class="kw"><a href="../reference/mask_img.html">mask_img</a></span>(eve, eve <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(eve))</a></code></pre></div>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw"><a href="../reference/ortho2.html">ortho2</a></span>(eve_masked)</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/plot_mask-1.png" width="700"></p>
 </div>
@@ -469,13 +474,13 @@ By default, if one <code>nifti</code> is passed to the function and <code>keep_i
 <h2 class="hasAnchor">
 <a href="#vectorizing-a-nifti" class="anchor"></a>Vectorizing a <code>nifti</code>
 </h2>
-<p>To convert a <code>nifti</code> to a <code>vector</code>, you can simply use the <code><a href="https://www.rdocumentation.org/packages/base/topics/c">c()</a></code> operator:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1">vals =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(eve)</a>
-<a class="sourceLine" id="cb86-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(vals)</a></code></pre></div>
+<p>To convert a <code>nifti</code> to a <code>vector</code>, you can simply use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> operator:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1">vals =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(eve)</a>
+<a class="sourceLine" id="cb86-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(vals)</a></code></pre></div>
 <pre><code>## [1] "integer"</code></pre>
-<p>Note an <code>array</code> can be reconstructed by using <code><a href="https://www.rdocumentation.org/packages/base/topics/array">array(vals, dim = dim(eve))</a></code> and will be in the correct order as the way R creates vectors and arrays.</p>
+<p>Note an <code>array</code> can be reconstructed by using <code><a href="https://rdrr.io/r/base/array.html">array(vals, dim = dim(eve))</a></code> and will be in the correct order as the way R creates vectors and arrays.</p>
 <p>From these values we can do all the standard plotting/manipulations of data. For example, let’s do a marginal density of the values:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/density">density</a></span>(vals))</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" title="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/density.html">density</a></span>(vals))</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/dens-1.png" width="700"></p>
 <p>This plot is good, but it’s over all voxels in the image, which are mostly zero due to the background. Therefore we see a large spike at zero, but not much information of the distribution of values within the mask. We need to subset the values by the mask.</p>
 <div id="subsetting-via-masks" class="section level3">
@@ -483,25 +488,25 @@ By default, if one <code>nifti</code> is passed to the function and <code>keep_i
 <a href="#subsetting-via-masks" class="anchor"></a>Subsetting via masks</h3>
 <p>In a previous example, we calculated the mean of <code>eve</code> over the entire image. Many times we want to calculate values over a mask. For example, let’s get the mean of all voxels in the mask, where the mask is any value of <code>eve</code> greater than zero. We can do this by subsetting the values in the mask and then calculating the mean:</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">vals =<span class="st"> </span>eve[ eve <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> ]</a>
-<a class="sourceLine" id="cb89-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(vals)</a></code></pre></div>
+<a class="sourceLine" id="cb89-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(vals)</a></code></pre></div>
 <pre><code>## [1] 82.90267</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(eve)</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(eve)</a></code></pre></div>
 <pre><code>## [1] 82.89716</code></pre>
 <p>We see that the mean of the voxels in the mask versus all voxels is very different, because the voxels not in the mask are simply adding zeroes to the calculation. We could simply do the same by making zero voxels <code>NA</code> and adding the <code>na.rm</code> argument to <code>TRUE</code> for the mean.</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1">mask =<span class="st"> </span>eve <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></a>
 <a class="sourceLine" id="cb93-2" title="2">mask[ mask <span class="op">==</span><span class="st"> </span><span class="dv">0</span> ] =<span class="st"> </span><span class="ot">NA</span></a>
 <a class="sourceLine" id="cb93-3" title="3">eve_masked =<span class="st"> </span><span class="kw"><a href="../reference/mask_img.html">mask_img</a></span>(eve, mask)</a>
-<a class="sourceLine" id="cb93-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(eve_masked)</a></code></pre></div>
+<a class="sourceLine" id="cb93-4" title="4"><span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(eve_masked)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/mean">mean</a></span>(eve_masked, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(eve_masked, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 82.90267</code></pre>
-<p>Again, as <code>nifti</code> objects inherits properties from <code>array</code> objects, we can subset using logical indices, as above in <code>mask == 0</code> and could use indices such as <code><a href="https://www.rdocumentation.org/packages/base/topics/which">which(mask == 0)</a></code>.</p>
+<p>Again, as <code>nifti</code> objects inherits properties from <code>array</code> objects, we can subset using logical indices, as above in <code>mask == 0</code> and could use indices such as <code><a href="https://rdrr.io/r/base/which.html">which(mask == 0)</a></code>.</p>
 <p>We can do a marginal density of the values only in the mask:</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">vals =<span class="st"> </span>eve[ eve <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> ]</a></code></pre></div>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/density">density</a></span>(vals))</a></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/density.html">density</a></span>(vals))</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/dens_2-1.png" width="700"></p>
 <p>For most plotting functions, we can also add in a <code>mask</code> argument to plot values only for that masked data.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/density">density</a></span>(eve, <span class="dt">mask =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/density.html">density</a></span>(eve, <span class="dt">mask =</span> eve <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))</a></code></pre></div>
 <p><img src="neurobase_files/figure-html/dens_with_mask-1.png" width="700"></p>
 </div>
 </div>
@@ -554,17 +559,20 @@ By default, if one <code>nifti</code> is passed to the function and <code>keep_i
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by John Muschelli.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

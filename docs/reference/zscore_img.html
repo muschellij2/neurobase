@@ -18,13 +18,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -51,6 +53,7 @@ coronal slice or whole image" />
 <![endif]-->
 
 
+
   </head>
 
   <body>
@@ -75,7 +78,7 @@ coronal slice or whole image" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -95,6 +98,9 @@ coronal slice or whole image" />
     <li>
       <a href="../articles/nifti_basics.html">The nifti object</a>
     </li>
+    <li>
+      <a href="../articles/simple_io.html">Simple Image Input/Output</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -110,6 +116,7 @@ coronal slice or whole image" />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -125,8 +132,8 @@ coronal slice or whole image" />
 coronal slice or whole image</p>
     </div>
 
-    <pre class="usage"><span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>margin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"mean"</span>,
-  <span class='st'>"median"</span>, <span class='st'>"trimmed_mean"</span>), <span class='kw'>variability</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"sd"</span>, <span class='st'>"iqrdiff"</span>, <span class='st'>"mad"</span>,
+    <pre class="usage"><span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>margin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mean"</span>,
+  <span class='st'>"median"</span>, <span class='st'>"trimmed_mean"</span>), <span class='kw'>variability</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sd"</span>, <span class='st'>"iqrdiff"</span>, <span class='st'>"mad"</span>,
   <span class='st'>"maddiff"</span>, <span class='st'>"iqr"</span>, <span class='st'>"trimmed_sd"</span>), <span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>remove.na</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>remove.nan</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>remove.inf</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>remove.val</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>remask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
@@ -191,33 +198,33 @@ either mean or median</p></td>
     <p>Array of object of class nifti</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='https://www.rdocumentation.org/packages/base/topics/aperm'>aperm</a></p></div>
+    <div class='dont-index'><p><a href='https://rdrr.io/r/base/aperm.html'>aperm</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>100</span>, <span class='fl'>30</span>, <span class='fl'>5</span>)
-<span class='no'>img</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/prod'>prod</a></span>(<span class='no'>dim</span>), <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>4</span>),
+    <pre class="examples"><div class='input'><span class='no'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>100</span>, <span class='fl'>30</span>, <span class='fl'>5</span>)
+<span class='no'>img</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dim</span>), <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>4</span>),
 <span class='kw'>dim</span><span class='kw'>=</span><span class='no'>dim</span>)
 
 <span class='no'>truth2</span> <span class='kw'>=</span> <span class='no'>img</span>
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/dim'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>2</span>]) {
-<span class='no'>truth2</span>[,<span class='no'>i</span>,] <span class='kw'>=</span> (<span class='no'>truth2</span>[,<span class='no'>i</span>,]- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>truth2</span>[,<span class='no'>i</span>,]))/<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/sd'>sd</a></span>(<span class='no'>truth2</span>[,<span class='no'>i</span>,])
+<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>2</span>]) {
+<span class='no'>truth2</span>[,<span class='no'>i</span>,] <span class='kw'>=</span> (<span class='no'>truth2</span>[,<span class='no'>i</span>,]- <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>truth2</span>[,<span class='no'>i</span>,]))/<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='no'>truth2</span>[,<span class='no'>i</span>,])
 }
 
 <span class='no'>truth1</span> <span class='kw'>=</span> <span class='no'>img</span>
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/dim'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>1</span>]) {
-<span class='no'>truth1</span>[<span class='no'>i</span>,,] <span class='kw'>=</span> (<span class='no'>truth1</span>[<span class='no'>i</span>,,]- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>truth1</span>[<span class='no'>i</span>,,]))/<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/sd'>sd</a></span>(<span class='no'>truth1</span>[<span class='no'>i</span>,,])
+<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>1</span>]) {
+<span class='no'>truth1</span>[<span class='no'>i</span>,,] <span class='kw'>=</span> (<span class='no'>truth1</span>[<span class='no'>i</span>,,]- <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>truth1</span>[<span class='no'>i</span>,,]))/<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='no'>truth1</span>[<span class='no'>i</span>,,])
 }
 
 <span class='no'>truth3</span> <span class='kw'>=</span> <span class='no'>img</span>
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/dim'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>3</span>]) {
-<span class='no'>truth3</span>[,,<span class='no'>i</span>] <span class='kw'>=</span> (<span class='no'>truth3</span>[,,<span class='no'>i</span>]- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>truth3</span>[,,<span class='no'>i</span>]))/<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/sd'>sd</a></span>(<span class='no'>truth3</span>[,,<span class='no'>i</span>])
+<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>3</span>]) {
+<span class='no'>truth3</span>[,,<span class='no'>i</span>] <span class='kw'>=</span> (<span class='no'>truth3</span>[,,<span class='no'>i</span>]- <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>truth3</span>[,,<span class='no'>i</span>]))/<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='no'>truth3</span>[,,<span class='no'>i</span>])
 }
 <span class='no'>try3</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='fl'>3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/stopifnot'>stopifnot</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all.equal'>all.equal</a></span>(<span class='no'>try3</span>, <span class='no'>truth3</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>try3</span>, <span class='no'>truth3</span>))
 <span class='no'>try2</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='fl'>2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/stopifnot'>stopifnot</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all.equal'>all.equal</a></span>(<span class='no'>try2</span>, <span class='no'>truth2</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>try2</span>, <span class='no'>truth2</span>))
 <span class='no'>try1</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/stopifnot'>stopifnot</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all.equal'>all.equal</a></span>(<span class='no'>try1</span>, <span class='no'>truth1</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>try1</span>, <span class='no'>truth1</span>))
 
 <span class='no'>z</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='kw'>NULL</span>)
 <span class='no'>ztrim</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='kw'>NULL</span>,
@@ -235,19 +242,23 @@ either mean or median</p></td>
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by John Muschelli.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

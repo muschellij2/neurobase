@@ -1,7 +1,8 @@
 pandoc: '2.4'
-pkgdown: 1.3.0
+pkgdown: 1.4.0
 pkgdown_sha: ~
 articles:
   neurobase: neurobase.html
   nifti_basics: nifti_basics.html
+  simple_io: simple_io.html
 

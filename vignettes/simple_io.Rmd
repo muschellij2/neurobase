@@ -1,0 +1,151 @@
+---
+title: "Simple Image Input/Output"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Simple Image Input/Output}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(neurobase)
+```
+
+# The nifti object
+
+Note: Throughout this post, I will refer to an image on hard disk as a NIfTI, which is a file that generally has the extension ".nii" or ".nii.gz".  I will refer to the object in R as a `nifti` (note the change of font and case).  
+
+In this tutorial we will discuss the basics of reading the `nifti` object in R.  There are many objects in R that represent imaging data.  The Neuroconductor project chose the `nifti` object from the `oro.nifti` package as one of the the basic building blocks because it has been widely used in other packages, has been tested over a period of time, and inherits the properties of an `array` in R. 
+
+# Downloading an Image
+
+Let's say you have a T1-weighted NIfTI on your machine.  If you do not, we can download one.  We are downloading this to a temporary file since we don't need it after the session is over:
+```{r}
+t1_file = tempfile(fileext = ".nii.gz")
+url = paste0("https://johnmuschelli.com/", 
+                       "open_ms_data/", "cross_sectional/",
+                       "raw/patient01/T1W.nii.gz")
+download.file(url, destfile = t1_file)
+t1_file
+```
+
+# Reading in an image
+
+Here we will use the `readnii` function to read in the image to an object called `img`:
+```{r}
+library(neurobase)
+img = readnii(t1_file)
+img
+```
+
+We see the output is a `nifti` object.  We can think of this as an array with additional information (called a header).  We can do simple operations on the image, such as `sum`:
+
+```{r}
+sum(img)
+sum(img > 1000)
+```
+
+# Writing Images
+
+Let's say we want to set all values greater than 1000 to 1000 and then write the image out.  We will use the `writenii` function.  We will copy `img` to `img2` because we want to keep `img` as is.  Again we will write the image to a temporary file because we don't need this after the session:
+
+```{r}
+img2 = img
+img2[ img2 > 1000] = 1000
+outfile = tempfile(fileext = ".nii.gz")
+writenii(img2, outfile)
+file.exists(outfile)
+```
+
+# Operations of `nifti` objects
+
+Although the `nifti` object is not a standard R object, you can perform standard operations on these objects, such as addition/subtraction and logic.  This is referred to "overloaded" operators.  
+
+## Logical operators
+For example, if we want to create a `nifti` object with binary values, where the values are `TRUE` if the values in `img` are greater than 0, we can simply write:
+
+```{r logical}
+above_zero = img > 0
+class(above_zero)
+img_data(above_zero)[1]
+```
+
+We will refer to binary images/`nifti` objects as "masks".
+
+We can combine multiple operators, such as creating a binary mask for value greater than 0 and less than 2.
+
+```{r multi_log}
+class(img > 0 & img < 2)
+```
+
+
+## Arithmetic on `nifti` objects
+
+We can also show the 
+```{r}
+class(img * 2)
+class(img + (img / 4))
+class(img * img)
+class(img^2)
+```
+
+
+# Visualization of `nifti` objects
+
+
+## Orthographic view
+
+The `neurobase::ortho2` function expands the `oro.nifti::orthographic` function for displaying `nifti` objects in 3 different planes:
+
+```{r ortho2}
+neurobase::ortho2(img)
+```
+
+We see that in `ortho2` there are annotations of the orientation of the image.  Again, if the image was not reoriented, then these many not be correct.  You can turn these off with the `add.orient` argument:
+
+```{r ortho2_noorient}
+neurobase::ortho2(img, add.orient = FALSE)
+```
+
+
+## Single slice view
+
+We may want to view a single slice of an image.  The `oro.nifti::slice` function can be used here. 
+
+```{r all_slices}
+oro.nifti::slice(img, z = 45)
+```
+
+
+We can also get a view of multiple slices:
+
+```{r two_slice}
+oro.nifti::slice(img, z = c(45, 50))
+```
+
+### Different Planes
+
+We can specify `z` the same way but change the `plane` to be different to get a different slice of the brain:
+
+```{r one_slice_sag}
+oro.nifti::slice(img, z = 52, plane = "sagittal")
+```
+We can similarly do the same for "coronal" slices.
+
+## Overlaying slices
+
+We can also overlay one slice of an image upon another using the `oro.nifti::overlay` function.  Here we must specify `plot.type` for only one slice.
+```{r one_slice_overlay}
+overlay(img, y = img > quantile(img, 0.9), z = 45, plot.type = "single", 
+        NA.y = TRUE)
+```
+
+
+
