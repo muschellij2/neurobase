@@ -2,27 +2,21 @@ language: R
 sudo: false
 cache: packages
 warnings_are_errors: true
-
 os:
-  - linux
-  - osx
-
+- linux
+- osx
 before_install:
-  - wget -O travis_helpers.sh http://bit.ly/travis_helpers
-  - source travis_helpers.sh
-  - rm travis_helpers.sh
-  - PACKAGE_NAME=`package_name`
-  - PACKAGE_DIRECTORY=`basename ${PWD}`
-
+- wget -O travis_helpers.sh http://bit.ly/travis_helpers
+- source travis_helpers.sh
+- rm travis_helpers.sh
+- PACKAGE_NAME=`package_name`
+- PACKAGE_DIRECTORY=`basename ${PWD}`
 r_check_args: "--as-cran --install-args=--build"
-
 after_success:
-  - Rscript -e 'covr::codecov(type = "all")'
-
+- Rscript -e 'covr::codecov(type = "all")'
 after_failure:
-  - cat ${PWD}.Rcheck/00install.out
-  - cat ${PWD}.Rcheck/00check.log
-
+- cat ${PWD}.Rcheck/00install.out
+- cat ${PWD}.Rcheck/00check.log
 notifications:
   email:
     on_success: change
@@ -32,10 +26,9 @@ deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: Wyb6Hj7awahxJN3jlwVyWQ41364xYPCAohvAOwmUn2wgudQLsWmNA3BEKUromwvpnVJL+aFKaoi/WeBdk7L+imVvJjjBmWJiQdAwr2JZI0GeBNRSppCm3rHMYlq3PJzcnDYv/GMW5d9oQOMNtzY7oYxdemV12Z/GmeWBb9GTRWEzNzZ2d46btQfp8vAuxl4f4kCLUxpqMZK6IN6svV4910TVRJl3RId121JbgdUKgNS4HJMl1ae5X6CY+tkxwP+xW+OwdpkknXcndDvTpymjVk5kb8cN2zcrrFKf/3eYCvone0F32ooOL5GX49kpz4mgDmh8X1jywoT94tL8YE5xVC86zEtdnbcAOBw0MT7iEUuUcuhGoABDEHldgxAOEVMWLxVD0I5FK9yZRic5z9om4DpMYQBCzrHF5gcuzyMpO8O+mdtY3NK5BI75Iz1pUgzjrg5CGtMF4VXOcj8KPyRjKMgpw0yCXbvyR/V9BHrbvZpexQut5ALOvf/i7EJtJdHJjwnazcu+wG9kiQoT/KR1xEHomgOLY9wFTIi3fDVkZniNpuga/EaQj/4aVIkULV5/stQZvjspjBYeYwDDmgiOQYReiCWpGMi5KaclkB6SNX1CFPfqWWDvsBBLBzkDTOgvFP5zDa2Fe3t7sAI1TbVGVKcP1PlMjCzbSwz2rs9t4uw=
+    secure: IDGIYMBY7f+wU3O0t1dgG8npWNJ74jWmxbgagtoz5HgWHVagUhTINaHDgWKEKi+JmNSeKbxvvzCvLl2zZf6m+B0NTxRytabu+WVnfYklBTUfaZ+hQbVzA0q5yAq5IfJ4y2DRlXoNg5M+RpJBkBVQ9XHyvqTJ4mZSfNrj42JGbT1bkOtXeCp+DP7s2jaa/PG3RBYRPUXKhh+ZSFkCxi6OQ6kFG9iVxqDX61eENwo9fFedexwPDUj+UAd4XBIo1RBqDKM4zIBkSHr+Sc9XWRWJPQqiA7OBi4tVOX3+lNswOyqxgtMQ9LDVQn4A3W4GDveGeGFKzZ76Hc34GjaXZOqeBQgPMQXHL2ud1AJtZhrc7qkM5UwvwEpNDyt7Fvah28OQmqmtVo3G5b/ccWpUhsg8kUPxwfFrhH0zaPpVevfpuKIdRnEFkqJTxKpfsxMgyGBdYxMAZ1bkHLl0Vc3FtQDwTYULRNeaCJZz82ov4iw0C0rytrowiBqXC67dxf8RVyF5WU8OxQ2CrPiKxlt/uwg8nfPlMfcG1ku6+YfS//jTwmcJb36nNFQ56dgabqlYar79cL77YZJkEiOMlWbdsDBADbS92Op2XIJWUHAXzgy7Ht+lDbkI5wJ/qLVGJqOLuAii0Z1YcVADOVBV7rji75ciu9g3ZzCW3IGkXYqXndE+7kg=
   file_glob: true
   file: neurobase*.t*gz
   on:
     tags: true    
     repo: muschellij2/neurobase
-
