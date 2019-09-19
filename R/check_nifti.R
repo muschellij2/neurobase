@@ -19,6 +19,7 @@
 #' @param need_header if \code{TRUE}, then an image type with header information
 #' will be returned.  If not, then an array is fine.  Used really only in 
 #' conjunction with \code{allow.array}
+#' @param ... additional arguments to pass to \code{\link{readnii}} if relevant
 #' @export 
 #' @author John Muschelli \email{muschellij2@@gmail.com} 
 #' 
@@ -29,7 +30,8 @@ setGeneric("check_nifti",
            function(x, reorient=FALSE, 
                     allow.array=FALSE,
                     fast = FALSE,
-                    need_header = TRUE) standardGeneric("check_nifti"))
+                    need_header = TRUE, 
+                    ...) standardGeneric("check_nifti"))
 
 #' @rdname check_nifti-methods
 #' @aliases check_nifti,nifti-method
@@ -39,7 +41,8 @@ setMethod("check_nifti", "nifti",
                    reorient=FALSE, 
                    allow.array=FALSE,
                    fast = FALSE,
-                   need_header = TRUE) { 
+                   need_header = TRUE, 
+                   ...) { 
             return(x)
           })
 
@@ -54,20 +57,22 @@ setMethod("check_nifti", "character",
                    reorient=FALSE, 
                    allow.array=FALSE,
                    fast = FALSE,
-                   need_header = TRUE) { 
+                   need_header = TRUE, 
+                   ...) { 
             ### add vector capability
             if (length(x) > 1) {
               file = lapply(x, check_nifti,  
                             reorient = reorient, 
                             allow.array = allow.array,
                             fast = fast,
-                            need_header = need_header)
+                            need_header = need_header,
+                            ... = ...)
               return(file)
             } else {
               if (fast) {
-                file = fast_readnii(x)
+                file = fast_readnii(x, ...)
               } else {
-                file = readnii(x, reorient = reorient)
+                file = readnii(x, reorient = reorient, ...)
               }
               return(file)
             }
@@ -82,7 +87,8 @@ setMethod("check_nifti", "factor", function(
   reorient=FALSE, 
   allow.array=FALSE,
   fast = FALSE,
-  need_header = TRUE) { 
+  need_header = TRUE,
+  ...) { 
   x = as.character(x)
   return(
     check_nifti(
@@ -90,7 +96,8 @@ setMethod("check_nifti", "factor", function(
       reorient = reorient,
       allow.array = allow.array,
       fast = fast,
-      need_header = need_header
+      need_header = need_header,
+      ...
     )
   )
 })
@@ -104,13 +111,15 @@ setMethod("check_nifti", "list",
                    reorient=FALSE, 
                    allow.array=FALSE,
                    fast = FALSE,
-                   need_header = TRUE) { 
+                   need_header = TRUE,
+                   ...) { 
             ### add vector capability
             file = lapply(x, check_nifti, 
                           reorient = reorient, 
                           allow.array = allow.array,
                           fast = fast,
-                          need_header = need_header)
+                          need_header = need_header,
+                          ... = ...)
             return(file)
           })
 
@@ -123,7 +132,8 @@ setMethod("check_nifti", "array",
                    reorient=FALSE, 
                    allow.array=FALSE,
                    fast = FALSE,
-                   need_header = FALSE) { 
+                   need_header = FALSE,
+                   ...) { 
             if (!allow.array) {
               stop("x is array but allow.array = FALSE")
             }
@@ -142,7 +152,8 @@ setMethod("check_nifti", "anlz",
                    reorient=FALSE, 
                    allow.array=FALSE,
                    fast = FALSE,
-                   need_header = TRUE) { 
+                   need_header = TRUE,
+                   ...) { 
             
             x = as.nifti(x)
             return(x)
@@ -156,7 +167,8 @@ setMethod("check_nifti", "ANY",
                    reorient=FALSE, 
                    allow.array=FALSE,
                    fast = FALSE,
-                   need_header = TRUE) {
+                   need_header = TRUE,
+                   ...) {
             # workaround because can't get class
             if (inherits(x, "niftiImage")) {
               if (!allow.array) {
