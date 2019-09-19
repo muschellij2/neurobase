@@ -6,9 +6,9 @@
 \title{Get Empty Image Dimensions}
 \usage{
 getEmptyImageDimensions(img, value = 0, threshold = 0,
-  reorient = FALSE)
+  reorient = FALSE, ...)
 
-get_empty_dim(img, value = 0, threshold = 0, reorient = FALSE)
+get_empty_dim(img, value = 0, threshold = 0, reorient = FALSE, ...)
 }
 \arguments{
 \item{img}{nifti object or array}
@@ -22,6 +22,9 @@ fewer than \code{threshold} zeroes. May be a vector of values, matched with
 are in the slice}
 
 \item{reorient}{Should image be reoriented if a filename?}
+
+\item{...}{additional arguments to pass to 
+\code{\link{check_nifti}}}
 }
 \value{
 List of length 3 of indices.

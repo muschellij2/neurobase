@@ -8,6 +8,8 @@
 #' @param threshold Include dimension if fewer than \code{threshold} voxels
 #' are in the slice
 #' @param reorient Should image be reoriented if a filename?
+#' @param ... additional arguments to pass to 
+#' \code{\link{check_nifti}}
 #' @description Creates a list of indices of an image that has all irrelevant
 #' values
 #' @return List of length 3 of indices.
@@ -17,12 +19,14 @@
 getEmptyImageDimensions <- function(img, 
                                     value = 0, 
                                     threshold = 0,
-                                    reorient = FALSE) {
+                                    reorient = FALSE, 
+                                    ...) {
   
   img = check_nifti(img, 
                     reorient = reorient, 
                     allow.array = TRUE,
-                    need_header = FALSE)
+                    need_header = FALSE,
+                    ...)
   dimg = dim(img)
   if (length(dimg) > 3) {
     stop(paste0("Only images with 3 dimensions supported, ", 
@@ -60,12 +64,4 @@ getEmptyImageDimensions <- function(img,
 
 #' @rdname getEmptyImageDimensions
 #' @export
-get_empty_dim <- function(img, 
-                          value = 0, 
-                          threshold = 0,
-                          reorient = FALSE) {
-  getEmptyImageDimensions(img = img, 
-                          value = value, 
-                          threshold = threshold,
-                          reorient = reorient)
-}
+get_empty_dim <- getEmptyImageDimensions
