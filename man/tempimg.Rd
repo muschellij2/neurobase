@@ -5,7 +5,7 @@
 \title{Create temporary nii.gz file}
 \usage{
 tempimg(nim, gzipped = TRUE, checknan = TRUE, check_type = FALSE,
-  warn = FALSE, ...)
+  warn = FALSE, drop_dim = TRUE, ...)
 }
 \arguments{
 \item{nim}{object of class nifti}
@@ -20,7 +20,9 @@ tempimg(nim, gzipped = TRUE, checknan = TRUE, check_type = FALSE,
 \item{warn}{Should warnings be displayed if \code{\link{writenii}} has
 any?  Passed to \code{\link{writenii}}.}
 
-\item{...}{Not used}
+\item{...}{Should \code{\link{drop_dim}} be applied?}
+
+\item{...}{Passed to \code{\link{writenii}}.}
 }
 \value{
 filename of output nii.gz

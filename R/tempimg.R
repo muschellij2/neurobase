@@ -9,11 +9,13 @@
 #' @param check_type Check the datatype for an image.  Will run \code{\link{datatyper}}.
 #' @param warn Should warnings be displayed if \code{\link{writenii}} has
 #' any?  Passed to \code{\link{writenii}}.
-#' @param ... Not used
+#' @param ... Should \code{\link{drop_dim}} be applied?
+#' @param ... Passed to \code{\link{writenii}}.
 #' @return filename of output nii.gz
 #' @export
 tempimg = function(nim, gzipped = TRUE, checknan = TRUE, 
                    check_type = FALSE, warn = FALSE, 
+                   drop_dim = TRUE,
                    ...){
   f = tempfile()
   nim = cal_img(nim)
@@ -29,10 +31,14 @@ tempimg = function(nim, gzipped = TRUE, checknan = TRUE,
     nim = datatyper(nim, warn = warn)
   }
   ########### added for weird stuff of NIfTI
-  nim = drop_img_dim(nim)
+  if (drop_dim) {
+    nim = drop_img_dim(nim)
+  }
   writenii(nim, filename = f, 
            onefile = TRUE, gzipped = gzipped,
-           warn = warn)
+           warn = warn,
+           drop_dim = drop_dim,
+           ...)
   ext = ".nii"
   if (gzipped) ext = paste0(ext, '.gz')
   f = paste0(f, ext)
