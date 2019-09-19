@@ -20,7 +20,7 @@ tempimg(nim, gzipped = TRUE, checknan = TRUE, check_type = FALSE,
 \item{warn}{Should warnings be displayed if \code{\link{writenii}} has
 any?  Passed to \code{\link{writenii}}.}
 
-\item{...}{Should \code{\link{drop_dim}} be applied?}
+\item{drop_dim}{Should \code{\link{drop_dim}} be applied?}
 
 \item{...}{Passed to \code{\link{writenii}}.}
 }
