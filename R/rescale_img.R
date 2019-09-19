@@ -11,6 +11,7 @@
 #' set to Inf
 #' @param ROIformat if TRUE, any values $< 0$ will be set to 0
 #' @param writer character value to add to description slot of NIfTI header
+#' @param drop_dim Should \code{\link{drop_img_dim}} be applied?
 #' @param ... extra methods to be passed to \code{\link{writenii}}
 #' @description Rescales an image to be in certain value range.  This was created
 #' as sometimes DICOM scale and slope parameters may be inconsistent across sites
@@ -25,6 +26,7 @@ rescale_img = function(filename,
                        min.val = -1024,
                        max.val = 3071,
                        ROIformat=FALSE, 
+                       drop_dim = TRUE,
                        writer = "dcm2nii", ...){
   
   if (write.nii){
@@ -47,7 +49,9 @@ rescale_img = function(filename,
   }
   img = cal_img(img)
   descrip(img) = paste0("written by ", writer, " - ", descrip(img))
-  img = drop_img_dim(img)
+  if (drop_dim) {
+    img = drop_img_dim(img)
+  }
   #### create histograms
   if (!is.null(pngname)){
     options(bitmapType = 'cairo') 
@@ -60,7 +64,7 @@ rescale_img = function(filename,
   }
   
   if (write.nii) {
-    writenii(img, filename = outfile, ...)
+    writenii(img, filename = outfile, drop_dim = drop_dim, ...)
   }
   return(img)
 }
