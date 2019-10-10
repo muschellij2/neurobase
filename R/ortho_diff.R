@@ -12,7 +12,8 @@
 #' @param center run \code{\link{xyz}} on \code{roi}.  Disregarded if \code{xyz} is
 #' not \code{NULL}
 #' @param leg.cex multiplier for legend size
-#' @param ... arguments to be passed to \code{\link{ortho2}}
+#' @param ... arguments to be passed to \code{\link{ortho2}} or
+#' \code{\link{multi_overlay}}
 #' @export
 #' @seealso \code{\link{ortho2}}
 #' @return NULL
@@ -75,3 +76,104 @@ ortho_diff <- function(img,
   )
   return(invisible(NULL))
 }
+
+
+#' @rdname ortho_diff
+#' @param z slice to display
+#' @export
+#' @examples \dontrun{
+#' 
+#'  if (require(brainR)) {
+#'    visits = 1:3
+#'    y = paste0("Visit_", visits, ".nii.gz")
+#'    y = system.file(y, package = "brainR")
+#'    y = lapply(y, readnii)
+#' 
+#'    y = lapply(y, function(r){
+#'      pixdim(r) = c(0, rep(1, 3), rep(0, 4))
+#'      dropImageDimension(r)
+#'    })
+#' 
+#'    x = system.file("MNI152_T1_1mm_brain.nii.gz", 
+#'                  package = "brainR")
+#'    x = readnii(x)
+#'    mask = x > 0
+#'    alpha = function(col, alpha = 1) {
+#'        cols = t(col2rgb(col, alpha = FALSE)/255)
+#'        rgb(cols, alpha = alpha)
+#'    }
+#'    roi = y[[2]]
+#'    pred = y
+#'    multi_overlay_diff(x, roi = roi, pred = pred)
+#'    multi_overlay_diff(x, roi = roi, pred = pred, 
+#'          mask = mask, 
+#'          main = paste0("\n", "Visit ", visits),
+#'          text = LETTERS[visits],
+#'          text.x = 0.9,
+#'          text.y = 0.1,
+#'          text.cex = 3)
+#'  }
+#' }
+multi_overlay_diff <- function(
+  x,
+  pred, # binary segmentation (prediction)
+  roi, # binary manual segmentation (ground truth)
+  z = NULL, 
+  cols = c("#56B4E9", "#D55E00", "#009E73"), # colors for false negatives, positives
+  ybreaks = NULL, 
+  ...
+){
+  
+  roi = check_nifti(roi, allow.array = TRUE)
+  pred = check_nifti(pred, allow.array = TRUE)
+  
+  ###########################
+  ### Drop empty image dimensions
+  ###########################
+  if (is.null(z)) {
+    z = xyz(roi)[3]
+  } else {
+    z = z
+  }
+  
+  
+  if (!is.list(pred)) {
+    pred = list(pred)
+  }
+  pred = lapply(pred, function(r) {
+    r > 0
+  })
+  if (!is.list(x)) {
+    x = lapply(seq_along(pred), function(r) x)
+  } else {
+    stopifnot(length(x) == length(pred))
+  }
+  
+  roi = roi > 0
+  
+  diff_img = function(pred) {
+    diff = pred * NA
+    # false negative
+    diff[ roi %in% 1 & pred %in% 0] = 1
+    # false positive
+    diff[ roi %in% 0 & pred %in% 1] = 2
+    # true positive
+    diff[ roi %in% 1 & pred %in% 1] = 3
+    if (is.nifti(diff)) {
+      diff = cal_img(diff)
+    }
+  }
+  pred = lapply(pred, diff_img)
+  
+  multi_overlay(
+    x = x, y = pred, 
+    # don't do alpha blending
+    col.y = cols,
+    z = z, 
+    ybreaks = c(0, 1.1, 2.1, 3.1), 
+    ...
+  )
+  
+  return(invisible(NULL))
+}
+

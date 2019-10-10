@@ -35,7 +35,9 @@
 #' @param useRaster if \code{TRUE}, a bitmap raster is used to plot 
 #' the image instead of polygons. Passed to \code{\link[graphics]{image}} 
 #' @param ... Additional arguments to pass to \code{\link[graphics]{image}}
-#'
+#' @param ybreaks (numeric) breaks for y to passed to 
+#' \code{\link[graphics]{image}}
+#' 
 #' @return NULL
 #' @export 
 #' @examples \dontrun{
@@ -81,6 +83,7 @@ multi_overlay = function(x,
                          col.y = hotmetal(), 
                          zlim.x = NULL, 
                          zlim.y = NULL, 
+                         ybreaks = NULL,
                          plane = c("axial", "coronal", 
                                    "sagittal"), 
                          xlab = "", 
@@ -270,9 +273,16 @@ multi_overlay = function(x,
                         axes = axes, xlab = xlab, ylab = ylab, 
                         useRaster = useRaster, ...)
         if (y_not_null) {
-          graphics::image(xvals, yvals, y[, , z], col = col.y, 
-                          useRaster = useRaster, 
-                          zlim = zlim.y, add = TRUE)
+          args = list(x = xvals, 
+                      y = yvals, 
+                      z = y[, , z], 
+                      col = col.y, 
+                      useRaster = useRaster, 
+                      zlim = zlim.y, add = TRUE)
+          if (!is.null(ybreaks)) {
+            args$breaks = ybreaks
+          }
+          do.call(graphics::image, args = args)
         }
       }
     }

@@ -2,12 +2,16 @@
 % Please edit documentation in R/ortho_diff.R
 \name{ortho_diff}
 \alias{ortho_diff}
+\alias{multi_overlay_diff}
 \title{Plot differences for Prediction and Gold Standard}
 \usage{
 ortho_diff(img, pred, roi, xyz = NULL, cols = c("#56B4E9", "#D55E00",
   "#009E73"), levels = c("False Negative", "False Positive",
   "True Positive"), addlegend = TRUE, center = TRUE, leg.cex = 1.5,
   ...)
+
+multi_overlay_diff(x, pred, roi, z = NULL, cols = c("#56B4E9",
+  "#D55E00", "#009E73"), ybreaks = NULL, ...)
 }
 \arguments{
 \item{img}{image to be underlaid}
@@ -29,11 +33,49 @@ not \code{NULL}}
 
 \item{leg.cex}{multiplier for legend size}
 
-\item{...}{arguments to be passed to \code{\link{ortho2}}}
+\item{...}{arguments to be passed to \code{\link{ortho2}} or
+\code{\link{multi_overlay}}}
+
+\item{z}{slice to display}
 }
 \description{
 Uses \code{\link{ortho2}} to plot differences between a predicted binary
 image and the assumed ground truth (\code{roi}).
+}
+\examples{
+\dontrun{
+
+ if (require(brainR)) {
+   visits = 1:3
+   y = paste0("Visit_", visits, ".nii.gz")
+   y = system.file(y, package = "brainR")
+   y = lapply(y, readnii)
+
+   y = lapply(y, function(r){
+     pixdim(r) = c(0, rep(1, 3), rep(0, 4))
+     dropImageDimension(r)
+   })
+
+   x = system.file("MNI152_T1_1mm_brain.nii.gz", 
+                 package = "brainR")
+   x = readnii(x)
+   mask = x > 0
+   alpha = function(col, alpha = 1) {
+       cols = t(col2rgb(col, alpha = FALSE)/255)
+       rgb(cols, alpha = alpha)
+   }
+   roi = y[[2]]
+   pred = y
+   multi_overlay_diff(x, roi = roi, pred = pred)
+   multi_overlay_diff(x, roi = roi, pred = pred, 
+         mask = mask, 
+         main = paste0("\\n", "Visit ", visits),
+         text = LETTERS[visits],
+         text.x = 0.9,
+         text.y = 0.1,
+         text.cex = 3)
+ }
+}
 }
 \seealso{
 \code{\link{ortho2}}

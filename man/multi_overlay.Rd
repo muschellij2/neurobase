@@ -7,11 +7,11 @@
 \usage{
 multi_overlay(x, y = NULL, z = NULL, w = 1, mask = NULL,
   col.x = gray(0:64/64), col.y = hotmetal(), zlim.x = NULL,
-  zlim.y = NULL, plane = c("axial", "coronal", "sagittal"),
-  xlab = "", ylab = "", axes = FALSE, direction = c("horizontal",
-  "vertical"), par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg =
-  "black"), text = NULL, text.x = 0.5, text.y = 1.4,
-  text.cex = 2.5, text.col = "white", main = NULL,
+  zlim.y = NULL, ybreaks = NULL, plane = c("axial", "coronal",
+  "sagittal"), xlab = "", ylab = "", axes = FALSE,
+  direction = c("horizontal", "vertical"), par.opts = list(oma = c(0,
+  0, 0, 0), mar = rep(0, 4), bg = "black"), text = NULL, text.x = 0.5,
+  text.y = 1.4, text.cex = 2.5, text.col = "white", main = NULL,
   main.col = text.col, main.cex = text.cex, NA.x = TRUE,
   NA.y = TRUE, pdim = NULL, useRaster = TRUE, ...)
 
@@ -37,6 +37,9 @@ Passed to \code{\link{dropEmptyImageDimensions}}}
 \item{zlim.x}{Limits for \code{x} to plot}
 
 \item{zlim.y}{Limits for \code{y} to plot}
+
+\item{ybreaks}{(numeric) breaks for y to passed to 
+\code{\link[graphics]{image}}}
 
 \item{plane}{the plane of acquisition to be displayed}
 
