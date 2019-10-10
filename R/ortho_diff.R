@@ -114,13 +114,13 @@ ortho_diff <- function(img,
 #'          text.cex = 3)
 #'  }
 #' }
+#' @param x List of images of class \code{nifti} or character vector of filenames
 multi_overlay_diff <- function(
   x,
   pred, # binary segmentation (prediction)
   roi, # binary manual segmentation (ground truth)
   z = NULL, 
   cols = c("#56B4E9", "#D55E00", "#009E73"), # colors for false negatives, positives
-  ybreaks = NULL, 
   ...
 ){
   

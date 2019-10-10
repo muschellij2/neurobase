@@ -11,7 +11,7 @@ ortho_diff(img, pred, roi, xyz = NULL, cols = c("#56B4E9", "#D55E00",
   ...)
 
 multi_overlay_diff(x, pred, roi, z = NULL, cols = c("#56B4E9",
-  "#D55E00", "#009E73"), ybreaks = NULL, ...)
+  "#D55E00", "#009E73"), ...)
 }
 \arguments{
 \item{img}{image to be underlaid}
@@ -35,6 +35,8 @@ not \code{NULL}}
 
 \item{...}{arguments to be passed to \code{\link{ortho2}} or
 \code{\link{multi_overlay}}}
+
+\item{x}{List of images of class \code{nifti} or character vector of filenames}
 
 \item{z}{slice to display}
 }
