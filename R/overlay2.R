@@ -273,16 +273,19 @@ multi_overlay = function(x,
                         axes = axes, xlab = xlab, ylab = ylab, 
                         useRaster = useRaster, ...)
         if (y_not_null) {
-          args = list(x = xvals, 
-                      y = yvals, 
-                      z = y[, , z], 
-                      col = col.y, 
-                      useRaster = useRaster, 
-                      zlim = zlim.y, add = TRUE)
-          if (!is.null(ybreaks)) {
-            args$breaks = ybreaks
+          yy = y[, , z]
+          if (!all(is.na(yy))) {
+            args = list(x = xvals, 
+                        y = yvals, 
+                        z = y[, , z], 
+                        col = col.y, 
+                        useRaster = useRaster, 
+                        zlim = zlim.y, add = TRUE)
+            if (!is.null(ybreaks)) {
+              args$breaks = ybreaks
+            }
+            do.call(graphics::image, args = args)
           }
-          do.call(graphics::image, args = args)
         }
       }
     }
