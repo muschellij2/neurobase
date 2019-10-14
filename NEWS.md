@@ -1,3 +1,8 @@
+# neurobase 1.28.0
+
+* Added `multi_overlay_diff` function for overlays.
+* Default for `ortho2` is now to `add.orient = FALSE`.  
+
 # neurobase 1.27.11
 
 * Now `ortho_diff` should be able to handle `RNifti` objects quickly.
