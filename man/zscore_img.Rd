@@ -4,11 +4,19 @@
 \alias{zscore_img}
 \title{Get Z-score over a margin of an img}
 \usage{
-zscore_img(img, mask = NULL, margin = NULL, centrality = c("mean",
-  "median", "trimmed_mean"), variability = c("sd", "iqrdiff", "mad",
-  "maddiff", "iqr", "trimmed_sd"), trim = 0.2, remove.na = TRUE,
-  remove.nan = TRUE, remove.inf = TRUE, remove.val = 0,
-  remask = TRUE)
+zscore_img(
+  img,
+  mask = NULL,
+  margin = NULL,
+  centrality = c("mean", "median", "trimmed_mean"),
+  variability = c("sd", "iqrdiff", "mad", "maddiff", "iqr", "trimmed_sd"),
+  trim = 0.2,
+  remove.na = TRUE,
+  remove.nan = TRUE,
+  remove.inf = TRUE,
+  remove.val = 0,
+  remask = TRUE
+)
 }
 \arguments{
 \item{img}{character path of image or 

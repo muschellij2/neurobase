@@ -4,8 +4,7 @@
 \alias{robust_window}
 \title{Window image based on quantiles of Image}
 \usage{
-robust_window(img, non_zero = FALSE, probs = c(0, 0.999), ...,
-  mask = NULL)
+robust_window(img, non_zero = FALSE, probs = c(0, 0.999), ..., mask = NULL)
 }
 \arguments{
 \item{img}{object of class nifti}

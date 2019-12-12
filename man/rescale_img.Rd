@@ -4,9 +4,18 @@
 \alias{rescale_img}
 \title{Image Rescaler}
 \usage{
-rescale_img(filename, pngname = NULL, write.nii = FALSE,
-  outfile = NULL, min.val = -1024, max.val = 3071,
-  ROIformat = FALSE, drop_dim = TRUE, writer = "dcm2nii", ...)
+rescale_img(
+  filename,
+  pngname = NULL,
+  write.nii = FALSE,
+  outfile = NULL,
+  min.val = -1024,
+  max.val = 3071,
+  ROIformat = FALSE,
+  drop_dim = TRUE,
+  writer = "dcm2nii",
+  ...
+)
 }
 \arguments{
 \item{filename}{filename of image to be read into R or nifti object}

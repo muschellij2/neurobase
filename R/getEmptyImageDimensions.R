@@ -28,7 +28,8 @@ getEmptyImageDimensions <- function(img,
                     need_header = FALSE,
                     ...)
   dimg = dim(img)
-  if (length(dimg) > 3) {
+  ndim = length(dimg)
+  if (ndim > 3) {
     stop(paste0("Only images with 3 dimensions supported, ", 
                 "as checked by length(dim(img))"))
   }
@@ -43,9 +44,9 @@ getEmptyImageDimensions <- function(img,
   ############################
   # Get indices for slices with all zeros (or of certain value)
   ############################
-  inds = vector(mode = "list", length = 3)
+  inds = vector(mode = "list", length = ndim)
   bin_img = array(!(img %in% value), dim = dim(img))
-  for (i in 1:3) {
+  for (i in 1:ndim) {
     zero_x = apply(bin_img, i, sum)
     # zero_x = apply(img, i, function(x){
     # sum(!(x %in% value))

@@ -4,8 +4,15 @@
 \alias{tempimg}
 \title{Create temporary nii.gz file}
 \usage{
-tempimg(nim, gzipped = TRUE, checknan = TRUE, check_type = FALSE,
-  warn = FALSE, drop_dim = TRUE, ...)
+tempimg(
+  nim,
+  gzipped = TRUE,
+  checknan = TRUE,
+  check_type = FALSE,
+  warn = FALSE,
+  drop_dim = TRUE,
+  ...
+)
 }
 \arguments{
 \item{nim}{object of class nifti}

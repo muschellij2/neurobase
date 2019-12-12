@@ -19,8 +19,7 @@ separate_img(img, levels = NULL, drop_zero = TRUE)
 
 \S4method{separate_img}{ANY}(img, levels = NULL, drop_zero = TRUE)
 
-\S4method{separate_img}{character}(img, levels = NULL,
-  drop_zero = TRUE)
+\S4method{separate_img}{character}(img, levels = NULL, drop_zero = TRUE)
 
 \S4method{separate_img}{list}(img, levels = NULL, drop_zero = TRUE)
 }

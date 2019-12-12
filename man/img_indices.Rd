@@ -4,8 +4,7 @@
 \alias{img_indices}
 \title{Retrieve Image Indices}
 \usage{
-img_indices(img, mask = NULL, add_values = FALSE, units = c("index",
-  "mm"))
+img_indices(img, mask = NULL, add_values = FALSE, units = c("index", "mm"))
 }
 \arguments{
 \item{img}{Object of class \code{nifti}}

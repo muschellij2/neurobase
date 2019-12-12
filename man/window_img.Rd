@@ -4,8 +4,12 @@
 \alias{window_img}
 \title{nifti image windower}
 \usage{
-window_img(x, window = c(0, 100), replace = c("window", "missing",
-  "zero"), ...)
+window_img(
+  x,
+  window = c(0, 100),
+  replace = c("window", "missing", "zero"),
+  ...
+)
 }
 \arguments{
 \item{x}{is either a character name for the image or an object of class nifti}

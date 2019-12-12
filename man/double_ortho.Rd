@@ -4,8 +4,15 @@
 \alias{double_ortho}
 \title{Double Orthographic Display}
 \usage{
-double_ortho(x, y = NULL, col.y = gray(0:64/64), NA.x = TRUE,
-  mfrow = c(2, 4), add = FALSE, ...)
+double_ortho(
+  x,
+  y = NULL,
+  col.y = gray(0:64/64),
+  NA.x = TRUE,
+  mfrow = c(2, 4),
+  add = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{is an object of class nifti or similar.}

@@ -5,8 +5,7 @@
 \alias{get_empty_dim}
 \title{Get Empty Image Dimensions}
 \usage{
-getEmptyImageDimensions(img, value = 0, threshold = 0,
-  reorient = FALSE, ...)
+getEmptyImageDimensions(img, value = 0, threshold = 0, reorient = FALSE, ...)
 
 get_empty_dim(img, value = 0, threshold = 0, reorient = FALSE, ...)
 }

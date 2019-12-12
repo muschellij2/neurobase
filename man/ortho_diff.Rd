@@ -5,13 +5,27 @@
 \alias{multi_overlay_diff}
 \title{Plot differences for Prediction and Gold Standard}
 \usage{
-ortho_diff(img, pred, roi, xyz = NULL, cols = c("#56B4E9", "#D55E00",
-  "#009E73"), levels = c("False Negative", "False Positive",
-  "True Positive"), addlegend = TRUE, center = TRUE, leg.cex = 1.5,
-  ...)
+ortho_diff(
+  img,
+  pred,
+  roi,
+  xyz = NULL,
+  cols = c("#56B4E9", "#D55E00", "#009E73"),
+  levels = c("False Negative", "False Positive", "True Positive"),
+  addlegend = TRUE,
+  center = TRUE,
+  leg.cex = 1.5,
+  ...
+)
 
-multi_overlay_diff(x, pred, roi, z = NULL, cols = c("#56B4E9",
-  "#D55E00", "#009E73"), ...)
+multi_overlay_diff(
+  x,
+  pred,
+  roi,
+  z = NULL,
+  cols = c("#56B4E9", "#D55E00", "#009E73"),
+  ...
+)
 }
 \arguments{
 \item{img}{image to be underlaid}
@@ -71,7 +85,7 @@ image and the assumed ground truth (\code{roi}).
    multi_overlay_diff(x, roi = roi, pred = pred)
    multi_overlay_diff(x, roi = roi, pred = pred, 
          mask = mask, 
-         main = paste0("\\n", "Visit ", visits),
+         main = paste0("\n", "Visit ", visits),
          text = LETTERS[visits],
          text.x = 0.9,
          text.y = 0.1,

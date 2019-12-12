@@ -4,8 +4,15 @@
 \alias{copyNIfTIHeader}
 \title{Copy NIfTI Header to an array}
 \usage{
-copyNIfTIHeader(img, arr, drop_slots = c(".Data", "dim_"), drop = TRUE,
-  onlylast = TRUE, warn = TRUE, ...)
+copyNIfTIHeader(
+  img,
+  arr,
+  drop_slots = c(".Data", "dim_"),
+  drop = TRUE,
+  onlylast = TRUE,
+  warn = TRUE,
+  ...
+)
 }
 \arguments{
 \item{img}{object of class nifti to copy header}

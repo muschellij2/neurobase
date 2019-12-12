@@ -27,11 +27,16 @@ setGeneric("applyEmptyImageDimensions",
                                        reorient = FALSE,
                                        ...) {
   dimg = dim(img)
-  if (length(dimg) > 3) {
+  ndim = length(dimg)
+  if (ndim > 3) {
     stop(paste0("Only images with 3 dimensions supported, ", 
                 "as checked by length(dim(img))"))
   }
-  i2 = img[inds[[1]], inds[[2]], inds[[3]]] 
+  if (ndim == 2) {
+    i2 = img[inds[[1]], inds[[2]]]
+  } else {
+    i2 = img[inds[[1]], inds[[2]], inds[[3]]] 
+  }
   return(i2)
 }
 
@@ -89,7 +94,7 @@ setMethod("applyEmptyImageDimensions", "list",
             ### add vector capability
             res = lapply(img, applyEmptyImageDimensions, 
                          inds = inds, 
-                          ...)
+                         ...)
             return(res)
           })
 

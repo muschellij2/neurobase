@@ -5,11 +5,23 @@
 \alias{drop_empty_dim}
 \title{Drop Empty Image Dimensions}
 \usage{
-dropEmptyImageDimensions(img, value = 0, threshold = 0,
-  other.imgs = NULL, keep_ind = FALSE, reorient = FALSE)
+dropEmptyImageDimensions(
+  img,
+  value = 0,
+  threshold = 0,
+  other.imgs = NULL,
+  keep_ind = FALSE,
+  reorient = FALSE
+)
 
-drop_empty_dim(img, value = 0, threshold = 0, other.imgs = NULL,
-  keep_ind = FALSE, reorient = FALSE)
+drop_empty_dim(
+  img,
+  value = 0,
+  threshold = 0,
+  other.imgs = NULL,
+  keep_ind = FALSE,
+  reorient = FALSE
+)
 }
 \arguments{
 \item{img}{nifti object}

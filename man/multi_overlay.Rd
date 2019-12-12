@@ -5,15 +5,37 @@
 \alias{multi_overlay_center}
 \title{Create Multi-Image Plot with Overlays}
 \usage{
-multi_overlay(x, y = NULL, z = NULL, w = 1, mask = NULL,
-  col.x = gray(0:64/64), col.y = hotmetal(), zlim.x = NULL,
-  zlim.y = NULL, ybreaks = NULL, plane = c("axial", "coronal",
-  "sagittal"), xlab = "", ylab = "", axes = FALSE,
-  direction = c("horizontal", "vertical"), par.opts = list(oma = c(0,
-  0, 0, 0), mar = rep(0, 4), bg = "black"), text = NULL, text.x = 0.5,
-  text.y = 1.4, text.cex = 2.5, text.col = "white", main = NULL,
-  main.col = text.col, main.cex = text.cex, NA.x = TRUE,
-  NA.y = TRUE, pdim = NULL, useRaster = TRUE, ...)
+multi_overlay(
+  x,
+  y = NULL,
+  z = NULL,
+  w = 1,
+  mask = NULL,
+  col.x = gray(0:64/64),
+  col.y = hotmetal(),
+  zlim.x = NULL,
+  zlim.y = NULL,
+  ybreaks = NULL,
+  plane = c("axial", "coronal", "sagittal"),
+  xlab = "",
+  ylab = "",
+  axes = FALSE,
+  direction = c("horizontal", "vertical"),
+  par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg = "black"),
+  text = NULL,
+  text.x = 0.5,
+  text.y = 1.4,
+  text.cex = 2.5,
+  text.col = "white",
+  main = NULL,
+  main.col = text.col,
+  main.cex = text.cex,
+  NA.x = TRUE,
+  NA.y = TRUE,
+  pdim = NULL,
+  useRaster = TRUE,
+  ...
+)
 
 multi_overlay_center(x, y = NULL, ...)
 }
@@ -114,7 +136,7 @@ slices and the potential for overlays as well.
    multi_overlay(x, y, 
          col.y = alpha(hotmetal(), 0.5),
          mask = mask, 
-         main = paste0("\\n", "Visit ", visits),
+         main = paste0("\n", "Visit ", visits),
          text = LETTERS[visits],
          text.x = 0.9,
          text.y = 0.1,

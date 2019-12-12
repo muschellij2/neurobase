@@ -11,20 +11,60 @@
 \title{Subset DTI data based on b-values
 #'}
 \usage{
-subset_dti(img, bvals, bvecs, b_step = 1, maximum = Inf,
-  shells = NULL, verbose = TRUE, ...)
+subset_dti(
+  img,
+  bvals,
+  bvecs,
+  b_step = 1,
+  maximum = Inf,
+  shells = NULL,
+  verbose = TRUE,
+  ...
+)
 
-\S4method{subset_dti}{nifti}(img, bvals, bvecs, b_step = 1,
-  maximum = Inf, shells = NULL, verbose = TRUE, ...)
+\S4method{subset_dti}{nifti}(
+  img,
+  bvals,
+  bvecs,
+  b_step = 1,
+  maximum = Inf,
+  shells = NULL,
+  verbose = TRUE,
+  ...
+)
 
-\S4method{subset_dti}{ANY}(img, bvals, bvecs, b_step = 1,
-  maximum = Inf, shells = NULL, verbose = TRUE, ...)
+\S4method{subset_dti}{ANY}(
+  img,
+  bvals,
+  bvecs,
+  b_step = 1,
+  maximum = Inf,
+  shells = NULL,
+  verbose = TRUE,
+  ...
+)
 
-\S4method{subset_dti}{character}(img, bvals, bvecs, b_step = 1,
-  maximum = Inf, shells = NULL, verbose = TRUE, ...)
+\S4method{subset_dti}{character}(
+  img,
+  bvals,
+  bvecs,
+  b_step = 1,
+  maximum = Inf,
+  shells = NULL,
+  verbose = TRUE,
+  ...
+)
 
-\S4method{subset_dti}{list}(img, bvals, bvecs, b_step = 1,
-  maximum = Inf, shells = NULL, verbose = TRUE, ...)
+\S4method{subset_dti}{list}(
+  img,
+  bvals,
+  bvecs,
+  b_step = 1,
+  maximum = Inf,
+  shells = NULL,
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{img}{character or \code{nifti} object}

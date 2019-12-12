@@ -13,29 +13,77 @@
 \alias{check_nifti,ANY-method}
 \title{Check if nifti image or read in a nifti image}
 \usage{
-check_nifti(x, reorient = FALSE, allow.array = FALSE, fast = FALSE,
-  need_header = TRUE, ...)
+check_nifti(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = TRUE,
+  ...
+)
 
-\S4method{check_nifti}{nifti}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = TRUE, ...)
+\S4method{check_nifti}{nifti}(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = TRUE,
+  ...
+)
 
-\S4method{check_nifti}{character}(x, reorient = FALSE,
-  allow.array = FALSE, fast = FALSE, need_header = TRUE, ...)
+\S4method{check_nifti}{character}(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = TRUE,
+  ...
+)
 
-\S4method{check_nifti}{factor}(x, reorient = FALSE,
-  allow.array = FALSE, fast = FALSE, need_header = TRUE, ...)
+\S4method{check_nifti}{factor}(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = TRUE,
+  ...
+)
 
-\S4method{check_nifti}{list}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = TRUE, ...)
+\S4method{check_nifti}{list}(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = TRUE,
+  ...
+)
 
-\S4method{check_nifti}{array}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = FALSE, ...)
+\S4method{check_nifti}{array}(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = FALSE,
+  ...
+)
 
-\S4method{check_nifti}{anlz}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = TRUE, ...)
+\S4method{check_nifti}{anlz}(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = TRUE,
+  ...
+)
 
-\S4method{check_nifti}{ANY}(x, reorient = FALSE, allow.array = FALSE,
-  fast = FALSE, need_header = TRUE, ...)
+\S4method{check_nifti}{ANY}(
+  x,
+  reorient = FALSE,
+  allow.array = FALSE,
+  fast = FALSE,
+  need_header = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{character path of image or 

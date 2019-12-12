@@ -5,8 +5,14 @@
 \alias{datatyper}
 \title{Change Data type for img}
 \usage{
-datatyper(img, type_string = NULL, datatype = NULL, bitpix = NULL,
-  trybyte = TRUE, warn = TRUE)
+datatyper(
+  img,
+  type_string = NULL,
+  datatype = NULL,
+  bitpix = NULL,
+  trybyte = TRUE,
+  warn = TRUE
+)
 }
 \arguments{
 \item{img}{nifti object (or character of filename)}
