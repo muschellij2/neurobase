@@ -23,3 +23,9 @@ Object of class nifti
 \description{
 This image will flip x, y, or z direction
 }
+\examples{
+img = random_nifti(rep(15, 3))
+flipped = flip_img(img, x = TRUE)
+img = random_nifti(rep(15, 2))
+flipped = flip_img(img, x = TRUE)
+}
