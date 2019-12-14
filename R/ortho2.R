@@ -104,8 +104,9 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
     rm(list = "dd");
   }
   x = check_nifti(x, allow.array = TRUE)
+  ndim = length(dim(x))
   if (!is.null(y)) {
-    if (!all(dim(x)[1:3] == dim(y)[1:3])) {
+    if (!all(dim(x)[1:ndim] == dim(y)[1:ndim])) {
       stop("dimensions of \"x\" and \"y\" must be equal")
     }
   }
@@ -127,6 +128,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   X <- nrow(x)
   Y <- ncol(x)
   Z <- nsli(x)
+  if (is.na(Z)) Z = 1
   W <- ntim(x)
   # mXY = max(X, Y)
   lr.shift = 4
