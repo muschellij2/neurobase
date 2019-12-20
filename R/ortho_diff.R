@@ -162,6 +162,7 @@ multi_overlay_diff <- function(
     if (is.nifti(diff)) {
       diff = cal_img(diff)
     }
+    diff
   }
   pred = lapply(pred, diff_img)
   
