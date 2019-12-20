@@ -141,7 +141,14 @@ multi_overlay_diff <- function(
     pred = list(pred)
   }
   pred = lapply(pred, function(r) {
-    r > 0
+    is_niftiImage = inherits(r, "niftiImage")
+    out = r > 0
+    if (is_niftiImage) {
+      out = RNifti::asNifti(image = out, 
+                            reference = r, 
+                            internal = FALSE)
+    }
+    out
   })
   if (!is.list(x)) {
     x = lapply(seq_along(pred), function(r) x)
