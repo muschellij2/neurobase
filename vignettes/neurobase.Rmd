@@ -303,7 +303,7 @@ rm(list = "mask")
 
 ## Dropping empty dimensions
 
-In some instances, there are extraneous slices to an image.  For example, in the image we read in, there are extraneous brackrond.  For plotting or further analyses, we can drop these empty dimensions using the `neurobase::dropEmptyImageDimensions` function or `drop_empty_dim` shorthand function.  
+In some instances, there are extraneous slices to an image.  For example, in the image we read in, there are extraneous background areas.  For plotting or further analyses, we can drop these empty dimensions using the `neurobase::dropEmptyImageDimensions` function or `drop_empty_dim` shorthand function.  
 By default, if one `nifti` is passed to the function and `keep_ind = FALSE`, then the return is a `nifti` object. 
 
 ```{r dd, cache=FALSE}
