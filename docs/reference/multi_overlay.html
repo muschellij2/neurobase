@@ -70,7 +70,7 @@ slices and the potential for overlays as well." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -132,15 +132,37 @@ slices and the potential for overlays as well." />
 slices and the potential for overlays as well.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>multi_overlay</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>col.x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>gray</a></span>(<span class='fl'>0</span>:<span class='fl'>64</span>/<span class='fl'>64</span>), <span class='kw'>col.y</span> <span class='kw'>=</span> <span class='fu'>hotmetal</span>(), <span class='kw'>zlim.x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>zlim.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>plane</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"axial"</span>, <span class='st'>"coronal"</span>, <span class='st'>"sagittal"</span>),
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"horizontal"</span>,
-  <span class='st'>"vertical"</span>), <span class='kw'>par.opts</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>oma</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>), <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>), <span class='kw'>bg</span> <span class='kw'>=</span>
-  <span class='st'>"black"</span>), <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>1.4</span>,
-  <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>text.col</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>main.col</span> <span class='kw'>=</span> <span class='no'>text.col</span>, <span class='kw'>main.cex</span> <span class='kw'>=</span> <span class='no'>text.cex</span>, <span class='kw'>NA.x</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>NA.y</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>pdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>multi_overlay</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>z</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>col.x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>gray</a></span>(<span class='fl'>0</span>:<span class='fl'>64</span>/<span class='fl'>64</span>),
+  <span class='kw'>col.y</span> <span class='kw'>=</span> <span class='fu'>hotmetal</span>(),
+  <span class='kw'>zlim.x</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>zlim.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>ybreaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>plane</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"axial"</span>, <span class='st'>"coronal"</span>, <span class='st'>"sagittal"</span>),
+  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"horizontal"</span>, <span class='st'>"vertical"</span>),
+  <span class='kw'>par.opts</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>oma</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>), <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>), <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>),
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>1.4</span>,
+  <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>2.5</span>,
+  <span class='kw'>text.col</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
+  <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>main.col</span> <span class='kw'>=</span> <span class='no'>text.col</span>,
+  <span class='kw'>main.cex</span> <span class='kw'>=</span> <span class='no'>text.cex</span>,
+  <span class='kw'>NA.x</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>NA.y</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>pdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='fu'>multi_overlay_center</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
 
@@ -184,6 +206,11 @@ Passed to <code><a href='dropEmptyImageDimensions.html'>dropEmptyImageDimensions
     <tr>
       <th>zlim.y</th>
       <td><p>Limits for <code>y</code> to plot</p></td>
+    </tr>
+    <tr>
+      <th>ybreaks</th>
+      <td><p>(numeric) breaks for y to passed to 
+<code><a href='https://rdrr.io/r/graphics/image.html'>image</a></code></p></td>
     </tr>
     <tr>
       <th>plane</th>

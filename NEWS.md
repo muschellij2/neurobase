@@ -1,3 +1,7 @@
+# neurobase 1.29.0
+
+* Fixed `robust_window` bug for non-`nifti` objecs.
+
 # neurobase 1.28.0
 
 * Added `multi_overlay_diff` function for overlays.

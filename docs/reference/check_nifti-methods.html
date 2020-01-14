@@ -70,7 +70,7 @@ class nifti" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -132,36 +132,84 @@ class nifti" />
 class nifti</p>
     </div>
 
-    <pre class="usage"><span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for nifti</span>
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for factor</span>
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for list</span>
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for array</span>
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for anlz</span>
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for ANY</span>
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>check_nifti</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,6 +241,10 @@ versus <code><a href='readNIfTI2.html'>readnii</a></code> if the files need to b
       <td><p>if <code>TRUE</code>, then an image type with header information
 will be returned.  If not, then an array is fine.  Used really only in 
 conjunction with <code>allow.array</code></p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>additional arguments to pass to <code><a href='readNIfTI2.html'>readnii</a></code> if relevant</p></td>
     </tr>
     </table>
 

@@ -70,7 +70,7 @@ values" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -132,10 +132,9 @@ values" />
 values</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getEmptyImageDimensions</span>(<span class='no'>img</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>getEmptyImageDimensions</span>(<span class='no'>img</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
-<span class='fu'>get_empty_dim</span>(<span class='no'>img</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>get_empty_dim</span>(<span class='no'>img</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,6 +158,11 @@ are in the slice</p></td>
     <tr>
       <th>reorient</th>
       <td><p>Should image be reoriented if a filename?</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>additional arguments to pass to 
+<code><a href='check_nifti-methods.html'>check_nifti</a></code></p></td>
     </tr>
     </table>
 

@@ -70,7 +70,7 @@ with some tweaks such as adding L/R designations for left and right" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -132,17 +132,50 @@ with some tweaks such as adding L/R designations for left and right" />
 with some tweaks such as adding L/R designations for left and right</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ortho2</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xyz</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>gray</a></span>(<span class='fl'>0</span>:<span class='fl'>64</span>/<span class='fl'>64</span>),
-  <span class='kw'>col.y</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/hotmetal.html'>hotmetal</a></span>(), <span class='kw'>zlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>zlim.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>NA.x</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>NA.y</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>crosshairs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>col.crosshairs</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>oma</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span>(<span class='no'>ycolorbar</span>, <span class='fl'>5</span>, <span class='fl'>0</span>)), <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>),
-  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>text.color</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='kw'>add.orient</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>),
-  <span class='kw'>ybreaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>addlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>leg.x</span> <span class='kw'>=</span> <span class='fl'>32</span>,
-  <span class='kw'>leg.y</span> <span class='kw'>=</span> <span class='fl'>32</span>, <span class='no'>legend</span>, <span class='no'>leg.col</span>, <span class='kw'>leg.title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>leg.cex</span>,
-  <span class='kw'>window</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ycolorbar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>clabels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>pdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='no'>y</span>), <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>ortho2</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>xyz</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.html'>gray</a></span>(<span class='fl'>0</span>:<span class='fl'>64</span>/<span class='fl'>64</span>),
+  <span class='kw'>col.y</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/hotmetal.html'>hotmetal</a></span>(),
+  <span class='kw'>zlim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>zlim.y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>NA.x</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>NA.y</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>crosshairs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>col.crosshairs</span> <span class='kw'>=</span> <span class='st'>"red"</span>,
+  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>oma</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span>(<span class='no'>ycolorbar</span>, <span class='fl'>5</span>, <span class='fl'>0</span>)),
+  <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>),
+  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>text.color</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
+  <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+  <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>32</span>,
+  <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>32</span>,
+  <span class='kw'>add.orient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>),
+  <span class='kw'>ybreaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>addlegend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>leg.x</span> <span class='kw'>=</span> <span class='fl'>32</span>,
+  <span class='kw'>leg.y</span> <span class='kw'>=</span> <span class='fl'>32</span>,
+  <span class='no'>legend</span>,
+  <span class='no'>leg.col</span>,
+  <span class='kw'>leg.title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>leg.cex</span>,
+  <span class='kw'>window</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>ycolorbar</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>clabels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>pdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>useRaster</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='no'>y</span>),
+  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

@@ -71,7 +71,7 @@ and the data need to be value restricted" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -134,9 +134,18 @@ as sometimes DICOM scale and slope parameters may be inconsistent across sites
 and the data need to be value restricted</p>
     </div>
 
-    <pre class="usage"><span class='fu'>rescale_img</span>(<span class='no'>filename</span>, <span class='kw'>pngname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>write.nii</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>min.val</span> <span class='kw'>=</span> -<span class='fl'>1024</span>, <span class='kw'>max.val</span> <span class='kw'>=</span> <span class='fl'>3071</span>,
-  <span class='kw'>ROIformat</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>writer</span> <span class='kw'>=</span> <span class='st'>"dcm2nii"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>rescale_img</span>(
+  <span class='no'>filename</span>,
+  <span class='kw'>pngname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>write.nii</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>min.val</span> <span class='kw'>=</span> -<span class='fl'>1024</span>,
+  <span class='kw'>max.val</span> <span class='kw'>=</span> <span class='fl'>3071</span>,
+  <span class='kw'>ROIformat</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>drop_dim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>writer</span> <span class='kw'>=</span> <span class='st'>"dcm2nii"</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,6 +180,10 @@ set to Inf</p></td>
     <tr>
       <th>ROIformat</th>
       <td><p>if TRUE, any values $&lt; 0$ will be set to 0</p></td>
+    </tr>
+    <tr>
+      <th>drop_dim</th>
+      <td><p>Should <code>drop_img_dim</code> be applied?</p></td>
     </tr>
     <tr>
       <th>writer</th>

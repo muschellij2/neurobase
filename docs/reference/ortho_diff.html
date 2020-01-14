@@ -70,7 +70,7 @@ image and the assumed ground truth (roi)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -132,10 +132,27 @@ image and the assumed ground truth (roi)." />
 image and the assumed ground truth (<code>roi</code>).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ortho_diff</span>(<span class='no'>img</span>, <span class='no'>pred</span>, <span class='no'>roi</span>, <span class='kw'>xyz</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#56B4E9"</span>, <span class='st'>"#D55E00"</span>,
-  <span class='st'>"#009E73"</span>), <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"False Negative"</span>, <span class='st'>"False Positive"</span>,
-  <span class='st'>"True Positive"</span>), <span class='kw'>addlegend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>leg.cex</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
-  <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>ortho_diff</span>(
+  <span class='no'>img</span>,
+  <span class='no'>pred</span>,
+  <span class='no'>roi</span>,
+  <span class='kw'>xyz</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#56B4E9"</span>, <span class='st'>"#D55E00"</span>, <span class='st'>"#009E73"</span>),
+  <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"False Negative"</span>, <span class='st'>"False Positive"</span>, <span class='st'>"True Positive"</span>),
+  <span class='kw'>addlegend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>leg.cex</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
+  <span class='no'>...</span>
+)
+
+<span class='fu'>multi_overlay_diff</span>(
+  <span class='no'>x</span>,
+  <span class='no'>pred</span>,
+  <span class='no'>roi</span>,
+  <span class='kw'>z</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#56B4E9"</span>, <span class='st'>"#D55E00"</span>, <span class='st'>"#009E73"</span>),
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -179,7 +196,16 @@ not <code>NULL</code></p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>arguments to be passed to <code><a href='ortho2.html'>ortho2</a></code></p></td>
+      <td><p>arguments to be passed to <code><a href='ortho2.html'>ortho2</a></code> or
+<code><a href='multi_overlay.html'>multi_overlay</a></code></p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>List of images of class <code>nifti</code> or character vector of filenames</p></td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td><p>slice to display</p></td>
     </tr>
     </table>
 
@@ -187,12 +213,47 @@ not <code>NULL</code></p></td>
 
     <div class='dont-index'><p><code><a href='ortho2.html'>ortho2</a></code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+
+ <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>brainR</span>)) {
+   <span class='no'>visits</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Visit_"</span>, <span class='no'>visits</span>, <span class='st'>".nii.gz"</span>)
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='no'>y</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"brainR"</span>)
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>y</span>, <span class='no'>readnii</span>)
+
+   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>y</span>, <span class='kw'>function</span>(<span class='no'>r</span>){
+     <span class='fu'>pixdim</span>(<span class='no'>r</span>) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>))
+     <span class='fu'>dropImageDimension</span>(<span class='no'>r</span>)
+   })
+
+   <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"MNI152_T1_1mm_brain.nii.gz"</span>,
+                 <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"brainR"</span>)
+   <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'><a href='readNIfTI2.html'>readnii</a></span>(<span class='no'>x</span>)
+   <span class='no'>mask</span> <span class='kw'>=</span> <span class='no'>x</span> <span class='kw'>&gt;</span> <span class='fl'>0</span>
+   <span class='no'>alpha</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>col</span>, <span class='no'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>) {
+       <span class='no'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/col2rgb.html'>col2rgb</a></span>(<span class='no'>col</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)/<span class='fl'>255</span>)
+       <span class='fu'><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb</a></span>(<span class='no'>cols</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='no'>alpha</span>)
+   }
+   <span class='no'>roi</span> <span class='kw'>=</span> <span class='no'>y</span><span class='kw'>[[</span><span class='fl'>2</span>]]
+   <span class='no'>pred</span> <span class='kw'>=</span> <span class='no'>y</span>
+   <span class='fu'>multi_overlay_diff</span>(<span class='no'>x</span>, <span class='kw'>roi</span> <span class='kw'>=</span> <span class='no'>roi</span>, <span class='kw'>pred</span> <span class='kw'>=</span> <span class='no'>pred</span>)
+   <span class='fu'>multi_overlay_diff</span>(<span class='no'>x</span>, <span class='kw'>roi</span> <span class='kw'>=</span> <span class='no'>roi</span>, <span class='kw'>pred</span> <span class='kw'>=</span> <span class='no'>pred</span>,
+         <span class='kw'>mask</span> <span class='kw'>=</span> <span class='no'>mask</span>,
+         <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"\n"</span>, <span class='st'>"Visit "</span>, <span class='no'>visits</span>),
+         <span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>LETTERS</span>[<span class='no'>visits</span>],
+         <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>0.9</span>,
+         <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
+         <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>3</span>)
+ }
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

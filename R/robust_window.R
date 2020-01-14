@@ -29,5 +29,8 @@ robust_window <- function(img, # object of class nifti
   }
   quant = quantile(cc, probs = probs, ...)
   img = window_img(img, window = quant, ...)
-  img = cal_img(img)
+  if (oro.nifti::is.nifti(img)) {
+    img = cal_img(img)
+  }
+  img
 }

@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -78,7 +78,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="simple_io_files/jquery-1.11.3/jquery.min.js"></script><script src="simple_io_files/elevate-section-attrs-2.0/elevate-section-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Simple Image Input/Output</h1>
@@ -91,12 +91,9 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(neurobase)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="co">#&gt; Loading required package: oro.nifti</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co">#&gt; oro.nifti 0.10.1</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co">#&gt; Registered S3 method overwritten by 'R.oo':</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt;   method        from       </span></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="co">#&gt;   throw.default R.methodsS3</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(neurobase)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#&gt; Loading required package: oro.nifti</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#&gt; oro.nifti 0.10.1</span></span></code></pre></div>
 <div id="the-nifti-object" class="section level1">
 <h1 class="hasAnchor">
 <a href="#the-nifti-object" class="anchor"></a>The nifti object</h1>
@@ -107,49 +104,49 @@
 <h1 class="hasAnchor">
 <a href="#downloading-an-image" class="anchor"></a>Downloading an Image</h1>
 <p>Let’s say you have a T1-weighted NIfTI on your machine. If you do not, we can download one. We are downloading this to a temporary file since we don’t need it after the session is over:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">t1_file =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span>(<span class="dt">fileext =</span> <span class="st">".nii.gz"</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2">url =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"https://johnmuschelli.com/"</span>, </a>
-<a class="sourceLine" id="cb2-3" title="3">                       <span class="st">"open_ms_data/"</span>, <span class="st">"cross_sectional/"</span>,</a>
-<a class="sourceLine" id="cb2-4" title="4">                       <span class="st">"raw/patient01/T1W.nii.gz"</span>)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(url, <span class="dt">destfile =</span> t1_file)</a>
-<a class="sourceLine" id="cb2-6" title="6">t1_file</a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="co">#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmproDlRu/file13f8f622f258f.nii.gz"</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>t1_file =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span>(<span class="dt">fileext =</span> <span class="st">".nii.gz"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>url =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"https://johnmuschelli.com/"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3"></a>                       <span class="st">"open_ms_data/"</span>, <span class="st">"cross_sectional/"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>                       <span class="st">"raw/patient01/T1W.nii.gz"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(url, <span class="dt">destfile =</span> t1_file)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>t1_file</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//Rtmpy6g8zX/file167075a3dcdca.nii.gz"</span></span></code></pre></div>
 </div>
 <div id="reading-in-an-image" class="section level1">
 <h1 class="hasAnchor">
 <a href="#reading-in-an-image" class="anchor"></a>Reading in an image</h1>
 <p>Here we will use the <code>readnii</code> function to read in the image to an object called <code>img</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(neurobase)</a>
-<a class="sourceLine" id="cb3-2" title="2">img =<span class="st"> </span><span class="kw"><a href="../reference/readNIfTI2.html">readnii</a></span>(t1_file)</a>
-<a class="sourceLine" id="cb3-3" title="3">img</a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt; NIfTI-1 format</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="co">#&gt;   Type            : nifti</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="co">#&gt;   Data Type       : 4 (INT16)</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="co">#&gt;   Bits per Pixel  : 16</span></a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt;   Slice Code      : 0 (Unknown)</span></a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt;   Intent Code     : 0 (None)</span></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="co">#&gt;   Qform Code      : 2 (Aligned_Anat)</span></a>
-<a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt;   Sform Code      : 1 (Scanner_Anat)</span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt;   Dimension       : 408 x 512 x 152</span></a>
-<a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt;   Pixel Dimension : 0.43 x 0.43 x 0.82</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt;   Voxel Units     : mm</span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt;   Time Units      : Unknown</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(neurobase)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>img =<span class="st"> </span><span class="kw"><a href="../reference/readNIfTI2.html">readnii</a></span>(t1_file)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>img</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; NIfTI-1 format</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt;   Type            : nifti</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt;   Data Type       : 4 (INT16)</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;   Bits per Pixel  : 16</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;   Slice Code      : 0 (Unknown)</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;   Intent Code     : 0 (None)</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;   Qform Code      : 2 (Aligned_Anat)</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;   Sform Code      : 1 (Scanner_Anat)</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;   Dimension       : 408 x 512 x 152</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt;   Pixel Dimension : 0.43 x 0.43 x 0.82</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt;   Voxel Units     : mm</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt;   Time Units      : Unknown</span></span></code></pre></div>
 <p>We see the output is a <code>nifti</code> object. We can think of this as an array with additional information (called a header). We can do simple operations on the image, such as <code>sum</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(img)</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt; [1] 4073996312</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(img <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; [1] 278650</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(img)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; [1] 4073996312</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(img <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; [1] 278650</span></span></code></pre></div>
 </div>
 <div id="writing-images" class="section level1">
 <h1 class="hasAnchor">
 <a href="#writing-images" class="anchor"></a>Writing Images</h1>
 <p>Let’s say we want to set all values greater than 1000 to 1000 and then write the image out. We will use the <code>writenii</code> function. We will copy <code>img</code> to <code>img2</code> because we want to keep <code>img</code> as is. Again we will write the image to a temporary file because we don’t need this after the session:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">img2 =<span class="st"> </span>img</a>
-<a class="sourceLine" id="cb5-2" title="2">img2[ img2 <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>] =<span class="st"> </span><span class="dv">1000</span></a>
-<a class="sourceLine" id="cb5-3" title="3">outfile =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span>(<span class="dt">fileext =</span> <span class="st">".nii.gz"</span>)</a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="kw"><a href="../reference/writeNIfTI2.html">writenii</a></span>(img2, outfile)</a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(outfile)</a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>img2 =<span class="st"> </span>img</span>
+<span id="cb5-2"><a href="#cb5-2"></a>img2[ img2 <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>] =<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>outfile =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span>(<span class="dt">fileext =</span> <span class="st">".nii.gz"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw"><a href="../reference/writeNIfTI2.html">writenii</a></span>(img2, outfile)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(outfile)</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
 <div id="operations-of-nifti-objects" class="section level1">
 <h1 class="hasAnchor">
@@ -159,40 +156,40 @@
 <h2 class="hasAnchor">
 <a href="#logical-operators" class="anchor"></a>Logical operators</h2>
 <p>For example, if we want to create a <code>nifti</code> object with binary values, where the values are <code>TRUE</code> if the values in <code>img</code> are greater than 0, we can simply write:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">above_zero =<span class="st"> </span>img <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(above_zero)</a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt; [1] "nifti"</span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt; attr(,"package")</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt; [1] "oro.nifti"</span></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="kw">img_data</span>(above_zero)[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>above_zero =<span class="st"> </span>img <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(above_zero)</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt; [1] "nifti"</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; attr(,"package")</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; [1] "oro.nifti"</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="kw">img_data</span>(above_zero)[<span class="dv">1</span>]</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>We will refer to binary images/<code>nifti</code> objects as “masks”.</p>
 <p>We can combine multiple operators, such as creating a binary mask for value greater than 0 and less than 2.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>img <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt; [1] "nifti"</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt; attr(,"package")</span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt; [1] "oro.nifti"</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>img <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; [1] "nifti"</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; attr(,"package")</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; [1] "oro.nifti"</span></span></code></pre></div>
 </div>
 <div id="arithmetic-on-nifti-objects" class="section level2">
 <h2 class="hasAnchor">
 <a href="#arithmetic-on-nifti-objects" class="anchor"></a>Arithmetic on <code>nifti</code> objects</h2>
 <p>We can also show the</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="co">#&gt; [1] "nifti"</span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#&gt; attr(,"package")</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; [1] "oro.nifti"</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">+</span><span class="st"> </span>(img <span class="op">/</span><span class="st"> </span><span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt; [1] "nifti"</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; attr(,"package")</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt; [1] "oro.nifti"</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">*</span><span class="st"> </span>img)</a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; [1] "nifti"</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; attr(,"package")</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt; [1] "oro.nifti"</span></a>
-<a class="sourceLine" id="cb8-13" title="13"><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img<span class="op">^</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt; [1] "nifti"</span></a>
-<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt; attr(,"package")</span></a>
-<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt; [1] "oro.nifti"</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">*</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#&gt; [1] "nifti"</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#&gt; attr(,"package")</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; [1] "oro.nifti"</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">+</span><span class="st"> </span>(img <span class="op">/</span><span class="st"> </span><span class="dv">4</span>))</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; [1] "nifti"</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; attr(,"package")</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; [1] "oro.nifti"</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img <span class="op">*</span><span class="st"> </span>img)</span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt; [1] "nifti"</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">#&gt; attr(,"package")</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#&gt; [1] "oro.nifti"</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(img<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#&gt; [1] "nifti"</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">#&gt; attr(,"package")</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">#&gt; [1] "oro.nifti"</span></span></code></pre></div>
 </div>
 </div>
 <div id="visualization-of-nifti-objects" class="section level1">
@@ -202,26 +199,26 @@
 <h2 class="hasAnchor">
 <a href="#orthographic-view" class="anchor"></a>Orthographic view</h2>
 <p>The <code><a href="../reference/ortho2.html">neurobase::ortho2</a></code> function expands the <code><a href="https://rdrr.io/pkg/oro.nifti/man/orthographic-methods.html">oro.nifti::orthographic</a></code> function for displaying <code>nifti</code> objects in 3 different planes:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">neurobase<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/neurobase/man/ortho2.html">ortho2</a></span>(img)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>neurobase<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/neurobase/man/ortho2.html">ortho2</a></span>(img)</span></code></pre></div>
 <p><img src="simple_io_files/figure-html/ortho2-1.png" width="700"></p>
 <p>We see that in <code>ortho2</code> there are annotations of the orientation of the image. Again, if the image was not reoriented, then these many not be correct. You can turn these off with the <code>add.orient</code> argument:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">neurobase<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/neurobase/man/ortho2.html">ortho2</a></span>(img, <span class="dt">add.orient =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>neurobase<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/neurobase/man/ortho2.html">ortho2</a></span>(img, <span class="dt">add.orient =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p><img src="simple_io_files/figure-html/ortho2_noorient-1.png" width="700"></p>
 </div>
 <div id="single-slice-view" class="section level2">
 <h2 class="hasAnchor">
 <a href="#single-slice-view" class="anchor"></a>Single slice view</h2>
 <p>We may want to view a single slice of an image. The <code><a href="https://rdrr.io/pkg/oro.nifti/man/slice-methods.html">oro.nifti::slice</a></code> function can be used here.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">oro.nifti<span class="op">::</span><span class="kw">slice</span>(img, <span class="dt">z =</span> <span class="dv">45</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>oro.nifti<span class="op">::</span><span class="kw">slice</span>(img, <span class="dt">z =</span> <span class="dv">45</span>)</span></code></pre></div>
 <p><img src="simple_io_files/figure-html/all_slices-1.png" width="700"></p>
 <p>We can also get a view of multiple slices:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">oro.nifti<span class="op">::</span><span class="kw">slice</span>(img, <span class="dt">z =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">45</span>, <span class="dv">50</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>oro.nifti<span class="op">::</span><span class="kw">slice</span>(img, <span class="dt">z =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">45</span>, <span class="dv">50</span>))</span></code></pre></div>
 <p><img src="simple_io_files/figure-html/two_slice-1.png" width="700"></p>
 <div id="different-planes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#different-planes" class="anchor"></a>Different Planes</h3>
 <p>We can specify <code>z</code> the same way but change the <code>plane</code> to be different to get a different slice of the brain:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">oro.nifti<span class="op">::</span><span class="kw">slice</span>(img, <span class="dt">z =</span> <span class="dv">52</span>, <span class="dt">plane =</span> <span class="st">"sagittal"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>oro.nifti<span class="op">::</span><span class="kw">slice</span>(img, <span class="dt">z =</span> <span class="dv">52</span>, <span class="dt">plane =</span> <span class="st">"sagittal"</span>)</span></code></pre></div>
 <p><img src="simple_io_files/figure-html/one_slice_sag-1.png" width="700"> We can similarly do the same for “coronal” slices.</p>
 </div>
 </div>
@@ -229,8 +226,8 @@
 <h2 class="hasAnchor">
 <a href="#overlaying-slices" class="anchor"></a>Overlaying slices</h2>
 <p>We can also overlay one slice of an image upon another using the <code><a href="https://rdrr.io/pkg/oro.nifti/man/overlay-methods.html">oro.nifti::overlay</a></code> function. Here we must specify <code>plot.type</code> for only one slice.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">overlay</span>(img, <span class="dt">y =</span> img <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>(img, <span class="fl">0.9</span>), <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>, </a>
-<a class="sourceLine" id="cb14-2" title="2">        <span class="dt">NA.y =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">overlay</span>(img, <span class="dt">y =</span> img <span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>(img, <span class="fl">0.9</span>), <span class="dt">z =</span> <span class="dv">45</span>, <span class="dt">plot.type =</span> <span class="st">"single"</span>, </span>
+<span id="cb14-2"><a href="#cb14-2"></a>        <span class="dt">NA.y =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="simple_io_files/figure-html/one_slice_overlay-1.png" width="700"></p>
 </div>
 </div>
@@ -247,13 +244,15 @@
       <li><a href="#reading-in-an-image">Reading in an image</a></li>
       <li><a href="#writing-images">Writing Images</a></li>
       <li>
-<a href="#operations-of-nifti-objects">Operations of <code>nifti</code> objects</a><ul class="nav nav-pills nav-stacked">
+<a href="#operations-of-nifti-objects">Operations of <code>nifti</code> objects</a>
+      <ul class="nav nav-pills nav-stacked">
 <li><a href="#logical-operators">Logical operators</a></li>
       <li><a href="#arithmetic-on-nifti-objects">Arithmetic on <code>nifti</code> objects</a></li>
       </ul>
 </li>
       <li>
-<a href="#visualization-of-nifti-objects">Visualization of <code>nifti</code> objects</a><ul class="nav nav-pills nav-stacked">
+<a href="#visualization-of-nifti-objects">Visualization of <code>nifti</code> objects</a>
+      <ul class="nav nav-pills nav-stacked">
 <li><a href="#orthographic-view">Orthographic view</a></li>
       <li><a href="#single-slice-view">Single slice view</a></li>
       <li><a href="#overlaying-slices">Overlaying slices</a></li>

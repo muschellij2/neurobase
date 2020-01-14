@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -135,24 +135,64 @@
 #'</p>
     </div>
 
-    <pre class="usage"><span class='fu'>subset_dti</span>(<span class='no'>img</span>, <span class='no'>bvals</span>, <span class='no'>bvecs</span>, <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>,
-  <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>subset_dti</span>(
+  <span class='no'>img</span>,
+  <span class='no'>bvals</span>,
+  <span class='no'>bvecs</span>,
+  <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>,
+  <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for nifti</span>
-<span class='fu'>subset_dti</span>(<span class='no'>img</span>, <span class='no'>bvals</span>, <span class='no'>bvecs</span>, <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+<span class='fu'>subset_dti</span>(
+  <span class='no'>img</span>,
+  <span class='no'>bvals</span>,
+  <span class='no'>bvecs</span>,
+  <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>,
+  <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for ANY</span>
-<span class='fu'>subset_dti</span>(<span class='no'>img</span>, <span class='no'>bvals</span>, <span class='no'>bvecs</span>, <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+<span class='fu'>subset_dti</span>(
+  <span class='no'>img</span>,
+  <span class='no'>bvals</span>,
+  <span class='no'>bvecs</span>,
+  <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>,
+  <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>subset_dti</span>(<span class='no'>img</span>, <span class='no'>bvals</span>, <span class='no'>bvecs</span>, <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+<span class='fu'>subset_dti</span>(
+  <span class='no'>img</span>,
+  <span class='no'>bvals</span>,
+  <span class='no'>bvecs</span>,
+  <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>,
+  <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for list</span>
-<span class='fu'>subset_dti</span>(<span class='no'>img</span>, <span class='no'>bvals</span>, <span class='no'>bvecs</span>, <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>subset_dti</span>(
+  <span class='no'>img</span>,
+  <span class='no'>bvals</span>,
+  <span class='no'>bvecs</span>,
+  <span class='kw'>b_step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>maximum</span> <span class='kw'>=</span> <span class='fl'>Inf</span>,
+  <span class='kw'>shells</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

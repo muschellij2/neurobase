@@ -70,7 +70,7 @@ subsetting 4D data and getting an array out" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -132,8 +132,15 @@ subsetting 4D data and getting an array out" />
 subsetting 4D data and getting an array out</p>
     </div>
 
-    <pre class="usage"><span class='fu'>copyNIfTIHeader</span>(<span class='no'>img</span>, <span class='no'>arr</span>, <span class='kw'>drop_slots</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".Data"</span>, <span class='st'>"dim_"</span>), <span class='kw'>drop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>onlylast</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>warn</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>copyNIfTIHeader</span>(
+  <span class='no'>img</span>,
+  <span class='no'>arr</span>,
+  <span class='kw'>drop_slots</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".Data"</span>, <span class='st'>"dim_"</span>),
+  <span class='kw'>drop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>onlylast</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>warn</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

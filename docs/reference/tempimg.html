@@ -71,7 +71,7 @@ to a temp file, appends
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -134,8 +134,15 @@ to a temp file, appends
 .nii.gz as <code><a href='writeNIfTI2.html'>writenii</a></code> adds it.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tempimg</span>(<span class='no'>nim</span>, <span class='kw'>gzipped</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>checknan</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>check_type</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>warn</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>tempimg</span>(
+  <span class='no'>nim</span>,
+  <span class='kw'>gzipped</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>checknan</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>check_type</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>warn</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>drop_dim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,8 +170,12 @@ to a temp file, appends
 any?  Passed to <code><a href='writeNIfTI2.html'>writenii</a></code>.</p></td>
     </tr>
     <tr>
+      <th>drop_dim</th>
+      <td><p>Should <code>drop_img_dim</code> be applied?</p></td>
+    </tr>
+    <tr>
       <th>...</th>
-      <td><p>Not used</p></td>
+      <td><p>Passed to <code><a href='writeNIfTI2.html'>writenii</a></code>.</p></td>
     </tr>
     </table>
 

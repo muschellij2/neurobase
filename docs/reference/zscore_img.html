@@ -70,7 +70,7 @@ coronal slice or whole image" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.27.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
       </span>
     </div>
 
@@ -132,11 +132,19 @@ coronal slice or whole image" />
 coronal slice or whole image</p>
     </div>
 
-    <pre class="usage"><span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>margin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mean"</span>,
-  <span class='st'>"median"</span>, <span class='st'>"trimmed_mean"</span>), <span class='kw'>variability</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sd"</span>, <span class='st'>"iqrdiff"</span>, <span class='st'>"mad"</span>,
-  <span class='st'>"maddiff"</span>, <span class='st'>"iqr"</span>, <span class='st'>"trimmed_sd"</span>), <span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>remove.na</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>remove.nan</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>remove.inf</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>remove.val</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>remask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>zscore_img</span>(
+  <span class='no'>img</span>,
+  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>margin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mean"</span>, <span class='st'>"median"</span>, <span class='st'>"trimmed_mean"</span>),
+  <span class='kw'>variability</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sd"</span>, <span class='st'>"iqrdiff"</span>, <span class='st'>"mad"</span>, <span class='st'>"maddiff"</span>, <span class='st'>"iqr"</span>, <span class='st'>"trimmed_sd"</span>),
+  <span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
+  <span class='kw'>remove.na</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>remove.nan</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>remove.inf</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>remove.val</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>remask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
