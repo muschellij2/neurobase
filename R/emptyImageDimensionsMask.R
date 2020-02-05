@@ -49,7 +49,7 @@ emptyImageDimensionsMask <- function(img,
 empty_dim_mask <- function(img, 
                            ...,
                            reorient = FALSE) {
-  maskEmptyImageDimensions(img = img, 
+  emptyImageDimensionsMask(img = img, 
                            ... = ...,
                            reorient = reorient
                            )
