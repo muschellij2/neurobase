@@ -40,3 +40,9 @@ object of type nifti
 Tries to figure out the correct datatype for image.  Useful 
 for image masks - makes them binary if
 }
+\examples{
+img = nifti(array(rnorm(10^3, sd = 1000), dim = rep(10, 3)))
+rimg = round(img)
+newnii(datatyper(rimg))
+rimg = datatyper(rimg, type_string= "FLOAT32")
+}

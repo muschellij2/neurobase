@@ -37,4 +37,5 @@ into a \code{data.frame} with the data and a color mapping.
 \examples{
 img = nifti(array(rnorm(10^3), dim = rep(10, 3)))
 df = img_colour_df(img)
+df = img_color_df(img)
 }

@@ -49,3 +49,10 @@ Rescales an image to be in certain value range.  This was created
 as sometimes DICOM scale and slope parameters may be inconsistent across sites
 and the data need to be value restricted
 }
+\examples{
+img = nifti(array(rnorm(10^3, sd = 1000), dim = rep(10, 3)))
+outfile = tempfile(fileext = ".nii.gz")
+pngname = tempfile(fileext = ".png")
+rescale_img(img, write.nii = TRUE, outfile = outfile,
+pngname = pngname)
+}

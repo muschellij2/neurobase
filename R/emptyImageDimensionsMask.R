@@ -20,6 +20,7 @@
 #' out = emptyImageDimensionsMask(nim)
 #' out_arr = emptyImageDimensionsMask(arr)
 #' testthat::expect_equal(out_arr, array(out, dim = dim(out)))
+#' out_arr = empty_dim_mask(arr)
 emptyImageDimensionsMask <- function(img, 
                                      ...,
                                      reorient = FALSE) {

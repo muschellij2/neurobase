@@ -28,4 +28,9 @@ of an image with the option for a mask.
 img = nifti(array(rnorm(10^3), dim = rep(10, 3)))
 mask = img > 0
 density(img, mask = mask)
+density(img)
+
+density(as.anlz(img), mask = mask)
+density(as.anlz(img))
+
 }

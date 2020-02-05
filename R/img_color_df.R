@@ -17,6 +17,7 @@
 #' @examples
 #' img = nifti(array(rnorm(10^3), dim = rep(10, 3)))
 #' df = img_colour_df(img)
+#' df = img_color_df(img)
 img_colour_df = function(
   img,
   zlim = NULL,

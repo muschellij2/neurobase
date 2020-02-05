@@ -10,6 +10,18 @@
 #' @seealso \code{\link{niftiarr}}
 #' @return Object of class \code{\link{nifti}}
 #' @export
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' arr[,,10] = 0
+#' nim = oro.nifti::nifti(arr)
+#' remake_img(c(nim), nim)
+#' mask = nim > 5
+#' vals = nim[mask]
+#' vals = sqrt(vals)
+#' remake_img(vals, nim, mask = mask)
+#' 
 remake_img = function(vec, img, mask = NULL, warn = FALSE, ...){
   if (is.null(mask)) {
     mask = array(1, dim = dim(img))

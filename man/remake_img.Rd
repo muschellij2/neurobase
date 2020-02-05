@@ -25,6 +25,19 @@ Object of class \code{\link{nifti}}
 Wrapper function to take a vector of values and result in a 
 \code{\link{nifti}} object
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+remake_img(c(nim), nim)
+mask = nim > 5
+vals = nim[mask]
+vals = sqrt(vals)
+remake_img(vals, nim, mask = mask)
+
+}
 \seealso{
 \code{\link{niftiarr}}
 }

@@ -19,6 +19,12 @@
 #' @return Object of class nifti
 #' @importFrom grDevices png dev.off
 #' @export
+#' @examples 
+#' img = nifti(array(rnorm(10^3, sd = 1000), dim = rep(10, 3)))
+#' outfile = tempfile(fileext = ".nii.gz")
+#' pngname = tempfile(fileext = ".png")
+#' rescale_img(img, write.nii = TRUE, outfile = outfile,
+#' pngname = pngname)
 rescale_img = function(filename, 
                        pngname = NULL, 
                        write.nii = FALSE,
@@ -90,6 +96,11 @@ rescale_img = function(filename,
 #' for image masks - makes them binary if
 #' @name datatype
 #' @export
+#' @examples 
+#' img = nifti(array(rnorm(10^3, sd = 1000), dim = rep(10, 3)))
+#' rimg = round(img)
+#' newnii(datatyper(rimg))
+#' rimg = datatyper(rimg, type_string= "FLOAT32")
 datatyper = function(img, type_string = NULL,
                      datatype = NULL, bitpix=NULL, trybyte=TRUE,
                      warn = TRUE){
@@ -107,10 +118,10 @@ datatyper = function(img, type_string = NULL,
     return(img)
   }
   if (!is.null(datatype) & is.null(bitpix)) {
-    stop("Both bitipx and datatype need to be specified if oneis")
+    stop("Both bitipx and datatype need to be specified if one is")
   }
   if (is.null(datatype) & !is.null(bitpix)) {
-    stop("Both bitipx and datatype need to be specified if oneis")
+    stop("Both bitipx and datatype need to be specified if one is")
   }
   #### logical - sign to unsigned int 8
   arr = as(img, "array")

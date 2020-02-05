@@ -130,6 +130,8 @@ result = replaceEmptyImageDimensions(out, inds = inds,
 target_dim = dim(nim))
 testthat::expect_equal(array(result, dim = dim(result)), 
 array(nim, dim = dim(nim)))
+replace_empty_dim(out, inds = inds,
+target_dim = dim(nim))
 
 }
 \seealso{

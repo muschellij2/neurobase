@@ -29,6 +29,7 @@
 #' out = applyEmptyImageDimensions(nim, inds = inds)
 #' out_arr = applyEmptyImageDimensions(arr, inds = inds)
 #' testthat::expect_equal(out_arr, array(out, dim = dim(out)))
+#' out = apply_empty_dim(nim, inds = inds)
 #' 
 #' 
 #' 
