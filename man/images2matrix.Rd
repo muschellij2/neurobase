@@ -19,3 +19,13 @@ image or the number of voxels in the mask, and p is the number of images
 Creates a matrix, where the voxels are on the rows 
 and images are on the columns
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+nim = oro.nifti::nifti(arr)
+imgs = list(nim, arr)
+mat1 = images2matrix(imgs)
+mat2 = images2matrix(list(nim, nim))
+testthat::expect_equal(mat1, mat2)
+}

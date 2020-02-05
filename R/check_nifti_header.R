@@ -11,6 +11,13 @@
 #' an object of class nifti, or array
 #' @export 
 #' @author John Muschelli \email{muschellij2@@gmail.com} 
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 4)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' check_nifti_header(nim)
+#' testthat::expect_error(check_nifti_header(arr))
 setGeneric("check_nifti_header", 
            function(x) standardGeneric("check_nifti_header"))
 

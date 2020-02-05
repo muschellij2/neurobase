@@ -38,6 +38,15 @@
 #' @param drop_zero Should zeroes be dropped from the labels?  Zero 
 #' usually denotes background or non-interesting voxels
 #' @export 
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' simg = separate_img(nim)
+#' simg_arr = separate_img(arr)
+#' slist = lapply(simg, function(x) array(x, dim(x)))
+#' testthat::expect_equal(slist, simg_arr)
 setGeneric("separate_img", function(img, 
                                     levels = NULL,
                                     drop_zero = TRUE) standardGeneric("separate_img"))

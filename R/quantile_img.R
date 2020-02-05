@@ -6,23 +6,37 @@
 #' @param ... Additional arguments to pass to \code{\link{ecdf}}
 #' @return Object of class \code{nifti}
 #' @export
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' qimg = quantile_img(nim)
+#' qarr = quantile_img(arr)
+#' testthat::expect_equal(qarr, array(qimg, dim = dim(qarr)))
+#' qimg = quantile_img(nim, mask = nim > 0)
+#' 
 quantile_img = function(img, 
                         mask = NULL,
                         ...)
 {
-  img = check_nifti(img)
+  img = check_nifti(img, allow.array = TRUE)
   
   if (!is.null(mask)) {
     mask = check_nifti(mask, allow.array = TRUE)
   } else { 
-    mask = niftiarr(img, 1)  
+    mask = array(1, dim = dim(img))
   }
   
   check_mask_fail(mask, allow.NA = FALSE)
-
+  
   vals = img[mask == 1]
   e = ecdf(vals)
-  qimg = niftiarr(img, e(c(img)))
+  if (is.nifti(img)) {
+    qimg = niftiarr(img, e(c(img)))
+  } else {
+    qimg = array(e(c(img)), dim = dim(img))
+  }
   
   return(qimg)
 }

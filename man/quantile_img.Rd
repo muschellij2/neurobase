@@ -20,3 +20,14 @@ Object of class \code{nifti}
 Creates output image of the quantiles that each voxel is in, 
 after applying the mask
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+nim = oro.nifti::nifti(arr)
+qimg = quantile_img(nim)
+qarr = quantile_img(arr)
+testthat::expect_equal(qarr, array(qimg, dim = dim(qarr)))
+qimg = quantile_img(nim, mask = nim > 0)
+
+}

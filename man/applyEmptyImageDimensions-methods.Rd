@@ -54,6 +54,23 @@ dropping empty dimensions.
 \code{apply_empty_dim} is a shorthand for 
 \code{applyEmptyImageDimensions} with all the same arguments.
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+inds = getEmptyImageDimensions(nim)
+inds_arr = getEmptyImageDimensions(arr)
+testthat::expect_equal(inds, inds_arr)
+
+out = applyEmptyImageDimensions(nim, inds = inds)
+out_arr = applyEmptyImageDimensions(arr, inds = inds)
+testthat::expect_equal(out_arr, array(out, dim = dim(out)))
+
+
+
+}
 \seealso{
 \code{\link{getEmptyImageDimensions}}, 
 \code{\link{dropEmptyImageDimensions}}

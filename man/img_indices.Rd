@@ -23,3 +23,21 @@ otherwise.
 Extract image xyz indices (in voxels or millimeters), with the
 option to append the values
 }
+\examples{
+set.seed(5)
+dims = rep(10, 4)
+arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+nim = oro.nifti::nifti(arr)
+ind = img_indices(nim)
+ind2 = img_indices(nim, mask = nim > 2)
+# 3d example
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+nim = oro.nifti::nifti(arr)
+ind = img_indices(nim)
+ind2 = img_indices(nim, mask = nim > 2)
+testthat::expect_equal(colnames(ind2), c("x", "y", "z"))
+ind2 = img_indices(nim, mask = nim > 2, add_values = TRUE)
+testthat::expect_equal(colnames(ind2), c("x", "y", "z", "value"))
+}

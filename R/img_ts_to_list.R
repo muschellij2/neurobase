@@ -12,12 +12,22 @@
 #' @note If the object is not of class \code{\link{nifti}} or have
 #' 4 dimensions, then the object is returned
 #' @export
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 4)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' simg = img_ts_to_list(nim)
+#' simg_arr = img_ts_to_list(arr)
+#' slist = lapply(simg, function(x) array(x, dim(x)))
+#' testthat::expect_equal(slist, simg_arr)
 img_ts_to_list = function(imgs, copy_nifti = TRUE, warn = TRUE) {
   
   if (length(dim(imgs)) == 4) {
-    if (is.nifti(imgs)) {
+    is_nifti = is.nifti(imgs)
+    if (is_nifti || is.array(imgs)) {
       L = apply(imgs, 4, list)
-      if ( copy_nifti ) {
+      if ( copy_nifti && is_nifti ) {
         L = lapply(L, function(x) {
           copyNIfTIHeader(imgs, x[[1]])
         })

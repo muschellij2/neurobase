@@ -109,6 +109,16 @@ Creates a multi-row or multi-column plot with image
 slices and the potential for overlays as well.
 }
 \examples{
+set.seed(5)
+dims = rep(10, 4)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,,c(3, 5)] = rpois(1000*2, lambda = 2)
+nim = oro.nifti::nifti(arr)
+mask = nim > 2
+imgs = img_ts_to_list(nim) 
+masks = img_ts_to_list(mask) 
+multi_overlay(imgs, masks)
+
 \dontrun{
 
  if (require(brainR)) {

@@ -20,3 +20,12 @@ A \code{nifti} object
 This function calls the \code{\link{readNifti}} function from the 
 \code{RNifti} package, and then converts the image to a \code{nifti} object
 }
+\examples{
+set.seed(5)
+dims = rep(10, 4)
+arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+nim = oro.nifti::nifti(arr)
+tfile = tempfile(fileext = ".nii.gz")
+write_nifti(nim, tfile)
+rimg = fast_readnii(tfile)
+}

@@ -36,3 +36,14 @@ object, then a \code{nifti} is returned
 Determines values outside the surface of an image and gives a 
 mask back with those values set to a replacement.
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(0, dim = dims)
+
+arr[ 3:5, 4:6, c(2, 6:8, 5)] = 1
+nim = oro.nifti::nifti(arr)
+out = replace_outside_surface(nim, replace_value = 0)
+out_arr = replace_outside_surface(arr, replace_value = 0)
+testthat::expect_equal(out_arr, array(out, dim = dim(out)))
+}

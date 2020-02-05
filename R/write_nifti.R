@@ -9,6 +9,15 @@
 #' 
 #' @return Output from NIfTI writer
 #' @export 
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 4)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' tfile = tempfile(fileext = ".nii.gz")
+#' write_nifti(nim, tfile)
+#' rimg = RNifti::readNifti(tfile)
+#' write_nifti(rimg, tfile)
 write_nifti <- function(nim, 
                         filename,
                         ...) {

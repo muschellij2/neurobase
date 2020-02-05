@@ -17,6 +17,14 @@
 #' @export
 #' @seealso \code{\link{ortho2}}
 #' @return NULL
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' roi = nim > 2
+#' pred = nim > 1.5
+#' ortho_diff(nim, pred, roi)
 ortho_diff <- function(img, 
                        pred, # binary segmentation (prediction)
                        roi, # binary manual segmentation (ground truth)

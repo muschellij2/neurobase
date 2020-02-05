@@ -17,6 +17,18 @@
 #' @seealso \code{\link{getEmptyImageDimensions}}, 
 #' \code{\link{dropEmptyImageDimensions}} 
 #' @export
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' arr[,,10] = 0
+#' nim = oro.nifti::nifti(arr)
+#' inds = getEmptyImageDimensions(nim)
+#' inds_arr = getEmptyImageDimensions(arr)
+#' res = maskEmptyImageDimensions(nim, inds = inds, mask.value = NA)
+#' res2 = maskEmptyImageDimensions(arr, inds = inds_arr, mask.value = NA)
+#' testthat::expect_equal(array(res, dim = dim(res)), 
+#' array(res2, dim = dim(res2)))
 setGeneric("maskEmptyImageDimensions", 
            function(img, 
                     inds,

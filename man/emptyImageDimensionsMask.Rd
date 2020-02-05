@@ -27,6 +27,16 @@ values
 \code{empty_dim_mask} is a shorthand for \code{emptyImageDimensionsMask}
 with all the same arguments.
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+out = emptyImageDimensionsMask(nim)
+out_arr = emptyImageDimensionsMask(arr)
+testthat::expect_equal(out_arr, array(out, dim = dim(out)))
+}
 \seealso{
 \code{\link{getEmptyImageDimensions}}
 }

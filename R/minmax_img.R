@@ -9,6 +9,14 @@
 #' @param img character path of image or 
 #' an object of class \code{nifti}, or list of images
 #' @export 
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 4)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' mimg = minmax_img(nim)
+#' marr = minmax_img(arr)
+#' testthat::expect_equal(array(mimg, dim = dim(mimg)), marr)
 setGeneric("minmax_img", function(img) standardGeneric("minmax_img"))
 
 #' @rdname minmax_img-methods

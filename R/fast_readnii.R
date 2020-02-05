@@ -9,6 +9,14 @@
 #' @return A \code{nifti} object
 #' @export
 #' @importFrom RNifti readNifti
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 4)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' tfile = tempfile(fileext = ".nii.gz")
+#' write_nifti(nim, tfile)
+#' rimg = fast_readnii(tfile)
 fast_readnii <- function(
   fname, 
   dtype = TRUE, 

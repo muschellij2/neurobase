@@ -21,3 +21,13 @@ Output from NIfTI writer
 Writes out NIfTI files for multiple formats.  Currently,
 for \code{nifti} objects and \code{niftiImage} objects from \code{RNifti}
 }
+\examples{
+set.seed(5)
+dims = rep(10, 4)
+arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+nim = oro.nifti::nifti(arr)
+tfile = tempfile(fileext = ".nii.gz")
+write_nifti(nim, tfile)
+rimg = RNifti::readNifti(tfile)
+write_nifti(rimg, tfile)
+}

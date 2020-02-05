@@ -1,3 +1,7 @@
+# neurobase 1.30.0
+
+* Added `replaceEmptyImageDimensions`, which should likely deprecate `replace_dropped_dimensions`.
+
 # neurobase 1.29.0
 
 * Fixed `robust_window` bug for non-`nifti` objecs.
