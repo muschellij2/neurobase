@@ -9,6 +9,23 @@
 #' @param replace Value to replace non-finite values to
 #' @export 
 #' @author John Muschelli \email{muschellij2@@gmail.com} 
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' arr[c(5, 6, 7, 8)] = c(NA, NaN, Inf, -Inf)
+#' nim = nifti(arr)
+#' finite_img(nim)
+#' finite_img(arr)
+#' tfile = tempimg(nim)
+#' checkimg(c(tfile, tfile))
+#' checkimg(list(tfile, tfile))
+#' finite_img(list(tfile, tfile))
+#' finite_img(c(tfile, tfile))
+#' img = RNifti::readNifti(tfile)
+#' checkimg(img)
+#' img[c(5, 6, 7, 8)] = c(NA, NaN, Inf, -Inf)
+#' stopifnot(!any(c(is.na(c(finite_img(img))))))
 setGeneric("finite_img", function(img, replace = 0) standardGeneric("finite_img"))
 
 #' @rdname finite_img-methods

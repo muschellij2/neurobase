@@ -10,9 +10,10 @@
 #' @return Object of class nifti
 #' @examples 
 #' img = random_nifti(rep(15, 3))
-#' flipped = flip_img(img, x = TRUE)
+#' flipped = flip_img(img, x = TRUE, y = TRUE, z = TRUE)
 #' img = random_nifti(rep(15, 2))
 #' flipped = flip_img(img, x = TRUE)
+#' testthat::expect_error(flip_img(img, z= TRUE))
 flip_img <- function(img, x = FALSE, y = FALSE, z = FALSE, ...){
   img = check_nifti(img, ...)
   d = dim(img)

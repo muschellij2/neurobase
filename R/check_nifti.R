@@ -26,6 +26,18 @@
 #' @examples 
 #' x = nifti()
 #' check_nifti(x)
+#' set.seed(5)
+#' dims = rep(10, 4)
+#' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
+#' nim = oro.nifti::nifti(arr)
+#' check_nifti(nim)
+#' check_nifti(as.anlz(nim))
+#' testthat::expect_error(check_nifti(arr, allow.array = FALSE))
+#' tfile = tempimg(nim)
+#' check_nifti(c(tfile, tfile))
+#' check_nifti(list(tfile, tfile))
+#' check_nifti(factor(c(tfile, tfile)))
+#' check_nifti(RNifti::readNifti(tfile))
 setGeneric("check_nifti", 
            function(x, reorient=FALSE, 
                     allow.array=FALSE,

@@ -60,10 +60,18 @@
 #' @import graphics
 #' @importFrom grDevices col2rgb gray rgb
 #' @examples 
+#' set.seed(10)
 #' x = oro.nifti::nifti(array(rnorm(1000), dim = rep(10, 3)))
 #' ortho2(x)
 #' y = x > 2
+#' mask = x > 2.5
 #' ortho2(x, y)
+#' ortho2(x, y, mask = mask)
+#' nim = RNifti::asNifti(x, internal = FALSE)
+#' ortho2(nim, y, mask = mask)
+#' ortho2(nim, x, mask = mask, 
+#' ybreaks = seq(min(x), max(x), length.out = 65), ycolorbar = TRUE)
+#' ortho2(nim, y, mask = mask, add = FALSE)
 #' arr_x = as.array(x)
 #' arr_y = as.array(y)
 #' ortho2( arr_x)

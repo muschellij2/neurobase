@@ -19,8 +19,11 @@
 #' nim = oro.nifti::nifti(arr)
 #' simg = img_ts_to_list(nim)
 #' simg_arr = img_ts_to_list(arr)
+#' back = img_list_to_ts(simg_arr)
 #' slist = lapply(simg, function(x) array(x, dim(x)))
 #' testthat::expect_equal(slist, simg_arr)
+#' simg_arr = img_ts_to_matrix(arr)
+#' simg_arr = img_ts_to_df(arr)
 img_ts_to_list = function(imgs, copy_nifti = TRUE, warn = TRUE) {
   
   if (length(dim(imgs)) == 4) {

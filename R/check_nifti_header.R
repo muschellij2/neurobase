@@ -17,7 +17,14 @@
 #' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
 #' nim = oro.nifti::nifti(arr)
 #' check_nifti_header(nim)
+#' check_nifti_header(as.anlz(nim))
 #' testthat::expect_error(check_nifti_header(arr))
+#' tfile = tempimg(nim)
+#' check_nifti_header(tfile)
+#' check_nifti_header(RNifti::readNifti(tfile))
+#' check_nifti_header(c(tfile, tfile))
+#' check_nifti_header(list(tfile, tfile))
+#' check_nifti_header(factor(tfile))
 setGeneric("check_nifti_header", 
            function(x) standardGeneric("check_nifti_header"))
 

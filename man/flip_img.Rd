@@ -25,7 +25,8 @@ This image will flip x, y, or z direction
 }
 \examples{
 img = random_nifti(rep(15, 3))
-flipped = flip_img(img, x = TRUE)
+flipped = flip_img(img, x = TRUE, y = TRUE, z = TRUE)
 img = random_nifti(rep(15, 2))
 flipped = flip_img(img, x = TRUE)
+testthat::expect_error(flip_img(img, z= TRUE))
 }
