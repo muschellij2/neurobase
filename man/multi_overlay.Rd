@@ -115,13 +115,20 @@ arr = array(rnorm(prod(dims)), dim = dims)
 arr[,,,c(3, 5)] = rpois(1000*2, lambda = 2)
 nim = oro.nifti::nifti(arr)
 mask = nim > 2
+add_mask = nim[,,,1] > 0
 imgs = img_ts_to_list(nim) 
 masks = img_ts_to_list(mask) 
 multi_overlay(imgs, masks)
+multi_overlay(imgs, masks, 
+main = "hey", direction = "vertical", plane = "coronal")
+multi_overlay(imgs, masks, mask = add_mask, 
+main = "hey")
+
+
 
 \dontrun{
 
- if (require(brainR)) {
+ if (requireNamespace("brainR", quietly = TRUE)) {
    visits = 1:3
    y = paste0("Visit_", visits, ".nii.gz")
    y = system.file(y, package = "brainR")

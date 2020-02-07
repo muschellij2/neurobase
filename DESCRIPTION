@@ -32,7 +32,8 @@ Suggests:
     dplyr,
     reshape2,
     httr,
-    covr
+    covr,
+    brainR
 VignetteBuilder: knitr
 BugReports: https://github.com/muschellij2/neurobase/issues
 Encoding: UTF-8

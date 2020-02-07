@@ -13,6 +13,20 @@
 #' 
 #' @export
 #' @author John Muschelli \email{muschellij2@@gmail.com}
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' arr[,,10] = 0
+#' nim = oro.nifti::nifti(arr)
+#' rnifti = RNifti::asNifti(nim)
+#' timg = tempimg(nim)
+#' limg = list(factor(timg), factor(timg))
+#' func = checkniigz
+#' func(nim)
+#' func(rnifti)
+#' func(timg)
+#' func(limg)
 setGeneric("checkniigz", function(file, ...) standardGeneric("checkniigz"))
 
 #' @rdname checkniigz-methods
@@ -36,6 +50,15 @@ setMethod("checkniigz", "ANY", function(file, ...) {
     stop("Not implemented for this type!")
   }
   return(file)
+})
+
+#' @rdname checkniigz-methods
+#' @aliases checkniigz,factor-method
+#'  
+#' @export
+setMethod("checkniigz", "factor", function(file, ...) { 
+  file = as.character(file)
+  return(checkniigz(file, ...))
 })
 
 #' @rdname checkniigz-methods

@@ -12,7 +12,9 @@
 #' @examples 
 #' img = nifti(array(rnorm(10^3), dim = rep(10, 3)))
 #' mask = img > 0
+#' boxplot(img)
 #' boxplot(img, mask = mask)
+#' boxplot(as.anlz(img))
 boxplot.nifti = function(x, ..., mask) {
   if (missing(mask)) {
     x = img_data(x)

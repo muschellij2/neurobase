@@ -47,6 +47,16 @@
 #' simg_arr = separate_img(arr)
 #' slist = lapply(simg, function(x) array(x, dim(x)))
 #' testthat::expect_equal(slist, simg_arr)
+#' 
+#' rnifti = RNifti::asNifti(nim)
+#' timg = tempimg(nim)
+#' limg = list(factor(timg), factor(timg))
+#' func = separate_img
+#' func(arr)
+#' func(nim)
+#' func(rnifti)
+#' func(timg)
+#' func(limg)
 setGeneric("separate_img", function(img, 
                                     levels = NULL,
                                     drop_zero = TRUE) standardGeneric("separate_img"))
@@ -95,6 +105,20 @@ setMethod("separate_img", "ANY", function(img, levels = NULL,
   return(img)
 })
 
+
+#' @rdname separate_img-methods
+#' @aliases separate_img,factor-method
+#'  
+#' @export
+setMethod("separate_img", "factor", function(img, 
+                                                levels = NULL,
+                                                drop_zero = TRUE) { 
+  img = as.character(img)
+  img = separate_img(img,
+                     levels = levels,
+                     drop_zero = drop_zero)
+  return(img)
+})
 
 #' @rdname separate_img-methods
 #' @aliases separate_img,character-method

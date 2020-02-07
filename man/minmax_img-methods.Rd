@@ -8,6 +8,7 @@
 \alias{minmax_img,array-method}
 \alias{minmax_img,ANY-method}
 \alias{minmax_img,character-method}
+\alias{minmax_img,factor-method}
 \alias{minmax_img,list-method}
 \title{Normalize Image using Range}
 \usage{
@@ -20,6 +21,8 @@ minmax_img(img)
 \S4method{minmax_img}{ANY}(img)
 
 \S4method{minmax_img}{character}(img)
+
+\S4method{minmax_img}{factor}(img)
 
 \S4method{minmax_img}{list}(img)
 }
@@ -43,4 +46,19 @@ nim = oro.nifti::nifti(arr)
 mimg = minmax_img(nim)
 marr = minmax_img(arr)
 testthat::expect_equal(array(mimg, dim = dim(mimg)), marr)
+
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+rnifti = RNifti::asNifti(nim)
+timg = tempimg(nim)
+limg = list(factor(timg), factor(timg))
+func = minmax_img
+func(arr)
+func(nim)
+func(rnifti)
+func(timg)
+func(limg)
 }

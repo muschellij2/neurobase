@@ -5,6 +5,7 @@
 \alias{checknii-methods}
 \alias{checknii}
 \alias{checknii,nifti-method}
+\alias{checknii,factor-method}
 \alias{checknii,character-method}
 \alias{checknii,list-method}
 \alias{checknii,ANY-method}
@@ -14,6 +15,8 @@
 checknii(file, ...)
 
 \S4method{checknii}{nifti}(file, ...)
+
+\S4method{checknii}{factor}(file, ...)
 
 \S4method{checknii}{character}(file, ...)
 
@@ -35,6 +38,21 @@ with .nii extension
 \description{
 Ensures the output to be a character filename (or vector) from an input
 image or \code{nifti}, but not gzipped and has \code{.nii} extension
+}
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+rnifti = RNifti::asNifti(nim)
+timg = tempimg(nim)
+limg = list(factor(timg), factor(timg))
+func = checknii
+func(nim)
+func(rnifti)
+func(timg)
+func(limg)
 }
 \author{
 John Muschelli \email{muschellij2@gmail.com}

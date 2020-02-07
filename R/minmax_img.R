@@ -17,6 +17,21 @@
 #' mimg = minmax_img(nim)
 #' marr = minmax_img(arr)
 #' testthat::expect_equal(array(mimg, dim = dim(mimg)), marr)
+#' 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' arr[,,10] = 0
+#' nim = oro.nifti::nifti(arr)
+#' rnifti = RNifti::asNifti(nim)
+#' timg = tempimg(nim)
+#' limg = list(factor(timg), factor(timg))
+#' func = minmax_img
+#' func(arr)
+#' func(nim)
+#' func(rnifti)
+#' func(timg)
+#' func(limg)
 setGeneric("minmax_img", function(img) standardGeneric("minmax_img"))
 
 #' @rdname minmax_img-methods
@@ -68,6 +83,16 @@ setMethod("minmax_img", "ANY", function(img) {
 #'  
 #' @export
 setMethod("minmax_img", "character", function(img) { 
+  img = check_nifti(img)
+  img = minmax_img(img)
+  return(img)
+})
+
+#' @rdname minmax_img-methods
+#' @aliases minmax_img,factor-method
+#'  
+#' @export
+setMethod("minmax_img", "factor", function(img) { 
   img = check_nifti(img)
   img = minmax_img(img)
   return(img)

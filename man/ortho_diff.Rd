@@ -66,9 +66,17 @@ nim = oro.nifti::nifti(arr)
 roi = nim > 2
 pred = nim > 1.5
 ortho_diff(nim, pred, roi)
-\dontrun{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+nim = oro.nifti::nifti(arr)
+mask = nim > 2
+pred = nim > 1.5
+multi_overlay_diff(nim, roi = mask, pred = pred)
 
- if (require(brainR)) {
+\donttest{
+
+ if (requireNamespace("brainR", quietly = TRUE)) {
    visits = 1:3
    y = paste0("Visit_", visits, ".nii.gz")
    y = system.file(y, package = "brainR")

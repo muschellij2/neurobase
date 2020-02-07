@@ -16,6 +16,22 @@
 #'   masked = mask_img(nim, mask)
 #'   mask[mask == 0] = NA
 #'   na_masked = mask_img(nim, mask, allow.NA = TRUE)
+#'   
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' arr[,,10] = 0
+#' nim = oro.nifti::nifti(arr)
+#' rnifti = RNifti::asNifti(nim)
+#' mask = nim > 0
+#' timg = tempimg(nim)
+#' limg = list(factor(timg), factor(timg))
+#' func = function(...) mask_img(..., mask = mask)
+#' func(arr)
+#' func(nim)
+#' func(rnifti)
+#' func(timg)
+#' lapply(limg, func)
 #' @export
 mask_img <- function(img, # object of class \code{nifti}
                      mask, # array or object of class \code{nifti}

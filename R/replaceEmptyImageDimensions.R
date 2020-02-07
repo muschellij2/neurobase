@@ -20,11 +20,13 @@
 #' \code{\link{dropEmptyImageDimensions}} 
 #' @export
 #' @examples 
-#' set.seed(5)
 #' dims = rep(10, 3)
 #' arr = array(rnorm(prod(dims)), dim = dims)
 #' arr[,,10] = 0
 #' nim = oro.nifti::nifti(arr)
+#' rnifti = RNifti::asNifti(nim)
+#' timg = tempimg(nim)
+#' limg = list(factor(timg, timg))
 #' inds = getEmptyImageDimensions(nim)
 #' inds_arr = getEmptyImageDimensions(arr)
 #' testthat::expect_equal(inds, inds_arr)
@@ -37,6 +39,20 @@
 #' replace_empty_dim(out, inds = inds,
 #' target_dim = dim(nim))
 #' 
+#' target_dim = dim(nim)
+#' 
+#' arr = array(out, dim = dim(out))
+#' nim = oro.nifti::nifti(arr)
+#' rnifti = RNifti::asNifti(nim)
+#' timg = tempimg(nim)
+#' limg = list(factor(timg), factor(timg))
+#' func = function(...) replaceEmptyImageDimensions(..., 
+#' target_dim = target_dim, inds = inds)
+#' func(arr)
+#' func(nim)
+#' func(rnifti)
+#' func(timg)
+#' func(limg)
 setGeneric("replaceEmptyImageDimensions", 
            function(img, 
                     inds,

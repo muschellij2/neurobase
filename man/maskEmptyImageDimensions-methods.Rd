@@ -67,6 +67,24 @@ res = maskEmptyImageDimensions(nim, inds = inds, mask.value = NA)
 res2 = maskEmptyImageDimensions(arr, inds = inds_arr, mask.value = NA)
 testthat::expect_equal(array(res, dim = dim(res)), 
 array(res2, dim = dim(res2)))
+
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+inds = getEmptyImageDimensions(nim)
+rnifti = RNifti::asNifti(nim)
+timg = tempimg(nim)
+limg = list(factor(timg), factor(timg))
+mask_empty_dim(nim, inds = inds)
+func = function(...) maskEmptyImageDimensions(..., inds = inds)
+func(arr)
+func(nim)
+func(rnifti)
+func(timg)
+func(limg)
+
 }
 \seealso{
 \code{\link{getEmptyImageDimensions}}, 

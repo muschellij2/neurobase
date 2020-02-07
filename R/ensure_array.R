@@ -5,6 +5,21 @@
 #'
 #' @return Array of same dimensions as image object
 #' @export
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' arr[,,10] = 0
+#' nim = oro.nifti::nifti(arr)
+#' rnifti = RNifti::asNifti(nim)
+#' timg = tempimg(nim)
+#' limg = list(factor(timg), factor(timg))
+#' func = ensure_array
+#' func(arr)
+#' func(nim)
+#' func(rnifti)
+#' func(timg)
+#' func(limg[[1]])
 ensure_array <- function(img) {
   UseMethod("ensure_array")
 } 
@@ -35,6 +50,24 @@ ensure_array.niftiImage = function(img){
 #' @export
 #' @method ensure_array array
 ensure_array.array = function(img){
+  return(img)
+}
+
+#' @export
+#' @method ensure_array character
+ensure_array.character = function(img){
+  stopifnot(length(img) == 1)
+  img = readnii(img)
+  img = ensure_array(img)
+  return(img)
+}
+
+#' @export
+#' @method ensure_array factor
+ensure_array.factor = function(img){
+  stopifnot(length(img) == 1)
+  img = as.character(img)
+  img = ensure_array(img)
   return(img)
 }
 

@@ -14,6 +14,7 @@
 #' arr = array(rpois(prod(dims), lambda = 2), dim = dims)
 #' nim = oro.nifti::nifti(arr)
 #' imgs = list(nim, arr)
+#' mask = nim > 2
 #' mat1 = images2matrix(imgs)
 #' mat2 = images2matrix(list(nim, nim))
 #' if (packageVersion("oro.nifti") >= package_version("0.10.2")) {
@@ -21,6 +22,8 @@
 #' } else {
 #' testthat::expect_error(testthat::expect_equal(mat1, mat2))
 #' }
+#' mat1 = images2matrix(imgs, mask = mask)
+#' mat2 = images2matrix(list(nim, nim), mask)
 images2matrix <- function(
   imgs, 
   mask = NULL){

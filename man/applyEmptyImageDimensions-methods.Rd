@@ -69,6 +69,23 @@ out_arr = applyEmptyImageDimensions(arr, inds = inds)
 testthat::expect_equal(out_arr, array(out, dim = dim(out)))
 out = apply_empty_dim(nim, inds = inds)
 
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+inds = getEmptyImageDimensions(nim)
+rnifti = RNifti::asNifti(nim)
+timg = tempimg(nim)
+limg = list(factor(timg), factor(timg))
+apply_empty_dim(nim, inds = inds)
+func = function(...) applyEmptyImageDimensions(..., inds = inds)
+func(arr)
+func(nim)
+func(rnifti)
+func(timg)
+func(limg)
+
 
 
 }

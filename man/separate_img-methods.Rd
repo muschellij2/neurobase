@@ -7,6 +7,7 @@
 \alias{separate_img,nifti-method}
 \alias{separate_img,array-method}
 \alias{separate_img,ANY-method}
+\alias{separate_img,factor-method}
 \alias{separate_img,character-method}
 \alias{separate_img,list-method}
 \title{Separate Labeled Image into Multiple Binary Images}
@@ -18,6 +19,8 @@ separate_img(img, levels = NULL, drop_zero = TRUE)
 \S4method{separate_img}{array}(img, levels = NULL, drop_zero = TRUE)
 
 \S4method{separate_img}{ANY}(img, levels = NULL, drop_zero = TRUE)
+
+\S4method{separate_img}{factor}(img, levels = NULL, drop_zero = TRUE)
 
 \S4method{separate_img}{character}(img, levels = NULL, drop_zero = TRUE)
 
@@ -53,4 +56,14 @@ simg = separate_img(nim)
 simg_arr = separate_img(arr)
 slist = lapply(simg, function(x) array(x, dim(x)))
 testthat::expect_equal(slist, simg_arr)
+
+rnifti = RNifti::asNifti(nim)
+timg = tempimg(nim)
+limg = list(factor(timg), factor(timg))
+func = separate_img
+func(arr)
+func(nim)
+func(rnifti)
+func(timg)
+func(limg)
 }

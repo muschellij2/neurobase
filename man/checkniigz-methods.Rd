@@ -6,6 +6,7 @@
 \alias{checkniigz}
 \alias{checkniigz,nifti-method}
 \alias{checkniigz,ANY-method}
+\alias{checkniigz,factor-method}
 \alias{checkniigz,character-method}
 \alias{checkniigz,list-method}
 \alias{ensure_nii_gz}
@@ -16,6 +17,8 @@ checkniigz(file, ...)
 \S4method{checkniigz}{nifti}(file, ...)
 
 \S4method{checkniigz}{ANY}(file, ...)
+
+\S4method{checkniigz}{factor}(file, ...)
 
 \S4method{checkniigz}{character}(file, ...)
 
@@ -36,6 +39,21 @@ with .nii.gz extension
 Ensures the output to be a character filename (or vector) 
 from an input
 image or \code{nifti}, to be gzipped and has \code{.nii.gz} extension
+}
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+arr[,,10] = 0
+nim = oro.nifti::nifti(arr)
+rnifti = RNifti::asNifti(nim)
+timg = tempimg(nim)
+limg = list(factor(timg), factor(timg))
+func = checkniigz
+func(nim)
+func(rnifti)
+func(timg)
+func(limg)
 }
 \author{
 John Muschelli \email{muschellij2@gmail.com}

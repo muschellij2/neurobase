@@ -12,6 +12,20 @@
 #' 
 #' @export
 #' @author John Muschelli \email{muschellij2@@gmail.com}
+#' @examples 
+#' set.seed(5)
+#' dims = rep(10, 3)
+#' arr = array(rnorm(prod(dims)), dim = dims)
+#' arr[,,10] = 0
+#' nim = oro.nifti::nifti(arr)
+#' rnifti = RNifti::asNifti(nim)
+#' timg = tempimg(nim)
+#' limg = list(factor(timg), factor(timg))
+#' func = checknii
+#' func(nim)
+#' func(rnifti)
+#' func(timg)
+#' func(limg)
 setGeneric("checknii", function(file, ...) standardGeneric("checknii"))
 
 #' @rdname checknii-methods
@@ -23,6 +37,15 @@ setMethod("checknii", "nifti", function(file, ...) {
 })
 
 
+#' @rdname checknii-methods
+#' @aliases checknii,factor-method
+#'  
+#' @export
+setMethod("checknii", "factor", function(file, ...) { 
+  file = as.character(file)
+  checknii(file = file, ...)
+})
+  
 
 #' @rdname checknii-methods
 #' @aliases checknii,character-method

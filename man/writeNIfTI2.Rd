@@ -50,3 +50,13 @@ While \code{writeNIfTI2} does not run \code{\link{datatyper}} as default,
 \code{writenii} does.  Additional functionality will be added to \code{writenii} likely
 but will not to \code{writeNIfTI2}
 }
+\examples{
+set.seed(5)
+dims = rep(10, 3)
+arr = array(rnorm(prod(dims)), dim = dims)
+nim = oro.nifti::nifti(arr)
+rnifti = RNifti::asNifti(nim)
+tfile = tempfile(fileext = ".nii.gz")
+timg = writenii(nim, tfile, rm_extensions = TRUE, warn = TRUE)
+timg = writeNIfTI2(nim, tfile, dtype = TRUE)
+}

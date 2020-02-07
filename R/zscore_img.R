@@ -59,6 +59,10 @@
 #' ztrim = zscore_img(img, margin=NULL, 
 #' centrality = "trimmed_mean", variability = "trimmed_sd")
 #' 
+#' z = zscore_img(img, centrality = "median", variability = "iqr")
+#' z = zscore_img(img, centrality = "median", variability = "iqrdiff")
+#' z = zscore_img(img, centrality = "median", variability = "maddiff")
+#' 
 #' 
 zscore_img <- function(img, mask = NULL, margin= NULL, 
                        centrality = c("mean", "median", "trimmed_mean"),

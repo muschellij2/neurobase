@@ -65,6 +65,14 @@ nim = oro.nifti::nifti(arr)
 dnim = dropEmptyImageDimensions(nim, keep_ind = TRUE)
 new_nim = dnim$outimg
 names(dnim)
+dnim = dropEmptyImageDimensions(nim, keep_ind = TRUE, other.imgs = nim)
+dims = rep(10, 4)
+arr = array(rnorm(prod(dims)), dim = dims)
+nim = oro.nifti::nifti(arr)
+
+testthat::expect_error(
+{dnim = dropEmptyImageDimensions(nim, keep_ind = TRUE)}
+)
 }
 \seealso{
 \code{\link{getEmptyImageDimensions}}

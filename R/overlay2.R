@@ -47,13 +47,20 @@
 #' arr[,,,c(3, 5)] = rpois(1000*2, lambda = 2)
 #' nim = oro.nifti::nifti(arr)
 #' mask = nim > 2
+#' add_mask = nim[,,,1] > 0
 #' imgs = img_ts_to_list(nim) 
 #' masks = img_ts_to_list(mask) 
 #' multi_overlay(imgs, masks)
+#' multi_overlay(imgs, masks, 
+#' main = "hey", direction = "vertical", plane = "coronal")
+#' multi_overlay(imgs, masks, mask = add_mask, 
+#' main = "hey")
+#' 
+#' 
 #' 
 #' \dontrun{
 #' 
-#'  if (require(brainR)) {
+#'  if (requireNamespace("brainR", quietly = TRUE)) {
 #'    visits = 1:3
 #'    y = paste0("Visit_", visits, ".nii.gz")
 #'    y = system.file(y, package = "brainR")
@@ -194,6 +201,20 @@ multi_overlay = function(x,
     stopifnot(length(pdim) >= 4)
     
     
+    
+    if (y_not_null) {
+      y = all.y[[i]]
+      if (!all(dim(x)[1:3] == dim(y)[1:3])) {
+        stop("dimensions of \"x\" and \"y\" must be equal")
+      }
+      if (NA.y) {
+        y[ y == 0 ] = NA
+        if (is.nifti(y)) {
+          y = cal_img(y)
+        }
+      }      
+    }
+    
     switch(plane[1], axial = {
       aspect <- pdim[3]/pdim[2]
     }, coronal = {
@@ -214,19 +235,6 @@ multi_overlay = function(x,
       aspect <- pdim[4]/pdim[3]
     }, stop(paste("Orthogonal plane", plane[1], "is not valid.")))
     
-    
-    if (y_not_null) {
-      y = all.y[[i]]
-      if (!all(dim(x)[1:3] == dim(y)[1:3])) {
-        stop("dimensions of \"x\" and \"y\" must be equal")
-      }
-      if (NA.y){
-        y[ y == 0 ] = NA
-        if (is.nifti(y)) {
-          y = cal_img(y)
-        }
-      }      
-    }
     
     if (NA.x){
       x[ x == 0 ] = NA
