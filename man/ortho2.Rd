@@ -156,16 +156,30 @@ ortho2(x)
 y = x > 2
 mask = x > 2.5
 ortho2(x, y)
-ortho2(x, y, mask = mask)
+ortho2(x, y, mask = mask, add.orient = TRUE)
+ortho2(x, y, mask = mask, add.orient = TRUE, add = FALSE)
 nim = RNifti::asNifti(x, internal = FALSE)
 ortho2(nim, y, mask = mask)
 ortho2(nim, x, mask = mask, 
 ybreaks = seq(min(x), max(x), length.out = 65), ycolorbar = TRUE)
+
 ortho2(nim, y, mask = mask, add = FALSE)
 arr_x = as.array(x)
 arr_y = as.array(y)
 ortho2( arr_x)
 ortho2( arr_x, arr_y, useRaster = FALSE)
+
+set.seed(10)
+x = oro.nifti::nifti(array(rnorm(10000), dim = rep(10, 4)))
+y = x > 2
+mask = x > 2.5
+ortho2(x, y)
+
+set.seed(10)
+x = oro.nifti::nifti(array(rnorm(100), dim = rep(10, 2)))
+y = x > 2
+mask = x > 2.5
+ortho2(x, y)
 }
 \seealso{
 \link{orthographic}
