@@ -126,6 +126,14 @@ datatyper = function(img, type_string = NULL,
   #### logical - sign to unsigned int 8
   arr = as(img, "array")
   is.log = inherits(arr[1], "logical")
+  
+  any_na = anyNA(arr)
+  if (any_na) {
+    warning("Need to change bitpix and datatype to FLOAT32 due to NAs")
+    nim@"datatype" = max(16L, nim@datatype)
+    nim@bitpix = max(32L, nim@bitpix)
+    return(img)
+  }  
   if (is.log) {
     datatype(img) <- convert.datatype()$UINT8
     bitpix(img) <- convert.bitpix()$UINT8
