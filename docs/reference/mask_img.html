@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -38,7 +42,6 @@
 <meta property="og:title" content="Mask Image — mask_img" />
 <meta property="og:description" content="Takes an image, masks it by 
 mask, and returns an object of class nifti" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -56,7 +59,7 @@ mask, and returns an object of class nifti" />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -70,7 +73,7 @@ mask, and returns an object of class nifti" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
       </span>
     </div>
 
@@ -108,7 +111,12 @@ mask, and returns an object of class nifti" />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/muschellij2/neurobase/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -123,7 +131,7 @@ mask, and returns an object of class nifti" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Mask Image</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/muschellij2/neurobase/blob/master/R/mask_img.R'><code>R/mask_img.R</code></a></small>
     <div class="hidden name"><code>mask_img.Rd</code></div>
     </div>
 
@@ -164,16 +172,313 @@ mask, and returns an object of class nifti" />
   <span class='no'>mask</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>(<span class='no'>nim</span>) <span class='kw'>&gt;</span> <span class='fl'>1</span>
   <span class='no'>masked</span> <span class='kw'>=</span> <span class='fu'>mask_img</span>(<span class='no'>nim</span>, <span class='no'>mask</span>)
   <span class='no'>mask</span>[<span class='no'>mask</span> <span class='kw'>==</span> <span class='fl'>0</span>] <span class='kw'>=</span> <span class='fl'>NA</span>
-  <span class='no'>na_masked</span> <span class='kw'>=</span> <span class='fu'>mask_img</span>(<span class='no'>nim</span>, <span class='no'>mask</span>, <span class='kw'>allow.NA</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+  <span class='no'>na_masked</span> <span class='kw'>=</span> <span class='fu'>mask_img</span>(<span class='no'>nim</span>, <span class='no'>mask</span>, <span class='kw'>allow.NA</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
+<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)
+<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
+<span class='no'>arr</span>[,,<span class='fl'>10</span>] <span class='kw'>=</span> <span class='fl'>0</span>
+<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
+<span class='no'>rnifti</span> <span class='kw'>=</span> <span class='kw pkg'>RNifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/asNifti.html'>asNifti</a></span>(<span class='no'>nim</span>)
+<span class='no'>mask</span> <span class='kw'>=</span> <span class='no'>nim</span> <span class='kw'>&gt;</span> <span class='fl'>0</span>
+<span class='no'>timg</span> <span class='kw'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span>(<span class='no'>nim</span>)
+<span class='no'>limg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>), <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>))
+<span class='no'>func</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>...</span>) <span class='fu'>mask_img</span>(<span class='no'>...</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='no'>mask</span>)
+<span class='fu'>func</span>(<span class='no'>arr</span>)</div><div class='output co'>#&gt; , , 1
+#&gt; 
+#&gt;             [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.00000000 1.2276303 0.9005119 0.3159150 1.5500604 1.4632486 0.0000000
+#&gt;  [2,] 1.38435934 0.0000000 0.9418694 1.1096942 0.0000000 0.1877261 0.8548304
+#&gt;  [3,] 0.00000000 0.0000000 1.4679619 2.2154606 0.0000000 1.0220229 0.0000000
+#&gt;  [4,] 0.07014277 0.0000000 0.7067611 1.2171036 1.8956680 0.0000000 0.4963615
+#&gt;  [5,] 1.71144087 0.0000000 0.8190089 1.4792218 0.0000000 0.0000000 0.0000000
+#&gt;  [6,] 0.00000000 0.0000000 0.0000000 0.9515738 0.5622234 0.0000000 0.0000000
+#&gt;  [7,] 0.00000000 0.0000000 1.4185891 0.0000000 0.0000000 0.7533048 0.0000000
+#&gt;  [8,] 0.00000000 0.0000000 1.4987738 0.0000000 0.0000000 0.0000000 0.0000000
+#&gt;  [9,] 0.00000000 0.2408173 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+#&gt; [10,] 0.13810822 0.0000000 0.0000000 0.0000000 0.0000000 0.2332753 0.0000000
+#&gt;             [,8]      [,9]     [,10]
+#&gt;  [1,] 0.00000000 0.4984162 0.9260471
+#&gt;  [2,] 0.00000000 0.0000000 0.0000000
+#&gt;  [3,] 0.34702845 0.9755291 0.5570339
+#&gt;  [4,] 0.03236784 0.0000000 0.9007306
+#&gt;  [5,] 0.41353129 0.6756845 0.9899457
+#&gt;  [6,] 0.00000000 0.0000000 0.3836081
+#&gt;  [7,] 0.97348539 2.3872326 0.0000000
+#&gt;  [8,] 0.12109014 0.0000000 0.0000000
+#&gt;  [9,] 0.18917369 0.0000000 0.0000000
+#&gt; [10,] 0.00000000 0.0000000 0.0000000
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;            [,1]       [,2]      [,3]      [,4]       [,5]      [,6]       [,7]
+#&gt;  [1,] 0.0000000 0.00000000 1.1708564 1.3485491 0.00000000 0.9460885 0.00000000
+#&gt;  [2,] 1.1353113 1.62237939 0.8848449 0.0000000 0.00000000 0.7517709 2.24625462
+#&gt;  [3,] 0.6757946 2.60014202 0.0000000 0.0000000 2.18023570 0.0000000 0.09343168
+#&gt;  [4,] 0.2084833 0.13964851 0.0000000 0.0000000 0.95741847 0.8083360 1.62728009
+#&gt;  [5,] 0.0000000 0.00000000 1.0592504 0.7329730 0.00000000 0.0000000 0.00000000
+#&gt;  [6,] 0.8938114 0.79893102 0.2900836 0.4556796 0.00000000 1.2382589 0.00000000
+#&gt;  [7,] 0.0000000 0.00000000 0.0000000 0.2880795 0.09995405 0.0000000 0.00000000
+#&gt;  [8,] 0.0000000 0.46372006 1.2430958 0.0000000 0.00000000 1.1963664 0.00000000
+#&gt;  [9,] 0.0000000 0.05242956 0.0000000 0.6487425 0.00000000 0.0000000 0.00000000
+#&gt; [10,] 1.2801516 0.00000000 0.0000000 0.2991623 0.00000000 0.1861149 0.00000000
+#&gt;            [,8]      [,9]      [,10]
+#&gt;  [1,] 0.0000000 2.1816467 0.66753870
+#&gt;  [2,] 0.1437689 0.0000000 0.36623695
+#&gt;  [3,] 0.0000000 0.7500592 0.00000000
+#&gt;  [4,] 0.0000000 0.9743826 0.45056824
+#&gt;  [5,] 0.0000000 0.0000000 0.00000000
+#&gt;  [6,] 0.3320349 0.0000000 1.33906937
+#&gt;  [7,] 1.5722883 0.0000000 0.81621918
+#&gt;  [8,] 0.0000000 0.0000000 0.08220176
+#&gt;  [9,] 0.9162865 0.7405880 0.00000000
+#&gt; [10,] 0.0000000 0.0000000 0.72640902
+#&gt; 
+#&gt; , , 3
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]       [,7]
+#&gt;  [1,] 0.0000000 1.2185331 0.2108329 0.0000000 0.3043872 0.0000000 0.00000000
+#&gt;  [2,] 0.0000000 0.6291344 0.0000000 0.9776881 0.0000000 0.0000000 0.09378492
+#&gt;  [3,] 0.9891685 0.5277463 2.0251970 0.0000000 0.0000000 0.1641560 0.98234922
+#&gt;  [4,] 0.0000000 0.0000000 0.0000000 0.0000000 1.4709389 0.0000000 0.00000000
+#&gt;  [5,] 0.2758983 0.8237152 0.0000000 0.0000000 0.0000000 0.0000000 0.07480485
+#&gt;  [6,] 0.4107816 0.0000000 0.0000000 1.8976216 0.0000000 0.0000000 2.19742943
+#&gt;  [7,] 0.6111832 0.0000000 0.0000000 1.3955407 0.4605406 0.0000000 0.79502321
+#&gt;  [8,] 0.9365707 1.4187830 0.0000000 0.0000000 0.0000000 0.0000000 0.00000000
+#&gt;  [9,] 0.0000000 0.4871339 0.0000000 0.0000000 0.0000000 0.7783246 0.00000000
+#&gt; [10,] 0.7403768 0.6034415 0.0000000 1.1696782 0.4090189 0.0000000 0.00000000
+#&gt;              [,8]       [,9]      [,10]
+#&gt;  [1,] 0.000000000 0.12515439 0.00000000
+#&gt;  [2,] 0.000000000 0.00000000 0.68259291
+#&gt;  [3,] 0.000000000 0.00000000 0.52413002
+#&gt;  [4,] 1.465324083 0.96691960 0.08054998
+#&gt;  [5,] 1.858615318 0.00000000 0.05378554
+#&gt;  [6,] 0.003497027 0.00000000 0.00000000
+#&gt;  [7,] 0.000000000 1.39995727 0.96643806
+#&gt;  [8,] 0.151294033 0.01701396 0.98430685
+#&gt;  [9,] 0.290009125 1.84749695 0.18729094
+#&gt; [10,] 0.000000000 0.00000000 0.27298575
+#&gt; 
+#&gt; , , 4
+#&gt; 
+#&gt;            [,1]       [,2]      [,3]       [,4]      [,5]      [,6]     [,7]
+#&gt;  [1,] 1.2101461 0.00000000 0.0000000 0.00000000 0.0000000 0.0000000 0.000000
+#&gt;  [2,] 0.1886572 1.23863449 1.3746533 0.00000000 0.0000000 0.2606761 2.029597
+#&gt;  [3,] 1.9624987 0.76743575 0.2918957 0.00000000 0.0000000 0.9455668 0.429106
+#&gt;  [4,] 0.1387119 0.00000000 0.7105917 0.00000000 0.8250096 0.0000000 1.063948
+#&gt;  [5,] 0.0000000 0.06750377 0.0000000 0.47233416 0.0000000 0.0000000 0.000000
+#&gt;  [6,] 0.0000000 1.60514057 0.0000000 0.00000000 0.0000000 0.5202254 1.074373
+#&gt;  [7,] 1.2243539 1.23222943 0.6343720 0.00000000 0.0000000 1.8062587 0.000000
+#&gt;  [8,] 0.0000000 0.00000000 0.0000000 0.07056287 0.0000000 0.0000000 0.000000
+#&gt;  [9,] 0.0000000 0.00000000 0.0000000 0.46409319 0.1385864 0.1992821 0.499760
+#&gt; [10,] 0.5604792 0.36491810 0.0000000 0.28915850 1.1835716 0.2764850 0.000000
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.0898948 2.1160472 0.0000000
+#&gt;  [2,] 1.0049101 1.1886396 0.2013111
+#&gt;  [3,] 0.0000000 0.8952612 0.0000000
+#&gt;  [4,] 0.5247845 0.8685406 0.7291357
+#&gt;  [5,] 0.0000000 1.6561780 0.3266486
+#&gt;  [6,] 1.2109326 1.4456360 0.0000000
+#&gt;  [7,] 0.0000000 0.7446004 0.0000000
+#&gt;  [8,] 1.0906257 0.0000000 0.5045437
+#&gt;  [9,] 0.4918449 0.0000000 0.0000000
+#&gt; [10,] 0.0000000 0.0000000 0.0000000
+#&gt; 
+#&gt; , , 5
+#&gt; 
+#&gt;            [,1]       [,2]      [,3]      [,4]        [,5]      [,6]      [,7]
+#&gt;  [1,] 0.0000000 1.03459813 0.0000000 0.0000000 0.000000000 0.5410829 0.0000000
+#&gt;  [2,] 0.4693224 0.00000000 1.8041418 0.0000000 0.000000000 0.0000000 0.0000000
+#&gt;  [3,] 0.0000000 0.00000000 0.4446371 0.2665382 0.005989837 0.0000000 0.4569621
+#&gt;  [4,] 0.0000000 0.67475583 0.0000000 0.2915323 0.855006991 0.0000000 0.0000000
+#&gt;  [5,] 0.4579751 0.00000000 0.2482291 1.7089224 0.729851453 0.0000000 1.9339075
+#&gt;  [6,] 0.0000000 2.24549141 0.0000000 0.4767018 0.348758873 0.0000000 0.5695607
+#&gt;  [7,] 0.0000000 0.00000000 0.6869890 1.3075518 1.361367470 0.0000000 0.9327798
+#&gt;  [8,] 2.0068609 0.19487458 0.0000000 1.8060127 0.000000000 0.6715357 0.0000000
+#&gt;  [9,] 0.0000000 0.03149807 0.5753220 1.0353860 1.888403664 0.0000000 0.6016184
+#&gt; [10,] 0.0000000 0.00000000 0.6377015 0.5165183 0.000000000 0.4225978 0.0000000
+#&gt;             [,8]       [,9]      [,10]
+#&gt;  [1,] 1.36036594 0.07671589 0.00000000
+#&gt;  [2,] 0.00000000 0.00000000 0.00000000
+#&gt;  [3,] 0.00000000 0.00000000 0.00000000
+#&gt;  [4,] 0.00000000 0.11760616 0.00000000
+#&gt;  [5,] 0.00000000 0.00000000 1.61094670
+#&gt;  [6,] 1.19039680 0.00000000 0.01851833
+#&gt;  [7,] 0.05119609 0.00000000 0.00000000
+#&gt;  [8,] 0.33104803 0.00000000 1.28944976
+#&gt;  [9,] 0.53161910 0.75793379 0.00000000
+#&gt; [10,] 0.61403147 0.35956026 0.00000000
+#&gt; 
+#&gt; , , 6
+#&gt; 
+#&gt;              [,1]      [,2]      [,3]       [,4]      [,5]       [,6]
+#&gt;  [1,] 0.000000000 0.8215494 0.0000000 1.88523498 0.0000000 0.00000000
+#&gt;  [2,] 0.199059827 0.0000000 0.0000000 0.84319900 0.4204740 0.09469637
+#&gt;  [3,] 1.229825830 1.0431180 3.4018720 0.33453392 0.0000000 0.76213934
+#&gt;  [4,] 0.004552531 0.0000000 0.0000000 0.02038547 0.8685939 2.36720359
+#&gt;  [5,] 0.000000000 0.6909233 1.7291981 0.00000000 1.1501575 0.00000000
+#&gt;  [6,] 0.000000000 0.3686056 0.0000000 0.41269396 0.0176960 0.06709804
+#&gt;  [7,] 1.739481988 0.6485134 0.5336196 0.00000000 0.0000000 0.15529692
+#&gt;  [8,] 1.023020955 0.0000000 0.0000000 0.92499188 0.0000000 0.00000000
+#&gt;  [9,] 0.000000000 0.0000000 0.0000000 0.30914945 1.2257332 0.00000000
+#&gt; [10,] 0.845996179 0.8653006 0.2734275 1.96684536 1.2103777 0.60055463
+#&gt;             [,7]      [,8]       [,9]     [,10]
+#&gt;  [1,] 0.08534008 0.4672982 0.00000000 0.0000000
+#&gt;  [2,] 0.00000000 0.5538269 0.00000000 1.4915981
+#&gt;  [3,] 0.00000000 0.0000000 1.01498892 0.1720902
+#&gt;  [4,] 0.00000000 0.0000000 0.00000000 0.1911603
+#&gt;  [5,] 0.40628102 0.0000000 0.03821585 0.0000000
+#&gt;  [6,] 0.50904587 0.0000000 0.18407867 0.7750196
+#&gt;  [7,] 1.58667108 0.0000000 0.45172259 0.0000000
+#&gt;  [8,] 1.04631178 0.4127632 0.30788006 0.0000000
+#&gt;  [9,] 0.00000000 0.0000000 0.28485823 0.0000000
+#&gt; [10,] 0.00000000 0.0000000 0.66455104 0.0000000
+#&gt; 
+#&gt; , , 7
+#&gt; 
+#&gt;            [,1]       [,2]      [,3]       [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 1.3294962 0.00000000 0.0000000 0.00000000 0.0000000 0.0000000 0.2072982
+#&gt;  [2,] 0.9897694 1.78420320 0.1119540 0.00000000 1.7241555 0.0000000 0.0000000
+#&gt;  [3,] 1.6645658 0.00000000 1.5142314 0.37369104 0.2045693 0.0000000 0.0000000
+#&gt;  [4,] 0.0000000 0.00000000 0.3765598 0.98053555 1.2378090 0.0000000 0.0000000
+#&gt;  [5,] 0.1414808 0.00000000 1.2972814 2.28129142 0.2429637 0.3132652 0.6383485
+#&gt;  [6,] 0.0000000 0.00000000 2.5623566 0.53232497 1.0135437 0.0000000 0.8129250
+#&gt;  [7,] 0.2978839 0.01377361 0.0000000 0.49883079 1.2824897 0.0000000 0.0000000
+#&gt;  [8,] 1.1394333 1.32008871 0.8006673 0.15410050 0.2892092 0.3944052 0.0000000
+#&gt;  [9,] 0.1267375 0.48927367 0.0000000 0.08277325 0.0000000 0.5387158 0.8241279
+#&gt; [10,] 0.0000000 0.00000000 1.3658775 0.00000000 2.2685937 2.1372920 0.0000000
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.8732661 0.0000000 0.4104312
+#&gt;  [2,] 0.6897053 0.2533336 0.5518676
+#&gt;  [3,] 0.0000000 0.0000000 0.0000000
+#&gt;  [4,] 0.6541665 0.0000000 0.0000000
+#&gt;  [5,] 1.4000088 0.0000000 0.0000000
+#&gt;  [6,] 1.0024323 2.7242070 0.2083771
+#&gt;  [7,] 0.0000000 0.0000000 2.3648680
+#&gt;  [8,] 0.0000000 1.6514171 1.6055654
+#&gt;  [9,] 1.8518099 2.6095467 1.6538888
+#&gt; [10,] 0.0000000 0.0000000 2.2142716
+#&gt; 
+#&gt; , , 8
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]        [,6]      [,7]
+#&gt;  [1,] 0.0000000 0.4342333 0.0000000 0.5136547 0.2445857 0.024357435 1.5808633
+#&gt;  [2,] 0.5633412 0.2961612 0.0000000 0.3397094 0.0000000 0.000000000 0.0000000
+#&gt;  [3,] 1.1800894 0.0000000 0.4223030 0.0000000 0.0000000 0.009875067 0.3268752
+#&gt;  [4,] 0.0000000 0.0000000 0.1233707 0.4451025 0.0000000 0.000000000 0.0000000
+#&gt;  [5,] 0.0000000 0.9229221 0.0000000 1.3680193 1.5420985 0.690627111 0.8980972
+#&gt;  [6,] 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.461008072 0.0000000
+#&gt;  [7,] 0.0000000 0.4600906 0.0000000 0.1913186 0.0000000 0.565864491 0.1412008
+#&gt;  [8,] 0.5643141 0.0000000 0.8969854 1.4468181 0.3758670 0.000000000 0.0000000
+#&gt;  [9,] 0.7181216 1.3230111 1.3509294 0.0000000 0.0000000 0.494492116 0.0000000
+#&gt; [10,] 0.0000000 0.2853028 0.0000000 0.6153732 0.2447926 0.000000000 0.0000000
+#&gt;            [,8]       [,9]     [,10]
+#&gt;  [1,] 0.0000000 0.98731340 0.4150048
+#&gt;  [2,] 0.3031691 0.00000000 0.3540266
+#&gt;  [3,] 0.6137637 0.00000000 0.0000000
+#&gt;  [4,] 0.7486776 0.00000000 0.0000000
+#&gt;  [5,] 0.0000000 0.20625589 0.0000000
+#&gt;  [6,] 0.7169483 0.45214256 0.0000000
+#&gt;  [7,] 1.0791184 0.66605262 0.0000000
+#&gt;  [8,] 0.0000000 0.00000000 0.9263556
+#&gt;  [9,] 0.7296384 0.02512841 0.0000000
+#&gt; [10,] 0.2099456 0.55199547 1.2660778
+#&gt; 
+#&gt; , , 9
+#&gt; 
+#&gt;             [,1]       [,2]      [,3]       [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.00000000 0.04836372 1.2651925 0.71004247 0.0000000 0.1551941 0.0000000
+#&gt;  [2,] 0.00000000 0.00000000 1.1552432 2.07437921 0.0000000 1.2495368 0.2675964
+#&gt;  [3,] 1.44336433 0.00000000 1.6734299 0.00000000 1.5000586 0.4968856 0.3137876
+#&gt;  [4,] 0.00000000 0.00000000 0.6296572 0.00000000 0.0000000 0.0000000 0.9684232
+#&gt;  [5,] 0.00000000 0.00000000 0.0000000 0.00000000 0.8536252 0.0000000 0.0000000
+#&gt;  [6,] 0.80979975 1.02394779 0.7989220 0.41789122 0.0000000 0.3575519 0.0000000
+#&gt;  [7,] 0.00000000 1.08235408 1.2099618 0.13196928 0.0000000 1.0833902 0.9528907
+#&gt;  [8,] 0.00000000 0.55476813 0.0000000 0.49800750 0.0000000 0.8411405 0.7157880
+#&gt;  [9,] 1.86129327 1.58677996 1.1828370 0.21705236 0.5452946 0.0000000 0.0000000
+#&gt; [10,] 0.05318576 0.25886095 0.0000000 0.05370814 0.2174415 0.0000000 0.0000000
+#&gt;             [,8]      [,9]     [,10]
+#&gt;  [1,] 0.00000000 0.2450356 0.0000000
+#&gt;  [2,] 0.51296587 0.0000000 0.0000000
+#&gt;  [3,] 0.04013688 0.3065782 1.1075260
+#&gt;  [4,] 0.69473425 0.2167695 0.0000000
+#&gt;  [5,] 0.84025170 0.0000000 1.2256126
+#&gt;  [6,] 0.00000000 0.0000000 0.0000000
+#&gt;  [7,] 0.76272563 0.0000000 0.0000000
+#&gt;  [8,] 1.19746787 0.6900559 0.0000000
+#&gt;  [9,] 0.00000000 2.1973152 0.0000000
+#&gt; [10,] 0.00000000 0.0000000 0.8624957
+#&gt; 
+#&gt; , , 10
+#&gt; 
+#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+#&gt;  [1,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [2,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [3,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [4,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [5,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [6,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [7,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [8,]    0    0    0    0    0    0    0    0    0     0
+#&gt;  [9,]    0    0    0    0    0    0    0    0    0     0
+#&gt; [10,]    0    0    0    0    0    0    0    0    0     0
+#&gt; </div><div class='input'><span class='fu'>func</span>(<span class='no'>nim</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 2 (UINT8)
+#&gt;   Bits per Pixel  : 8
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>func</span>(<span class='no'>rnifti</span>)</div><div class='output co'>#&gt; Image array of mode "integer" (5 Kb)
+#&gt; - 10 x 10 x 10 voxels
+#&gt; - 1 x 1 x 1 per voxel</div><div class='input'><span class='fu'>func</span>(<span class='no'>timg</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 16 (FLOAT32)
+#&gt;   Bits per Pixel  : 32
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>limg</span>, <span class='no'>func</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 16 (FLOAT32)
+#&gt;   Bits per Pixel  : 32
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown
+#&gt; 
+#&gt; [[2]]
+#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 16 (FLOAT32)
+#&gt;   Bits per Pixel  : 32
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown
+#&gt; </div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -184,7 +489,7 @@ mask, and returns an object of class nifti" />
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

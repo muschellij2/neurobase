@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -38,7 +42,6 @@
 <meta property="og:title" content="Normalize Image using Range — minmax_img-methods" />
 <meta property="og:description" content="Calculates the range of values in an image, then
 scales the image minimum to 0 and maximum to 1" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -56,7 +59,7 @@ scales the image minimum to 0 and maximum to 1" />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -70,7 +73,7 @@ scales the image minimum to 0 and maximum to 1" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.29.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
       </span>
     </div>
 
@@ -108,7 +111,12 @@ scales the image minimum to 0 and maximum to 1" />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/muschellij2/neurobase/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -123,7 +131,7 @@ scales the image minimum to 0 and maximum to 1" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Normalize Image using Range</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/muschellij2/neurobase/blob/master/R/minmax_img.R'><code>R/minmax_img.R</code></a></small>
     <div class="hidden name"><code>minmax_img-methods.Rd</code></div>
     </div>
 
@@ -146,6 +154,9 @@ scales the image minimum to 0 and maximum to 1</p>
 <span class='co'># S4 method for character</span>
 <span class='fu'>minmax_img</span>(<span class='no'>img</span>)
 
+<span class='co'># S4 method for factor</span>
+<span class='fu'>minmax_img</span>(<span class='no'>img</span>)
+
 <span class='co'># S4 method for list</span>
 <span class='fu'>minmax_img</span>(<span class='no'>img</span>)</pre>
 
@@ -164,14 +175,330 @@ an object of class <code>nifti</code>, or list of images</p></td>
     <p>A <code>nifti</code> object (or list of them) or class of 
 object passed in if not specified</p>
 
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-    </ul>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
+<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>4</span>)
+<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>), <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
+<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
+<span class='no'>mimg</span> <span class='kw'>=</span> <span class='fu'>minmax_img</span>(<span class='no'>nim</span>)
+<span class='no'>marr</span> <span class='kw'>=</span> <span class='fu'>minmax_img</span>(<span class='no'>arr</span>)
+<span class='kw pkg'>testthat</span><span class='kw ns'>::</span><span class='fu'><a href='https://testthat.r-lib.org/reference/equality-expectations.html'>expect_equal</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='no'>mimg</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>mimg</span>)), <span class='no'>marr</span>)
 
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
+<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)
+<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
+<span class='no'>arr</span>[,,<span class='fl'>10</span>] <span class='kw'>=</span> <span class='fl'>0</span>
+<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
+<span class='no'>rnifti</span> <span class='kw'>=</span> <span class='kw pkg'>RNifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/asNifti.html'>asNifti</a></span>(<span class='no'>nim</span>)
+<span class='no'>timg</span> <span class='kw'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span>(<span class='no'>nim</span>)
+<span class='no'>limg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>), <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>))
+<span class='no'>func</span> <span class='kw'>=</span> <span class='no'>minmax_img</span>
+<span class='fu'>func</span>(<span class='no'>arr</span>)</div><div class='output co'>#&gt; , , 1
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.3851058 0.6848894 0.6374804 0.5527554 0.7316188 0.7190373 0.3422463
+#&gt;  [2,] 0.7076039 0.3907691 0.6434743 0.6677970 0.3906758 0.5341771 0.6308598
+#&gt;  [3,] 0.3250130 0.3503899 0.7197204 0.8280546 0.4961615 0.6550909 0.4231475
+#&gt;  [4,] 0.5171359 0.4841388 0.6094003 0.6833637 0.7817074 0.4211961 0.5789073
+#&gt;  [5,] 0.7550075 0.3516410 0.6256683 0.7213523 0.4408001 0.4907090 0.3968157
+#&gt;  [6,] 0.4195913 0.4868270 0.4644361 0.6448808 0.5884526 0.3729176 0.4574934
+#&gt;  [7,] 0.4385395 0.4204022 0.7125648 0.3606596 0.3784169 0.6161458 0.2022817
+#&gt;  [8,] 0.4148864 0.1904501 0.7241859 0.2170437 0.4402674 0.4906498 0.4632447
+#&gt;  [9,] 0.4655533 0.5418715 0.4117399 0.2515783 0.4019939 0.4976815 0.3225649
+#&gt; [10,] 0.5269860 0.4693820 0.3833754 0.4863021 0.4969394 0.5407785 0.4664384
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.4773905 0.5792051 0.6411812
+#&gt;  [2,] 0.4742721 0.2544600 0.3529960
+#&gt;  [3,] 0.5572646 0.6483526 0.5877005
+#&gt;  [4,] 0.5116612 0.5034798 0.6375121
+#&gt;  [5,] 0.5669028 0.6048964 0.6504420
+#&gt;  [6,] 0.4844556 0.4040257 0.5625661
+#&gt;  [7,] 0.6480564 0.8529493 0.4567401
+#&gt;  [8,] 0.5245196 0.4383561 0.4286811
+#&gt;  [9,] 0.5343869 0.4959885 0.4805125
+#&gt; [10,] 0.4253918 0.4313404 0.4983759
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.2177807 0.3688666 0.6766612 0.7024140 0.3916074 0.6440858 0.1270613
+#&gt;  [2,] 0.6715097 0.7420999 0.6352098 0.2202240 0.5027160 0.6159235 0.8325175
+#&gt;  [3,] 0.6049124 0.8838061 0.3159699 0.3271204 0.8229495 0.4319872 0.5205111
+#&gt;  [4,] 0.5371854 0.5272093 0.2688154 0.4918919 0.6457278 0.6241215 0.7428102
+#&gt;  [5,] 0.4985866 0.3112117 0.6604862 0.6131992 0.4627597 0.4179062 0.4329234
+#&gt;  [6,] 0.6365093 0.6227584 0.5490117 0.5730113 0.4463314 0.6864297 0.4114067
+#&gt;  [7,] 0.4738009 0.2816062 0.4489937 0.5487212 0.5214564 0.4579704 0.5011454
+#&gt;  [8,] 0.2220901 0.5741766 0.6871307 0.3513612 0.4736641 0.6803583 0.4897679
+#&gt;  [9,] 0.3977646 0.5145687 0.3089376 0.6009917 0.3018645 0.4427205 0.5041213
+#&gt; [10,] 0.6925012 0.4776899 0.2980676 0.5503274 0.4500712 0.5339436 0.4365812
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.2982510 0.8231540 0.6037158
+#&gt;  [2,] 0.5278064 0.4078716 0.5600485
+#&gt;  [3,] 0.3280427 0.6156755 0.4323400
+#&gt;  [4,] 0.2529819 0.6481864 0.5722705
+#&gt;  [5,] 0.5018257 0.3237113 0.4797640
+#&gt;  [6,] 0.5550916 0.4667637 0.7010401
+#&gt;  [7,] 0.7348403 0.4795208 0.6252640
+#&gt;  [8,] 0.3519729 0.4513138 0.5188836
+#&gt;  [9,] 0.6397666 0.6143028 0.4126413
+#&gt; [10,] 0.4207384 0.3376440 0.6122479
+#&gt; 
+#&gt; , , 3
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.4904949 0.6835709 0.5375259 0.4516097 0.5510847 0.4695485 0.2960032
+#&gt;  [2,] 0.4642015 0.5981500 0.5021441 0.6486655 0.4899412 0.4682887 0.5205623
+#&gt;  [3,] 0.6503293 0.5834559 0.8004799 0.4260938 0.4982620 0.5307611 0.6493410
+#&gt;  [4,] 0.3946311 0.4385267 0.4532324 0.4161786 0.7201518 0.4499465 0.4204895
+#&gt;  [5,] 0.5469558 0.6263503 0.2782382 0.4300924 0.2927437 0.2397592 0.5178115
+#&gt;  [6,] 0.5665043 0.4449712 0.4893508 0.7819905 0.4078948 0.2834479 0.8254414
+#&gt;  [7,] 0.5955483 0.4862969 0.2465796 0.7092244 0.5737158 0.4220069 0.6221920
+#&gt;  [8,] 0.6427064 0.7125929 0.4380431 0.3988494 0.4806652 0.3834705 0.4288618
+#&gt;  [9,] 0.4537027 0.5775700 0.3788381 0.4626837 0.3390241 0.6197719 0.2748978
+#&gt; [10,] 0.6142722 0.5944263 0.0000000 0.6764904 0.5662488 0.5025763 0.4009729
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.4554130 0.5251086 0.4752707
+#&gt;  [2,] 0.3641550 0.3950220 0.6058976
+#&gt;  [3,] 0.4010023 0.3601620 0.5829318
+#&gt;  [4,] 0.7193381 0.6471048 0.5186442
+#&gt;  [5,] 0.7763374 0.4456177 0.5147652
+#&gt;  [6,] 0.5074770 0.3864473 0.4001199
+#&gt;  [7,] 0.3122182 0.7098645 0.6470350
+#&gt;  [8,] 0.5288970 0.5094360 0.6496247
+#&gt;  [9,] 0.5490009 0.7747260 0.5341140
+#&gt; [10,] 0.4892195 0.4074997 0.5465337
+#&gt; 
+#&gt; , , 4
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]       [,5]      [,6]      [,7]
+#&gt;  [1,] 0.6823554 0.3822260 0.4542747 0.3438386 0.08885856 0.2010895 0.3857694
+#&gt;  [2,] 0.5343120 0.6864842 0.7061973 0.4751786 0.16860563 0.5447497 0.8011176
+#&gt;  [3,] 0.7913931 0.6181938 0.5492743 0.4875050 0.25611386 0.6440102 0.5691600
+#&gt;  [4,] 0.5270735 0.3493730 0.6099555 0.3884152 0.62653794 0.4171199 0.6611670
+#&gt;  [5,] 0.2781813 0.5167534 0.3710614 0.5754250 0.35551362 0.5056512 0.4191688
+#&gt;  [6,] 0.3914587 0.7396015 0.3455101 0.3809897 0.37983939 0.5823659 0.6626779
+#&gt;  [7,] 0.6844145 0.6855559 0.5989090 0.3138829 0.44894205 0.7687494 0.4037303
+#&gt;  [8,] 0.4540227 0.4520256 0.4734636 0.5171967 0.32317280 0.2297906 0.4810481
+#&gt;  [9,] 0.4834061 0.3113353 0.3086791 0.5742307 0.52705532 0.5358519 0.5793999
+#&gt; [10,] 0.5881998 0.5598573 0.3975622 0.5488776 0.67850397 0.5470408 0.4780465
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.5199985 0.8136467 0.4478511
+#&gt;  [2,] 0.6526107 0.6792385 0.5361459
+#&gt;  [3,] 0.2355266 0.6367194 0.4008897
+#&gt;  [4,] 0.5830266 0.6328469 0.6126430
+#&gt;  [5,] 0.4323857 0.7469983 0.5543110
+#&gt;  [6,] 0.6824694 0.7164847 0.1145201
+#&gt;  [7,] 0.4326512 0.6148843 0.4211520
+#&gt;  [8,] 0.6650334 0.4069416 0.5800931
+#&gt;  [9,] 0.5782527 0.3922716 0.2862872
+#&gt; [10,] 0.4718062 0.4689870 0.4549587
+#&gt; 
+#&gt; , , 5
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.4388352 0.6569134 0.4967540 0.3695595 0.4498531 0.5853887 0.4508841
+#&gt;  [2,] 0.5749886 0.3845284 0.7684426 0.2873256 0.2880926 0.4287025 0.3271820
+#&gt;  [3,] 0.2931506 0.3595847 0.5714109 0.5455992 0.5078382 0.4952527 0.5731972
+#&gt;  [4,] 0.3742218 0.6047618 0.3343684 0.5492216 0.6308854 0.5026753 0.3025053
+#&gt;  [5,] 0.5733440 0.5021546 0.5429457 0.7546425 0.6127468 0.4859191 0.7872494
+#&gt;  [6,] 0.4037079 0.8324069 0.4897268 0.5760581 0.5575154 0.5053958 0.5895160
+#&gt;  [7,] 0.4521235 0.4411511 0.6065348 0.6964723 0.7042717 0.3071538 0.6421570
+#&gt;  [8,] 0.7978225 0.5352131 0.3029423 0.7687137 0.4651346 0.6042951 0.2830045
+#&gt;  [9,] 0.4272348 0.5115351 0.5903510 0.6570276 0.7806546 0.3396923 0.5941621
+#&gt; [10,] 0.2198968 0.2476442 0.5993916 0.5818286 0.5044519 0.5682168 0.3691766
+#&gt;             [,8]      [,9]     [,10]
+#&gt;  [1,] 0.70412659 0.5180885 0.3867899
+#&gt;  [2,] 0.46834315 0.4691612 0.4423677
+#&gt;  [3,] 0.06711853 0.3733644 0.4097355
+#&gt;  [4,] 0.47235821 0.5240147 0.3908941
+#&gt;  [5,] 0.46752239 0.1970525 0.7404430
+#&gt;  [6,] 0.67949314 0.4606770 0.5096540
+#&gt;  [7,] 0.51438994 0.3996220 0.3499542
+#&gt;  [8,] 0.55494859 0.3727961 0.6938488
+#&gt;  [9,] 0.58401715 0.6168167 0.4861130
+#&gt; [10,] 0.59596110 0.5590808 0.1753713
+#&gt; 
+#&gt; , , 6
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.4946922 0.6260365 0.4330831 0.7801953 0.3710937 0.2608411 0.5193384
+#&gt;  [2,] 0.5358197 0.3133784 0.3970015 0.6291741 0.5679090 0.5206944 0.4494951
+#&gt;  [3,] 0.6852075 0.6581482 1.0000000 0.5554538 0.4288241 0.6174262 0.2725599
+#&gt;  [4,] 0.5076299 0.3442162 0.4416918 0.5099246 0.6328546 0.8500466 0.5036505
+#&gt;  [5,] 0.3193440 0.6071050 0.7575811 0.3609844 0.6736613 0.5006363 0.5658520
+#&gt;  [6,] 0.4494099 0.5603918 0.4028404 0.5667815 0.5095348 0.5166946 0.5807456
+#&gt;  [7,] 0.7590715 0.6009585 0.5843071 0.3958049 0.3724986 0.5294772 0.7369248
+#&gt;  [8,] 0.6552355 0.4432260 0.4967980 0.6410283 0.4336749 0.4297414 0.6586110
+#&gt;  [9,] 0.4305104 0.3814006 0.2822485 0.5517749 0.6846144 0.2418989 0.3550935
+#&gt; [10,] 0.6295795 0.6323773 0.5465977 0.7920230 0.6823890 0.5940079 0.3923892
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.5746952 0.3912441 0.4590023
+#&gt;  [2,] 0.5872357 0.3595356 0.7231459
+#&gt;  [3,] 0.4082766 0.6540715 0.5319110
+#&gt;  [4,] 0.1018995 0.4125478 0.5346748
+#&gt;  [5,] 0.3497822 0.5125087 0.4664458
+#&gt;  [6,] 0.4117376 0.5336485 0.6192929
+#&gt;  [7,] 0.3664918 0.5724378 0.4582964
+#&gt;  [8,] 0.5667915 0.5515909 0.5054441
+#&gt;  [9,] 0.3743007 0.5482544 0.4868054
+#&gt; [10,] 0.4419962 0.6032828 0.4992214
+#&gt; 
+#&gt; , , 7
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.6996527 0.3614858 0.3803664 0.4737494 0.2852932 0.4184127 0.5370137
+#&gt;  [2,] 0.6504164 0.7655529 0.5231955 0.4681563 0.7568502 0.4397985 0.3219481
+#&gt;  [3,] 0.7482140 0.3812958 0.7264262 0.5611288 0.5366182 0.2922272 0.4322347
+#&gt;  [4,] 0.1997376 0.3663057 0.5615446 0.6490782 0.6863645 0.4628913 0.4955359
+#&gt;  [5,] 0.5274748 0.3326387 0.6949838 0.8375954 0.5421826 0.5523713 0.5994853
+#&gt;  [6,] 0.4812009 0.4537358 0.8783299 0.5841195 0.6538620 0.4685613 0.6247865
+#&gt;  [7,] 0.5501422 0.5089663 0.3617477 0.5792652 0.6928401 0.3098177 0.3775218
+#&gt;  [8,] 0.6721071 0.6982893 0.6230100 0.5293038 0.5488849 0.5641309 0.4487673
+#&gt;  [9,] 0.5253381 0.5778801 0.3568254 0.5189664 0.1586064 0.5850457 0.6264102
+#&gt; [10,] 0.4365419 0.3327104 0.7049254 0.2771161 0.8357551 0.8167257 0.3179812
+#&gt;             [,8]      [,9]     [,10]
+#&gt;  [1,] 0.63353171 0.4159522 0.5664535
+#&gt;  [2,] 0.60692842 0.5436855 0.5869517
+#&gt;  [3,] 0.38328854 0.5033196 0.1994096
+#&gt;  [4,] 0.60177782 0.4799234 0.4904628
+#&gt;  [5,] 0.70987199 0.4731467 0.4673072
+#&gt;  [6,] 0.65225163 0.9017867 0.5371700
+#&gt;  [7,] 0.06608018 0.1022425 0.8497081
+#&gt;  [8,] 0.47185760 0.7463083 0.7396631
+#&gt;  [9,] 0.77535107 0.8851691 0.7466666
+#&gt; [10,] 0.26395588 0.4195422 0.8278823
+#&gt; 
+#&gt; , , 8
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.4430391 0.5699031 0.3773353 0.5814136 0.5424177 0.5105002 0.7360830
+#&gt;  [2,] 0.5886146 0.5498925 0.5043962 0.5562039 0.4047441 0.3711121 0.2424510
+#&gt;  [3,] 0.6779993 0.3661502 0.5681741 0.4686933 0.2807042 0.5084013 0.5543438
+#&gt;  [4,] 0.3716393 0.4140848 0.5248501 0.5714784 0.3971554 0.3303101 0.4662901
+#&gt;  [5,] 0.5037807 0.6407283 0.2666087 0.7052358 0.7304649 0.6070620 0.6371305
+#&gt;  [6,] 0.4731660 0.3495349 0.4884388 0.3879092 0.4975976 0.5737836 0.4139943
+#&gt;  [7,] 0.3295559 0.5736506 0.3778992 0.5346978 0.3668848 0.5889803 0.5274342
+#&gt;  [8,] 0.5887556 0.4753542 0.6369693 0.7166560 0.5614442 0.5008304 0.2671834
+#&gt;  [9,] 0.6110468 0.6987128 0.7027590 0.3615442 0.2140962 0.5786364 0.2193255
+#&gt; [10,] 0.3950859 0.5483188 0.3573958 0.5961556 0.5424477 0.3949137 0.4324294
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.2224338 0.6500605 0.5671164
+#&gt;  [2,] 0.5509081 0.2871941 0.5582789
+#&gt;  [3,] 0.5959223 0.5043093 0.3961574
+#&gt;  [4,] 0.6154752 0.4215521 0.4331869
+#&gt;  [5,] 0.5032400 0.5368626 0.2464693
+#&gt;  [6,] 0.6108767 0.5724987 0.4634964
+#&gt;  [7,] 0.6633657 0.6035005 0.4417202
+#&gt;  [8,] 0.4890565 0.4305959 0.6412259
+#&gt;  [9,] 0.6127159 0.5106120 0.3038751
+#&gt; [10,] 0.5373973 0.5869703 0.6904615
+#&gt; 
+#&gt; , , 9
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.4725399 0.5139794 0.6903332 0.6098759 0.4977558 0.5294623 0.4455617
+#&gt;  [2,] 0.3744610 0.3190978 0.6743984 0.8076078 0.4008433 0.6880642 0.5457526
+#&gt;  [3,] 0.7161555 0.3516063 0.7494986 0.4949879 0.7243721 0.5789833 0.5524471
+#&gt;  [4,] 0.5049844 0.5039944 0.5982257 0.3342958 0.4630812 0.4621760 0.6473227
+#&gt;  [5,] 0.4301002 0.4042893 0.3367590 0.1294597 0.6306852 0.4273710 0.4314851
+#&gt;  [6,] 0.6243336 0.6553699 0.6227571 0.5675347 0.4487451 0.5587898 0.5061376
+#&gt;  [7,] 0.4583861 0.6638346 0.6823287 0.5260963 0.4035509 0.6639848 0.6450716
+#&gt;  [8,] 0.2983963 0.5873721 0.4280050 0.5791459 0.1980670 0.6288758 0.6107086
+#&gt;  [9,] 0.7767255 0.7369405 0.6783975 0.5384273 0.5859991 0.4686393 0.4313927
+#&gt; [10,] 0.5146783 0.5444866 0.4263651 0.5147540 0.5384837 0.3845415 0.4566431
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.3339806 0.5424829 0.4239222
+#&gt;  [2,] 0.5813138 0.4763905 0.3798917
+#&gt;  [3,] 0.5127871 0.5514022 0.6674828
+#&gt;  [4,] 0.6076573 0.5383863 0.3745929
+#&gt;  [5,] 0.6287470 0.4103429 0.6845969
+#&gt;  [6,] 0.4120358 0.3672954 0.3398345
+#&gt;  [7,] 0.6175112 0.3196480 0.3907242
+#&gt;  [8,] 0.6805179 0.6069792 0.3183818
+#&gt;  [9,] 0.1913137 0.8254248 0.4281017
+#&gt; [10,] 0.4853598 0.4925837 0.6319708
+#&gt; 
+#&gt; , , 10
+#&gt; 
+#&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
+#&gt;  [1,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [2,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [3,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [4,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [5,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [6,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [7,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [8,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;  [9,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt; [10,] 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701 0.5069701
+#&gt;            [,8]      [,9]     [,10]
+#&gt;  [1,] 0.5069701 0.5069701 0.5069701
+#&gt;  [2,] 0.5069701 0.5069701 0.5069701
+#&gt;  [3,] 0.5069701 0.5069701 0.5069701
+#&gt;  [4,] 0.5069701 0.5069701 0.5069701
+#&gt;  [5,] 0.5069701 0.5069701 0.5069701
+#&gt;  [6,] 0.5069701 0.5069701 0.5069701
+#&gt;  [7,] 0.5069701 0.5069701 0.5069701
+#&gt;  [8,] 0.5069701 0.5069701 0.5069701
+#&gt;  [9,] 0.5069701 0.5069701 0.5069701
+#&gt; [10,] 0.5069701 0.5069701 0.5069701
+#&gt; </div><div class='input'><span class='fu'>func</span>(<span class='no'>nim</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 2 (UINT8)
+#&gt;   Bits per Pixel  : 8
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>func</span>(<span class='no'>rnifti</span>)</div><div class='output co'>#&gt; Image array of mode "double" (8.9 Kb)
+#&gt; - 10 x 10 x 10 voxels
+#&gt; - 1 x 1 x 1 per voxel</div><div class='input'><span class='fu'>func</span>(<span class='no'>timg</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 16 (FLOAT32)
+#&gt;   Bits per Pixel  : 32
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>func</span>(<span class='no'>limg</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 16 (FLOAT32)
+#&gt;   Bits per Pixel  : 32
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown
+#&gt; 
+#&gt; [[2]]
+#&gt; NIfTI-1 format
+#&gt;   Type            : nifti
+#&gt;   Data Type       : 16 (FLOAT32)
+#&gt;   Bits per Pixel  : 32
+#&gt;   Slice Code      : 0 (Unknown)
+#&gt;   Intent Code     : 0 (None)
+#&gt;   Qform Code      : 0 (Unknown)
+#&gt;   Sform Code      : 0 (Unknown)
+#&gt;   Dimension       : 10 x 10 x 10
+#&gt;   Pixel Dimension : 1 x 1 x 1
+#&gt;   Voxel Units     : Unknown
+#&gt;   Time Units      : Unknown
+#&gt; </div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -182,7 +509,7 @@ object passed in if not specified</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
