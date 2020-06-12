@@ -130,8 +130,8 @@ datatyper = function(img, type_string = NULL,
   any_na = anyNA(arr)
   if (any_na) {
     warning("Need to change bitpix and datatype to FLOAT32 due to NAs")
-    nim@"datatype" = max(16L, nim@datatype)
-    nim@bitpix = max(32L, nim@bitpix)
+    img@"datatype" = max(16L, img@datatype)
+    img@bitpix = max(32L, img@bitpix)
     return(img)
   }  
   if (is.log) {
