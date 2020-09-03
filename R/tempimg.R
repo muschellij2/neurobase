@@ -7,6 +7,8 @@
 #' \code{\link{writenii}}
 #' @param checknan Check for NAs or NaNs
 #' @param check_type Check the datatype for an image.  Will run \code{\link{datatyper}}.
+#' @param dtype Should \code{\link{datatyper}} be run before writing?  
+#' Should override `check_type`
 #' @param warn Should warnings be displayed if \code{\link{writenii}} has
 #' any?  Passed to \code{\link{writenii}}.
 #' @param drop_dim Should \code{\link{drop_img_dim}} be applied?
@@ -16,6 +18,7 @@
 tempimg = function(nim, gzipped = TRUE, checknan = TRUE, 
                    check_type = FALSE, warn = FALSE, 
                    drop_dim = TRUE,
+                   dtype = TRUE,
                    ...){
   f = tempfile()
   nim = cal_img(nim)
@@ -38,6 +41,7 @@ tempimg = function(nim, gzipped = TRUE, checknan = TRUE,
            onefile = TRUE, gzipped = gzipped,
            warn = warn,
            drop_dim = drop_dim,
+           dtype = dtype,
            ...)
   ext = ".nii"
   if (gzipped) ext = paste0(ext, '.gz')

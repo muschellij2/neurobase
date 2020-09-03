@@ -11,6 +11,7 @@ tempimg(
   check_type = FALSE,
   warn = FALSE,
   drop_dim = TRUE,
+  dtype = TRUE,
   ...
 )
 }
@@ -28,6 +29,9 @@ tempimg(
 any?  Passed to \code{\link{writenii}}.}
 
 \item{drop_dim}{Should \code{\link{drop_img_dim}} be applied?}
+
+\item{dtype}{Should \code{\link{datatyper}} be run before writing?
+Should override `check_type`}
 
 \item{...}{Passed to \code{\link{writenii}}.}
 }
