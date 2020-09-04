@@ -1,7 +1,7 @@
 Package: neurobase
 Type: Package
 Title: 'Neuroconductor' Base Package with Helper Functions for 'nifti' Objects
-Version: 1.30.1
+Version: 1.31.0
 Authors@R: person(given = "John",
            family = "Muschelli",
            role = c("aut", "cre"),
@@ -21,7 +21,7 @@ Imports:
     stats, 
     RNifti
 Depends:
-    oro.nifti (>= 0.10.3),
+    oro.nifti (>= 0.11.0),
     R (>= 3.2.0)
 License: GPL-2
 Suggests:

@@ -48,7 +48,7 @@ rescale_img = function(filename,
     img[img < min.val] = min.val
     img[img > max.val] = max.val
   }
-
+  
   img = zero_trans(img)
   if (ROIformat) {
     img[img < 0] = 0
@@ -65,7 +65,7 @@ rescale_img = function(filename,
     ### remove random percents
     pngname = gsub("%", "", pngname)
     grDevices::png(pngname)
-      graphics::hist(img)
+    graphics::hist(img)
     grDevices::dev.off()
   }
   
@@ -118,10 +118,10 @@ datatyper = function(img, type_string = NULL,
     return(img)
   }
   if (!is.null(datatype) & is.null(bitpix)) {
-    stop("Both bitipx and datatype need to be specified if one is")
+    stop("Both bitpix and datatype need to be specified if one is")
   }
   if (is.null(datatype) & !is.null(bitpix)) {
-    stop("Both bitipx and datatype need to be specified if one is")
+    stop("Both bitpix and datatype need to be specified if one is")
   }
   #### logical - sign to unsigned int 8
   arr = as(img, "array")
@@ -129,9 +129,13 @@ datatyper = function(img, type_string = NULL,
   
   any_na = anyNA(arr)
   if (any_na) {
-    warning("Need to change bitpix and datatype to FLOAT32 due to NAs")
-    img@"datatype" = max(16L, img@datatype)
-    img@bitpix = max(32L, img@bitpix)
+    warn_them = img@datatype < 64L
+    img@"datatype" = max(64L, img@datatype)
+    warn_them = warn_them | img@bitpix < 64L
+    img@bitpix = max(64L, img@bitpix)
+    if (warn_them) {
+      warning("Need to change bitpix and datatype to FLOAT64 due to NAs")
+    }
     return(img)
   }  
   if (is.log) {
@@ -165,10 +169,10 @@ datatyper = function(img, type_string = NULL,
     mystr = NULL
     num = 16 # default is signed short
     if (is.null(mystr) & trange <= (2 ^ num) - 1 ) {
-        # mystr = ifelse(signed, "INT16", "FLOAT32")
+      # mystr = ifelse(signed, "INT16", "FLOAT32")
       mystr = "INT16"
     }
-
+    
     num = 32 
     if (is.null(mystr) & trange <= (2 ^ num) - 1 ) {
       mystr = "INT32" # no UINT32 allowed
@@ -176,14 +180,14 @@ datatyper = function(img, type_string = NULL,
     
     num = 64
     if (is.null(mystr) & trange <= (2 ^ num) - 1 ) {
-      mystr = "DOUBLE64" # Only way to 64 bits is through double
+      mystr = "FLOAT64" # Only way to 64 bits is through double
     }
     if (is.null(mystr)) {
       stop(paste0("Cannot determine integer datatype, ", 
                   "may want to recheck data or not use datatyper!"))
     }
-    datatype(img) <- convert.datatype()[[mystr]]
-    bitpix(img) <- convert.bitpix()[[mystr]]
+    datatype(img) <- oro.nifti::convert.datatype()[[mystr]]
+    bitpix(img) <-  oro.nifti::convert.bitpix()[[mystr]]
     return(img)
   } else {
     if (warn) {

@@ -50,7 +50,7 @@ writenii <- function(nim, filename,
                      rm_extensions = TRUE,
                      ...){
   if (drop_dim) {
-    nim = drop_img_dim(nim)
+    nim = oro.nifti::drop_img_dim(nim)
   }
   if (dtype) {
     nim = datatyper(nim, warn = warn)
