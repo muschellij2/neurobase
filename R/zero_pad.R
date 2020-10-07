@@ -19,7 +19,7 @@
 zero_pad = function(img, 
                     kdim, 
                     invert = FALSE, 
-                    pad_value = 0, ...){
+                    pad_value = 0L, ...){
   
   dimg = dim(img)
   #   img[1:dimg[1], 1:dimg[2], c(1:7, 36:29)] = 0

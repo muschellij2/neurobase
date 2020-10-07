@@ -191,7 +191,7 @@ datatyper = function(img, type_string = NULL,
     return(img)
   } else {
     if (warn) {
-      warning("Assuming FLOAT32")
+      warning("Assuming FLOAT32 - changing @bitpix and @datatype in header")
     }
     mystr = "FLOAT32"
     datatype(img) <- convert.datatype()[[mystr]]

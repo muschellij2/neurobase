@@ -4,7 +4,7 @@
 \alias{zero_pad}
 \title{Zero pads an image}
 \usage{
-zero_pad(img, kdim, invert = FALSE, pad_value = 0, ...)
+zero_pad(img, kdim, invert = FALSE, pad_value = 0L, ...)
 }
 \arguments{
 \item{img}{Array or class nifti}
