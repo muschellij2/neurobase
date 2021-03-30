@@ -18,6 +18,7 @@
 #' @seealso \code{\link{ortho2}}
 #' @return NULL
 #' @examples 
+#' 
 #' set.seed(5)
 #' dims = rep(10, 3)
 #' arr = array(rpois(prod(dims), lambda = 2), dim = dims)

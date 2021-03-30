@@ -59,6 +59,7 @@ Uses \code{\link{ortho2}} to plot differences between a predicted binary
 image and the assumed ground truth (\code{roi}).
 }
 \examples{
+
 set.seed(5)
 dims = rep(10, 3)
 arr = array(rpois(prod(dims), lambda = 2), dim = dims)
