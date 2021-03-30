@@ -197,7 +197,7 @@ neurobase::ortho2(eve, add.orient = FALSE)
 
 ### Differences between `orthographic` and `ortho2`
 
-The above code does not fully illustrate the differences between `orthographic` and `ortho2`.  One marked difference is when you would like to "overlay" an image on top of another in an orthograhic view.  Here we will highlight voxels greater than the 90th quantile of the image:
+The above code does not fully illustrate the differences between `orthographic` and `ortho2`.  One marked difference is when you would like to "overlay" an image on top of another in an orthographic view.  Here we will highlight voxels greater than the 90th quantile of the image:
 
 ```{r ortho_nona}
 orthographic(eve, y = eve > quantile(eve, 0.9))

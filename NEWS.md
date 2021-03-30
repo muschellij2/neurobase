@@ -9,7 +9,7 @@
 
 # neurobase 1.29.0
 
-* Fixed `robust_window` bug for non-`nifti` objecs.
+* Fixed `robust_window` bug for non-`nifti` objects.
 
 # neurobase 1.28.0
 
