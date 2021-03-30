@@ -1,6 +1,7 @@
 # neurobase 1.32.0
 
 * Moved `orient_rpi` from `fslr`.
+* Moved `read_rpi` from `fslr`.
 
 # neurobase 1.30.0
 
