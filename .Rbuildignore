@@ -23,3 +23,4 @@ R/ortho3\.R
 ^doc$
 ^Meta$
 ^pkgdown$
+^\.github$
