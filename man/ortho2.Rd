@@ -160,7 +160,7 @@ ortho2(x, y, mask = mask, add.orient = TRUE)
 ortho2(x, y, mask = mask, add.orient = TRUE, add = FALSE)
 nim = RNifti::asNifti(x, internal = FALSE)
 ortho2(nim, y, mask = mask)
-ortho2(nim, x, mask = mask, 
+neurobase::ortho2(nim, x, mask = mask, 
 ybreaks = seq(min(x), max(x), length.out = 65), ycolorbar = TRUE)
 
 ortho2(nim, y, mask = mask, add = FALSE)

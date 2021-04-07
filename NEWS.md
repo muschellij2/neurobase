@@ -1,3 +1,7 @@
+# neurobase 1.32.1
+
+* Actually export `read_rpi`.
+
 # neurobase 1.32.0
 
 * Moved `orient_rpi` from `fslr`.

@@ -73,7 +73,7 @@ scales the image minimum to 0 and maximum to 1" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.32.1</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ scales the image minimum to 0 and maximum to 1" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ scales the image minimum to 0 and maximum to 1" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/muschellij2/neurobase/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,25 +140,25 @@ scales the image minimum to 0 and maximum to 1" />
 scales the image minimum to 0 and maximum to 1</p>
     </div>
 
-    <pre class="usage"><span class='fu'>minmax_img</span>(<span class='no'>img</span>)
+    <pre class="usage"><span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span>
 
 <span class='co'># S4 method for nifti</span>
-<span class='fu'>minmax_img</span>(<span class='no'>img</span>)
+<span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span>
 
 <span class='co'># S4 method for array</span>
-<span class='fu'>minmax_img</span>(<span class='no'>img</span>)
+<span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span>
 
 <span class='co'># S4 method for ANY</span>
-<span class='fu'>minmax_img</span>(<span class='no'>img</span>)
+<span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span>
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>minmax_img</span>(<span class='no'>img</span>)
+<span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span>
 
 <span class='co'># S4 method for factor</span>
-<span class='fu'>minmax_img</span>(<span class='no'>img</span>)
+<span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span>
 
 <span class='co'># S4 method for list</span>
-<span class='fu'>minmax_img</span>(<span class='no'>img</span>)</pre>
+<span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -176,24 +176,25 @@ an object of class <code>nifti</code>, or list of images</p></td>
 object passed in if not specified</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
-<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>4</span>)
-<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>), <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
-<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
-<span class='no'>mimg</span> <span class='kw'>=</span> <span class='fu'>minmax_img</span>(<span class='no'>nim</span>)
-<span class='no'>marr</span> <span class='kw'>=</span> <span class='fu'>minmax_img</span>(<span class='no'>arr</span>)
-<span class='kw pkg'>testthat</span><span class='kw ns'>::</span><span class='fu'><a href='https://testthat.r-lib.org/reference/equality-expectations.html'>expect_equal</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='no'>mimg</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>mimg</span>)), <span class='no'>marr</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>dims</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>4</span><span class='op'>)</span>
+<span class='va'>arr</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span><span class='op'>(</span><span class='va'>dims</span><span class='op'>)</span>, lambda <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='va'>dims</span><span class='op'>)</span>
+<span class='va'>nim</span> <span class='op'>=</span> <span class='fu'>oro.nifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+<span class='va'>mimg</span> <span class='op'>=</span> <span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+<span class='va'>marr</span> <span class='op'>=</span> <span class='fu'>minmax_img</span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+<span class='fu'>testthat</span><span class='fu'>::</span><span class='fu'><a href='https://testthat.r-lib.org/reference/equality-expectations.html'>expect_equal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='va'>mimg</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>mimg</span><span class='op'>)</span><span class='op'>)</span>, <span class='va'>marr</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
-<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)
-<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
-<span class='no'>arr</span>[,,<span class='fl'>10</span>] <span class='kw'>=</span> <span class='fl'>0</span>
-<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
-<span class='no'>rnifti</span> <span class='kw'>=</span> <span class='kw pkg'>RNifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/asNifti.html'>asNifti</a></span>(<span class='no'>nim</span>)
-<span class='no'>timg</span> <span class='kw'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span>(<span class='no'>nim</span>)
-<span class='no'>limg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>), <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>))
-<span class='no'>func</span> <span class='kw'>=</span> <span class='no'>minmax_img</span>
-<span class='fu'>func</span>(<span class='no'>arr</span>)</div><div class='output co'>#&gt; , , 1
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>dims</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>arr</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span><span class='op'>(</span><span class='va'>dims</span><span class='op'>)</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='va'>dims</span><span class='op'>)</span>
+<span class='va'>arr</span><span class='op'>[</span>,,<span class='fl'>10</span><span class='op'>]</span> <span class='op'>=</span> <span class='fl'>0</span>
+<span class='va'>nim</span> <span class='op'>=</span> <span class='fu'>oro.nifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+<span class='va'>rnifti</span> <span class='op'>=</span> <span class='fu'>RNifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/asNifti.html'>asNifti</a></span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+<span class='va'>timg</span> <span class='op'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+<span class='va'>limg</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>timg</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>timg</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>func</span> <span class='op'>=</span> <span class='va'>minmax_img</span>
+<span class='fu'>func</span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; , , 1
 #&gt; 
 #&gt;            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]
 #&gt;  [1,] 0.3851058 0.6848894 0.6374804 0.5527554 0.7316188 0.7190373 0.3422463
@@ -442,7 +443,8 @@ object passed in if not specified</p>
 #&gt;  [8,] 0.5069701 0.5069701 0.5069701
 #&gt;  [9,] 0.5069701 0.5069701 0.5069701
 #&gt; [10,] 0.5069701 0.5069701 0.5069701
-#&gt; </div><div class='input'><span class='fu'>func</span>(<span class='no'>nim</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt; </div><div class='input'><span class='fu'>func</span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 2 (UINT8)
 #&gt;   Bits per Pixel  : 8
@@ -453,9 +455,11 @@ object passed in if not specified</p>
 #&gt;   Dimension       : 10 x 10 x 10
 #&gt;   Pixel Dimension : 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
-#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>func</span>(<span class='no'>rnifti</span>)</div><div class='output co'>#&gt; Image array of mode "double" (8.9 Kb)
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>func</span><span class='op'>(</span><span class='va'>rnifti</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Image array of mode "double" (9.1 Kb)
 #&gt; - 10 x 10 x 10 voxels
-#&gt; - 1 x 1 x 1 per voxel</div><div class='input'><span class='fu'>func</span>(<span class='no'>timg</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt; - 1 x 1 x 1 per voxel</div><div class='input'><span class='fu'>func</span><span class='op'>(</span><span class='va'>timg</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 16 (FLOAT32)
 #&gt;   Bits per Pixel  : 32
@@ -466,7 +470,8 @@ object passed in if not specified</p>
 #&gt;   Dimension       : 10 x 10 x 10
 #&gt;   Pixel Dimension : 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
-#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>func</span>(<span class='no'>limg</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>func</span><span class='op'>(</span><span class='va'>limg</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 16 (FLOAT32)
@@ -509,7 +514,7 @@ object passed in if not specified</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

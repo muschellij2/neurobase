@@ -70,7 +70,7 @@
 #' ortho2(x, y, mask = mask, add.orient = TRUE, add = FALSE)
 #' nim = RNifti::asNifti(x, internal = FALSE)
 #' ortho2(nim, y, mask = mask)
-#' ortho2(nim, x, mask = mask, 
+#' neurobase::ortho2(nim, x, mask = mask, 
 #' ybreaks = seq(min(x), max(x), length.out = 65), ycolorbar = TRUE)
 #' 
 #' ortho2(nim, y, mask = mask, add = FALSE)
@@ -491,6 +491,9 @@ colorbar <- function(breaks, #the minimum and maximum z values for which
 ){
   # taken from vertical.image.legend from package aqfig
   starting.par.settings <- par(no.readonly = TRUE)
+  on.exit({
+    par(starting.par.settings)
+  })
   mai <- par("mai")
   fin <- par("fin")
   rat = mai[4]/fin[1]
@@ -520,6 +523,6 @@ colorbar <- function(breaks, #the minimum and maximum z values for which
        col = text.col)
   box()
   mfg.settings <- par()$mfg
-  par(starting.par.settings)
   par(mfg = mfg.settings, new = FALSE)
+  invisible(NULL)
 }

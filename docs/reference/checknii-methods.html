@@ -73,7 +73,7 @@ image or nifti, but not gzipped and has .nii extension" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.32.1</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ image or nifti, but not gzipped and has .nii extension" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ image or nifti, but not gzipped and has .nii extension" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/muschellij2/neurobase/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,24 +140,24 @@ image or nifti, but not gzipped and has .nii extension" />
 image or <code>nifti</code>, but not gzipped and has <code>.nii</code> extension</p>
     </div>
 
-    <pre class="usage"><span class='fu'>checknii</span>(<span class='no'>file</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>checknii</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for nifti</span>
-<span class='fu'>checknii</span>(<span class='no'>file</span>, <span class='no'>...</span>)
+<span class='fu'>checknii</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for factor</span>
-<span class='fu'>checknii</span>(<span class='no'>file</span>, <span class='no'>...</span>)
+<span class='fu'>checknii</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>checknii</span>(<span class='no'>file</span>, <span class='no'>...</span>)
+<span class='fu'>checknii</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for list</span>
-<span class='fu'>checknii</span>(<span class='no'>file</span>, <span class='no'>...</span>)
+<span class='fu'>checknii</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for ANY</span>
-<span class='fu'>checknii</span>(<span class='no'>file</span>, <span class='no'>...</span>)
+<span class='fu'>checknii</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>ensure_nii</span>(<span class='no'>file</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>ensure_nii</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -176,21 +176,28 @@ image or <code>nifti</code>, but not gzipped and has <code>.nii</code> extension
 
     <p>character filename of image or temporary nii, 
 with .nii extension</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>John Muschelli <a href='mailto:muschellij2@gmail.com'>muschellij2@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
-<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)
-<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
-<span class='no'>arr</span>[,,<span class='fl'>10</span>] <span class='kw'>=</span> <span class='fl'>0</span>
-<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
-<span class='no'>rnifti</span> <span class='kw'>=</span> <span class='kw pkg'>RNifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/asNifti.html'>asNifti</a></span>(<span class='no'>nim</span>)
-<span class='no'>timg</span> <span class='kw'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span>(<span class='no'>nim</span>)
-<span class='no'>limg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>), <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='no'>timg</span>))
-<span class='no'>func</span> <span class='kw'>=</span> <span class='no'>checknii</span>
-<span class='fu'>func</span>(<span class='no'>nim</span>)</div><div class='output co'>#&gt; [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpPaM6Ki/file86fc22cee728.nii"</div><div class='input'><span class='fu'>func</span>(<span class='no'>rnifti</span>)</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpPaM6Ki/file86fc3daa04f2.nii"</div><div class='input'><span class='fu'>func</span>(<span class='no'>timg</span>)</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpPaM6Ki/file86fc1109ed9d.nii"
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>dims</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>arr</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span><span class='op'>(</span><span class='va'>dims</span><span class='op'>)</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='va'>dims</span><span class='op'>)</span>
+<span class='va'>arr</span><span class='op'>[</span>,,<span class='fl'>10</span><span class='op'>]</span> <span class='op'>=</span> <span class='fl'>0</span>
+<span class='va'>nim</span> <span class='op'>=</span> <span class='fu'>oro.nifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+<span class='va'>rnifti</span> <span class='op'>=</span> <span class='fu'>RNifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/asNifti.html'>asNifti</a></span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+<span class='va'>timg</span> <span class='op'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+<span class='va'>limg</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>timg</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>timg</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>func</span> <span class='op'>=</span> <span class='va'>checknii</span>
+<span class='fu'>func</span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpCgCcep/file37b514765cb.nii"</div><div class='input'><span class='fu'>func</span><span class='op'>(</span><span class='va'>rnifti</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpCgCcep/file37b266c1c1d.nii"</div><div class='input'><span class='fu'>func</span><span class='op'>(</span><span class='va'>timg</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpCgCcep/file37b7dd4a85.nii"
 #&gt; attr(,"nbrOfBytes")
-#&gt; [1] 4352</div><div class='input'><span class='fu'>func</span>(<span class='no'>limg</span>)</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpPaM6Ki/file86fc1109ed9d.nii"
-#&gt; [2] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpPaM6Ki/file86fc1109ed9d.nii"</div></pre>
+#&gt; [1] 4352</div><div class='input'><span class='fu'>func</span><span class='op'>(</span><span class='va'>limg</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpCgCcep/file37b7dd4a85.nii"
+#&gt; [2] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpCgCcep/file37b7dd4a85.nii"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -206,7 +213,7 @@ with .nii extension</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

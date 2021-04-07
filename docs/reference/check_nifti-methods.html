@@ -73,7 +73,7 @@ class nifti" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.32.1</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ class nifti" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ class nifti" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/muschellij2/neurobase/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,84 +140,84 @@ class nifti" />
 class nifti</p>
     </div>
 
-    <pre class="usage"><span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+    <pre class="usage"><span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for nifti</span>
-<span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for factor</span>
-<span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for list</span>
-<span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for array</span>
-<span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for anlz</span>
-<span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for ANY</span>
-<span class='fu'>check_nifti</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>reorient</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>fast</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>need_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>check_nifti</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  reorient <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allow.array <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  fast <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  need_header <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -262,10 +262,14 @@ conjunction with <code>allow.array</code></p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='readNIfTI2.html'>readnii</a></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>John Muschelli <a href='mailto:muschellij2@gmail.com'>muschellij2@gmail.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>=</span> <span class='fu'>nifti</span>()
-<span class='fu'>check_nifti</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+    <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>=</span> <span class='fu'>nifti</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>check_nifti</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 2 (UINT8)
 #&gt;   Bits per Pixel  : 8
@@ -276,11 +280,12 @@ conjunction with <code>allow.array</code></p></td>
 #&gt;   Dimension       : 1 x 1 x 1 x 1
 #&gt;   Pixel Dimension : 1 x 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
-#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
-<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>4</span>)
-<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>), <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
-<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
-<span class='fu'>check_nifti</span>(<span class='no'>nim</span>)</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>dims</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>4</span><span class='op'>)</span>
+<span class='va'>arr</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span><span class='op'>(</span><span class='va'>dims</span><span class='op'>)</span>, lambda <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='va'>dims</span><span class='op'>)</span>
+<span class='va'>nim</span> <span class='op'>=</span> <span class='fu'>oro.nifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+<span class='fu'>check_nifti</span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 2 (UINT8)
 #&gt;   Bits per Pixel  : 8
@@ -291,7 +296,8 @@ conjunction with <code>allow.array</code></p></td>
 #&gt;   Dimension       : 10 x 10 x 10 x 10
 #&gt;   Pixel Dimension : 1 x 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
-#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>check_nifti</span>(<span class='fu'>as.anlz</span>(<span class='no'>nim</span>))</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>check_nifti</span><span class='op'>(</span><span class='fu'>as.anlz</span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 4 (INT16)
 #&gt;   Bits per Pixel  : 16
@@ -302,9 +308,10 @@ conjunction with <code>allow.array</code></p></td>
 #&gt;   Dimension       : 10 x 10 x 10 x 10
 #&gt;   Pixel Dimension : 1 x 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
-#&gt;   Time Units      : Unknown</div><div class='input'><span class='kw pkg'>testthat</span><span class='kw ns'>::</span><span class='fu'><a href='https://testthat.r-lib.org/reference/expect_error.html'>expect_error</a></span>(<span class='fu'>check_nifti</span>(<span class='no'>arr</span>, <span class='kw'>allow.array</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))
-<span class='no'>tfile</span> <span class='kw'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span>(<span class='no'>nim</span>)
-<span class='fu'>check_nifti</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>tfile</span>, <span class='no'>tfile</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt;   Time Units      : Unknown</div><div class='input'><span class='fu'>testthat</span><span class='fu'>::</span><span class='fu'><a href='https://testthat.r-lib.org/reference/expect_error.html'>expect_error</a></span><span class='op'>(</span><span class='fu'>check_nifti</span><span class='op'>(</span><span class='va'>arr</span>, allow.array <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>tfile</span> <span class='op'>=</span> <span class='fu'><a href='tempimg.html'>tempimg</a></span><span class='op'>(</span><span class='va'>nim</span><span class='op'>)</span>
+<span class='fu'>check_nifti</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tfile</span>, <span class='va'>tfile</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 4 (INT16)
@@ -331,7 +338,8 @@ conjunction with <code>allow.array</code></p></td>
 #&gt;   Pixel Dimension : 1 x 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
 #&gt;   Time Units      : Unknown
-#&gt; </div><div class='input'><span class='fu'>check_nifti</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>tfile</span>, <span class='no'>tfile</span>))</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>check_nifti</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>tfile</span>, <span class='va'>tfile</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 4 (INT16)
@@ -358,7 +366,8 @@ conjunction with <code>allow.array</code></p></td>
 #&gt;   Pixel Dimension : 1 x 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
 #&gt;   Time Units      : Unknown
-#&gt; </div><div class='input'><span class='fu'>check_nifti</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>tfile</span>, <span class='no'>tfile</span>)))</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>check_nifti</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tfile</span>, <span class='va'>tfile</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 4 (INT16)
@@ -385,7 +394,8 @@ conjunction with <code>allow.array</code></p></td>
 #&gt;   Pixel Dimension : 1 x 1 x 1 x 1
 #&gt;   Voxel Units     : Unknown
 #&gt;   Time Units      : Unknown
-#&gt; </div><div class='input'><span class='fu'>check_nifti</span>(<span class='kw pkg'>RNifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/readNifti.html'>readNifti</a></span>(<span class='no'>tfile</span>))</div><div class='output co'>#&gt; NIfTI-1 format
+#&gt; </div><div class='input'><span class='fu'>check_nifti</span><span class='op'>(</span><span class='fu'>RNifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RNifti/man/readNifti.html'>readNifti</a></span><span class='op'>(</span><span class='va'>tfile</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 8 (INT32)
 #&gt;   Bits per Pixel  : 32
@@ -412,7 +422,7 @@ conjunction with <code>allow.array</code></p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

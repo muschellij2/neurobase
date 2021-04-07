@@ -73,7 +73,7 @@ coronal slice or whole image" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.32.1</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ coronal slice or whole image" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ coronal slice or whole image" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/muschellij2/neurobase/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,19 +140,19 @@ coronal slice or whole image" />
 coronal slice or whole image</p>
     </div>
 
-    <pre class="usage"><span class='fu'>zscore_img</span>(
-  <span class='no'>img</span>,
-  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>margin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mean"</span>, <span class='st'>"median"</span>, <span class='st'>"trimmed_mean"</span>),
-  <span class='kw'>variability</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sd"</span>, <span class='st'>"iqrdiff"</span>, <span class='st'>"mad"</span>, <span class='st'>"maddiff"</span>, <span class='st'>"iqr"</span>, <span class='st'>"trimmed_sd"</span>),
-  <span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>0.2</span>,
-  <span class='kw'>remove.na</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>remove.nan</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>remove.inf</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>remove.val</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>remask</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>zscore_img</span><span class='op'>(</span>
+  <span class='va'>img</span>,
+  mask <span class='op'>=</span> <span class='cn'>NULL</span>,
+  margin <span class='op'>=</span> <span class='cn'>NULL</span>,
+  centrality <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mean"</span>, <span class='st'>"median"</span>, <span class='st'>"trimmed_mean"</span><span class='op'>)</span>,
+  variability <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sd"</span>, <span class='st'>"iqrdiff"</span>, <span class='st'>"mad"</span>, <span class='st'>"maddiff"</span>, <span class='st'>"iqr"</span>, <span class='st'>"trimmed_sd"</span><span class='op'>)</span>,
+  trim <span class='op'>=</span> <span class='fl'>0.2</span>,
+  remove.na <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  remove.nan <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  remove.inf <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  remove.val <span class='op'>=</span> <span class='fl'>0</span>,
+  remask <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -217,38 +217,41 @@ either mean or median</p></td>
     <div class='dont-index'><p><a href='https://rdrr.io/r/base/aperm.html'>aperm</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>100</span>, <span class='fl'>30</span>, <span class='fl'>5</span>)
-<span class='no'>img</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dim</span>), <span class='kw'>mean</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>4</span>),
-<span class='kw'>dim</span><span class='kw'>=</span><span class='no'>dim</span>)
+    <pre class="examples"><div class='input'><span class='va'>dim</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>30</span>, <span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>img</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span><span class='op'>(</span><span class='va'>dim</span><span class='op'>)</span>, mean<span class='op'>=</span><span class='fl'>4</span>, sd<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span>, 
+dim<span class='op'>=</span><span class='va'>dim</span><span class='op'>)</span>
 
-<span class='no'>truth2</span> <span class='kw'>=</span> <span class='no'>img</span>
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>2</span>]) {
-<span class='no'>truth2</span>[,<span class='no'>i</span>,] <span class='kw'>=</span> (<span class='no'>truth2</span>[,<span class='no'>i</span>,]- <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>truth2</span>[,<span class='no'>i</span>,]))/<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='no'>truth2</span>[,<span class='no'>i</span>,])
-}
+<span class='va'>truth2</span> <span class='op'>=</span> <span class='va'>img</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>truth2</span><span class='op'>[</span>,<span class='va'>i</span>,<span class='op'>]</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>truth2</span><span class='op'>[</span>,<span class='va'>i</span>,<span class='op'>]</span><span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>truth2</span><span class='op'>[</span>,<span class='va'>i</span>,<span class='op'>]</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>truth2</span><span class='op'>[</span>,<span class='va'>i</span>,<span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-<span class='no'>truth1</span> <span class='kw'>=</span> <span class='no'>img</span>
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>1</span>]) {
-<span class='no'>truth1</span>[<span class='no'>i</span>,,] <span class='kw'>=</span> (<span class='no'>truth1</span>[<span class='no'>i</span>,,]- <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>truth1</span>[<span class='no'>i</span>,,]))/<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='no'>truth1</span>[<span class='no'>i</span>,,])
-}
+<span class='va'>truth1</span> <span class='op'>=</span> <span class='va'>img</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>truth1</span><span class='op'>[</span><span class='va'>i</span>,,<span class='op'>]</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>truth1</span><span class='op'>[</span><span class='va'>i</span>,,<span class='op'>]</span><span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>truth1</span><span class='op'>[</span><span class='va'>i</span>,,<span class='op'>]</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>truth1</span><span class='op'>[</span><span class='va'>i</span>,,<span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-<span class='no'>truth3</span> <span class='kw'>=</span> <span class='no'>img</span>
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)[<span class='fl'>3</span>]) {
-<span class='no'>truth3</span>[,,<span class='no'>i</span>] <span class='kw'>=</span> (<span class='no'>truth3</span>[,,<span class='no'>i</span>]- <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>truth3</span>[,,<span class='no'>i</span>]))/<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span>(<span class='no'>truth3</span>[,,<span class='no'>i</span>])
-}
-<span class='no'>try3</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='fl'>3</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>try3</span>, <span class='no'>truth3</span>))
-<span class='no'>try2</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='fl'>2</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>try2</span>, <span class='no'>truth2</span>))
-<span class='no'>try1</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='fl'>1</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>try1</span>, <span class='no'>truth1</span>))
+<span class='va'>truth3</span> <span class='op'>=</span> <span class='va'>img</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>img</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>truth3</span><span class='op'>[</span>,,<span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>truth3</span><span class='op'>[</span>,,<span class='va'>i</span><span class='op'>]</span><span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>truth3</span><span class='op'>[</span>,,<span class='va'>i</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>truth3</span><span class='op'>[</span>,,<span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='va'>try3</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, margin<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>try3</span>, <span class='va'>truth3</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>try2</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, margin<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>try2</span>, <span class='va'>truth2</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>try1</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, margin<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>try1</span>, <span class='va'>truth1</span><span class='op'>)</span><span class='op'>)</span>
+  
+<span class='va'>z</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, margin<span class='op'>=</span><span class='cn'>NULL</span><span class='op'>)</span>
+<span class='va'>ztrim</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, margin<span class='op'>=</span><span class='cn'>NULL</span>, 
+centrality <span class='op'>=</span> <span class='st'>"trimmed_mean"</span>, variability <span class='op'>=</span> <span class='st'>"trimmed_sd"</span><span class='op'>)</span>
 
-<span class='no'>z</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='kw'>NULL</span>)
-<span class='no'>ztrim</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>margin</span><span class='kw'>=</span><span class='kw'>NULL</span>,
-<span class='kw'>centrality</span> <span class='kw'>=</span> <span class='st'>"trimmed_mean"</span>, <span class='kw'>variability</span> <span class='kw'>=</span> <span class='st'>"trimmed_sd"</span>)
+<span class='va'>z</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, centrality <span class='op'>=</span> <span class='st'>"median"</span>, variability <span class='op'>=</span> <span class='st'>"iqr"</span><span class='op'>)</span>
+<span class='va'>z</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, centrality <span class='op'>=</span> <span class='st'>"median"</span>, variability <span class='op'>=</span> <span class='st'>"iqrdiff"</span><span class='op'>)</span>
+<span class='va'>z</span> <span class='op'>=</span> <span class='fu'>zscore_img</span><span class='op'>(</span><span class='va'>img</span>, centrality <span class='op'>=</span> <span class='st'>"median"</span>, variability <span class='op'>=</span> <span class='st'>"maddiff"</span><span class='op'>)</span>
 
-<span class='no'>z</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='st'>"median"</span>, <span class='kw'>variability</span> <span class='kw'>=</span> <span class='st'>"iqr"</span>)
-<span class='no'>z</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='st'>"median"</span>, <span class='kw'>variability</span> <span class='kw'>=</span> <span class='st'>"iqrdiff"</span>)
-<span class='no'>z</span> <span class='kw'>=</span> <span class='fu'>zscore_img</span>(<span class='no'>img</span>, <span class='kw'>centrality</span> <span class='kw'>=</span> <span class='st'>"median"</span>, <span class='kw'>variability</span> <span class='kw'>=</span> <span class='st'>"maddiff"</span>)</div></pre>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -264,7 +267,7 @@ either mean or median</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

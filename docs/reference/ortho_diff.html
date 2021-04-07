@@ -73,7 +73,7 @@ image and the assumed ground truth (roi)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.32.1</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ image and the assumed ground truth (roi)." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ image and the assumed ground truth (roi)." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/muschellij2/neurobase/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,27 +140,27 @@ image and the assumed ground truth (roi)." />
 image and the assumed ground truth (<code>roi</code>).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ortho_diff</span>(
-  <span class='no'>img</span>,
-  <span class='no'>pred</span>,
-  <span class='no'>roi</span>,
-  <span class='kw'>xyz</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#56B4E9"</span>, <span class='st'>"#D55E00"</span>, <span class='st'>"#009E73"</span>),
-  <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"False Negative"</span>, <span class='st'>"False Positive"</span>, <span class='st'>"True Positive"</span>),
-  <span class='kw'>addlegend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>leg.cex</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
-  <span class='no'>...</span>
-)
+    <pre class="usage"><span class='fu'>ortho_diff</span><span class='op'>(</span>
+  <span class='va'>img</span>,
+  <span class='va'>pred</span>,
+  <span class='va'>roi</span>,
+  xyz <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#56B4E9"</span>, <span class='st'>"#D55E00"</span>, <span class='st'>"#009E73"</span><span class='op'>)</span>,
+  levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"False Negative"</span>, <span class='st'>"False Positive"</span>, <span class='st'>"True Positive"</span><span class='op'>)</span>,
+  addlegend <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  center <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  leg.cex <span class='op'>=</span> <span class='fl'>1.5</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>multi_overlay_diff</span>(
-  <span class='no'>x</span>,
-  <span class='no'>pred</span>,
-  <span class='no'>roi</span>,
-  <span class='kw'>z</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#56B4E9"</span>, <span class='st'>"#D55E00"</span>, <span class='st'>"#009E73"</span>),
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>multi_overlay_diff</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>pred</span>,
+  <span class='va'>roi</span>,
+  z <span class='op'>=</span> <span class='cn'>NULL</span>,
+  cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#56B4E9"</span>, <span class='st'>"#D55E00"</span>, <span class='st'>"#009E73"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -222,51 +222,55 @@ not <code>NULL</code></p></td>
     <div class='dont-index'><p><code><a href='ortho2.html'>ortho2</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
-<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)
-<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>), <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
-<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
-<span class='no'>roi</span> <span class='kw'>=</span> <span class='no'>nim</span> <span class='kw'>&gt;</span> <span class='fl'>2</span>
-<span class='no'>pred</span> <span class='kw'>=</span> <span class='no'>nim</span> <span class='kw'>&gt;</span> <span class='fl'>1.5</span>
-<span class='fu'>ortho_diff</span>(<span class='no'>nim</span>, <span class='no'>pred</span>, <span class='no'>roi</span>)</div><div class='img'><img src='ortho_diff-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>5</span>)
-<span class='no'>dims</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)
-<span class='no'>arr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span>(<span class='no'>dims</span>)), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='no'>dims</span>)
-<span class='no'>nim</span> <span class='kw'>=</span> <span class='kw pkg'>oro.nifti</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span>(<span class='no'>arr</span>)
-<span class='no'>mask</span> <span class='kw'>=</span> <span class='no'>nim</span> <span class='kw'>&gt;</span> <span class='fl'>2</span>
-<span class='no'>pred</span> <span class='kw'>=</span> <span class='no'>nim</span> <span class='kw'>&gt;</span> <span class='fl'>1.5</span>
-<span class='fu'>multi_overlay_diff</span>(<span class='no'>nim</span>, <span class='kw'>roi</span> <span class='kw'>=</span> <span class='no'>mask</span>, <span class='kw'>pred</span> <span class='kw'>=</span> <span class='no'>pred</span>)</div><div class='img'><img src='ortho_diff-2.png' alt='' width='700' height='433' /></div><div class='input'>
+    <pre class="examples"><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>dims</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>arr</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Poisson.html'>rpois</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span><span class='op'>(</span><span class='va'>dims</span><span class='op'>)</span>, lambda <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='va'>dims</span><span class='op'>)</span>
+<span class='va'>nim</span> <span class='op'>=</span> <span class='fu'>oro.nifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+<span class='va'>roi</span> <span class='op'>=</span> <span class='va'>nim</span> <span class='op'>&gt;</span> <span class='fl'>2</span>
+<span class='va'>pred</span> <span class='op'>=</span> <span class='va'>nim</span> <span class='op'>&gt;</span> <span class='fl'>1.5</span>
+<span class='fu'>ortho_diff</span><span class='op'>(</span><span class='va'>nim</span>, <span class='va'>pred</span>, <span class='va'>roi</span><span class='op'>)</span>
+</div><div class='img'><img src='ortho_diff-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>dims</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>arr</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/prod.html'>prod</a></span><span class='op'>(</span><span class='va'>dims</span><span class='op'>)</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='va'>dims</span><span class='op'>)</span>
+<span class='va'>nim</span> <span class='op'>=</span> <span class='fu'>oro.nifti</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='va'>arr</span><span class='op'>)</span>
+<span class='va'>mask</span> <span class='op'>=</span> <span class='va'>nim</span> <span class='op'>&gt;</span> <span class='fl'>2</span>
+<span class='va'>pred</span> <span class='op'>=</span> <span class='va'>nim</span> <span class='op'>&gt;</span> <span class='fl'>1.5</span>
+<span class='fu'>multi_overlay_diff</span><span class='op'>(</span><span class='va'>nim</span>, roi <span class='op'>=</span> <span class='va'>mask</span>, pred <span class='op'>=</span> <span class='va'>pred</span><span class='op'>)</span>
+</div><div class='img'><img src='ortho_diff-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># \donttest{</span>
 
- <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span>(<span class='st'>"brainR"</span>, <span class='kw'>quietly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) {
-   <span class='no'>visits</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>
-   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Visit_"</span>, <span class='no'>visits</span>, <span class='st'>".nii.gz"</span>)
-   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='no'>y</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"brainR"</span>)
-   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>y</span>, <span class='no'>readnii</span>)
+ <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"brainR"</span>, quietly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+   <span class='va'>visits</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>
+   <span class='va'>y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"Visit_"</span>, <span class='va'>visits</span>, <span class='st'>".nii.gz"</span><span class='op'>)</span>
+   <span class='va'>y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='va'>y</span>, package <span class='op'>=</span> <span class='st'>"brainR"</span><span class='op'>)</span>
+   <span class='va'>y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>readnii</span><span class='op'>)</span>
 
-   <span class='no'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>y</span>, <span class='kw'>function</span>(<span class='no'>r</span>){
-     <span class='fu'>pixdim</span>(<span class='no'>r</span>) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>))
-     <span class='fu'>dropImageDimension</span>(<span class='no'>r</span>)
-   })
+   <span class='va'>y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>r</span><span class='op'>)</span><span class='op'>{</span>
+     <span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/pixdim-methods.html'>pixdim</a></span><span class='op'>(</span><span class='va'>r</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+     <span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/drop_img_dim.html'>dropImageDimension</a></span><span class='op'>(</span><span class='va'>r</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
 
-   <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"MNI152_T1_1mm_brain.nii.gz"</span>,
-                 <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"brainR"</span>)
-   <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'><a href='readNIfTI2.html'>readnii</a></span>(<span class='no'>x</span>)
-   <span class='no'>mask</span> <span class='kw'>=</span> <span class='no'>x</span> <span class='kw'>&gt;</span> <span class='fl'>0</span>
-   <span class='no'>alpha</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>col</span>, <span class='no'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span>) {
-       <span class='no'>cols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/col2rgb.html'>col2rgb</a></span>(<span class='no'>col</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)/<span class='fl'>255</span>)
-       <span class='fu'><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb</a></span>(<span class='no'>cols</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='no'>alpha</span>)
-   }
-   <span class='no'>roi</span> <span class='kw'>=</span> <span class='no'>y</span><span class='kw'>[[</span><span class='fl'>2</span>]]
-   <span class='no'>pred</span> <span class='kw'>=</span> <span class='no'>y</span>
-   <span class='fu'>multi_overlay_diff</span>(<span class='no'>x</span>, <span class='kw'>roi</span> <span class='kw'>=</span> <span class='no'>roi</span>, <span class='kw'>pred</span> <span class='kw'>=</span> <span class='no'>pred</span>)
-   <span class='fu'>multi_overlay_diff</span>(<span class='no'>x</span>, <span class='kw'>roi</span> <span class='kw'>=</span> <span class='no'>roi</span>, <span class='kw'>pred</span> <span class='kw'>=</span> <span class='no'>pred</span>,
-         <span class='kw'>mask</span> <span class='kw'>=</span> <span class='no'>mask</span>,
-         <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"\n"</span>, <span class='st'>"Visit "</span>, <span class='no'>visits</span>),
-         <span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>LETTERS</span>[<span class='no'>visits</span>],
-         <span class='kw'>text.x</span> <span class='kw'>=</span> <span class='fl'>0.9</span>,
-         <span class='kw'>text.y</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-         <span class='kw'>text.cex</span> <span class='kw'>=</span> <span class='fl'>3</span>)
- }</div><div class='img'><img src='ortho_diff-3.png' alt='' width='700' height='433' /></div><div class='img'><img src='ortho_diff-4.png' alt='' width='700' height='433' /></div><div class='input'># }
+   <span class='va'>x</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"MNI152_T1_1mm_brain.nii.gz"</span>, 
+                 package <span class='op'>=</span> <span class='st'>"brainR"</span><span class='op'>)</span>
+   <span class='va'>x</span> <span class='op'>=</span> <span class='fu'><a href='readNIfTI2.html'>readnii</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+   <span class='va'>mask</span> <span class='op'>=</span> <span class='va'>x</span> <span class='op'>&gt;</span> <span class='fl'>0</span>
+   <span class='va'>alpha</span> <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>col</span>, <span class='va'>alpha</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>{</span>
+       <span class='va'>cols</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/grDevices/col2rgb.html'>col2rgb</a></span><span class='op'>(</span><span class='va'>col</span>, alpha <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>/</span><span class='fl'>255</span><span class='op'>)</span>
+       <span class='fu'><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb</a></span><span class='op'>(</span><span class='va'>cols</span>, alpha <span class='op'>=</span> <span class='va'>alpha</span><span class='op'>)</span>
+   <span class='op'>}</span>
+   <span class='va'>roi</span> <span class='op'>=</span> <span class='va'>y</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
+   <span class='va'>pred</span> <span class='op'>=</span> <span class='va'>y</span>
+   <span class='fu'>multi_overlay_diff</span><span class='op'>(</span><span class='va'>x</span>, roi <span class='op'>=</span> <span class='va'>roi</span>, pred <span class='op'>=</span> <span class='va'>pred</span><span class='op'>)</span>
+   <span class='fu'>multi_overlay_diff</span><span class='op'>(</span><span class='va'>x</span>, roi <span class='op'>=</span> <span class='va'>roi</span>, pred <span class='op'>=</span> <span class='va'>pred</span>, 
+         mask <span class='op'>=</span> <span class='va'>mask</span>, 
+         main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"\n"</span>, <span class='st'>"Visit "</span>, <span class='va'>visits</span><span class='op'>)</span>,
+         text <span class='op'>=</span> <span class='va'>LETTERS</span><span class='op'>[</span><span class='va'>visits</span><span class='op'>]</span>,
+         text.x <span class='op'>=</span> <span class='fl'>0.9</span>,
+         text.y <span class='op'>=</span> <span class='fl'>0.1</span>,
+         text.cex <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+ <span class='op'>}</span>
+</div><div class='img'><img src='ortho_diff-3.png' alt='' width='700' height='433' /></div><div class='img'><img src='ortho_diff-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -283,7 +287,7 @@ not <code>NULL</code></p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

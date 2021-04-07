@@ -73,7 +73,7 @@ NIfTI/ANALYZE image but only on values inside a mask." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.32.1</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@ NIfTI/ANALYZE image but only on values inside a mask." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,7 +113,7 @@ NIfTI/ANALYZE image but only on values inside a mask." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/muschellij2/neurobase/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,18 +140,18 @@ NIfTI/ANALYZE image but only on values inside a mask." />
 NIfTI/ANALYZE image but only on values inside a mask.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mask_vals</span>(<span class='no'>object</span>, <span class='no'>mask</span>)
+    <pre class="usage"><span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>mask</span><span class='op'>)</span>
 
-<span class='fu'>mask_vals</span>(<span class='no'>object</span>, <span class='no'>mask</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+<span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>mask</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span>
 
 <span class='co'># S4 method for nifti</span>
-<span class='fu'>mask_vals</span>(<span class='no'>object</span>, <span class='no'>mask</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+<span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>mask</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span>
 
 <span class='co'># S4 method for anlz</span>
-<span class='fu'>mask_vals</span>(<span class='no'>object</span>, <span class='no'>mask</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+<span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>mask</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span>
 
 <span class='co'># S4 method for array</span>
-<span class='fu'>mask_vals</span>(<span class='no'>object</span>, <span class='no'>mask</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span></pre>
+<span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>mask</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>value</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,9 +172,10 @@ NIfTI/ANALYZE image but only on values inside a mask.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>img</span> <span class='kw'>=</span> <span class='fu'>nifti</span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10</span>^<span class='fl'>3</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)))
-<span class='no'>mask</span> <span class='kw'>=</span> <span class='no'>img</span> <span class='kw'>&gt;</span> <span class='fl'>1.5</span>
-<span class='fu'>mask_vals</span>(<span class='no'>img</span>, <span class='no'>mask</span>)</div><div class='output co'>#&gt;  [1] 1.606958 1.587421 1.639987 2.537115 1.862485 1.729261 2.139179 2.402836
+    <pre class="examples"><div class='input'><span class='va'>img</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>^</span><span class='fl'>3</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>mask</span> <span class='op'>=</span> <span class='va'>img</span> <span class='op'>&gt;</span> <span class='fl'>1.5</span>
+<span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>img</span>, <span class='va'>mask</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 1.606958 1.587421 1.639987 2.537115 1.862485 1.729261 2.139179 2.402836
 #&gt;  [9] 2.341337 1.604101 1.792343 1.895739 2.011536 2.015061 2.037684 1.501392
 #&gt; [17] 1.907294 1.541336 1.810500 1.731779 2.165307 1.530184 1.536322 2.151646
 #&gt; [25] 1.714155 2.197573 2.185153 1.756936 2.351888 2.710714 1.645982 2.087502
@@ -183,10 +184,11 @@ NIfTI/ANALYZE image but only on values inside a mask.</p>
 #&gt; [49] 1.535087 2.095063 2.058937 2.297052 1.501804 1.754996 1.815978 1.592404
 #&gt; [57] 1.623367 1.919444 1.562332 1.877103 2.133997 2.561676 1.523764 1.805481
 #&gt; [65] 1.975068 1.803589 1.930555 1.632379 1.508631 2.354132 2.030999 1.952504
-#&gt; [73] 1.649233 1.667660 1.914847 2.873133 2.069829 1.688950 1.807531 2.223533</div><div class='input'><span class='fu'>mask_vals</span>(<span class='no'>img</span>, <span class='no'>mask</span>) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>mask</span>))
-<span class='fu'>mask_vals</span>(<span class='no'>img</span>, <span class='fu'>as</span>(<span class='no'>mask</span>, <span class='st'>"array"</span>)) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>mask</span>))
-<span class='fu'>mask_vals</span>(<span class='fu'>as</span>(<span class='no'>img</span>, <span class='st'>"array"</span>),
-    <span class='fu'>as</span>(<span class='no'>mask</span>, <span class='st'>"array"</span>)) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>mask</span>))</div></pre>
+#&gt; [73] 1.649233 1.667660 1.914847 2.873133 2.069829 1.688950 1.807531 2.223533</div><div class='input'><span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>img</span>, <span class='va'>mask</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>mask</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>mask_vals</span><span class='op'>(</span><span class='va'>img</span>, <span class='fu'>as</span><span class='op'>(</span><span class='va'>mask</span>, <span class='st'>"array"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>mask</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>mask_vals</span><span class='op'>(</span><span class='fu'>as</span><span class='op'>(</span><span class='va'>img</span>, <span class='st'>"array"</span><span class='op'>)</span>, 
+    <span class='fu'>as</span><span class='op'>(</span><span class='va'>mask</span>, <span class='st'>"array"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>mask</span><span class='op'>)</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -202,7 +204,7 @@ NIfTI/ANALYZE image but only on values inside a mask.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

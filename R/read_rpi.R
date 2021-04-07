@@ -6,6 +6,7 @@
 #' @param ... Arguments to pass to \code{\link{readnii}}
 #' @param verbose print diagnostics, passed to \code{\link{orient_rpi_file}}
 #' 
+#' @export
 #' @note `read_rpi` uses `RNifti` to ensure the reading orientation
 read_rpi <- function(file, ..., verbose = TRUE) {
   args = list(...)

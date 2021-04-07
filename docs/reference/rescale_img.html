@@ -74,7 +74,7 @@ and the data need to be value restricted" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.30.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.32.1</span>
       </span>
     </div>
 
@@ -82,7 +82,7 @@ and the data need to be value restricted" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -114,7 +114,7 @@ and the data need to be value restricted" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/muschellij2/neurobase/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -142,18 +142,18 @@ as sometimes DICOM scale and slope parameters may be inconsistent across sites
 and the data need to be value restricted</p>
     </div>
 
-    <pre class="usage"><span class='fu'>rescale_img</span>(
-  <span class='no'>filename</span>,
-  <span class='kw'>pngname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>write.nii</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>min.val</span> <span class='kw'>=</span> -<span class='fl'>1024</span>,
-  <span class='kw'>max.val</span> <span class='kw'>=</span> <span class='fl'>3071</span>,
-  <span class='kw'>ROIformat</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>drop_dim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>writer</span> <span class='kw'>=</span> <span class='st'>"dcm2nii"</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>rescale_img</span><span class='op'>(</span>
+  <span class='va'>filename</span>,
+  pngname <span class='op'>=</span> <span class='cn'>NULL</span>,
+  write.nii <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  outfile <span class='op'>=</span> <span class='cn'>NULL</span>,
+  min.val <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1024</span>,
+  max.val <span class='op'>=</span> <span class='fl'>3071</span>,
+  ROIformat <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  drop_dim <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  writer <span class='op'>=</span> <span class='st'>"dcm2nii"</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,7 +191,7 @@ set to Inf</p></td>
     </tr>
     <tr>
       <th>drop_dim</th>
-      <td><p>Should <code>drop_img_dim</code> be applied?</p></td>
+      <td><p>Should <code><a href='https://rdrr.io/pkg/oro.nifti/man/drop_img_dim.html'>drop_img_dim</a></code> be applied?</p></td>
     </tr>
     <tr>
       <th>writer</th>
@@ -208,11 +208,12 @@ set to Inf</p></td>
     <p>Object of class nifti</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>img</span> <span class='kw'>=</span> <span class='fu'>nifti</span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10</span>^<span class='fl'>3</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>1000</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>10</span>, <span class='fl'>3</span>)))
-<span class='no'>outfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(<span class='kw'>fileext</span> <span class='kw'>=</span> <span class='st'>".nii.gz"</span>)
-<span class='no'>pngname</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(<span class='kw'>fileext</span> <span class='kw'>=</span> <span class='st'>".png"</span>)
-<span class='fu'>rescale_img</span>(<span class='no'>img</span>, <span class='kw'>write.nii</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>outfile</span> <span class='kw'>=</span> <span class='no'>outfile</span>,
-<span class='kw'>pngname</span> <span class='kw'>=</span> <span class='no'>pngname</span>)</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpPaM6Ki/file86fc69b04348.png"</div><div class='output co'>#&gt; NIfTI-1 format
+    <pre class="examples"><div class='input'><span class='va'>img</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/oro.nifti/man/nifti.html'>nifti</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>^</span><span class='fl'>3</span>, sd <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>outfile</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span>fileext <span class='op'>=</span> <span class='st'>".nii.gz"</span><span class='op'>)</span>
+<span class='va'>pngname</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span>fileext <span class='op'>=</span> <span class='st'>".png"</span><span class='op'>)</span>
+<span class='fu'>rescale_img</span><span class='op'>(</span><span class='va'>img</span>, write.nii <span class='op'>=</span> <span class='cn'>TRUE</span>, outfile <span class='op'>=</span> <span class='va'>outfile</span>,
+pngname <span class='op'>=</span> <span class='va'>pngname</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpCgCcep/file37b2c7ea70b.png"</div><div class='output co'>#&gt; NIfTI-1 format
 #&gt;   Type            : nifti
 #&gt;   Data Type       : 2 (UINT8)
 #&gt;   Bits per Pixel  : 8
@@ -239,7 +240,7 @@ set to Inf</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
