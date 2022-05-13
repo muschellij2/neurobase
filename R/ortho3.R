@@ -204,8 +204,8 @@ ortho3 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   if (!is.null(y)) {
     y = as.array(y)
   }  
-  if (!is.na(W)) {
-    if (w < 1 || w > W) {
+  if (!all(is.na(W))) {
+    if (any(w < 1 || w > W)) {
       stop("volume \"w\" out of range")
     }
     x = x[, , , w]

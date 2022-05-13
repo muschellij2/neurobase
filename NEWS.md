@@ -1,3 +1,8 @@
+# neurobase 1.32.2
+
+* Fixed a bug in length 1 condition and updated `oro.nifti` dependency, which had 
+the bug as well.
+
 # neurobase 1.32.1
 
 * Actually export `read_rpi`.

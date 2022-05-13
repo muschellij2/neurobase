@@ -270,7 +270,7 @@ multi_overlay = function(x,
     # standardize the plot sizes
     xvals = (xvals - 1)/(X-1)
     yvals = (yvals - 1)/(X-1) # std by x so aspect preserved
-    if (is.na(W)) {
+    if (all(is.na(W))) {
       for (z in index) {
         graphics::image(xvals, yvals, x[, , z], col = col.x, 
                         breaks = breaks.x, zlim = zlim.x, asp = aspect, 

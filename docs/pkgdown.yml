@@ -1,9 +1,9 @@
-pandoc: '2.10'
-pkgdown: 1.6.1
+pandoc: 2.17.1.1
+pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   neurobase: neurobase.html
   nifti_basics: nifti_basics.html
   simple_io: simple_io.html
-last_built: 2021-04-07T19:39Z
+last_built: 2022-05-13T15:44Z
 

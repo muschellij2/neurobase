@@ -150,7 +150,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   X <- nrow(x)
   Y <- ncol(x)
   Z <- nsli(x)
-  if (is.na(Z)) Z = 1
+  if (all(is.na(Z))) Z = 1
   W <- ntim(x)
   # mXY = max(X, Y)
   lr.shift = 4
@@ -231,8 +231,8 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   }
   stopifnot(length(pdim) >= 4)
   
-  if (!is.na(W)) {
-    if (w < 1 || w > W) {
+  if (!all(is.na(W))) {
+    if (any(w < 1 || w > W)) {
       stop("volume \"w\" out of range")
     }
     x = x[, , , w]
