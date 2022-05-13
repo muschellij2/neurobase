@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # neurobase
 
-The goal of neurobase is to add functionality to `oro.nifti` and it is the baseline package for [Neuroconductor](https://neuroconductor.org/).
+The goal of `neurobase` is to add functionality to `oro.nifti` and it is the baseline package for [Neuroconductor](https://neuroconductor.org/).
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/muschellij2/neurobase/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/neurobase/actions)
