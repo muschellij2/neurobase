@@ -24,3 +24,4 @@ R/ortho3\.R
 ^Meta$
 ^pkgdown$
 ^\.github$
+^CRAN-SUBMISSION$
