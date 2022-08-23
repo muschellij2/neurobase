@@ -69,36 +69,47 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">reverse_orient_rpi</span><span class="op">(</span>
-  <span class="va">file</span>,
-  convention <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NEUROLOGICAL"</span>, <span class="st">"RADIOLOGICAL"</span><span class="op">)</span>,
-  <span class="va">orientation</span>,
-  verbose <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-
-<span class="fu">reverse_orient_rpi_file</span><span class="op">(</span>
-  <span class="va">file</span>,
-  convention <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NEUROLOGICAL"</span>, <span class="st">"RADIOLOGICAL"</span><span class="op">)</span>,
-  <span class="va">orientation</span>,
-  verbose <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">reverse_orient_rpi</span><span class="op">(</span></span>
+<span>  <span class="va">file</span>,</span>
+<span>  convention <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NEUROLOGICAL"</span>, <span class="st">"RADIOLOGICAL"</span><span class="op">)</span>,</span>
+<span>  <span class="va">orientation</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">reverse_orient_rpi_file</span><span class="op">(</span></span>
+<span>  <span class="va">file</span>,</span>
+<span>  convention <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NEUROLOGICAL"</span>, <span class="st">"RADIOLOGICAL"</span><span class="op">)</span>,</span>
+<span>  <span class="va">orientation</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>Object of class <code>nifti</code> or character path</p></dd>
+
+
 <dt>convention</dt>
 <dd><p>Convention of original image (usually from <code><a href="orient_rpi.html">orient_rpi</a></code>)</p></dd>
+
+
 <dt>orientation</dt>
 <dd><p>Vector of length 3 from original image 
 (usually from <code><a href="orient_rpi.html">orient_rpi</a></code>)</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>print diagnostic messages</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Object of class <code>nifti</code></p>
+    
+
+<p>Object of class <code>nifti</code></p>
+
+
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -118,7 +129,7 @@ reading orientation</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

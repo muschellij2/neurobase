@@ -71,39 +71,44 @@ and images are on the columns</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">images2matrix</span><span class="op">(</span><span class="va">imgs</span>, mask <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">images2matrix</span><span class="op">(</span><span class="va">imgs</span>, mask <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>imgs</dt>
 <dd><p>Vector of files or list of images (niftiImage, array, or nifti)</p></dd>
+
+
 <dt>mask</dt>
 <dd><p>Binary image to subset the voxels</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Matrix of V by p, where V is the product of the dimensions of one 
+    
+
+<p>Matrix of V by p, where V is the product of the dimensions of one 
 image or the number of voxels in the mask, and p is the number of images</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span>, lambda <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">imgs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">nim</span>, <span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mask</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">2</span></span>
-<span class="r-in"><span class="va">mat1</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="va">imgs</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mat2</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">nim</span>, <span class="va">nim</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"oro.nifti"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric_version.html" class="external-link">package_version</a></span><span class="op">(</span><span class="st">"0.10.2"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">mat1</span>, <span class="va">mat2</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/expect_error.html" class="external-link">expect_error</a></span><span class="op">(</span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">mat1</span>, <span class="va">mat2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"><span class="va">mat1</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="va">imgs</span>, mask <span class="op">=</span> <span class="va">mask</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mat2</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">nim</span>, <span class="va">nim</span><span class="op">)</span>, <span class="va">mask</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span>, lambda <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">imgs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">nim</span>, <span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mask</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">mat1</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="va">imgs</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mat2</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">nim</span>, <span class="va">nim</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"oro.nifti"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric_version.html" class="external-link">package_version</a></span><span class="op">(</span><span class="st">"0.10.2"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">mat1</span>, <span class="va">mat2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/expect_error.html" class="external-link">expect_error</a></span><span class="op">(</span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">mat1</span>, <span class="va">mat2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">mat1</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="va">imgs</span>, mask <span class="op">=</span> <span class="va">mask</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mat2</span> <span class="op">=</span> <span class="fu">images2matrix</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">nim</span>, <span class="va">nim</span><span class="op">)</span>, <span class="va">mask</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -118,7 +123,7 @@ image or the number of voxels in the mask, and p is the number of images</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

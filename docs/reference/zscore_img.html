@@ -71,19 +71,19 @@ coronal slice or whole image</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">zscore_img</span><span class="op">(</span>
-  <span class="va">img</span>,
-  mask <span class="op">=</span> <span class="cn">NULL</span>,
-  margin <span class="op">=</span> <span class="cn">NULL</span>,
-  centrality <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="st">"median"</span>, <span class="st">"trimmed_mean"</span><span class="op">)</span>,
-  variability <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sd"</span>, <span class="st">"iqrdiff"</span>, <span class="st">"mad"</span>, <span class="st">"maddiff"</span>, <span class="st">"iqr"</span>, <span class="st">"trimmed_sd"</span><span class="op">)</span>,
-  trim <span class="op">=</span> <span class="fl">0.2</span>,
-  remove.na <span class="op">=</span> <span class="cn">TRUE</span>,
-  remove.nan <span class="op">=</span> <span class="cn">TRUE</span>,
-  remove.inf <span class="op">=</span> <span class="cn">TRUE</span>,
-  remove.val <span class="op">=</span> <span class="fl">0</span>,
-  remask <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">zscore_img</span><span class="op">(</span></span>
+<span>  <span class="va">img</span>,</span>
+<span>  mask <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  margin <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  centrality <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="st">"median"</span>, <span class="st">"trimmed_mean"</span><span class="op">)</span>,</span>
+<span>  variability <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sd"</span>, <span class="st">"iqrdiff"</span>, <span class="st">"mad"</span>, <span class="st">"maddiff"</span>, <span class="st">"iqr"</span>, <span class="st">"trimmed_sd"</span><span class="op">)</span>,</span>
+<span>  trim <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>  remove.na <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  remove.nan <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  remove.inf <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  remove.val <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  remask <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -91,35 +91,58 @@ coronal slice or whole image</p>
     <dl><dt>img</dt>
 <dd><p>character path of image or 
 an object of class nifti</p></dd>
+
+
 <dt>mask</dt>
 <dd><p>character path of mask or 
 an object of class nifti</p></dd>
+
+
 <dt>margin</dt>
 <dd><p>Margin of image to z-score over (<code>NULL</code> - whole brain,
 3-Axial, 2-Sagittal, 
 1-Coronal)</p></dd>
+
+
 <dt>centrality</dt>
 <dd><p>(character) Measure to center the data, 
 either mean or median</p></dd>
+
+
 <dt>variability</dt>
 <dd><p>(character) Measure to scale the data</p></dd>
+
+
 <dt>trim</dt>
 <dd><p>if centrality is <code>trimmed_mean</code> or variability is 
 <code>trimmed_sd</code>, then the amount of trimming</p></dd>
+
+
 <dt>remove.na</dt>
 <dd><p>(logical) change NAs to remove.val</p></dd>
+
+
 <dt>remove.nan</dt>
 <dd><p>(logical) change NaN to remove.val</p></dd>
+
+
 <dt>remove.inf</dt>
 <dd><p>(logical) change Inf to remove.val</p></dd>
+
+
 <dt>remove.val</dt>
 <dd><p>(logical) value to put the NA/NaN/Inf</p></dd>
+
+
 <dt>remask</dt>
 <dd><p>(logical) Should the image be remasked after normalizing?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Array of object of class nifti</p>
+    
+
+<p>Array of object of class nifti</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -128,40 +151,40 @@ either mean or median</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">dim</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">30</span>, <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dim</span><span class="op">)</span>, mean<span class="op">=</span><span class="fl">4</span>, sd<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, </span>
-<span class="r-in">dim<span class="op">=</span><span class="va">dim</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">truth2</span> <span class="op">=</span> <span class="va">img</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span> <span class="op">=</span> <span class="op">(</span><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">truth1</span> <span class="op">=</span> <span class="va">img</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span> <span class="op">=</span> <span class="op">(</span><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">truth3</span> <span class="op">=</span> <span class="va">img</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="op">(</span><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"><span class="va">try3</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">try3</span>, <span class="va">truth3</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">try2</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">try2</span>, <span class="va">truth2</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">try1</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">try1</span>, <span class="va">truth1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  </span>
-<span class="r-in"><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ztrim</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="cn">NULL</span>, </span>
-<span class="r-in">centrality <span class="op">=</span> <span class="st">"trimmed_mean"</span>, variability <span class="op">=</span> <span class="st">"trimmed_sd"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, centrality <span class="op">=</span> <span class="st">"median"</span>, variability <span class="op">=</span> <span class="st">"iqr"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, centrality <span class="op">=</span> <span class="st">"median"</span>, variability <span class="op">=</span> <span class="st">"iqrdiff"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, centrality <span class="op">=</span> <span class="st">"median"</span>, variability <span class="op">=</span> <span class="st">"maddiff"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dim</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">30</span>, <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dim</span><span class="op">)</span>, mean<span class="op">=</span><span class="fl">4</span>, sd<span class="op">=</span><span class="fl">4</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>dim<span class="op">=</span><span class="va">dim</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">truth2</span> <span class="op">=</span> <span class="va">img</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span> <span class="op">=</span> <span class="op">(</span><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">truth2</span><span class="op">[</span>,<span class="va">i</span>,<span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">truth1</span> <span class="op">=</span> <span class="va">img</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span> <span class="op">=</span> <span class="op">(</span><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">truth1</span><span class="op">[</span><span class="va">i</span>,,<span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">truth3</span> <span class="op">=</span> <span class="va">img</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="op">(</span><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">truth3</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="va">try3</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">try3</span>, <span class="va">truth3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">try2</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">try2</span>, <span class="va">truth2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">try1</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">try1</span>, <span class="va">truth1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ztrim</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, margin<span class="op">=</span><span class="cn">NULL</span>, </span></span>
+<span class="r-in"><span>centrality <span class="op">=</span> <span class="st">"trimmed_mean"</span>, variability <span class="op">=</span> <span class="st">"trimmed_sd"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, centrality <span class="op">=</span> <span class="st">"median"</span>, variability <span class="op">=</span> <span class="st">"iqr"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, centrality <span class="op">=</span> <span class="st">"median"</span>, variability <span class="op">=</span> <span class="st">"iqrdiff"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">z</span> <span class="op">=</span> <span class="fu">zscore_img</span><span class="op">(</span><span class="va">img</span>, centrality <span class="op">=</span> <span class="st">"median"</span>, variability <span class="op">=</span> <span class="st">"maddiff"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -176,7 +199,7 @@ either mean or median</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

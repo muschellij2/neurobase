@@ -71,36 +71,47 @@ dimensions, usually for convolution</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">zero_pad</span><span class="op">(</span><span class="va">img</span>, <span class="va">kdim</span>, invert <span class="op">=</span> <span class="cn">FALSE</span>, pad_value <span class="op">=</span> <span class="fl">0L</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">zero_pad</span><span class="op">(</span><span class="va">img</span>, <span class="va">kdim</span>, invert <span class="op">=</span> <span class="cn">FALSE</span>, pad_value <span class="op">=</span> <span class="fl">0L</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>img</dt>
 <dd><p>Array or class nifti</p></dd>
+
+
 <dt>kdim</dt>
 <dd><p>Dimensions of kernel</p></dd>
+
+
 <dt>invert</dt>
 <dd><p>(logical) If <code>FALSE</code>, does zero padding.  If <code>TRUE</code>, 
 reverses the process.</p></dd>
+
+
 <dt>pad_value</dt>
 <dd><p>Value to pad the image with.
 May use other values, such as -1024 for CT data</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Options to <code><a href="copyNIfTIHeader.html">copyNIfTIHeader</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Object of class nifti</p>
+    
+
+<p>Object of class nifti</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">kdim</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">30</span><span class="op">*</span><span class="fl">30</span><span class="op">*</span><span class="fl">36</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">30</span>, <span class="fl">36</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pad</span> <span class="op">=</span> <span class="fu">zero_pad</span><span class="op">(</span><span class="va">img</span>, <span class="va">kdim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">back</span> <span class="op">=</span> <span class="fu">zero_pad</span><span class="op">(</span><span class="va">pad</span>, <span class="va">kdim</span>, invert<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">back</span>, <span class="va">img</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">kdim</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">30</span><span class="op">*</span><span class="fl">30</span><span class="op">*</span><span class="fl">36</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">30</span>, <span class="fl">36</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pad</span> <span class="op">=</span> <span class="fu">zero_pad</span><span class="op">(</span><span class="va">img</span>, <span class="va">kdim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">back</span> <span class="op">=</span> <span class="fu">zero_pad</span><span class="op">(</span><span class="va">pad</span>, <span class="va">kdim</span>, invert<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">back</span>, <span class="va">img</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 </code></pre></div>
     </div>
@@ -116,7 +127,7 @@ May use other values, such as -1024 for CT data</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

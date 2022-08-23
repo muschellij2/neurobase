@@ -69,31 +69,34 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ensure_array</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ensure_array</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>img</dt>
 <dd><p>Image object (<code>nifti</code> or <code>niftiImage</code>)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Array of same dimensions as image object</p>
+    
+
+<p>Array of same dimensions as image object</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">func</span> <span class="op">=</span> <span class="va">ensure_array</span></span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">func</span> <span class="op">=</span> <span class="va">ensure_array</span></span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]       [,2]       [,3]       [,4]        [,5]        [,6]</span>
@@ -333,7 +336,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]       [,2]       [,3]       [,4]        [,5]        [,6]</span>
@@ -573,7 +576,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]</span>
@@ -714,7 +717,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]       [,2]       [,3]       [,4]        [,5]        [,6]</span>
@@ -954,7 +957,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,]    0    0    0    0    0    0    0    0    0     0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]       [,2]       [,3]       [,4]        [,5]        [,6]</span>
@@ -1208,7 +1211,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -73,36 +73,41 @@ image or <code>nifti</code>, to be gzipped and has <code>.nii.gz</code> extensio
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for nifti</span>
-<span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for ANY</span>
-<span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for factor</span>
-<span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for character</span>
-<span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for list</span>
-<span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">ensure_nii_gz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for nifti</span></span>
+<span><span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for ANY</span></span>
+<span><span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for factor</span></span>
+<span><span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for character</span></span>
+<span><span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for list</span></span>
+<span><span class="fu">checkniigz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ensure_nii_gz</span><span class="op">(</span><span class="va">file</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>character or <code>nifti</code> object</p></dd>
+
+
 <dt>...</dt>
 <dd><p>options passed to <code><a href="checkimg-methods.html">checkimg</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Character filename of image or temporary nii, 
+    
+
+<p>Character filename of image or temporary nii, 
 with .nii.gz extension</p>
     </div>
     <div id="author">
@@ -112,24 +117,24 @@ with .nii.gz extension</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">func</span> <span class="op">=</span> <span class="va">checkniigz</span></span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpConj70/file3e0960fbf0cf.nii.gz"</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpConj70/file3e093c7ed7c7.nii.gz"</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpConj70/file3e091f73a3a2.nii.gz"</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpConj70/file3e091f73a3a2.nii.gz"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpConj70/file3e091f73a3a2.nii.gz"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">func</span> <span class="op">=</span> <span class="va">checkniigz</span></span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpVS5ZOC/file402f68d4b55e.nii.gz"</span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpVS5ZOC/file402f64cf6416.nii.gz"</span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpVS5ZOC/file402f1b205983.nii.gz"</span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpVS5ZOC/file402f1b205983.nii.gz"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "/private/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T/RtmpVS5ZOC/file402f1b205983.nii.gz"</span>
 </code></pre></div>
     </div>
   </div>
@@ -144,7 +149,7 @@ with .nii.gz extension</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

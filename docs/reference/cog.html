@@ -69,33 +69,42 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cog</span><span class="op">(</span><span class="va">img</span>, thresh <span class="op">=</span> <span class="fl">0</span>, ceil <span class="op">=</span> <span class="cn">FALSE</span>, warn <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cog</span><span class="op">(</span><span class="va">img</span>, thresh <span class="op">=</span> <span class="fl">0</span>, ceil <span class="op">=</span> <span class="cn">FALSE</span>, warn <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>img</dt>
 <dd><p>Object of class nifti</p></dd>
+
+
 <dt>thresh</dt>
 <dd><p>threshold for image, will find <code>img &gt; 0</code></p></dd>
+
+
 <dt>ceil</dt>
 <dd><p>Run <code><a href="https://rdrr.io/r/base/Round.html" class="external-link">ceiling</a></code> to force integers (usu for plotting)</p></dd>
+
+
 <dt>warn</dt>
 <dd><p>Produce a warning if the image is empty after thresholding</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Vector of length 3</p>
+    
+
+<p>Vector of length 3</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">img</span> <span class="op">=</span> <span class="fu">nifti</span><span class="op">(</span><span class="va">x</span>, dim<span class="op">=</span> <span class="va">dims</span>, </span>
-<span class="r-in">datatype <span class="op">=</span> <span class="fu">convert.datatype</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">FLOAT32</span>, cal.min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, </span>
-<span class="r-in">cal.max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, pixdim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">cog</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu">nifti</span><span class="op">(</span><span class="va">x</span>, dim<span class="op">=</span> <span class="va">dims</span>, </span></span>
+<span class="r-in"><span>datatype <span class="op">=</span> <span class="fu">convert.datatype</span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">FLOAT32</span>, cal.min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>cal.max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, pixdim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">cog</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     dim1     dim2     dim3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10.54665 10.50265 10.36637 </span>
 </code></pre></div>
@@ -112,7 +121,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

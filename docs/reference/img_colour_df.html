@@ -71,9 +71,9 @@ into a <code>data.frame</code> with the data and a color mapping.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">img_colour_df</span><span class="op">(</span><span class="va">img</span>, zlim <span class="op">=</span> <span class="cn">NULL</span>, breaks <span class="op">=</span> <span class="cn">NULL</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">gray</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">64</span><span class="op">/</span><span class="fl">64</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu">img_color_df</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">img_colour_df</span><span class="op">(</span><span class="va">img</span>, zlim <span class="op">=</span> <span class="cn">NULL</span>, breaks <span class="op">=</span> <span class="cn">NULL</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">gray</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">64</span><span class="op">/</span><span class="fl">64</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">img_color_df</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -81,19 +81,33 @@ into a <code>data.frame</code> with the data and a color mapping.</p>
     <dl><dt>img</dt>
 <dd><p>an object to be coerced to <code>nifti</code> using 
 <code><a href="check_nifti-methods.html">check_nifti</a></code></p></dd>
+
+
 <dt>zlim</dt>
 <dd><p>Limits for the domain of the intensities</p></dd>
+
+
 <dt>breaks</dt>
 <dd><p>Breaks for the intensities to map to colors</p></dd>
+
+
 <dt>col</dt>
 <dd><p>Colors to map intensities</p></dd>
+
+
 <dt>...</dt>
 <dd><p>not used</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>data.frame</code> with the first columns being the x,y,z (maybe t)
-coordinates (named <code>dim</code> and the dimension number), a <code>value</code>column that contains the intensity information, and a <code>colour</code> column
+    
+
+<p>A <code>data.frame</code> with the first columns being the x,y,z (maybe t)
+coordinates (named <code>dim</code> and the dimension number), a <code>value</code></p>
+ 
+
+<p>column that contains the intensity information, and a <code>colour</code> column
 representing the color that voxel maps to</p>
     </div>
     <div id="note">
@@ -103,9 +117,9 @@ representing the color that voxel maps to</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">3</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">df</span> <span class="op">=</span> <span class="fu">img_colour_df</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">df</span> <span class="op">=</span> <span class="fu">img_color_df</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">3</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">=</span> <span class="fu">img_colour_df</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">=</span> <span class="fu">img_color_df</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -120,7 +134,7 @@ representing the color that voxel maps to</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

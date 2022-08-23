@@ -73,59 +73,80 @@ and the data need to be value restricted</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">rescale_img</span><span class="op">(</span>
-  <span class="va">filename</span>,
-  pngname <span class="op">=</span> <span class="cn">NULL</span>,
-  write.nii <span class="op">=</span> <span class="cn">FALSE</span>,
-  outfile <span class="op">=</span> <span class="cn">NULL</span>,
-  min.val <span class="op">=</span> <span class="op">-</span><span class="fl">1024</span>,
-  max.val <span class="op">=</span> <span class="fl">3071</span>,
-  ROIformat <span class="op">=</span> <span class="cn">FALSE</span>,
-  drop_dim <span class="op">=</span> <span class="cn">TRUE</span>,
-  writer <span class="op">=</span> <span class="st">"dcm2nii"</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">rescale_img</span><span class="op">(</span></span>
+<span>  <span class="va">filename</span>,</span>
+<span>  pngname <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  write.nii <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  outfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  min.val <span class="op">=</span> <span class="op">-</span><span class="fl">1024</span>,</span>
+<span>  max.val <span class="op">=</span> <span class="fl">3071</span>,</span>
+<span>  ROIformat <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  drop_dim <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  writer <span class="op">=</span> <span class="st">"dcm2nii"</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>filename</dt>
 <dd><p>filename of image to be read into R or nifti object</p></dd>
+
+
 <dt>pngname</dt>
 <dd><p>filename of png of histogram of values of image to be made. For no
 png - set to NULL (default)</p></dd>
+
+
 <dt>write.nii</dt>
 <dd><p>logical - should the image be written.</p></dd>
+
+
 <dt>outfile</dt>
 <dd><p>if <code>write.nii = TRUE</code>, filename of output file</p></dd>
+
+
 <dt>min.val</dt>
 <dd><p>minimum value of image (default -1024 (for CT)).  If no thresholding
 set to -Inf</p></dd>
+
+
 <dt>max.val</dt>
 <dd><p>maximum value of image (default 3071 (for CT)).  If no thresholding
 set to Inf</p></dd>
+
+
 <dt>ROIformat</dt>
 <dd><p>if TRUE, any values $&lt; 0$ will be set to 0</p></dd>
+
+
 <dt>drop_dim</dt>
 <dd><p>Should <code><a href="https://rdrr.io/pkg/oro.nifti/man/drop_img_dim.html" class="external-link">drop_img_dim</a></code> be applied?</p></dd>
+
+
 <dt>writer</dt>
 <dd><p>character value to add to description slot of NIfTI header</p></dd>
+
+
 <dt>...</dt>
 <dd><p>extra methods to be passed to <code><a href="writeNIfTI2.html">writenii</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Object of class nifti</p>
+    
+
+<p>Object of class nifti</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">outfile</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".nii.gz"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pngname</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".png"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">rescale_img</span><span class="op">(</span><span class="va">img</span>, write.nii <span class="op">=</span> <span class="cn">TRUE</span>, outfile <span class="op">=</span> <span class="va">outfile</span>,</span>
-<span class="r-in">pngname <span class="op">=</span> <span class="va">pngname</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpConj70/file3e0944f9076e.png"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">outfile</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".nii.gz"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pngname</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".png"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">rescale_img</span><span class="op">(</span><span class="va">img</span>, write.nii <span class="op">=</span> <span class="cn">TRUE</span>, outfile <span class="op">=</span> <span class="va">outfile</span>,</span></span>
+<span class="r-in"><span>pngname <span class="op">=</span> <span class="va">pngname</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpVS5ZOC/file402f57701cc8.png"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 2 (UINT8)</span>
@@ -152,7 +173,7 @@ set to Inf</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

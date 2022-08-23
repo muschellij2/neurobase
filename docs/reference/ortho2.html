@@ -71,149 +71,232 @@ with some tweaks such as adding L/R designations for left and right</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ortho2</span><span class="op">(</span>
-  <span class="va">x</span>,
-  y <span class="op">=</span> <span class="cn">NULL</span>,
-  xyz <span class="op">=</span> <span class="cn">NULL</span>,
-  w <span class="op">=</span> <span class="fl">1</span>,
-  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">gray</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">64</span><span class="op">/</span><span class="fl">64</span><span class="op">)</span>,
-  col.y <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/hotmetal.html" class="external-link">hotmetal</a></span><span class="op">(</span><span class="op">)</span>,
-  zlim <span class="op">=</span> <span class="cn">NULL</span>,
-  zlim.y <span class="op">=</span> <span class="cn">NULL</span>,
-  NA.x <span class="op">=</span> <span class="cn">FALSE</span>,
-  NA.y <span class="op">=</span> <span class="cn">TRUE</span>,
-  crosshairs <span class="op">=</span> <span class="cn">TRUE</span>,
-  col.crosshairs <span class="op">=</span> <span class="st">"red"</span>,
-  xlab <span class="op">=</span> <span class="st">""</span>,
-  ylab <span class="op">=</span> <span class="st">""</span>,
-  axes <span class="op">=</span> <span class="cn">FALSE</span>,
-  oma <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ycolorbar</span>, <span class="fl">5</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>,
-  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>,
-  bg <span class="op">=</span> <span class="st">"black"</span>,
-  text <span class="op">=</span> <span class="cn">NULL</span>,
-  text.color <span class="op">=</span> <span class="st">"white"</span>,
-  text.cex <span class="op">=</span> <span class="fl">2</span>,
-  text.x <span class="op">=</span> <span class="fl">32</span>,
-  text.y <span class="op">=</span> <span class="fl">32</span>,
-  add.orient <span class="op">=</span> <span class="cn">FALSE</span>,
-  mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,
-  ybreaks <span class="op">=</span> <span class="cn">NULL</span>,
-  breaks <span class="op">=</span> <span class="cn">NULL</span>,
-  addlegend <span class="op">=</span> <span class="cn">FALSE</span>,
-  leg.x <span class="op">=</span> <span class="fl">32</span>,
-  leg.y <span class="op">=</span> <span class="fl">32</span>,
-  <span class="va">legend</span>,
-  <span class="va">leg.col</span>,
-  leg.title <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">leg.cex</span>,
-  window <span class="op">=</span> <span class="cn">NULL</span>,
-  ycolorbar <span class="op">=</span> <span class="cn">FALSE</span>,
-  clabels <span class="op">=</span> <span class="cn">TRUE</span>,
-  add <span class="op">=</span> <span class="cn">TRUE</span>,
-  pdim <span class="op">=</span> <span class="cn">NULL</span>,
-  useRaster <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>,
-  mask <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ortho2</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  xyz <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  w <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">gray</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">64</span><span class="op">/</span><span class="fl">64</span><span class="op">)</span>,</span>
+<span>  col.y <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/hotmetal.html" class="external-link">hotmetal</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  zlim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  zlim.y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  NA.x <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  NA.y <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  crosshairs <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  col.crosshairs <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>  xlab <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  ylab <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  axes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  oma <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ycolorbar</span>, <span class="fl">5</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>,</span>
+<span>  bg <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  text <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  text.color <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>  text.cex <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  text.x <span class="op">=</span> <span class="fl">32</span>,</span>
+<span>  text.y <span class="op">=</span> <span class="fl">32</span>,</span>
+<span>  add.orient <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  ybreaks <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  breaks <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  addlegend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  leg.x <span class="op">=</span> <span class="fl">32</span>,</span>
+<span>  leg.y <span class="op">=</span> <span class="fl">32</span>,</span>
+<span>  <span class="va">legend</span>,</span>
+<span>  <span class="va">leg.col</span>,</span>
+<span>  leg.title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">leg.cex</span>,</span>
+<span>  window <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  ycolorbar <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  clabels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  add <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  pdim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  useRaster <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>,</span>
+<span>  mask <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>is an object of class nifti or similar.</p></dd>
+
+
 <dt>y</dt>
 <dd><p>is an object of class nifti or similar for the overlay.</p></dd>
+
+
 <dt>xyz</dt>
 <dd><p>is the coordinate for the center of the crosshairs.</p></dd>
+
+
 <dt>w</dt>
 <dd><p>is the time point to be displayed (4D arrays only).</p></dd>
+
+
 <dt>col</dt>
 <dd><p>is grayscale (by default).</p></dd>
+
+
 <dt>col.y</dt>
 <dd><p>is hotmetal (by default).</p></dd>
+
+
 <dt>zlim</dt>
 <dd><p>is the minimum and maximum `z' values passed into image.</p></dd>
+
+
 <dt>zlim.y</dt>
 <dd><p>is the minimum and maximum `z' values passed into image 
 for the overlay.</p></dd>
+
+
 <dt>NA.x</dt>
 <dd><p>Set any values of 0 in <code>x</code> to <code>NA</code></p></dd>
+
+
 <dt>NA.y</dt>
 <dd><p>Set any values of 0 in <code>y</code> to <code>NA</code></p></dd>
+
+
 <dt>crosshairs</dt>
 <dd><p>is a logical value for the presence of crosshairs 
 in all three orthogonal planes (default = TRUE).</p></dd>
+
+
 <dt>col.crosshairs</dt>
 <dd><p>is the color of the crosshairs (default = red).</p></dd>
+
+
 <dt>xlab</dt>
 <dd><p>is set to "" since all margins are set to zero.</p></dd>
+
+
 <dt>ylab</dt>
 <dd><p>is set to "" since all margins are set to zero.</p></dd>
+
+
 <dt>axes</dt>
 <dd><p>is set to FALSE since all margins are set to zero.</p></dd>
+
+
 <dt>oma</dt>
 <dd><p>is the size of the outer margins in the par function.</p></dd>
+
+
 <dt>mar</dt>
 <dd><p>is the number of lines of margin in the par function.</p></dd>
+
+
 <dt>bg</dt>
 <dd><p>is the background color in the par function.</p></dd>
+
+
 <dt>text</dt>
 <dd><p>allows the user to specify text to appear in 
 the fourth (unused) pane.</p></dd>
+
+
 <dt>text.color</dt>
 <dd><p>is the color of the user-specified text 
 (default = ``white").</p></dd>
+
+
 <dt>text.cex</dt>
 <dd><p>is the size of the user-specified text (default = 2).</p></dd>
+
+
 <dt>text.x</dt>
 <dd><p>x coordinate for text</p></dd>
+
+
 <dt>text.y</dt>
 <dd><p>y coordinate for text</p></dd>
+
+
 <dt>add.orient</dt>
 <dd><p>(logical) Add left/right, A/P, etc. orientation</p></dd>
+
+
 <dt>mfrow</dt>
 <dd><p>(numeric) layout of the 3 slices</p></dd>
+
+
 <dt>ybreaks</dt>
 <dd><p>(numeric) breaks for y to passed to 
 <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></code></p></dd>
+
+
 <dt>breaks</dt>
 <dd><p>(numeric) breaks for x to passed to 
 <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></code></p></dd>
+
+
 <dt>addlegend</dt>
 <dd><p>(logical) add legend?</p></dd>
+
+
 <dt>leg.x</dt>
 <dd><p>(numeric) x coordinate for legend</p></dd>
+
+
 <dt>leg.y</dt>
 <dd><p>(numeric) y coordinate for legend</p></dd>
+
+
 <dt>legend</dt>
 <dd><p>(character) legend text</p></dd>
+
+
 <dt>leg.col</dt>
 <dd><p>(character) Colors for legend</p></dd>
+
+
 <dt>leg.title</dt>
 <dd><p>(character) title for legend</p></dd>
+
+
 <dt>leg.cex</dt>
 <dd><p>(numeric) <code>cex</code> for <code><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></code></p></dd>
+
+
 <dt>window</dt>
 <dd><p>(vector) Length-2 vector to limit image to certain range</p></dd>
+
+
 <dt>ycolorbar</dt>
 <dd><p>(logical) Should a colorbar for <code>y</code> be plotted</p></dd>
+
+
 <dt>clabels</dt>
 <dd><p>Label for colorbar (see <code><a href="colorbar.html">colorbar</a></code>)</p></dd>
+
+
 <dt>add</dt>
 <dd><p>Should the y-plot be added or its own plot?  Used
 in <code>double_ortho</code></p></dd>
+
+
 <dt>pdim</dt>
 <dd><p>Pixel dimensions if passing in arrays.  Will be overridden if 
 <code>x</code> is a <code>nifti</code> object</p></dd>
+
+
 <dt>useRaster</dt>
 <dd><p>logical; if TRUE a bitmap raster is used to 
 plot the image instead of polygons.  Passed to 
 <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></code>.</p></dd>
+
+
 <dt>mask</dt>
 <dd><p>If a mask is passed, <code>drop_empty_dim</code> is applied 
 to both <code>x</code> and <code>y</code></p></dd>
+
+
 <dt>...</dt>
 <dd><p>other arguments to the image function may be provided here.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -222,48 +305,48 @@ to both <code>x</code> and <code>y</code></p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="va">y</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2</span></span>
-<span class="r-in"><span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2.5</span></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2.5</span></span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span>, add.orient <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span>, add.orient <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span>, add.orient <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span>, add.orient <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-4.png" alt="" width="700" height="433"></span>
 <span class="r-plt img"><img src="ortho2-5.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">x</span>, internal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">nim</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">x</span>, internal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">nim</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-6.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu">neurobase</span><span class="fu">::</span><span class="fu">ortho2</span><span class="op">(</span><span class="va">nim</span>, <span class="va">x</span>, mask <span class="op">=</span> <span class="va">mask</span>, </span>
-<span class="r-in">ybreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, length.out <span class="op">=</span> <span class="fl">65</span><span class="op">)</span>, ycolorbar <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">neurobase</span><span class="fu">::</span><span class="fu">ortho2</span><span class="op">(</span><span class="va">nim</span>, <span class="va">x</span>, mask <span class="op">=</span> <span class="va">mask</span>, </span></span>
+<span class="r-in"><span>ybreaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, length.out <span class="op">=</span> <span class="fl">65</span><span class="op">)</span>, ycolorbar <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-7.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">nim</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span>, add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">nim</span>, <span class="va">y</span>, mask <span class="op">=</span> <span class="va">mask</span>, add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-8.png" alt="" width="700" height="433"></span>
 <span class="r-plt img"><img src="ortho2-9.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="va">arr_x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">as.array</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr_y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">as.array</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span> <span class="va">arr_x</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">arr_x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">as.array</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr_y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">as.array</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span> <span class="va">arr_x</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-10.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span> <span class="va">arr_x</span>, <span class="va">arr_y</span>, useRaster <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span> <span class="va">arr_x</span>, <span class="va">arr_y</span>, useRaster <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-11.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2</span></span>
-<span class="r-in"><span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2.5</span></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2.5</span></span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-12.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2</span></span>
-<span class="r-in"><span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2.5</span></span>
-<span class="r-in"><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2.5</span></span></span>
+<span class="r-in"><span><span class="fu">ortho2</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho2-13.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
@@ -279,7 +362,7 @@ to both <code>x</code> and <code>y</code></p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

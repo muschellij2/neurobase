@@ -71,47 +71,59 @@ dropping empty dimensions.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for nifti</span>
-<span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for character</span>
-<span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for factor</span>
-<span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for list</span>
-<span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for array</span>
-<span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for anlz</span>
-<span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S4 method for ANY</span>
-<span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">apply_empty_dim</span><span class="op">(</span><span class="va">img</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for nifti</span></span>
+<span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for character</span></span>
+<span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for factor</span></span>
+<span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for list</span></span>
+<span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for array</span></span>
+<span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for anlz</span></span>
+<span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for ANY</span></span>
+<span><span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">img</span>, <span class="va">inds</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">apply_empty_dim</span><span class="op">(</span><span class="va">img</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>img</dt>
 <dd><p>image, nifti object, or array</p></dd>
+
+
 <dt>inds</dt>
 <dd><p>indices of subset from <code><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></code> or
 <code><a href="dropEmptyImageDimensions.html">dropEmptyImageDimensions</a></code>.</p></dd>
+
+
 <dt>reorient</dt>
 <dd><p>Should image be reoriented if a filename?</p></dd>
+
+
 <dt>...</dt>
 <dd><p>not used</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Object of class <code>nifti</code> or <code>array</code> if <code>nifti</code>is not supplied</p>
+    
+
+<p>Object of class <code>nifti</code> or <code>array</code> if <code>nifti</code></p>
+
+
+<p>is not supplied</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -126,30 +138,30 @@ dropping empty dimensions.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">inds</span> <span class="op">=</span> <span class="fu"><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">inds_arr</span> <span class="op">=</span> <span class="fu"><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">inds</span>, <span class="va">inds_arr</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">out</span> <span class="op">=</span> <span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">out_arr</span> <span class="op">=</span> <span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">arr</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">out_arr</span>, <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="va">out</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">out</span> <span class="op">=</span> <span class="fu">apply_empty_dim</span><span class="op">(</span><span class="va">nim</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">inds</span> <span class="op">=</span> <span class="fu"><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">apply_empty_dim</span><span class="op">(</span><span class="va">nim</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">inds</span> <span class="op">=</span> <span class="fu"><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">inds_arr</span> <span class="op">=</span> <span class="fu"><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">inds</span>, <span class="va">inds_arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">=</span> <span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out_arr</span> <span class="op">=</span> <span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">arr</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="va">out_arr</span>, <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="va">out</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">=</span> <span class="fu">apply_empty_dim</span><span class="op">(</span><span class="va">nim</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">inds</span> <span class="op">=</span> <span class="fu"><a href="getEmptyImageDimensions.html">getEmptyImageDimensions</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">apply_empty_dim</span><span class="op">(</span><span class="va">nim</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 2 (UINT8)</span>
@@ -162,8 +174,8 @@ dropping empty dimensions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="va">func</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">...</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">func</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="fu">applyEmptyImageDimensions</span><span class="op">(</span><span class="va">...</span>, inds <span class="op">=</span> <span class="va">inds</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              [,1]       [,2]       [,3]       [,4]        [,5]        [,6]</span>
@@ -389,7 +401,7 @@ dropping empty dimensions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] -0.521479412 -2.17800743  2.1973152 -0.5441865</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,] -0.347252939 -0.14910974 -0.0992651  0.8624957</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 2 (UINT8)</span>
@@ -402,7 +414,7 @@ dropping empty dimensions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 8 (INT32)</span>
@@ -415,7 +427,7 @@ dropping empty dimensions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 16 (FLOAT32)</span>
@@ -428,7 +440,7 @@ dropping empty dimensions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
@@ -457,9 +469,9 @@ dropping empty dimensions.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -474,7 +486,7 @@ dropping empty dimensions.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

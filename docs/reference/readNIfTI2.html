@@ -71,42 +71,57 @@ oro.nifti package, but sets the reorientation to FALSE by default"><!-- mathjax 
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">readNIfTI2</span><span class="op">(</span><span class="va">...</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-
-<span class="fu">readnii</span><span class="op">(</span>
-  <span class="va">...</span>,
-  reorient <span class="op">=</span> <span class="cn">FALSE</span>,
-  dtype <span class="op">=</span> <span class="cn">TRUE</span>,
-  drop_dim <span class="op">=</span> <span class="cn">TRUE</span>,
-  reset_slope <span class="op">=</span> <span class="cn">FALSE</span>,
-  warn <span class="op">=</span> <span class="cn">FALSE</span>,
-  rm_extensions <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">readNIfTI2</span><span class="op">(</span><span class="va">...</span>, reorient <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">readnii</span><span class="op">(</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  reorient <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  dtype <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  drop_dim <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  reset_slope <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  warn <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  rm_extensions <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Arguments to pass to <code><a href="https://rdrr.io/pkg/oro.nifti/man/read_nifti.html" class="external-link">readNIfTI</a></code></p></dd>
+
+
 <dt>reorient</dt>
 <dd><p>Reorientation argument to pass to <code><a href="https://rdrr.io/pkg/oro.nifti/man/read_nifti.html" class="external-link">readNIfTI</a></code></p></dd>
+
+
 <dt>dtype</dt>
 <dd><p>Should <code><a href="datatype.html">datatyper</a></code> be run after reading?</p></dd>
+
+
 <dt>drop_dim</dt>
 <dd><p>Should <code><a href="https://rdrr.io/pkg/oro.nifti/man/drop_img_dim.html" class="external-link">drop_img_dim</a></code> be run after reading?</p></dd>
+
+
 <dt>reset_slope</dt>
 <dd><p>Reset slope/intercept of image</p></dd>
+
+
 <dt>warn</dt>
 <dd><p>Should warnings from <code><a href="https://rdrr.io/pkg/oro.nifti/man/read_nifti.html" class="external-link">readNIfTI</a></code> be 
 printed?  If not, <code><a href="https://rdrr.io/r/base/warning.html" class="external-link">suppressWarnings</a></code> is called.  Also passed to 
 <code><a href="datatype.html">datatyper</a></code></p></dd>
+
+
 <dt>rm_extensions</dt>
 <dd><p>should niftiExtensions be converted to simple
 nifti objects?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>nifti</code> object</p>
+    
+
+<p><code>nifti</code> object</p>
     </div>
 
   </div>
@@ -121,7 +136,7 @@ nifti objects?</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

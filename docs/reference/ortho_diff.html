@@ -71,57 +71,80 @@ image and the assumed ground truth (<code>roi</code>).</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ortho_diff</span><span class="op">(</span>
-  <span class="va">img</span>,
-  <span class="va">pred</span>,
-  <span class="va">roi</span>,
-  xyz <span class="op">=</span> <span class="cn">NULL</span>,
-  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#56B4E9"</span>, <span class="st">"#D55E00"</span>, <span class="st">"#009E73"</span><span class="op">)</span>,
-  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"False Negative"</span>, <span class="st">"False Positive"</span>, <span class="st">"True Positive"</span><span class="op">)</span>,
-  addlegend <span class="op">=</span> <span class="cn">TRUE</span>,
-  center <span class="op">=</span> <span class="cn">TRUE</span>,
-  leg.cex <span class="op">=</span> <span class="fl">1.5</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="fu">multi_overlay_diff</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">pred</span>,
-  <span class="va">roi</span>,
-  z <span class="op">=</span> <span class="cn">NULL</span>,
-  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#56B4E9"</span>, <span class="st">"#D55E00"</span>, <span class="st">"#009E73"</span><span class="op">)</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ortho_diff</span><span class="op">(</span></span>
+<span>  <span class="va">img</span>,</span>
+<span>  <span class="va">pred</span>,</span>
+<span>  <span class="va">roi</span>,</span>
+<span>  xyz <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#56B4E9"</span>, <span class="st">"#D55E00"</span>, <span class="st">"#009E73"</span><span class="op">)</span>,</span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"False Negative"</span>, <span class="st">"False Positive"</span>, <span class="st">"True Positive"</span><span class="op">)</span>,</span>
+<span>  addlegend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  center <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  leg.cex <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">multi_overlay_diff</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">pred</span>,</span>
+<span>  <span class="va">roi</span>,</span>
+<span>  z <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#56B4E9"</span>, <span class="st">"#D55E00"</span>, <span class="st">"#009E73"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>img</dt>
 <dd><p>image to be underlaid</p></dd>
+
+
 <dt>pred</dt>
 <dd><p>binary segmentation (prediction)</p></dd>
+
+
 <dt>roi</dt>
 <dd><p>binary manual segmentation (ground truth)</p></dd>
+
+
 <dt>xyz</dt>
 <dd><p>coordinate for the center of the crosshairs.</p></dd>
+
+
 <dt>cols</dt>
 <dd><p>colors for false negatives/positives</p></dd>
+
+
 <dt>levels</dt>
 <dd><p>labels for false negatives/positives</p></dd>
+
+
 <dt>addlegend</dt>
 <dd><p>add legend, passed to <code><a href="ortho2.html">ortho2</a></code></p></dd>
+
+
 <dt>center</dt>
 <dd><p>run <code><a href="xyz.html">xyz</a></code> on <code>roi</code>.  Disregarded if <code>xyz</code> is
 not <code>NULL</code></p></dd>
+
+
 <dt>leg.cex</dt>
 <dd><p>multiplier for legend size</p></dd>
+
+
 <dt>...</dt>
 <dd><p>arguments to be passed to <code><a href="ortho2.html">ortho2</a></code> or
 <code><a href="multi_overlay.html">multi_overlay</a></code></p></dd>
+
+
 <dt>x</dt>
 <dd><p>List of images of class <code>nifti</code> or character vector of filenames</p></dd>
+
+
 <dt>z</dt>
 <dd><p>slice to display</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -130,59 +153,59 @@ not <code>NULL</code></p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span>, lambda <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">roi</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">2</span></span>
-<span class="r-in"><span class="va">pred</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">1.5</span></span>
-<span class="r-in"><span class="fu">ortho_diff</span><span class="op">(</span><span class="va">nim</span>, <span class="va">pred</span>, <span class="va">roi</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span>, lambda <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">roi</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">pred</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">1.5</span></span></span>
+<span class="r-in"><span><span class="fu">ortho_diff</span><span class="op">(</span><span class="va">nim</span>, <span class="va">pred</span>, <span class="va">roi</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho_diff-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mask</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">2</span></span>
-<span class="r-in"><span class="va">pred</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">1.5</span></span>
-<span class="r-in"><span class="fu">multi_overlay_diff</span><span class="op">(</span><span class="va">nim</span>, roi <span class="op">=</span> <span class="va">mask</span>, pred <span class="op">=</span> <span class="va">pred</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mask</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">2</span></span></span>
+<span class="r-in"><span><span class="va">pred</span> <span class="op">=</span> <span class="va">nim</span> <span class="op">&gt;</span> <span class="fl">1.5</span></span></span>
+<span class="r-in"><span><span class="fu">multi_overlay_diff</span><span class="op">(</span><span class="va">nim</span>, roi <span class="op">=</span> <span class="va">mask</span>, pred <span class="op">=</span> <span class="va">pred</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ortho_diff-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"></span>
-<span class="r-in"> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"brainR"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">   <span class="va">visits</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span>
-<span class="r-in">   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Visit_"</span>, <span class="va">visits</span>, <span class="st">".nii.gz"</span><span class="op">)</span></span>
-<span class="r-in">   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="va">y</span>, package <span class="op">=</span> <span class="st">"brainR"</span><span class="op">)</span></span>
-<span class="r-in">   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">readnii</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in">   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">y</span>, <span class="kw">function</span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">{</span></span>
-<span class="r-in">     <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/pixdim-methods.html" class="external-link">pixdim</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">     <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/drop_img_dim.html" class="external-link">dropImageDimension</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
-<span class="r-in">   <span class="op">}</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in">   <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"MNI152_T1_1mm_brain.nii.gz"</span>, </span>
-<span class="r-in">                 package <span class="op">=</span> <span class="st">"brainR"</span><span class="op">)</span></span>
-<span class="r-in">   <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="readNIfTI2.html">readnii</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-in">   <span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span></span>
-<span class="r-in">   <span class="va">alpha</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">col</span>, <span class="va">alpha</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">       <span class="va">cols</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb</a></span><span class="op">(</span><span class="va">col</span>, alpha <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">/</span><span class="fl">255</span><span class="op">)</span></span>
-<span class="r-in">       <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="va">cols</span>, alpha <span class="op">=</span> <span class="va">alpha</span><span class="op">)</span></span>
-<span class="r-in">   <span class="op">}</span></span>
-<span class="r-in">   <span class="va">roi</span> <span class="op">=</span> <span class="va">y</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
-<span class="r-in">   <span class="va">pred</span> <span class="op">=</span> <span class="va">y</span></span>
-<span class="r-in">   <span class="fu">multi_overlay_diff</span><span class="op">(</span><span class="va">x</span>, roi <span class="op">=</span> <span class="va">roi</span>, pred <span class="op">=</span> <span class="va">pred</span><span class="op">)</span></span>
-<span class="r-in">   <span class="fu">multi_overlay_diff</span><span class="op">(</span><span class="va">x</span>, roi <span class="op">=</span> <span class="va">roi</span>, pred <span class="op">=</span> <span class="va">pred</span>, </span>
-<span class="r-in">         mask <span class="op">=</span> <span class="va">mask</span>, </span>
-<span class="r-in">         main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"\n"</span>, <span class="st">"Visit "</span>, <span class="va">visits</span><span class="op">)</span>,</span>
-<span class="r-in">         text <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="va">visits</span><span class="op">]</span>,</span>
-<span class="r-in">         text.x <span class="op">=</span> <span class="fl">0.9</span>,</span>
-<span class="r-in">         text.y <span class="op">=</span> <span class="fl">0.1</span>,</span>
-<span class="r-in">         text.cex <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"> <span class="op">}</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"brainR"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>   <span class="va">visits</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span></span>
+<span class="r-in"><span>   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Visit_"</span>, <span class="va">visits</span>, <span class="st">".nii.gz"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="va">y</span>, package <span class="op">=</span> <span class="st">"brainR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">readnii</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>   <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">y</span>, <span class="kw">function</span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">{</span></span></span>
+<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/pixdim.html" class="external-link">pixdim</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/drop_img_dim.html" class="external-link">dropImageDimension</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>   <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"MNI152_T1_1mm_brain.nii.gz"</span>, </span></span>
+<span class="r-in"><span>                 package <span class="op">=</span> <span class="st">"brainR"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="readNIfTI2.html">readnii</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="va">mask</span> <span class="op">=</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span>   <span class="va">alpha</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">col</span>, <span class="va">alpha</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>       <span class="va">cols</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb</a></span><span class="op">(</span><span class="va">col</span>, alpha <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">/</span><span class="fl">255</span><span class="op">)</span></span></span>
+<span class="r-in"><span>       <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="va">cols</span>, alpha <span class="op">=</span> <span class="va">alpha</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="op">}</span></span></span>
+<span class="r-in"><span>   <span class="va">roi</span> <span class="op">=</span> <span class="va">y</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></span>
+<span class="r-in"><span>   <span class="va">pred</span> <span class="op">=</span> <span class="va">y</span></span></span>
+<span class="r-in"><span>   <span class="fu">multi_overlay_diff</span><span class="op">(</span><span class="va">x</span>, roi <span class="op">=</span> <span class="va">roi</span>, pred <span class="op">=</span> <span class="va">pred</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="fu">multi_overlay_diff</span><span class="op">(</span><span class="va">x</span>, roi <span class="op">=</span> <span class="va">roi</span>, pred <span class="op">=</span> <span class="va">pred</span>, </span></span>
+<span class="r-in"><span>         mask <span class="op">=</span> <span class="va">mask</span>, </span></span>
+<span class="r-in"><span>         main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"\n"</span>, <span class="st">"Visit "</span>, <span class="va">visits</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>         text <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="va">visits</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>         text.x <span class="op">=</span> <span class="fl">0.9</span>,</span></span>
+<span class="r-in"><span>         text.y <span class="op">=</span> <span class="fl">0.1</span>,</span></span>
+<span class="r-in"><span>         text.cex <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="op">}</span></span></span>
 <span class="r-plt img"><img src="ortho_diff-3.png" alt="" width="700" height="433"></span>
 <span class="r-plt img"><img src="ortho_diff-4.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -197,7 +220,7 @@ not <code>NULL</code></p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

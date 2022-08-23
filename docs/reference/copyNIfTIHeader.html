@@ -71,46 +71,63 @@ subsetting 4D data and getting an array out</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">copyNIfTIHeader</span><span class="op">(</span>
-  <span class="va">img</span>,
-  <span class="va">arr</span>,
-  drop_slots <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".Data"</span>, <span class="st">"dim_"</span><span class="op">)</span>,
-  drop <span class="op">=</span> <span class="cn">TRUE</span>,
-  onlylast <span class="op">=</span> <span class="cn">TRUE</span>,
-  warn <span class="op">=</span> <span class="cn">TRUE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">copyNIfTIHeader</span><span class="op">(</span></span>
+<span>  <span class="va">img</span>,</span>
+<span>  <span class="va">arr</span>,</span>
+<span>  drop_slots <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".Data"</span>, <span class="st">"dim_"</span><span class="op">)</span>,</span>
+<span>  drop <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  onlylast <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  warn <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>img</dt>
 <dd><p>object of class nifti to copy header</p></dd>
+
+
 <dt>arr</dt>
 <dd><p>array to copy header information</p></dd>
+
+
 <dt>drop_slots</dt>
 <dd><p>Slots not to copy over from header</p></dd>
+
+
 <dt>drop</dt>
 <dd><p>Should <code>dropImageDimension</code> be called before returning?</p></dd>
+
+
 <dt>onlylast</dt>
 <dd><p>if <code>drop = TRUE</code>, passed to <code>dropImageDimension</code>,
 if only the last dimensions should be dropped</p></dd>
+
+
 <dt>warn</dt>
 <dd><p>if <code>drop = TRUE</code>, passed to <code>dropImageDimension</code>, 
 for warning print out</p></dd>
+
+
 <dt>...</dt>
 <dd><p>arguments to pass to <code>nifti</code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Object of class nifti the size of <code>arr</code></p>
+    
+
+<p>Object of class nifti the size of <code>arr</code></p>
+
+
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">img</span> <span class="op">=</span> <span class="fu">nifti</span><span class="op">(</span>img <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">4</span><span class="op">)</span>, dim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>, dim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span>, datatype <span class="op">=</span> <span class="fl">16</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">sub</span> <span class="op">=</span> <span class="va">img</span><span class="op">[</span>,,,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
-<span class="r-in"><span class="fu">copyNIfTIHeader</span><span class="op">(</span><span class="va">img</span>, <span class="va">sub</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu">nifti</span><span class="op">(</span>img <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">4</span><span class="op">)</span>, dim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span>, dim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span>, datatype <span class="op">=</span> <span class="fl">16</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sub</span> <span class="op">=</span> <span class="va">img</span><span class="op">[</span>,,,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu">copyNIfTIHeader</span><span class="op">(</span><span class="va">img</span>, <span class="va">sub</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 16 (FLOAT32)</span>
@@ -123,8 +140,8 @@ for warning print out</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="va">sub</span> <span class="op">=</span> <span class="va">img</span><span class="op">[</span>,,,<span class="fl">1</span>, drop<span class="op">=</span><span class="cn">FALSE</span><span class="op">]</span></span>
-<span class="r-in"><span class="fu">copyNIfTIHeader</span><span class="op">(</span><span class="va">img</span>, <span class="va">sub</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="va">sub</span> <span class="op">=</span> <span class="va">img</span><span class="op">[</span>,,,<span class="fl">1</span>, drop<span class="op">=</span><span class="cn">FALSE</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu">copyNIfTIHeader</span><span class="op">(</span><span class="va">img</span>, <span class="va">sub</span><span class="op">)</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 16 (FLOAT32)</span>
@@ -137,7 +154,7 @@ for warning print out</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="fu">copyNIfTIHeader</span><span class="op">(</span><span class="va">img</span>, <span class="va">sub</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> </span>
+<span class="r-in"><span><span class="fu">copyNIfTIHeader</span><span class="op">(</span><span class="va">img</span>, <span class="va">sub</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 16 (FLOAT32)</span>
@@ -164,7 +181,7 @@ for warning print out</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

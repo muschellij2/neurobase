@@ -71,28 +71,41 @@ plot function for object of class <code>nifti</code></p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">breaker</span><span class="op">(</span><span class="va">x</span>, <span class="va">zlim</span>, <span class="va">col</span>, breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">breaker</span><span class="op">(</span><span class="va">x</span>, <span class="va">zlim</span>, <span class="va">col</span>, breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Object of class <code>nifti</code></p></dd>
+
+
 <dt>zlim</dt>
 <dd><p>A user-specified <code>zlim</code>.  If <code>NULL</code>, will calculate how 
 <code><a href="ortho2.html">ortho2</a></code> would calculate <code>zlim</code></p></dd>
+
+
 <dt>col</dt>
 <dd><p>colors to be plotted.  Only used for <code>length(col)</code>, so can be a
 vector of length cols to be plotted</p></dd>
+
+
 <dt>breaks</dt>
 <dd><p>if <code>!is.null(breaks)</code>, then will calculate breaks.  Otherwise will
 return this breaks vector</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Vector of length 2
-If <code>breaks = NULL</code>, then vector of <code>length(col) + 1</code>, 
+    
+
+<p>Vector of length 2</p>
+
+
+<p>If <code>breaks = NULL</code>, then vector of <code>length(col) + 1</code>, 
 otherwise returns <code>breaks</code></p>
+
+
     </div>
 
   </div>
@@ -107,7 +120,7 @@ otherwise returns <code>breaks</code></p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

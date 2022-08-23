@@ -71,29 +71,38 @@ cal_max and cal_min parameters</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">window_img</span><span class="op">(</span>
-  <span class="va">x</span>,
-  window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span>,
-  replace <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"window"</span>, <span class="st">"missing"</span>, <span class="st">"zero"</span><span class="op">)</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">window_img</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  replace <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"window"</span>, <span class="st">"missing"</span>, <span class="st">"zero"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>is either a character name for the image or an object of class nifti</p></dd>
+
+
 <dt>window</dt>
 <dd><p>numeric of length 2 that gives min and max for window</p></dd>
+
+
 <dt>replace</dt>
 <dd><p>either "window" if the any values outside of c(min, max) are
 set to the min or max or "missing" for these to be set to NA</p></dd>
+
+
 <dt>...</dt>
 <dd><p>not used</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Object of class nifti</p>
+    
+
+<p>Object of class nifti</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -102,11 +111,11 @@ set to the min or max or "missing" for these to be set to NA</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">window_img</span><span class="op">(</span><span class="va">nim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">window_img</span><span class="op">(</span><span class="va">nim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 2 (UINT8)</span>
@@ -119,7 +128,7 @@ set to the min or max or "missing" for these to be set to NA</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in">  <span class="fu">window_img</span><span class="op">(</span><span class="va">nim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>, replace <span class="op">=</span> <span class="st">"missing"</span><span class="op">)</span></span>
+<span class="r-in"><span>  <span class="fu">window_img</span><span class="op">(</span><span class="va">nim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>, replace <span class="op">=</span> <span class="st">"missing"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 2 (UINT8)</span>
@@ -132,8 +141,8 @@ set to the min or max or "missing" for these to be set to NA</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in">  <span class="va">tfile</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">window_img</span><span class="op">(</span><span class="va">tfile</span><span class="op">)</span></span>
+<span class="r-in"><span>  <span class="va">tfile</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">window_img</span><span class="op">(</span><span class="va">tfile</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 16 (FLOAT32)</span>
@@ -146,7 +155,7 @@ set to the min or max or "missing" for these to be set to NA</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in">  <span class="fu">window_img</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">tfile</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span>  <span class="fu">window_img</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">tfile</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 16 (FLOAT32)</span>
@@ -159,22 +168,22 @@ set to the min or max or "missing" for these to be set to NA</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in">  <span class="va">arr</span> <span class="op">=</span> <span class="fu">window_img</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/img_data-methods.html" class="external-link">img_data</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">rnim</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/readNifti.html" class="external-link">readNifti</a></span><span class="op">(</span><span class="va">tfile</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span>  <span class="va">arr</span> <span class="op">=</span> <span class="fu">window_img</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/img_data-methods.html" class="external-link">img_data</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">rnim</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/readNifti.html" class="external-link">readNifti</a></span><span class="op">(</span><span class="va">tfile</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Image array of mode "double" (9.1 Kb)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - 10 x 10 x 10 voxels</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - 1 x 1 x 1 per voxel</span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.000000 3.401872</span>
-<span class="r-in">  <span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>, replace <span class="op">=</span> <span class="st">"missing"</span><span class="op">)</span></span>
+<span class="r-in"><span>  <span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>, replace <span class="op">=</span> <span class="st">"missing"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Image array of mode "double" (9.1 Kb)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - 10 x 10 x 10 voxels</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - 1 x 1 x 1 per voxel</span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>, replace <span class="op">=</span> <span class="st">"missing"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="fu">window_img</span><span class="op">(</span><span class="va">rnim</span>, window <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>, replace <span class="op">=</span> <span class="st">"missing"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA NA</span>
-<span class="r-in">   </span>
-<span class="r-in"></span>
+<span class="r-in"><span>   </span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -189,7 +198,7 @@ set to the min or max or "missing" for these to be set to NA</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

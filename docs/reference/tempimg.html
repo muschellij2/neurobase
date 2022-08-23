@@ -73,43 +73,60 @@ to a temp file, appends
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">tempimg</span><span class="op">(</span>
-  <span class="va">nim</span>,
-  gzipped <span class="op">=</span> <span class="cn">TRUE</span>,
-  checknan <span class="op">=</span> <span class="cn">TRUE</span>,
-  check_type <span class="op">=</span> <span class="cn">FALSE</span>,
-  warn <span class="op">=</span> <span class="cn">FALSE</span>,
-  drop_dim <span class="op">=</span> <span class="cn">TRUE</span>,
-  dtype <span class="op">=</span> <span class="cn">TRUE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tempimg</span><span class="op">(</span></span>
+<span>  <span class="va">nim</span>,</span>
+<span>  gzipped <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  checknan <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  check_type <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  warn <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  drop_dim <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dtype <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>nim</dt>
 <dd><p>object of class nifti</p></dd>
+
+
 <dt>gzipped</dt>
 <dd><p>Should file be gzipped? Passed to 
 <code><a href="writeNIfTI2.html">writenii</a></code></p></dd>
+
+
 <dt>checknan</dt>
 <dd><p>Check for NAs or NaNs</p></dd>
+
+
 <dt>check_type</dt>
 <dd><p>Check the datatype for an image.  Will run <code><a href="datatype.html">datatyper</a></code>.</p></dd>
+
+
 <dt>warn</dt>
 <dd><p>Should warnings be displayed if <code><a href="writeNIfTI2.html">writenii</a></code> has
 any?  Passed to <code><a href="writeNIfTI2.html">writenii</a></code>.</p></dd>
+
+
 <dt>drop_dim</dt>
 <dd><p>Should <code><a href="https://rdrr.io/pkg/oro.nifti/man/drop_img_dim.html" class="external-link">drop_img_dim</a></code> be applied?</p></dd>
+
+
 <dt>dtype</dt>
 <dd><p>Should <code><a href="datatype.html">datatyper</a></code> be run before writing?
 Should override `check_type`</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Passed to <code><a href="writeNIfTI2.html">writenii</a></code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>filename of output nii.gz</p>
+    
+
+<p>filename of output nii.gz</p>
     </div>
 
   </div>
@@ -124,7 +141,7 @@ Should override `check_type`</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

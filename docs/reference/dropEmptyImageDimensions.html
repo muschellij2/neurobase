@@ -71,51 +71,66 @@ values</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dropEmptyImageDimensions</span><span class="op">(</span>
-  <span class="va">img</span>,
-  value <span class="op">=</span> <span class="fl">0</span>,
-  threshold <span class="op">=</span> <span class="fl">0</span>,
-  other.imgs <span class="op">=</span> <span class="cn">NULL</span>,
-  keep_ind <span class="op">=</span> <span class="cn">FALSE</span>,
-  reorient <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">drop_empty_dim</span><span class="op">(</span>
-  <span class="va">img</span>,
-  value <span class="op">=</span> <span class="fl">0</span>,
-  threshold <span class="op">=</span> <span class="fl">0</span>,
-  other.imgs <span class="op">=</span> <span class="cn">NULL</span>,
-  keep_ind <span class="op">=</span> <span class="cn">FALSE</span>,
-  reorient <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dropEmptyImageDimensions</span><span class="op">(</span></span>
+<span>  <span class="va">img</span>,</span>
+<span>  value <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  threshold <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  other.imgs <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  keep_ind <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  reorient <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">drop_empty_dim</span><span class="op">(</span></span>
+<span>  <span class="va">img</span>,</span>
+<span>  value <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  threshold <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  other.imgs <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  keep_ind <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  reorient <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>img</dt>
 <dd><p>nifti object</p></dd>
+
+
 <dt>value</dt>
 <dd><p>Value to check against.  If zero, then 
 <code>dropEmptyImageDimensions</code> will drop any dimension that has 
 fewer than <code>threshold</code> zeroes.  May be a vector of values, matched with 
 <code><a href="https://rdrr.io/r/base/match.html" class="external-link">match</a></code></p></dd>
+
+
 <dt>threshold</dt>
 <dd><p>Drop dimension if fewer than <code>threshold</code> voxels
 are in the slice</p></dd>
+
+
 <dt>other.imgs</dt>
 <dd><p>List of other nifti objects or filenames 
 to apply the same dropping as <code>img</code>.</p></dd>
+
+
 <dt>keep_ind</dt>
 <dd><p>keep indices in output.  Will return list, even if 
 <code>other.imgs</code> not specified</p></dd>
+
+
 <dt>reorient</dt>
 <dd><p>Should image be reoriented if a filename?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>List of output image indices, and other images
+    
+
+<p>List of output image indices, and other images
 if <code>other.imgs</code> not specified or <code>keep_ind = TRUE</code>. 
 Otherwise object of class <code>nifti</code></p>
+
+
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -129,24 +144,24 @@ with all the same arguments.  Also, <code>NA</code> are set to zero.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">dnim</span> <span class="op">=</span> <span class="fu">dropEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, keep_ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">new_nim</span> <span class="op">=</span> <span class="va">dnim</span><span class="op">$</span><span class="va">outimg</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">dnim</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">dnim</span> <span class="op">=</span> <span class="fu">dropEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, keep_ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">new_nim</span> <span class="op">=</span> <span class="va">dnim</span><span class="op">$</span><span class="va">outimg</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">dnim</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "outimg"   "inds"     "orig.dim"</span>
-<span class="r-in"><span class="va">dnim</span> <span class="op">=</span> <span class="fu">dropEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, keep_ind <span class="op">=</span> <span class="cn">TRUE</span>, other.imgs <span class="op">=</span> <span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/expect_error.html" class="external-link">expect_error</a></span><span class="op">(</span></span>
-<span class="r-in"><span class="op">{</span><span class="va">dnim</span> <span class="op">=</span> <span class="fu">dropEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, keep_ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">}</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">dnim</span> <span class="op">=</span> <span class="fu">dropEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, keep_ind <span class="op">=</span> <span class="cn">TRUE</span>, other.imgs <span class="op">=</span> <span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/expect_error.html" class="external-link">expect_error</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="op">{</span><span class="va">dnim</span> <span class="op">=</span> <span class="fu">dropEmptyImageDimensions</span><span class="op">(</span><span class="va">nim</span>, keep_ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -161,7 +176,7 @@ with all the same arguments.  Also, <code>NA</code> are set to zero.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

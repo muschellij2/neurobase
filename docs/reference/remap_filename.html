@@ -75,35 +75,44 @@ of that base filename, with the same extension.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">remap_filename</span><span class="op">(</span><span class="va">x</span>, sub_dir <span class="op">=</span> <span class="cn">NULL</span>, prefix <span class="op">=</span> <span class="st">""</span>, suffix <span class="op">=</span> <span class="st">""</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">remap_filename</span><span class="op">(</span><span class="va">x</span>, sub_dir <span class="op">=</span> <span class="cn">NULL</span>, prefix <span class="op">=</span> <span class="st">""</span>, suffix <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>input filename/character vector</p></dd>
+
+
 <dt>sub_dir</dt>
 <dd><p>sub-directory for the new filename.  If <code>NULL</code>, then 
 the directory is the the same directory as <code>x</code></p></dd>
+
+
 <dt>prefix</dt>
 <dd><p>string to put in front of base of filename</p></dd>
+
+
 <dt>suffix</dt>
 <dd><p>string to put at the end of base of filename</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Character vector</p>
+    
+
+<p>Character vector</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">fname</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"/path/to/file"</span>, <span class="st">"original.nii.gz"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">remap_filename</span><span class="op">(</span><span class="va">fname</span>, prefix <span class="op">=</span> <span class="st">"preproc_"</span>, <span class="st">"_with_gz"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fname</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"/path/to/file"</span>, <span class="st">"original.nii.gz"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">remap_filename</span><span class="op">(</span><span class="va">fname</span>, prefix <span class="op">=</span> <span class="st">"preproc_"</span>, <span class="st">"_with_gz"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/path/to/file/_with_gz/preproc_original.nii.gz"</span>
-<span class="r-in"><span class="va">fname</span> <span class="op">=</span> <span class="st">"original.nii"</span></span>
-<span class="r-in"><span class="fu">remap_filename</span><span class="op">(</span><span class="va">fname</span>, prefix <span class="op">=</span> <span class="st">"note_"</span>, <span class="st">"_has_directory"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="va">fname</span> <span class="op">=</span> <span class="st">"original.nii"</span></span></span>
+<span class="r-in"><span><span class="fu">remap_filename</span><span class="op">(</span><span class="va">fname</span>, prefix <span class="op">=</span> <span class="st">"note_"</span>, <span class="st">"_has_directory"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "./_has_directory/note_original.nii"</span>
-<span class="r-in"><span class="fu">remap_filename</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">fname</span>, <span class="st">"other.nii.gz"</span><span class="op">)</span>, prefix <span class="op">=</span> <span class="st">"note_"</span>, <span class="st">"_has_directory"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">remap_filename</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">fname</span>, <span class="st">"other.nii.gz"</span><span class="op">)</span>, prefix <span class="op">=</span> <span class="st">"note_"</span>, <span class="st">"_has_directory"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "./_has_directory/note_original.nii" "./_has_directory/note_other.nii.gz"</span>
 </code></pre></div>
     </div>
@@ -119,7 +128,7 @@ the directory is the the same directory as <code>x</code></p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

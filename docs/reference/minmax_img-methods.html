@@ -71,25 +71,25 @@ scales the image minimum to 0 and maximum to 1</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span>
-
-<span class="co"># S4 method for nifti</span>
-<span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span>
-
-<span class="co"># S4 method for array</span>
-<span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span>
-
-<span class="co"># S4 method for ANY</span>
-<span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span>
-
-<span class="co"># S4 method for character</span>
-<span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span>
-
-<span class="co"># S4 method for factor</span>
-<span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span>
-
-<span class="co"># S4 method for list</span>
-<span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for nifti</span></span>
+<span><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for array</span></span>
+<span><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for ANY</span></span>
+<span><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for character</span></span>
+<span><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for factor</span></span>
+<span><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S4 method for list</span></span>
+<span><span class="fu">minmax_img</span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -97,33 +97,36 @@ scales the image minimum to 0 and maximum to 1</p>
     <dl><dt>img</dt>
 <dd><p>character path of image or 
 an object of class <code>nifti</code>, or list of images</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code>nifti</code> object (or list of them) or class of 
+    
+
+<p>A <code>nifti</code> object (or list of them) or class of 
 object passed in if not specified</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span>, lambda <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">mimg</span> <span class="op">=</span> <span class="fu">minmax_img</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">marr</span> <span class="op">=</span> <span class="fu">minmax_img</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="va">mimg</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">mimg</span><span class="op">)</span><span class="op">)</span>, <span class="va">marr</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">func</span> <span class="op">=</span> <span class="va">minmax_img</span></span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span>, lambda <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">mimg</span> <span class="op">=</span> <span class="fu">minmax_img</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">marr</span> <span class="op">=</span> <span class="fu">minmax_img</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="va">mimg</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">mimg</span><span class="op">)</span><span class="op">)</span>, <span class="va">marr</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="va">dims</span><span class="op">)</span><span class="op">)</span>, dim <span class="op">=</span> <span class="va">dims</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">arr</span><span class="op">[</span>,,<span class="fl">10</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="va">nim</span> <span class="op">=</span> <span class="fu">oro.nifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">rnifti</span> <span class="op">=</span> <span class="fu">RNifti</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RNifti/man/asNifti.html" class="external-link">asNifti</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">timg</span> <span class="op">=</span> <span class="fu"><a href="tempimg.html">tempimg</a></span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">limg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">timg</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">func</span> <span class="op">=</span> <span class="va">minmax_img</span></span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> , , 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2]      [,3]      [,4]      [,5]      [,6]      [,7]</span>
@@ -374,7 +377,7 @@ object passed in if not specified</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.5069701 0.5069701 0.5069701</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,] 0.5069701 0.5069701 0.5069701</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">nim</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 2 (UINT8)</span>
@@ -387,11 +390,11 @@ object passed in if not specified</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">rnifti</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Image array of mode "double" (9.1 Kb)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - 10 x 10 x 10 voxels</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - 1 x 1 x 1 per voxel</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">timg</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Data Type       : 16 (FLOAT32)</span>
@@ -404,7 +407,7 @@ object passed in if not specified</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Pixel Dimension : 1 x 1 x 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Voxel Units     : Unknown</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Time Units      : Unknown</span>
-<span class="r-in"><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">func</span><span class="op">(</span><span class="va">limg</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NIfTI-1 format</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Type            : nifti</span>
@@ -447,7 +450,7 @@ object passed in if not specified</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
