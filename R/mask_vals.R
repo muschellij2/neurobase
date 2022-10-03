@@ -28,7 +28,7 @@ mask_vals =  function(object, mask) {
   if (!same_dim) {
     stop("Dimensions of Mask and Image are not the same")
   }
-  vals = object[mask %in% 1]     
+  vals = object[unclass(mask) %in% 1]     
   return(vals)  
 }
 
