@@ -18,7 +18,7 @@ NIfTI/ANALYZE image but only on values inside a mask."><!-- mathjax --><script s
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">neurobase</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.32.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.32.3</span>
       </span>
     </div>
 
@@ -102,19 +102,19 @@ NIfTI/ANALYZE image but only on values inside a mask.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">3</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">2022</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">img</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/oro.nifti/man/nifti.html" class="external-link">nifti</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">3</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mask</span> <span class="op">=</span> <span class="va">img</span> <span class="op">&gt;</span> <span class="fl">1.5</span></span></span>
 <span class="r-in"><span><span class="fu">mask_vals</span><span class="op">(</span><span class="va">img</span>, <span class="va">mask</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.606958 1.587421 1.639987 2.537115 1.862485 1.729261 2.139179 2.402836</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] 2.341337 1.604101 1.792343 1.895739 2.011536 2.015061 2.037684 1.501392</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] 1.907294 1.541336 1.810500 1.731779 2.165307 1.530184 1.536322 2.151646</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 1.714155 2.197573 2.185153 1.756936 2.351888 2.710714 1.645982 2.087502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [33] 1.537226 2.265773 2.106504 2.403081 1.575780 2.395241 1.841757 2.434170</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 1.531446 2.242436 1.671718 1.816939 2.138648 2.358525 1.845185 1.849573</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 1.535087 2.095063 2.058937 2.297052 1.501804 1.754996 1.815978 1.592404</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [57] 1.623367 1.919444 1.562332 1.877103 2.133997 2.561676 1.523764 1.805481</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [65] 1.975068 1.803589 1.930555 1.632379 1.508631 2.354132 2.030999 1.952504</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [73] 1.649233 1.667660 1.914847 2.873133 2.069829 1.688950 1.807531 2.223533</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.693190 2.314499 1.870869 2.746927 2.887423 1.855734 1.578631 1.700810</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] 1.596973 1.506987 2.458926 1.609042 1.627579 1.881067 1.551865 1.679318</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] 1.812150 2.693779 1.864219 1.719872 2.057894 1.962489 2.448805 1.893214</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 2.129228 2.176455 3.765191 2.066231 1.538827 1.598178 1.662501 1.586898</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33] 1.575864 2.089094 2.029349 1.803115 2.892122 1.767646 1.634752 2.748292</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 2.737169 1.925705 1.593078 1.918393 1.742502 2.174606 1.616297 1.617032</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 2.100461 2.176399 2.160856 1.652127 2.767110 2.915663 1.873841 1.636208</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [57] 1.568863 1.634380 1.741507</span>
+<span class="r-in"><span><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html" class="external-link">expect_equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu">mask_vals</span><span class="op">(</span><span class="va">img</span>, <span class="va">mask</span><span class="op">)</span><span class="op">)</span>, <span class="fl">117.628200302518</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">mask_vals</span><span class="op">(</span><span class="va">img</span>, <span class="va">mask</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">mask</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">mask_vals</span><span class="op">(</span><span class="va">img</span>, <span class="fu">as</span><span class="op">(</span><span class="va">mask</span>, <span class="st">"array"</span><span class="op">)</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">mask</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">mask_vals</span><span class="op">(</span><span class="fu">as</span><span class="op">(</span><span class="va">img</span>, <span class="st">"array"</span><span class="op">)</span>, </span></span>
