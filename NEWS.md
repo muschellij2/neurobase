@@ -1,3 +1,7 @@
+# neurobase 1.32.3
+
+* Fixed bug in change in `mask_img`.
+
 # neurobase 1.32.2
 
 * Fixed a bug in length 1 condition and updated `oro.nifti` dependency, which had 
