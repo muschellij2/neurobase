@@ -11,9 +11,11 @@
 #'
 #' @export
 #' @examples 
+#' set.seed(2022)
 #' img = nifti(array(rnorm(10^3), dim = rep(10, 3)))
 #' mask = img > 1.5
 #' mask_vals(img, mask)
+#'testthat::expect_equal(sum(mask_vals(img, mask)), 117.628200302518)
 #' mask_vals(img, mask) = rep(4, sum(mask))
 #' mask_vals(img, as(mask, "array")) = rep(4, sum(mask))
 #' mask_vals(as(img, "array"), 
@@ -28,7 +30,7 @@ mask_vals =  function(object, mask) {
   if (!same_dim) {
     stop("Dimensions of Mask and Image are not the same")
   }
-  vals = object[unclass(mask) %in% 1]     
+  vals = object[as.integer(mask) %in% 1]
   return(vals)  
 }
 

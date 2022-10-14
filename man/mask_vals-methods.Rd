@@ -35,9 +35,11 @@ Methods that act on the \code{.Data} field in a
 NIfTI/ANALYZE image but only on values inside a mask.
 }
 \examples{
+set.seed(2022)
 img = nifti(array(rnorm(10^3), dim = rep(10, 3)))
 mask = img > 1.5
 mask_vals(img, mask)
+testthat::expect_equal(sum(mask_vals(img, mask)), 117.628200302518)
 mask_vals(img, mask) = rep(4, sum(mask))
 mask_vals(img, as(mask, "array")) = rep(4, sum(mask))
 mask_vals(as(img, "array"), 
