@@ -44,7 +44,7 @@ setGeneric("mask_vals<-", function(object, mask, value) standardGeneric("mask_va
 
 .quick_check = function(mask, value) {
   check_mask_fail(mask, allow.NA = TRUE, allow.array = TRUE)
-  ind = mask %in% 1
+  ind = as.integer(mask) %in% 1
   n_ones = sum(ind)
   value = c(value)
   n_value = length(value)
@@ -70,7 +70,7 @@ setGeneric("mask_vals<-", function(object, mask, value) standardGeneric("mask_va
 
 .cal_mask_vals = function(object, mask, value) {
   object = .mask_vals(object, mask, value)
-  object = cal_img(object)
+  object = oro.nifti::calibrateImage(object)
   return(object)
 }
 
