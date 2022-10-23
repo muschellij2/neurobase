@@ -16,6 +16,11 @@
 #' @note \code{get_empty_dim} is a shorthand for \code{getEmptyImageDimensions}
 #' with all the same arguments.  Also, \code{NA} are set to zero.
 #' @export
+#' @examples 
+#' arr = array(rbinom(1000, size = 1, prob = 0.2), dim = c(10,10,10))
+#' arr[,,1] = 0
+#' arr[2:3,,] = 0
+#' getEmptyImageDimensions(arr)
 getEmptyImageDimensions <- function(img, 
                                     value = 0, 
                                     threshold = 0,

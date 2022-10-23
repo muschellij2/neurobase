@@ -16,7 +16,7 @@
 randomize_mask = function(img, mask){
   img = check_nifti(img)
   check_mask_fail(mask, allow.NA = FALSE)
-  ind = mask %in% 1
+  ind = as.integer(mask) %in% 1
   vals = img[ ind ]
   vals = sample(vals)
   img[ ind ] = vals

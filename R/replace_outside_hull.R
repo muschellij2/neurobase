@@ -52,7 +52,7 @@ replace_outside_surface <- function(
   # Get indices for slices with all zeros (or of certain value)
   ############################
   # inds = vector(mode = "list", length = 3)
-  bin_img = array(!(img %in% value), dim = dim(img))
+  bin_img = array(!(c(img) %in% value), dim = dim(img))
   rev_col = function(x) {
     x = x[, seq(ncol(x), 1)]
   }

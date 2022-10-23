@@ -154,7 +154,7 @@ datatyper = function(img, type_string = NULL,
     rr = range(img, na.rm = TRUE)
     ##### does this just for binary mask
     if (all(rr == c(0, 1)) & trybyte) {
-      if (all(img %in% c(0, 1))) {
+      if (all(c(img) %in% c(0, 1))) {
         datatype(img) <- convert.datatype()$UINT8
         bitpix(img) <- convert.bitpix()$UINT8
         return(img)

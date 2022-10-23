@@ -62,13 +62,13 @@ ortho_diff <- function(img,
   
   diff = pred * NA
   # false negative
-  diff[ roi %in% 1 & pred %in% 0] = 1
+  diff[ as.integer(roi) %in% 1 & as.integer(pred) %in% 0] = 1
   # false positive
-  diff[ roi %in% 0 & pred %in% 1] = 2
+  diff[ as.integer(roi) %in% 0 & as.integer(pred) %in% 1] = 2
   # true positive
-  diff[ roi %in% 1 & pred %in% 1] = 3
-  if (is.nifti(diff)) {
-    diff = cal_img(diff)
+  diff[ as.integer(roi) %in% 1 & as.integer(pred) %in% 1] = 3
+  if (oro.nifti::is.nifti(diff)) {
+    diff = oro.nifti::cal_img(diff)
   }
   
   ortho2(x = img, 
@@ -175,15 +175,17 @@ multi_overlay_diff <- function(
   }
   
   roi = roi > 0
+  roi = c(roi)
   
   diff_img = function(pred) {
     diff = pred * NA
+    pred = c(pred)
     # false negative
-    diff[ roi %in% 1 & pred %in% 0] = 1
+    diff[ c(roi) %in% 1 & c(pred) %in% 0] = 1
     # false positive
-    diff[ roi %in% 0 & pred %in% 1] = 2
+    diff[ c(roi) %in% 0 & c(pred) %in% 1] = 2
     # true positive
-    diff[ roi %in% 1 & pred %in% 1] = 3
+    diff[ c(roi) %in% 1 & c(pred) %in% 1] = 3
     if (is.nifti(diff)) {
       diff = cal_img(diff)
     }

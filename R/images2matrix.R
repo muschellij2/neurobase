@@ -44,7 +44,7 @@ images2matrix <- function(
     }
   }
   if (!is.null(mask)) {
-    mask = which(mask %in% 1)
+    mask = which(c(mask) %in% 1)
     imgs = lapply(imgs, function(x){
       x[mask]
     })
