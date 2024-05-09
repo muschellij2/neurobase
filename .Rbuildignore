@@ -25,3 +25,4 @@ R/ortho3\.R
 ^pkgdown$
 ^\.github$
 ^CRAN-SUBMISSION$
+^revdep$
