@@ -1,3 +1,7 @@
+# neurobase 1.32.4
+
+* Fixed bug in docs for CRAN.
+
 # neurobase 1.32.3
 
 * Fixed bug in change in `mask_img`.

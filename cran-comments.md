@@ -4,4 +4,5 @@
 
 * This is a new release.
 ---
-Fixing an issue with %in% and match in R-dev.
+
+This removes the issue with \item and \itemtize in the NOTEs for r-devel.
