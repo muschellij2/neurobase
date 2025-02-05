@@ -31,8 +31,15 @@ in \code{double_ortho}}
 \item{...}{other arguments to \code{\link{ortho2}}}
 }
 \description{
-Copy of \code{oro.nifti}'s \code{\link{orthographic}} function 
-with some tweaks such as adding L/R designations for left and right
+Orthographic function, but side-by-side
+}
+\examples{
+set.seed(10)
+x = oro.nifti::nifti(array(rnorm(10000), dim = rep(10, 4)))
+y = x > 2
+mask = x > 2.5
+double_ortho(x, y)
+
 }
 \seealso{
 \link{orthographic}
