@@ -23,10 +23,10 @@ both datatype and bitpix.  If specified
 \code{convert.bitpix[[type_string]]} will be used.}
 
 \item{datatype}{(NULL) character of datatype see 
-\code{\link{convert.datatype}}}
+\code{\link[oro.nifti]{convert.datatype}}}
 
 \item{bitpix}{(NULL) character of bitpix see 
-\code{\link{convert.bitpix}}}
+\code{\link[oro.nifti]{convert.bitpix}}}
 
 \item{trybyte}{(logical) Should you try to make a byte (UINT8) if image in
 c(0, 1)?}

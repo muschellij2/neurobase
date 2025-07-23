@@ -19,7 +19,7 @@ writenii(
 )
 }
 \arguments{
-\item{nim}{object of class \code{nifti}, passed to \code{\link{writeNIfTI}}}
+\item{nim}{object of class \code{nifti}, passed to \code{\link[oro.nifti]{writeNIfTI}}}
 
 \item{filename}{path to save the NIfTI file.  Suffix will be removed}
 
@@ -27,11 +27,11 @@ writenii(
 
 \item{compression}{compression level for gzipped files.}
 
-\item{...}{Additional arguments passed to \code{\link{writeNIfTI}}}
+\item{...}{Additional arguments passed to \code{\link[oro.nifti]{writeNIfTI}}}
 
-\item{drop_dim}{Should \code{\link{drop_img_dim}} be run before writing?}
+\item{drop_dim}{Should \code{\link[oro.nifti]{drop_img_dim}} be run before writing?}
 
-\item{warn}{Should warnings from \code{\link{writeNIfTI}} be 
+\item{warn}{Should warnings from \code{\link[oro.nifti]{writeNIfTI}} be 
 printed?  If not, \code{\link{suppressWarnings}} is called}
 
 \item{rm_extensions}{should niftiExtensions be converted to simple
@@ -41,7 +41,7 @@ nifti objects before writing?}
 Nothing
 }
 \description{
-This function calls the \code{\link{writeNIfTI}} function from the 
+This function calls the \code{\link[oro.nifti]{writeNIfTI}} function from the 
 \code{oro.nifti} package, but makes sure to remove \code{.nii} extension and
 warnings can be suppressed.
 }

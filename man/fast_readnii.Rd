@@ -11,13 +11,13 @@ fast_readnii(fname, dtype = TRUE, drop_dim = TRUE)
 
 \item{dtype}{Should \code{\link{datatyper}} be run after reading?}
 
-\item{drop_dim}{Should \code{\link{drop_img_dim}} be run after reading?}
+\item{drop_dim}{Should \code{\link[oro.nifti]{drop_img_dim}} be run after reading?}
 }
 \value{
 A \code{nifti} object
 }
 \description{
-This function calls the \code{\link{readNifti}} function from the 
+This function calls the \code{\link[RNifti]{readNifti}} function from the 
 \code{RNifti} package, and then converts the image to a \code{nifti} object
 }
 \examples{

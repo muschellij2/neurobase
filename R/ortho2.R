@@ -1,8 +1,8 @@
 #' @title Orthographic Display, added options
-#' @description Copy of \code{oro.nifti}'s \code{\link{orthographic}} function 
+#' @description Copy of \code{oro.nifti}'s \code{\link[oro.nifti]{orthographic}} function 
 #' with some tweaks such as adding L/R designations for left and right
 #' @return NULL
-#' @seealso \link{orthographic}
+#' @seealso \link[oro.nifti]{orthographic}
 #' @param x is an object of class nifti or similar.
 #' @param y is an object of class nifti or similar for the overlay.
 #' @param xyz is the coordinate for the center of the crosshairs.

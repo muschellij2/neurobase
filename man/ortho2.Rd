@@ -146,7 +146,7 @@ to both \code{x} and \code{y}}
 \item{...}{other arguments to the image function may be provided here.}
 }
 \description{
-Copy of \code{oro.nifti}'s \code{\link{orthographic}} function 
+Copy of \code{oro.nifti}'s \code{\link[oro.nifti]{orthographic}} function 
 with some tweaks such as adding L/R designations for left and right
 }
 \examples{
@@ -182,5 +182,5 @@ mask = x > 2.5
 ortho2(x, y)
 }
 \seealso{
-\link{orthographic}
+\link[oro.nifti]{orthographic}
 }

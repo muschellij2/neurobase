@@ -28,7 +28,7 @@ tempimg(
 \item{warn}{Should warnings be displayed if \code{\link{writenii}} has
 any?  Passed to \code{\link{writenii}}.}
 
-\item{drop_dim}{Should \code{\link{drop_img_dim}} be applied?}
+\item{drop_dim}{Should \code{\link[oro.nifti]{drop_img_dim}} be applied?}
 
 \item{dtype}{Should \code{\link{datatyper}} be run before writing?
 Should override `check_type`}

@@ -18,17 +18,17 @@ readnii(
 )
 }
 \arguments{
-\item{...}{Arguments to pass to \code{\link{readNIfTI}}}
+\item{...}{Arguments to pass to \code{\link[oro.nifti]{readNIfTI}}}
 
-\item{reorient}{Reorientation argument to pass to \code{\link{readNIfTI}}}
+\item{reorient}{Reorientation argument to pass to \code{\link[oro.nifti]{readNIfTI}}}
 
 \item{dtype}{Should \code{\link{datatyper}} be run after reading?}
 
-\item{drop_dim}{Should \code{\link{drop_img_dim}} be run after reading?}
+\item{drop_dim}{Should \code{\link[oro.nifti]{drop_img_dim}} be run after reading?}
 
 \item{reset_slope}{Reset slope/intercept of image}
 
-\item{warn}{Should warnings from \code{\link{readNIfTI}} be 
+\item{warn}{Should warnings from \code{\link[oro.nifti]{readNIfTI}} be 
 printed?  If not, \code{\link{suppressWarnings}} is called.  Also passed to 
 \code{\link{datatyper}}}
 
@@ -39,6 +39,6 @@ nifti objects?}
 \code{nifti} object
 }
 \description{
-This function calls the \code{\link{readNIfTI}} function from the 
+This function calls the \code{\link[oro.nifti]{readNIfTI}} function from the 
 \code{oro.nifti} package, but sets the reorientation to \code{FALSE} by default
 }

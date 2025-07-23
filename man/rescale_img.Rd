@@ -35,7 +35,7 @@ set to Inf}
 
 \item{ROIformat}{if TRUE, any values $< 0$ will be set to 0}
 
-\item{drop_dim}{Should \code{\link{drop_img_dim}} be applied?}
+\item{drop_dim}{Should \code{\link[oro.nifti]{drop_img_dim}} be applied?}
 
 \item{writer}{character value to add to description slot of NIfTI header}
 

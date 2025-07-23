@@ -16,7 +16,7 @@ replace_dropped_dimensions(img, inds, orig.dim)
 have dimensions same as this value}
 }
 \value{
-Object of class \code{\link{nifti}}
+Object of class \code{\link[oro.nifti]{nifti}}
 }
 \description{
 This function is the reverse of \code{dropEmptyImageDimensions}.

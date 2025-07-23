@@ -1,7 +1,7 @@
 #' @title Ensure an array output
 #' @description Forces an array output for manipulation and overall conversion
 #'
-#' @param img Image object (\code{\link{nifti}} or \code{niftiImage})
+#' @param img Image object (\code{\link[oro.nifti]{nifti}} or \code{niftiImage})
 #'
 #' @return Array of same dimensions as image object
 #' @export

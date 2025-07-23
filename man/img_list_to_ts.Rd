@@ -14,10 +14,10 @@ a simply array (\code{FALSE}).  Should only be used for slight speed up when
 array is adequate}
 
 \item{warn}{Should a warning be printed if object is not class
-\code{\link{nifti}}}
+\code{\link[oro.nifti]{nifti}}}
 }
 \value{
-Object of class \code{\link{nifti}}
+Object of class \code{\link[oro.nifti]{nifti}}
 }
 \description{
 Turns a a list of 3D images into a 4D time series image

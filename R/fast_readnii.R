@@ -1,10 +1,10 @@
 #' @title Reading NIfTI images through RNifti
 #' 
-#' @description  This function calls the \code{\link{readNifti}} function from the 
+#' @description  This function calls the \code{\link[RNifti]{readNifti}} function from the 
 #' \code{RNifti} package, and then converts the image to a \code{nifti} object
 #' @param fname file name of the NIfTI file.
 #' @param dtype Should \code{\link{datatyper}} be run after reading?
-#' @param drop_dim Should \code{\link{drop_img_dim}} be run after reading?
+#' @param drop_dim Should \code{\link[oro.nifti]{drop_img_dim}} be run after reading?
 #' 
 #' @return A \code{nifti} object
 #' @export

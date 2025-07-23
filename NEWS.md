@@ -1,3 +1,8 @@
+# neurobase 1.33.0
+
+* Fixed docs with links for CRAN.
+* Added default for `double_ortho` for `col`.
+
 # neurobase 1.32.4
 
 * Fixed bug in docs for CRAN.

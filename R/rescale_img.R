@@ -11,7 +11,7 @@
 #' set to Inf
 #' @param ROIformat if TRUE, any values $< 0$ will be set to 0
 #' @param writer character value to add to description slot of NIfTI header
-#' @param drop_dim Should \code{\link{drop_img_dim}} be applied?
+#' @param drop_dim Should \code{\link[oro.nifti]{drop_img_dim}} be applied?
 #' @param ... extra methods to be passed to \code{\link{writenii}}
 #' @description Rescales an image to be in certain value range.  This was created
 #' as sometimes DICOM scale and slope parameters may be inconsistent across sites
@@ -86,9 +86,9 @@ rescale_img = function(filename,
 #' \code{convert.datatype[[type_string]]} and 
 #' \code{convert.bitpix[[type_string]]} will be used.
 #' @param datatype (NULL) character of datatype see 
-#' \code{\link{convert.datatype}}
+#' \code{\link[oro.nifti]{convert.datatype}}
 #' @param bitpix (NULL) character of bitpix see 
-#' \code{\link{convert.bitpix}} 
+#' \code{\link[oro.nifti]{convert.bitpix}} 
 #' @param trybyte (logical) Should you try to make a byte (UINT8) if image in
 #' c(0, 1)?
 #' @param warn Should a warning be issued if defaulting to FLOAT32?

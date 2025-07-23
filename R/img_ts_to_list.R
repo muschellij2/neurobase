@@ -1,15 +1,15 @@
 #' @title Image Time Series to list
 #' @description Turns a 4D time series image to a list of 3D images
-#' @param imgs object of class \code{\link{nifti}} with 4 dimensions, 
+#' @param imgs object of class \code{\link[oro.nifti]{nifti}} with 4 dimensions, 
 #' aka a 4D time series
 #' @param copy_nifti Should \code{nifti} objects be returned (\code{TRUE}) or 
 #' simply arrays (\code{FALSE}).  Should only be used for slight speed up when
 #' array is adequate
 #' @param warn Should a warning be printed if object is not class
-#' \code{\link{nifti}}
+#' \code{\link[oro.nifti]{nifti}}
 #'
 #' @return List of images
-#' @note If the object is not of class \code{\link{nifti}} or have
+#' @note If the object is not of class \code{\link[oro.nifti]{nifti}} or have
 #' 4 dimensions, then the object is returned
 #' @export
 #' @examples 
@@ -58,9 +58,9 @@ img_ts_to_list = function(imgs, copy_nifti = TRUE, warn = TRUE) {
 #' a simply array (\code{FALSE}).  Should only be used for slight speed up when
 #' array is adequate
 #' @param warn Should a warning be printed if object is not class
-#' \code{\link{nifti}} 
+#' \code{\link[oro.nifti]{nifti}} 
 #' @importFrom abind abind
-#' @return Object of class \code{\link{nifti}}
+#' @return Object of class \code{\link[oro.nifti]{nifti}}
 #' @note If the object is not of class \code{\link{list}},
 #' then the object is returned 
 #' @export
@@ -103,10 +103,10 @@ img_list_to_ts = function(imgs, copy_nifti = TRUE, warn = TRUE) {
 
 #' @title Image Time Series to Matrix
 #' @description Turns a 4D time series image to a Matrix
-#' @param imgs object of class \code{\link{nifti}} with 4 dimensions, 
+#' @param imgs object of class \code{\link[oro.nifti]{nifti}} with 4 dimensions, 
 #' aka a 4D time series
 #' @param warn Should a warning be printed if object is not class
-#' \code{\link{nifti}} (e.g. a list instead)
+#' \code{\link[oro.nifti]{nifti}} (e.g. a list instead)
 #' @return Matrix of values
 #' @export
 img_ts_to_matrix = function(imgs, warn = FALSE) {
@@ -118,10 +118,10 @@ img_ts_to_matrix = function(imgs, warn = FALSE) {
 
 #' @title Image Time Series to Data.frame
 #' @description Turns a 4D time series image to a Data.frame
-#' @param imgs object of class \code{\link{nifti}} with 4 dimensions, 
+#' @param imgs object of class \code{\link[oro.nifti]{nifti}} with 4 dimensions, 
 #' aka a 4D time series
 #' @param warn Should a warning be printed if object is not class
-#' \code{\link{nifti}} (e.g. a list instead)
+#' \code{\link[oro.nifti]{nifti}} (e.g. a list instead)
 #' @return Matrix of values
 #' @export
 img_ts_to_df = function(imgs, warn = FALSE) {

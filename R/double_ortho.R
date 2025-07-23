@@ -1,9 +1,10 @@
 #' @title Double Orthographic Display
 #' @description Orthographic function, but side-by-side
 #' @return NULL
-#' @seealso \link{orthographic}
+#' @seealso \link[oro.nifti]{orthographic}
 #' @param x is an object of class nifti or similar.
 #' @param y is an object of class nifti or similar to be set aside x.
+#' @param col is grayscale (by default).
 #' @param col.y is grayscale (by default).
 #' @param NA.x Set any values of 0 in \code{x} to \code{NA}
 #' @param mfrow (numeric) layout of the 3 slices
@@ -20,6 +21,7 @@
 #'
 double_ortho = function (x,
                          y = NULL,
+                         col = gray(0:64 / 64),
                          col.y = gray(0:64 / 64),
                          NA.x = TRUE,
                          mfrow = c(2, 4),
@@ -29,6 +31,7 @@ double_ortho = function (x,
   ortho2(
     x = x,
     y = y,
+    col = col,
     col.y = col.y,
     NA.x = NA.x,
     add = add,

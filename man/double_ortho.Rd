@@ -7,6 +7,7 @@
 double_ortho(
   x,
   y = NULL,
+  col = gray(0:64/64),
   col.y = gray(0:64/64),
   NA.x = TRUE,
   mfrow = c(2, 4),
@@ -18,6 +19,8 @@ double_ortho(
 \item{x}{is an object of class nifti or similar.}
 
 \item{y}{is an object of class nifti or similar to be set aside x.}
+
+\item{col}{is grayscale (by default).}
 
 \item{col.y}{is grayscale (by default).}
 
@@ -42,5 +45,5 @@ double_ortho(x, y)
 
 }
 \seealso{
-\link{orthographic}
+\link[oro.nifti]{orthographic}
 }

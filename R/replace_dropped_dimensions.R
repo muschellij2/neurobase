@@ -9,7 +9,7 @@
 #' @param orig.dim Original dimension of pre-dropped image. Output image will
 #' have dimensions same as this value
 #'
-#' @return Object of class \code{\link{nifti}}
+#' @return Object of class \code{\link[oro.nifti]{nifti}}
 #' @export
 #' @examples \dontrun{
 #' # nim is an object of class nifti

@@ -4,7 +4,7 @@
 #' 
 #' @param nim Container for NIfTI Image
 #' @param filename Filename of image to be written out
-#' @param ... additional arguments, to be passed to \code{\link{writeNifti}} or
+#' @param ... additional arguments, to be passed to \code{\link[RNifti]{writeNifti}} or
 #' \code{\link{writenii}}
 #' 
 #' @return Output from NIfTI writer

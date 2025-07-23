@@ -7,7 +7,7 @@
 ensure_array(img)
 }
 \arguments{
-\item{img}{Image object (\code{\link{nifti}} or \code{niftiImage})}
+\item{img}{Image object (\code{\link[oro.nifti]{nifti}} or \code{niftiImage})}
 }
 \value{
 Array of same dimensions as image object

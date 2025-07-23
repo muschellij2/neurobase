@@ -6,12 +6,12 @@
 #' @param img object of class nifti to copy header
 #' @param arr array to copy header information
 #' @param drop_slots Slots not to copy over from header
-#' @param drop Should \code{\link{dropImageDimension}} be called before returning?
-#' @param onlylast if \code{drop = TRUE}, passed to \code{\link{dropImageDimension}},
+#' @param drop Should \code{\link[oro.nifti]{dropImageDimension}} be called before returning?
+#' @param onlylast if \code{drop = TRUE}, passed to \code{\link[oro.nifti]{dropImageDimension}},
 #' if only the last dimensions should be dropped
-#' @param warn if \code{drop = TRUE}, passed to \code{\link{dropImageDimension}}, 
+#' @param warn if \code{drop = TRUE}, passed to \code{\link[oro.nifti]{dropImageDimension}}, 
 #' for warning print out
-#' @param ... arguments to pass to \code{\link{nifti}}
+#' @param ... arguments to pass to \code{\link[oro.nifti]{nifti}}
 #' @export
 #' @return Object of class nifti the size of \code{arr}
 #' @examples 

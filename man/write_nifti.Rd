@@ -11,7 +11,7 @@ write_nifti(nim, filename, ...)
 
 \item{filename}{Filename of image to be written out}
 
-\item{...}{additional arguments, to be passed to \code{\link{writeNifti}} or
+\item{...}{additional arguments, to be passed to \code{\link[RNifti]{writeNifti}} or
 \code{\link{writenii}}}
 }
 \value{

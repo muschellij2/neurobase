@@ -9,7 +9,7 @@ random_nifti(dim, ...)
 \arguments{
 \item{dim}{dimensions for the `nifti` object}
 
-\item{...}{arguments to send to \code{\link{nifti}}}
+\item{...}{arguments to send to \code{\link[oro.nifti]{nifti}}}
 }
 \value{
 A `nifti` object

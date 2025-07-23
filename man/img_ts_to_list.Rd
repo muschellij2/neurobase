@@ -7,7 +7,7 @@
 img_ts_to_list(imgs, copy_nifti = TRUE, warn = TRUE)
 }
 \arguments{
-\item{imgs}{object of class \code{\link{nifti}} with 4 dimensions, 
+\item{imgs}{object of class \code{\link[oro.nifti]{nifti}} with 4 dimensions, 
 aka a 4D time series}
 
 \item{copy_nifti}{Should \code{nifti} objects be returned (\code{TRUE}) or 
@@ -15,7 +15,7 @@ simply arrays (\code{FALSE}).  Should only be used for slight speed up when
 array is adequate}
 
 \item{warn}{Should a warning be printed if object is not class
-\code{\link{nifti}}}
+\code{\link[oro.nifti]{nifti}}}
 }
 \value{
 List of images
@@ -24,7 +24,7 @@ List of images
 Turns a 4D time series image to a list of 3D images
 }
 \note{
-If the object is not of class \code{\link{nifti}} or have
+If the object is not of class \code{\link[oro.nifti]{nifti}} or have
 4 dimensions, then the object is returned
 }
 \examples{

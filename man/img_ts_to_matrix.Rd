@@ -7,11 +7,11 @@
 img_ts_to_matrix(imgs, warn = FALSE)
 }
 \arguments{
-\item{imgs}{object of class \code{\link{nifti}} with 4 dimensions, 
+\item{imgs}{object of class \code{\link[oro.nifti]{nifti}} with 4 dimensions, 
 aka a 4D time series}
 
 \item{warn}{Should a warning be printed if object is not class
-\code{\link{nifti}} (e.g. a list instead)}
+\code{\link[oro.nifti]{nifti}} (e.g. a list instead)}
 }
 \value{
 Matrix of values

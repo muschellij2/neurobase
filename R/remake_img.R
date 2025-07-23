@@ -1,14 +1,14 @@
 #' @title Remake Image from Vector
 #' @description Wrapper function to take a vector of values and result in a 
-#' \code{\link{nifti}} object
+#' \code{\link[oro.nifti]{nifti}} object
 #' @param vec vector of values to be in resulting image
-#' @param img object of class \code{\link{nifti}} to put vector into
-#' @param mask binary array/ \code{\link{nifti}} object to denote where
+#' @param img object of class \code{\link[oro.nifti]{nifti}} to put vector into
+#' @param mask binary array/ \code{\link[oro.nifti]{nifti}} object to denote where
 #' vector values are to be.
 #' @param warn Should a warning be issued if defaulting to FLOAT32?
 #' @param ... additional arguments passed to \code{\link{datatyper}}
 #' @seealso \code{\link{niftiarr}}
-#' @return Object of class \code{\link{nifti}}
+#' @return Object of class \code{\link[oro.nifti]{nifti}}
 #' @export
 #' @examples 
 #' set.seed(5)

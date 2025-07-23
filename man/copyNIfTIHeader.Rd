@@ -21,15 +21,15 @@ copyNIfTIHeader(
 
 \item{drop_slots}{Slots not to copy over from header}
 
-\item{drop}{Should \code{\link{dropImageDimension}} be called before returning?}
+\item{drop}{Should \code{\link[oro.nifti]{dropImageDimension}} be called before returning?}
 
-\item{onlylast}{if \code{drop = TRUE}, passed to \code{\link{dropImageDimension}},
+\item{onlylast}{if \code{drop = TRUE}, passed to \code{\link[oro.nifti]{dropImageDimension}},
 if only the last dimensions should be dropped}
 
-\item{warn}{if \code{drop = TRUE}, passed to \code{\link{dropImageDimension}}, 
+\item{warn}{if \code{drop = TRUE}, passed to \code{\link[oro.nifti]{dropImageDimension}}, 
 for warning print out}
 
-\item{...}{arguments to pass to \code{\link{nifti}}}
+\item{...}{arguments to pass to \code{\link[oro.nifti]{nifti}}}
 }
 \value{
 Object of class nifti the size of \code{arr}

@@ -1,7 +1,7 @@
 #' Create Random `nifti` object
 #'
 #' @param dim dimensions for the `nifti` object
-#' @param ... arguments to send to \code{\link{nifti}}
+#' @param ... arguments to send to \code{\link[oro.nifti]{nifti}}
 #'
 #' @return A `nifti` object
 #' @export

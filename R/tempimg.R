@@ -11,7 +11,7 @@
 #' Should override `check_type`
 #' @param warn Should warnings be displayed if \code{\link{writenii}} has
 #' any?  Passed to \code{\link{writenii}}.
-#' @param drop_dim Should \code{\link{drop_img_dim}} be applied?
+#' @param drop_dim Should \code{\link[oro.nifti]{drop_img_dim}} be applied?
 #' @param ... Passed to \code{\link{writenii}}.
 #' @return filename of output nii.gz
 #' @export

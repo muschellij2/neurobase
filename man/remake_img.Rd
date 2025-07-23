@@ -9,9 +9,9 @@ remake_img(vec, img, mask = NULL, warn = FALSE, ...)
 \arguments{
 \item{vec}{vector of values to be in resulting image}
 
-\item{img}{object of class \code{\link{nifti}} to put vector into}
+\item{img}{object of class \code{\link[oro.nifti]{nifti}} to put vector into}
 
-\item{mask}{binary array/ \code{\link{nifti}} object to denote where
+\item{mask}{binary array/ \code{\link[oro.nifti]{nifti}} object to denote where
 vector values are to be.}
 
 \item{warn}{Should a warning be issued if defaulting to FLOAT32?}
@@ -19,11 +19,11 @@ vector values are to be.}
 \item{...}{additional arguments passed to \code{\link{datatyper}}}
 }
 \value{
-Object of class \code{\link{nifti}}
+Object of class \code{\link[oro.nifti]{nifti}}
 }
 \description{
 Wrapper function to take a vector of values and result in a 
-\code{\link{nifti}} object
+\code{\link[oro.nifti]{nifti}} object
 }
 \examples{
 set.seed(5)
