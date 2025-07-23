@@ -5,4 +5,4 @@
 * This is a new release.
 ---
 
-This removes the issue with \item and \itemtize in the NOTEs for r-devel.
+This removes the issue with links in the docs.
