@@ -1,4 +1,4 @@
-#' @title Flip NifTI Image
+#' @title Flip NIfTI Image
 #'
 #' @description This image will flip x, y, or z direction
 #' @param img nifti object or character filename

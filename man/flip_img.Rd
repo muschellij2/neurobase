@@ -2,7 +2,7 @@
 % Please edit documentation in R/flip_img.R
 \name{flip_img}
 \alias{flip_img}
-\title{Flip NifTI Image}
+\title{Flip NIfTI Image}
 \usage{
 flip_img(img, x = FALSE, y = FALSE, z = FALSE, ...)
 }
