@@ -1,3 +1,7 @@
+# neurobase 1.34.0
+
+* Added `...` to plots.
+
 # neurobase 1.33.0
 
 * Fixed docs with links for CRAN.

@@ -315,14 +315,16 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       zlim = zlim.y, add = add,
                       asp = ifelse(add, NA, pdim[4]/pdim[2]),
                       axes = axes,
-                      useRaster = useRaster
+                      useRaster = useRaster,
+                      ...
       )
     } else {
       graphics::image(1:X, 1:Z, as.matrix(y[, xyz[2], ]), col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[4]/pdim[2]),
                       axes = axes,
-                      useRaster = useRaster
+                      useRaster = useRaster,
+                      ...
       )
     }
   }
@@ -354,14 +356,16 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       zlim = zlim.y, add = add,
                       asp = ifelse(add, NA, pdim[4]/pdim[3]),
                       axes = axes,
-                      useRaster = useRaster
+                      useRaster = useRaster,
+                      ...
       )
     } else {
       graphics::image(1:Y, 1:Z, as.matrix(y[xyz[1], , ]), col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[4]/pdim[3]),
                       axes = axes,
-                      useRaster = useRaster
+                      useRaster = useRaster,
+                      ...
       )
     }
   }
@@ -394,14 +398,16 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       zlim = zlim.y, add = add,
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
-                      useRaster = useRaster
+                      useRaster = useRaster,
+                      ...
       )
     } else {
       graphics::image(1:X, 1:Y, as.matrix(y[, , xyz[3]]), col = col.y, 
                       zlim = zlim.y, add = add, breaks = ybreaks,
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
-                      useRaster = useRaster
+                      useRaster = useRaster,
+                      ...
       )
     }
   }

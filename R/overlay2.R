@@ -284,7 +284,8 @@ multi_overlay = function(x,
                         z = y[, , z], 
                         col = col.y, 
                         useRaster = useRaster, 
-                        zlim = zlim.y, add = TRUE)
+                        zlim = zlim.y, add = TRUE,
+                        ...)
             if (!is.null(ybreaks)) {
               args$breaks = ybreaks
             }
@@ -309,7 +310,8 @@ multi_overlay = function(x,
                         z = y[, , z], 
                         col = col.y, 
                         useRaster = useRaster, 
-                        zlim = zlim.y, add = TRUE)
+                        zlim = zlim.y, add = TRUE,
+                        ...)
             if (!is.null(ybreaks)) {
               args$breaks = ybreaks
             }
