@@ -46,6 +46,8 @@ ortho2(
   pdim = NULL,
   useRaster = is.null(y),
   mask = NULL,
+  xaxt = "n",
+  yaxt = "n",
   ...
 )
 }
@@ -142,6 +144,12 @@ plot the image instead of polygons.  Passed to
 
 \item{mask}{If a mask is passed, \code{drop_empty_dim} is applied 
 to both \code{x} and \code{y}}
+
+\item{xaxt}{A character which specifies the x axis type. `"n"` means none.
+See [graphics::par()]}
+
+\item{yaxt}{A character which specifies the y axis type. `"n"` means none.
+See [graphics::par()]}
 
 \item{...}{other arguments to the image function may be provided here.}
 }

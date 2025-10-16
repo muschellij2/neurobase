@@ -3,6 +3,7 @@
 #' with some tweaks such as adding L/R designations for left and right
 #' @return NULL
 #' @seealso \link[oro.nifti]{orthographic}
+#'
 #' @param x is an object of class nifti or similar.
 #' @param y is an object of class nifti or similar for the overlay.
 #' @param xyz is the coordinate for the center of the crosshairs.
@@ -55,7 +56,12 @@
 #' \code{\link[graphics]{image}}.
 #' @param mask If a mask is passed, \code{drop_empty_dim} is applied 
 #' to both \code{x} and \code{y}
+#' @param xaxt A character which specifies the x axis type. `"n"` means none.
+#' See [graphics::par()]
+#' @param yaxt A character which specifies the y axis type. `"n"` means none.
+#' See [graphics::par()]
 #' @param ... other arguments to the image function may be provided here.
+#'
 #' @export
 #' @import graphics
 #' @importFrom grDevices col2rgb gray rgb
@@ -117,6 +123,8 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                   pdim = NULL,
                   useRaster = is.null(y),
                   mask = NULL,
+                  xaxt = "n", 
+                  yaxt = "n",
                   ...) 
 {
   if (!is.null(mask)) {
@@ -299,7 +307,9 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   graphics::image(1:X, 1:Z, as.matrix(x[, xyz[2], ]), col = col, zlim = zlim, 
                   breaks = breaks, asp = pdim[4]/pdim[2], xlab = ylab, 
                   ylab = xlab, axes = axes, 
-                  useRaster = useRaster, ...)
+                  useRaster = useRaster, 
+                  xaxt = xaxt, yaxt = yaxt,
+                  ...)
   if (!add & crosshairs) {
     abline(h = xyz[3], v = xyz[1], col = col.crosshairs)
   }
@@ -316,6 +326,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       asp = ifelse(add, NA, pdim[4]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster,
+                      xaxt = xaxt, yaxt = yaxt,
                       ...
       )
     } else {
@@ -324,6 +335,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       asp = ifelse(add, NA, pdim[4]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster,
+                      xaxt = xaxt, yaxt = yaxt,
                       ...
       )
     }
@@ -340,7 +352,9 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
   graphics::image(1:Y, 1:Z, as.matrix(x[xyz[1], , ]), col = col, breaks = breaks, 
                   asp = pdim[4]/pdim[3], xlab = xlab, ylab = ylab, 
                   axes = axes,
-                  useRaster = useRaster, ...)
+                  useRaster = useRaster,                   
+                  xaxt = xaxt, yaxt = yaxt,
+                  ...)
   if (!add & crosshairs) {
     abline(h = xyz[3], v = xyz[2], col = col.crosshairs)
   }
@@ -357,6 +371,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       asp = ifelse(add, NA, pdim[4]/pdim[3]),
                       axes = axes,
                       useRaster = useRaster,
+                      xaxt = xaxt, yaxt = yaxt,
                       ...
       )
     } else {
@@ -365,6 +380,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       asp = ifelse(add, NA, pdim[4]/pdim[3]),
                       axes = axes,
                       useRaster = useRaster,
+                      xaxt = xaxt, yaxt = yaxt,
                       ...
       )
     }
@@ -382,6 +398,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                   asp = pdim[3]/pdim[2], xlab = xlab, ylab = ylab, 
                   axes = axes,
                   useRaster = useRaster,
+                  xaxt = xaxt, yaxt = yaxt,
                   ...)
   if (!add & crosshairs) {
     abline(h = xyz[2], v = xyz[1], col = col.crosshairs)
@@ -399,6 +416,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster,
+                      xaxt = xaxt, yaxt = yaxt,
                       ...
       )
     } else {
@@ -407,6 +425,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
                       asp = ifelse(add, NA, pdim[3]/pdim[2]),
                       axes = axes,
                       useRaster = useRaster,
+                      xaxt = xaxt, yaxt = yaxt,
                       ...
       )
     }
@@ -426,6 +445,7 @@ ortho2 = function(x, y = NULL, xyz = NULL, w = 1, col = gray(0:64/64),
       graphics::image(1:64, 1:64, matrix(NA, 64, 64), xlab = "", 
                       ylab = "", axes = FALSE,
                       useRaster = useRaster,
+                      xaxt = xaxt, yaxt = yaxt,
                       ...)
     })
     if (addlegend) {

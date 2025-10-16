@@ -21,7 +21,8 @@ multi_overlay(
   ylab = "",
   axes = FALSE,
   direction = c("horizontal", "vertical"),
-  par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg = "black"),
+  par.opts = list(oma = c(0, 0, 0, 0), mar = rep(0, 4), bg = "black", xaxt = "n", yaxt =
+    "n"),
   text = NULL,
   text.x = 0.5,
   text.y = 1.4,
@@ -74,7 +75,7 @@ Passed to \code{\link{dropEmptyImageDimensions}}}
 \item{direction}{Should images be a row or column? Ignored if 
 \code{mfrow} is in \code{par.opts}}
 
-\item{par.opts}{Options to pass to \code{\link{par}}}
+\item{par.opts}{Options to pass to \code{\link[graphics]{par}}}
 
 \item{text}{Text to be displayed}
 

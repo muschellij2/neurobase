@@ -19,7 +19,7 @@
 #' @param axes Should axes be displayed
 #' @param direction Should images be a row or column? Ignored if 
 #' \code{mfrow} is in \code{par.opts}
-#' @param par.opts Options to pass to \code{\link{par}}
+#' @param par.opts Options to pass to \code{\link[graphics]{par}}
 #' @param text Text to be displayed 
 #' @param text.x Location of text in x-domain
 #' @param text.y Location of text in y-domain
@@ -110,7 +110,9 @@ multi_overlay = function(x,
                          par.opts = list( 
                            oma = c(0, 0, 0, 0), 
                            mar = rep(0, 4), 
-                           bg = "black"),
+                           bg = "black",
+                           xaxt = "n",
+                           yaxt = "n"),
                          text = NULL,  
                          text.x = 0.5, 
                          text.y = 1.4,
